@@ -3,7 +3,6 @@
          var N=document.getElementById("id_num_atoms").value;
          var dmin=document.getElementById("id_min_distance").value;
          var dmax=document.getElementById("id_max_distance").value;
-         var  vol=document.getElementById("id_max_volume").value;
          
          var xyzString="";
          var xyzFile="";
@@ -41,7 +40,12 @@
             document.getElementById("id_xyz_string").innerHTML = xyzString;
          }
 
-
+        var transformBallAndStick = new ChemDoodle.TransformCanvas3D('transformBallAndStick', 250, 250);
+        transformBallAndStick.specs.set3DRepresentation('Ball and Stick');
+        transformBallAndStick.specs.backgroundColor = 'black';
+        //var my_cluster_file = '6\n Energy: -228.220125798 ; Optim ; Step: 0 ; Attempt: 1\n 6 -1.051634 0.636761  0.000244\n 6 -0.025625 -1.229044 0.000785\n 6 1.186967  -0.718702 -0.000442\n 6 1.077272  0.592333  0.000017\n 6 0.028957  1.387229  0.000038 \n 6 -1.215938 -0.668576 -0.000643\n \n';
+        var molecule = ChemDoodle.readXYZ(xyzFile, 1);
+        transformBallAndStick.loadMolecule(molecule);
          
       }
 

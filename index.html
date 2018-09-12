@@ -2,23 +2,22 @@
 <html>
 
 <head>
-   <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
-   <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="./chemdoodleweb/ChemDoodleWeb.css" type="text/css">
-  <script type="text/javascript" src="./chemdoodleweb/ChemDoodleWeb.js"></script>
 
-
-
-
+    <!--Resources-->
+    <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
 
    <style>
-
 
       h1 {
           color: blue;
           text-align: center;
-          //font-family: 'Fredoka One';
+          font-family: 'Gugi';
+      }
+      
+      h2 {
+          color: red;
+          text-align: center;
           font-family: 'Gugi';
       }
 
@@ -27,52 +26,26 @@
          font-family: "Lucida Console", Monaco, monospace, "Courier New", Courier;
       }  
 
+      p.links{
+         color: green;
+         text-align: center;
+         font-family: 'Gugi';
+      }
+
    </style>
 
 </head>
 
 <body>
 
-   <h1>Random XYZ structure</h1>
-   <a href="./hello/index.html">link</a><br>
-
-   Number of Atoms:   <input type="number" id="id_num_atoms"><br>
-   Minimal distance:  <input type="number" id="id_min_distance"><br>
-   Maximum distance:  <input type="number" id="id_max_distance"><br>
-
-
-   <button onclick="generateXYZ()">Click me</button>
-   <p class=xyz id="id_xyz_string"></p>
-
-   <script src="myScript.js"></script>
-
-   <script>
-             var transformBallAndStick = new ChemDoodle.TransformCanvas3D('transformBallAndStick', 250, 250);
-        transformBallAndStick.specs.set3DRepresentation('Ball and Stick');
-        transformBallAndStick.specs.backgroundColor = 'black';
-        //var my_cluster_file = '6\n Energy: -228.220125798 ; Optim ; Step: 0 ; Attempt: 1\n 6 -1.051634 0.636761  0.000244\n 6 -0.025625 -1.229044 0.000785\n 6 1.186967  -0.718702 -0.000442\n 6 1.077272  0.592333  0.000017\n 6 0.028957  1.387229  0.000038 \n 6 -1.215938 -0.668576 -0.000643\n \n';
-        var molecule = ChemDoodle.readXYZ(xyzFile, 1);
-        transformBallAndStick.loadMolecule(molecule);
-   </script>
-
-
-
-<!-- <script>
-  var transformBallAndStick = new ChemDoodle.TransformCanvas3D('transformBallAndStick', 250, 250);
-  transformBallAndStick.specs.set3DRepresentation('Ball and Stick');
-  transformBallAndStick.specs.backgroundColor = 'black';
-  var my_cluster_file = '6\n Energy: -228.220125798 ; Optim ; Step: 0 ; Attempt: 1\n 6 -1.051634 0.636761  0.000244\n 6 -0.025625 -1.229044 0.000785\n 6 1.186967  -0.718702 -0.000442\n 6 1.077272  0.592333  0.000017\n 6 0.028957  1.387229  0.000038 \n 6 -1.215938 -0.668576 -0.000643\n \n';
-  var molecule = ChemDoodle.readXYZ(my_cluster_file, 1);
-  transformBallAndStick.loadMolecule(molecule);
-</script> -->
+   <h1>Octavio's random sources</h1>
+   <br>
+   <br>
+   <br>
+   <p class=links><a href="./rndxyz/index.html">Random XYZ structures.</a></p>
 
 
 </body>
 </html>
 
-<!--             myRnd = Math.random() * 10 + 1;
-            xyzString[i] = xyzString[i] + myRnd + " ";
-            myRnd = Math.random() * 10 + 1;
-            xyzString[i] = xyzString[i] + myRnd + " ";
-            myRnd = Math.random() * 10 + 1;
-            xyzString[i] = xyzString[i] + myRnd + " "; -->
+
