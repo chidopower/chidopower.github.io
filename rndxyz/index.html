@@ -6,10 +6,6 @@
     <!--Resources-->
     <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="./chemdoodleweb/ChemDoodleWeb.css" type="text/css">
-    <script type="text/javascript" src="./chemdoodleweb/ChemDoodleWeb.js"></script>
-    <script src="myScript.js"></script>
 
    <style>
 
@@ -17,25 +13,24 @@
           color: blue;
           text-align: center;
           font-family: 'Gugi';
-          font-size: 300%;
       }
-
+      
       h2 {
           color: red;
           text-align: center;
           font-family: 'Gugi';
-          font-size: 200%;
-      }      
+      }
 
       p.xyz{
-         color: yellow;
-         background: black;
-         text-align: left;
+         color: green;
          font-family: "Lucida Console", Monaco, monospace, "Courier New", Courier;
-         font-size: 100%;
       }  
 
-      table {text-align: left;}
+      p.links{
+         color: green;
+         text-align: center;
+         font-family: 'Gugi';
+      }
 
    </style>
 
@@ -44,45 +39,10 @@
 <body>
 
    <h1>Octavio's random sources</h1>
-   <h2>Random XYZ structures</h2>
-
-  <table >
-    <tr>
-      <th>    
-          <table>
-            <tr>
-              <th>
-                <p>Number of Atoms:</p>
-                <del><p>Maximum volume:</p></del>
-                <del><p>Minimal distance:</p></del>
-                <del><p>Maximum distance:</p></del>
-              </th>
-              <th>
-                <p><input type="number" id="id_num_atoms" ></p>
-                <p><input type="number" id="id_max_volume"></p>
-                <p><input type="number" id="id_min_distance"></p>
-                <p><input type="number" id="id_max_distance"></p>
-              </th>
-            </tr>
-
-          </table>
-
-
-       <button onclick="generateXYZ()">Click me!</button>
-       <p class=xyz id="id_xyz_string"></p>
-      </th>
-      <th>
-       <script>
-          var transformBallAndStick = new ChemDoodle.TransformCanvas3D('transformBallAndStick', 250, 250);
-          transformBallAndStick.specs.set3DRepresentation('Ball and Stick');
-          transformBallAndStick.specs.backgroundColor = 'black';
-          var molecule = ChemDoodle.readXYZ(xyzFile, 1);
-          transformBallAndStick.loadMolecule(molecule);
-       </script>
-      </th> 
-    </tr>
-  </table>
-
+   <br>
+   <br>
+   <br>
+   <p class=links><a href="./rndxyz/index.html">Random XYZ structures.</a></p>
 
 
 </body>
