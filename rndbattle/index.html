@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="./myScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+
+</head>
+
+<body>
+
+<h1>Random Battle</h1>
+
+<center><button onclick="startBattle()">Start</button></center>
+<br>
+   
+<div class="divTable">
+	<div class="divTableBody">
+		<div class="divTableRow">
+			<div class="divTableCell">&nbsp;
+            <p>Pokemon #1 (el más rápido)</p>
+            <select id="pkm1Name">
+               <option value="Chido">Chido</option>
+               <option value="Tavorin">Tavorin</option>
+               <option value="Leito">Leito</option>
+               <option value="Baboso">Baboso</option>        
+            </select>             
+            <select id="pkm1ATesp">
+               <option value="Normal">Normal</option>
+               <option value="Fuego">Fuego</option>
+               <option value="Agua">Agua</option>
+               <option value="Electrico">Electrico</option>
+               <option value="Planta">Planta</option>
+               <option value="Hielo">Hielo</option>
+               <option value="Lucha">Lucha</option>
+               <option value="Veneno">Veneno</option>
+               <option value="Tierra">Tierra</option>
+               <option value="Volador">Volador</option>
+               <option value="Psiquico">Psiquico</option>
+               <option value="Bicho">Bicho</option>
+               <option value="Roca">Roca</option>
+               <option value="Fantasma">Fantasma</option>
+               <option value="Dragon">Dragon</option>
+               <option value="Siniestro">Siniestro</option>
+               <option value="Acero">Acero</option>
+               <option value="Hada">Hada</option>         
+            </select>   
+            <select id="pkm1DFesp">
+               <option value="Normal">Normal</option>
+               <option value="Fuego">Fuego</option>
+               <option value="Agua">Agua</option>
+               <option value="Electrico">Electrico</option>
+               <option value="Planta">Planta</option>
+               <option value="Hielo">Hielo</option>
+               <option value="Lucha">Lucha</option>
+               <option value="Veneno">Veneno</option>
+               <option value="Tierra">Tierra</option>
+               <option value="Volador">Volador</option>
+               <option value="Psiquico">Psiquico</option>
+               <option value="Bicho">Bicho</option>
+               <option value="Roca">Roca</option>
+               <option value="Fantasma">Fantasma</option>
+               <option value="Dragon">Dragon</option>
+               <option value="Siniestro">Siniestro</option>
+               <option value="Acero">Acero</option>
+               <option value="Hada">Hada</option>         
+            </select>   
+            <br><br>
+            <select id="pkm1ATpri">
+               <option value="Poder Oculto">Poder Oculto</option>
+               <option value="Placaje">Placaje</option>
+               <option value="Ataque Especial Debil">Ataque Especial Debil</option>
+               <option value="Ataque Especial Medio">Ataque Especial Medio</option>
+               <option value="Ataque Especial Fuerte">Ataque Especial Fuerte</option>
+               <option value="Absorber">Absorber</option>
+               <option value="Paralisis">Paralisis</option>
+               <option value="Curacion">Curacion</option>
+               <option value="Cambio">Cambio</option>
+               <option value="Subir mi Defensa">Subir mi Defensa</option>
+               <option value="Subir mi Ataque">Subir mi Ataque</option>
+               <option value="Explotar">Explotar</option>
+               <option value="Modificar Terreno">Modificar Terreno</option>
+               <option value="Bajar Ataque del Rival">Bajar Ataque del Rival</option>
+               <option value="Bajar Defensa del Rival">Bajar Defensa del Rival</option>
+               <option value="Dormir">Dormir</option>
+               <option value="Otra Vez">Otra Vez</option>
+               <option value="Doble Filo">Doble Filo</option>         
+            </select>    
+            <br>
+            <select id="pkm1ATsec">
+               <option value="Poder Oculto">Poder Oculto</option>
+               <option value="Placaje">Placaje</option>
+               <option value="Ataque Especial Debil">Ataque Especial Debil</option>
+               <option value="Ataque Especial Medio">Ataque Especial Medio</option>
+               <option value="Ataque Especial Fuerte">Ataque Especial Fuerte</option>
+               <option value="Absorber">Absorber</option>
+               <option value="Paralisis">Paralisis</option>
+               <option value="Curacion">Curacion</option>
+               <option value="Cambio">Cambio</option>
+               <option value="Subir mi Defensa">Subir mi Defensa</option>
+               <option value="Subir mi Ataque">Subir mi Ataque</option>
+               <option value="Explotar">Explotar</option>
+               <option value="Modificar Terreno">Modificar Terreno</option>
+               <option value="Bajar Ataque del Rival">Bajar Ataque del Rival</option>
+               <option value="Bajar Defensa del Rival">Bajar Defensa del Rival</option>
+               <option value="Dormir">Dormir</option>
+               <option value="Otra Vez">Otra Vez</option>
+               <option value="Doble Filo">Doble Filo</option>         
+            </select>         
+            <br> 
+            <select id="pkm1ATter">
+               <option value="Poder Oculto">Poder Oculto</option>
+               <option value="Placaje">Placaje</option>
+               <option value="Ataque Especial Debil">Ataque Especial Debil</option>
+               <option value="Ataque Especial Medio">Ataque Especial Medio</option>
+               <option value="Ataque Especial Fuerte">Ataque Especial Fuerte</option>
+               <option value="Absorber">Absorber</option>
+               <option value="Paralisis">Paralisis</option>
+               <option value="Curacion">Curacion</option>
+               <option value="Cambio">Cambio</option>
+               <option value="Subir mi Defensa">Subir mi Defensa</option>
+               <option value="Subir mi Ataque">Subir mi Ataque</option>
+               <option value="Explotar">Explotar</option>
+               <option value="Modificar Terreno">Modificar Terreno</option>
+               <option value="Bajar Ataque del Rival">Bajar Ataque del Rival</option>
+               <option value="Bajar Defensa del Rival">Bajar Defensa del Rival</option>
+               <option value="Dormir">Dormir</option>
+               <option value="Otra Vez">Otra Vez</option>
+               <option value="Doble Filo">Doble Filo</option>         
+            </select>      
+            <br><br>
+            HP
+            <select id="pkm1HP">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>      
+            SP
+            <select id="pkm1SP">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>    
+            AT
+            <select id="pkm1AT">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>        
+            DF
+            <select id="pkm1DF">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>        
+            IQ
+            <select id="pkm1IQ">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>       
+            CR
+            <select id="pkm1CR">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>     
+            <br><br>
+            <p id="info1">
+         </div>
+			<div class="divTableCell">&nbsp;
+           <p>Pokemon #2 (el más lento)</p>
+            <select id="pkm2Name">
+               <option value="Chido">Chido</option>
+               <option value="Tavorin">Tavorin</option>
+               <option value="Leito">Leito</option>
+               <option value="Baboso">Baboso</option>        
+            </select>
+            <select id="pkm2ATesp">
+               <option value="Normal">Normal</option>
+               <option value="Fuego">Fuego</option>
+               <option value="Agua">Agua</option>
+               <option value="Electrico">Electrico</option>
+               <option value="Planta">Planta</option>
+               <option value="Hielo">Hielo</option>
+               <option value="Lucha">Lucha</option>
+               <option value="Veneno">Veneno</option>
+               <option value="Tierra">Tierra</option>
+               <option value="Volador">Volador</option>
+               <option value="Psiquico">Psiquico</option>
+               <option value="Bicho">Bicho</option>
+               <option value="Roca">Roca</option>
+               <option value="Fantasma">Fantasma</option>
+               <option value="Dragon">Dragon</option>
+               <option value="Siniestro">Siniestro</option>
+               <option value="Acero">Acero</option>
+               <option value="Hada">Hada</option>         
+            </select>
+            <select id="pkm2DFesp">
+               <option value="Normal">Normal</option>
+               <option value="Fuego">Fuego</option>
+               <option value="Agua">Agua</option>
+               <option value="Electrico">Electrico</option>
+               <option value="Planta">Planta</option>
+               <option value="Hielo">Hielo</option>
+               <option value="Lucha">Lucha</option>
+               <option value="Veneno">Veneno</option>
+               <option value="Tierra">Tierra</option>
+               <option value="Volador">Volador</option>
+               <option value="Psiquico">Psiquico</option>
+               <option value="Bicho">Bicho</option>
+               <option value="Roca">Roca</option>
+               <option value="Fantasma">Fantasma</option>
+               <option value="Dragon">Dragon</option>
+               <option value="Siniestro">Siniestro</option>
+               <option value="Acero">Acero</option>
+               <option value="Hada">Hada</option>         
+            </select>
+            <br><br>
+            <select id="pkm2ATpri">
+               <option value="Poder Oculto">Poder Oculto</option>
+               <option value="Placaje">Placaje</option>
+               <option value="Ataque Especial Debil">Ataque Especial Debil</option>
+               <option value="Ataque Especial Medio">Ataque Especial Medio</option>
+               <option value="Ataque Especial Fuerte">Ataque Especial Fuerte</option>
+               <option value="Absorber">Absorber</option>
+               <option value="Paralisis">Paralisis</option>
+               <option value="Curacion">Curacion</option>
+               <option value="Cambio">Cambio</option>
+               <option value="Subir mi Defensa">Subir mi Defensa</option>
+               <option value="Subir mi Ataque">Subir mi Ataque</option>
+               <option value="Explotar">Explotar</option>
+               <option value="Modificar Terreno">Modificar Terreno</option>
+               <option value="Bajar Ataque del Rival">Bajar Ataque del Rival</option>
+               <option value="Bajar Defensa del Rival">Bajar Defensa del Rival</option>
+               <option value="Dormir">Dormir</option>
+               <option value="Otra Vez">Otra Vez</option>
+               <option value="Doble Filo">Doble Filo</option>         
+            </select>    
+            <br>
+            <select id="pkm2ATsec">
+               <option value="Poder Oculto">Poder Oculto</option>
+               <option value="Placaje">Placaje</option>
+               <option value="Ataque Especial Debil">Ataque Especial Debil</option>
+               <option value="Ataque Especial Medio">Ataque Especial Medio</option>
+               <option value="Ataque Especial Fuerte">Ataque Especial Fuerte</option>
+               <option value="Absorber">Absorber</option>
+               <option value="Paralisis">Paralisis</option>
+               <option value="Curacion">Curacion</option>
+               <option value="Cambio">Cambio</option>
+               <option value="Subir mi Defensa">Subir mi Defensa</option>
+               <option value="Subir mi Ataque">Subir mi Ataque</option>
+               <option value="Explotar">Explotar</option>
+               <option value="Modificar Terreno">Modificar Terreno</option>
+               <option value="Bajar Ataque del Rival">Bajar Ataque del Rival</option>
+               <option value="Bajar Defensa del Rival">Bajar Defensa del Rival</option>
+               <option value="Dormir">Dormir</option>
+               <option value="Otra Vez">Otra Vez</option>
+               <option value="Doble Filo">Doble Filo</option>         
+            </select>          
+            <br>
+            <select id="pkm2ATter">
+               <option value="Poder Oculto">Poder Oculto</option>
+               <option value="Placaje">Placaje</option>
+               <option value="Ataque Especial Debil">Ataque Especial Debil</option>
+               <option value="Ataque Especial Medio">Ataque Especial Medio</option>
+               <option value="Ataque Especial Fuerte">Ataque Especial Fuerte</option>
+               <option value="Absorber">Absorber</option>
+               <option value="Paralisis">Paralisis</option>
+               <option value="Curacion">Curacion</option>
+               <option value="Cambio">Cambio</option>
+               <option value="Subir mi Defensa">Subir mi Defensa</option>
+               <option value="Subir mi Ataque">Subir mi Ataque</option>
+               <option value="Explotar">Explotar</option>
+               <option value="Modificar Terreno">Modificar Terreno</option>
+               <option value="Bajar Ataque del Rival">Bajar Ataque del Rival</option>
+               <option value="Bajar Defensa del Rival">Bajar Defensa del Rival</option>
+               <option value="Dormir">Dormir</option>
+               <option value="Otra Vez">Otra Vez</option>
+               <option value="Doble Filo">Doble Filo</option>         
+            </select> 
+            <br><br>
+            HP
+            <select id="pkm2HP">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>      
+            SP
+            <select id="pkm2SP">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>    
+            AT
+            <select id="pkm2AT">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>        
+            DF
+            <select id="pkm2DF">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>        
+            IQ
+            <select id="pkm2IQ">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>       
+            CR
+            <select id="pkm2CR">
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>         
+            </select>  
+            <br><br>
+            <p id="info2">
+         </div>
+		</div>
+	</div>
+</div>      
+   
+   <br>
+   <center>
+      <button onclick="atack()">Atack!</button>
+      <p class="infoGreen" id="infoGreen"></p>
+      <p class="infoBlue" id="infoBlue"></p>
+      <p class="infoRed" id="infoRed"></p>
+      <p id="infoStr"></p>
+   </center>
+   
+
+
+</body>
+</html>
