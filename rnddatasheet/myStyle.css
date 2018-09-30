@@ -1,0 +1,42 @@
+      h1 {
+          color: blue;
+          text-align: center;
+          font-size: 400%;
+          font-family: acme;
+      
+      }
+
+      h2 {
+          color: red;
+          text-align: center;
+          font-size: 200%;
+          font-family: acme;
+      }      
+      
+      h3 {
+          color: red;
+          text-align: center;
+          font-size: 200%;
+          font-family: acme;
+      }       
+      
+      p {
+          text-align: center;
+          font-size: 200%;
+          font-family: 'Architects Daughter';
+      }      
+    
+      button{
+         font-size: 200%;
+         width: 15%;
+         border-radius: 25px;
+         font-family: acme;
+      }
+
+      p.xyz{
+         color: green;
+         text-align: left;
+         font-family: "Lucida Console", Monaco, monospace, "Courier New", Courier;
+         font-size: 100%;
+      }
+      

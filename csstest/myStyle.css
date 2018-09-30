@@ -1,0 +1,65 @@
+* {box-sizing: border-box;}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.header {
+    border: 1px solid gray;
+    padding: 30px;
+}
+
+.leftColumn {
+   border: 1px solid gray;
+   float: left;
+   padding: 5px;
+   height: 300px; /* Should be removed. Only for demonstration */
+   width: 50%;
+}
+
+.rightColumn {
+   border: 1px solid gray;
+   float: left;
+   padding: 5px;
+   height: 300px; /* Should be removed. Only for demonstration */
+   width: 50%;
+}
+
+.myTable{
+   border: 1px solid gray;
+   float: left;
+   padding: 5px;
+   height: 300px; /* Should be removed. Only for demonstration */
+   width: 100%;
+}
+    
+.whiteColumn {
+   border: 1px solid gray;
+   float: left;
+   padding: 5px;
+   width: 25%;
+}    
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.pkmTable {
+   border: 1px solid gray;
+   padding: 1px;
+   float: left;
+   height: 300px; /* Should be removed. Only for demonstration */
+   width: 50%;
+}
+.pkmName    {width:35%;float: left;border: 1px solid gray}
+.pkmATplus  {width:10%;float: left;border: 1px solid gray}
+.pkmDFplus  {width:10%;float: left;border: 1px solid gray}
+.pkmHP      {width:10%;float: left;border: 1px solid gray}
+.pkmST      {width:35%;float: left;border: 1px solid gray}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+    .rightColumn, .leftColumn, .pkmTable, .whiteColumn {
+        width: 100%;
+    }
+}

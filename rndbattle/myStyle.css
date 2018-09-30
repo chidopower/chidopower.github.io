@@ -1,84 +1,293 @@
-      button {
-          font-size: 300%;
-      }
 
-      h1 {
-          color: blue;
-          text-align: center;
-          font-size: 300%;
-      }
+h1 {
+	color: black;
+	font-size: 200%;
+	font-family: acme;
+}
 
-      h2 {
-          color: red;
-          text-align: center;
-          font-size: 200%;
-      }      
-      
-      h3 {
-          color: green;
-          text-align: center;
-          font-size: 200%;
-      }       
-      
-      p {
-          //text-align: center;
-          font-size: 150%;
-      }      
-    
-      p.infoBlue {
-          color: blue;
-          text-align: center;
-          font-size: 150%;
-      }     
+p.infoRed {
+	color: black;
+	font-size: 150%;
+	font-family: acme;
+}
 
-      p.infoRed {
-          color: red;
-          text-align: center;
-          font-size: 150%;
-      } 
+p.infoBlue {
+	color: black;
+	font-size: 150%;
+	font-family: acme;
+}
 
-      p.infoGreen {
-          color: green;
-          text-align: center;
-          font-size: 150%;
-      }      
+button{
+   font-size: 200%;
+	font-family: acme;
+   width: 15%;
+   border-radius: 25px;
+}
 
-      p.xyz{
-         color: green;
-         text-align: left;
-         font-family: "Lucida Console", Monaco, monospace, "Courier New", Courier;
-         font-size: 100%;
-      }
-      
-      
-/* DivTable.com */
-.divTable{
-	display: table;
+
+* {
+    box-sizing: border-box;
+}
+
+.title {
 	width: 100%;
+	border-style: solid;
+	border-color: #ffffff;
+	color: #ffffff;
+	text-align: center;
+	font-family: 'Architects Daughter';
+	font-size: 500%;
+
+    border-radius: 25px;
+    background: #460C6D;
+    padding: 20px;
+    height: 150px;
 }
-.divTableRow {
-	display: table-row;
+
+
+.start {
+   width:50%;
+   border-color: #ffffff;
+   color: #ffffff;
+   border-radius: 25px;
+   background: #3399ff;
+   padding: 20px;
 }
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
+
+.getInfoBlue{
+	float: right;
+	width: 49.8%;
+    border-radius: 25px;
+    background: #5552F6;
+    padding: 20px;
 }
-.divTableCell, .divTableHead {
-	border: 1px solid #999999;
-	display: table-cell;
-	padding: 3px 10px;
+
+.getInfoRed{
+	float: left;
+	width: 49.8%;
+    border-radius: 25px;
+    background: #F85858;
+    padding: 20px;
+
 }
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-	font-weight: bold;
+
+.void{
+	float: left;
+	padding: 10px;
+	width: 25%;
 }
-.divTableFoot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
+
+.voidMini{
+	float: left;
+	padding: 10px;
+	width: 1%;
 }
-.divTableBody {
-	display: table-row-group;
+
+.showInfo{
+	float: left;
+	padding: 10px;
+	width: 50%;
+
 }
-      
+
+.infoTerrain {
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	font-size: 200%;
+	font-family: 'Architects Daughter';
+}
+
+.infoAttack {
+	width: 100%;
+	padding: 10px;
+	color: black;
+	text-align: center;
+	font-size: 200%;
+	font-family: 'Architects Daughter';
+}
+
+.infoNext {
+	width: 100%;
+	padding: 10px;
+	color: black;
+	text-align: center;
+	font-size: 200%;
+   font-family: 'Architects Daughter';
+}
+
+.tabPkmName{
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 35%;
+	border-radius: 15px 50px;
+	color: white;
+    background: black;
+}
+
+.tabPkmSte{
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 35%;
+	border-radius: 15px 50px;
+	color: white;
+    background: black;
+}
+
+.tabPkmHP{
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 10%;
+	border-radius: 15px 50px;
+	color: white;
+    background: black;
+}
+
+.tabPkmAT{
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 10%;
+	border-radius: 15px 50px;
+	color: white;
+    background: black;
+}
+
+.tabPkmDF{
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 10%;
+	border-radius: 15px 50px;
+	color: white;
+    background: black;
+}
+
+.tabRedPkmName{
+	color: red;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 35%;
+   font-size: 150%;
+}
+
+.tabRedPkmState{
+	color: red;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 35%;
+font-size: 150%;
+}
+
+.tabRedPkmHP{
+	color: red;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 10%;
+font-size: 150%;
+}
+
+.tabRedPkmAT{
+	color: red;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 10%;
+font-size: 150%;
+}
+
+.tabRedPkmDF{
+	color: red;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 10%;
+font-size: 150%;
+}
+
+.tabBluePkmName{
+	color: blue;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 35%;
+   font-size: 150%;
+
+}
+
+.tabBluePkmState{
+	color: blue;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 35%;
+   font-size: 150%;
+
+}
+
+.tabBluePkmHP{
+	color: blue;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	width: 10%;
+   padding: 10px;
+   font-size: 150%;
+
+}
+
+.tabBluePkmAT{
+	color: blue;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 10%;
+   font-size: 150%;
+
+}
+
+.tabBluePkmDF{
+	color: blue;
+	text-align: center;
+	font-family: 'Basic';
+	float: left;
+	padding: 10px;
+	width: 10%;
+   font-size: 150%;
+
+}
+
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+/*@media (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}*/
