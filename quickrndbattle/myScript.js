@@ -504,23 +504,34 @@ function player2attack(){
 
 
 
+//---------------------------------------------------------- quick attack
+function quickAttack(){
+  
+    var exitWile="no";
 
+    while(exitWile==="no"){
+      if(redPkm.HP>0 && bluePkm.HP>0){
+        attack();
+        exitWile="no";
+      }else{
+        exitWile="yes";
+      }
+      
+    }
+
+}
 
 //---------------------------------------------------------- attack
 function attack(){
 
-  if(redPkm.HP>0 && bluePkm.HP>0){
-      if(step%2===0){
-        player2attack();
-      }else{
-        player1attack();
-      }
+   if(step%2===0){
+      player2attack();
+   }else{
+      player1attack();
+   }
 
-      step++;
-      showInfo();
-  }
-
-
+   step++;
+   showInfo();
 }
 
 //---------------------------------------------------------------- D6()
