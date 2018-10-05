@@ -1,0 +1,42 @@
+//NorteAmerica
+P[0]="Canadá"; R[0]="Ottawa";
+P[1]="Estados Unidos"; R[1]="Washington D. C.";
+P[2]="México"; R[2]="Ciudad de México";
+
+//CentroAmerica
+P[0]="Belice"; R[0]="Belmopán";
+P[1]="Costa Rica"; R[1]="San José";
+P[2]="El Salvador"; R[2]="San Salvador";
+P[3]="Guatemala"; R[3]="Ciudad de Guatemala";
+P[4]="Honduras"; R[4]="Tegucigalpa";
+P[5]="Nicaragua"; R[5]="Managua";
+P[6]="Panamá"; R[6]="Panamá";
+
+//SurAmerica
+P[0]="Argentina"; R[0]="Buenos Aires";
+P[1]="Bolivia"; R[1]="Sucre";
+P[2]="Brasil"; R[2]="Brasilia";
+P[3]="Chile"; R[3]="Santiago de Chile";
+P[4]="Colombia"; R[4]="Bogotá";
+P[5]="Ecuador"; R[5]="Quito";
+P[6]="Guyana"; R[6]="Georgetown";
+P[7]="Paraguay"; R[7]="Asunción";
+P[8]="Perú"; R[8]="Lima";
+P[9]="Surinam"; R[9]="Paramaribo";
+P[10]="Uruguay"; R[10]="Montevideo";
+P[11]="Venezuela"; R[11]="Caracas";
+
+//CaribeAmerica, las Antillas, parte de AmericaCentral
+P[0]="Antigua y Barbuda"; R[0]="Saint John’s";
+P[1]="Bahamas"; R[1]="Nasáu";
+P[2]="Barbados"; R[2]="Bridgetown";
+P[3]="Cuba"; R[3]="La Habana";
+P[4]="Dominica"; R[4]="Roseau";
+P[5]="Granada"; R[5]="Saint George";
+P[6]="Haití"; R[6]="Puerto Príncipe";
+P[7]="Jamaica"; R[7]="Kingston";
+P[8]="República Dominicana"; R[8]="Santo Domingo";
+P[9]="San Cristóbal y Nieves"; R[9]="Basseterre";
+P[10]="San Vicente y las Granadinas"; R[10]="Kingstown";
+P[11]="Santa Lucía"; R[11]="Castries";
+P[12]="Trinidad y Tobago"; R[12]="Puerto España";

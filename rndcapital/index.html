@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script src="./myScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+    <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Architects Daughter' rel='stylesheet'>
+</head>
+<body>
+
+<div class="row">
+   <div class="leftColumn"></div>
+   <div class="title">Random Capitals Quiz <b>:</b>V</div>
+</div>
+
+<div class="row">
+   <div class="leftColumn">
+      <select id="Mapa">
+         <option value="Mexico">México</option>
+         <option value="Norte America">Norte América</option>
+         <option value="Centro America">Centro América</option>
+         <option value="Caribe America">Caribe América</option>
+         <option value="Sur America">Sur América</option>
+      </select>
+      <br><br>
+      <select id="Quiz">
+         <option value="En Orden">En Orden</option>
+         <option value="Quiz1">Quiz 1</option>
+         <option value="Quiz2">Quiz 2</option>
+      </select>
+      <br><br>
+      <button onclick="iniciar()">Iniciar</button>
+   </div>
+   <div class="rightColumn">
+	   <p class="Pregunta" id="Pregunta"></p>
+	   <button onclick="botonGris()" id="botonGris">...</button>
+	   <p class="Respuesta" id="Respuesta"></p>
+	   <p class="enLosBotones" id="enLosBotones"></p>
+   </div>
+</div>
+
+<div class="row">
+   <div class="leftColumn"></div>
+   <div class="rightColumn">
+	   <button class="botonRojo" onclick="botonRojo()" id="botonRojo">...</button>
+	   <button class="botonAzul" onclick="botonAzul()" id="botonAzul">...</button>
+   </div>
+</div>
+
+
+
+</body>
+</html>
