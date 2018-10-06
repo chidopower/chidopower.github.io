@@ -154,7 +154,10 @@ select{
     p.Pregunta{font-size: 350%;}
     p.Respuesta{font-size: 350%;}
     p.enLosBotones{font-size: 250%;}
+    button{font-size: 250%; width:50%}
     button.botonGris{font-size: 300%;width: 50%}
-    button.botonRojo{font-size: 400%;}
-    button.botonAzul{font-size: 400%;}
+    button.botonRojo{font-size: 600%;width: 25%}
+    button.botonAzul{font-size: 600%;width: 25%}
+    select{font-size: 250%;width:80%}
+
 }
