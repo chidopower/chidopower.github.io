@@ -126,6 +126,7 @@ function preguntarEnOrden(){
 //------------------------------------------------------------------------------
 function preguntarQuiz1(){
 
+   var x;
 
    x = document.getElementById("Pregunta");
    x.style.display = "block";
@@ -174,6 +175,26 @@ function preguntarQuiz1(){
 //------------------------------------------------------------------------------
 function preguntarQuiz2(){
 
+   var x;
+
+   x = document.getElementById("Pregunta");
+   x.style.display = "block";
+
+   x = document.getElementById("botonGris");
+   x.style.display = "block";
+
+   x = document.getElementById("Respuesta");
+   x.style.display = "none";
+
+   x = document.getElementById("enLosBotones");
+   x.style.display = "none";
+
+   x = document.getElementById("botonRojo");
+   x.style.display = "none";
+
+   x = document.getElementById("botonAzul");
+   x.style.display = "none";
+
 
 	if(hayMasPreguntas()==="si"){
 		
@@ -201,6 +222,26 @@ function preguntarQuiz2(){
 
 //------------------------------------------------------------------------------
 function preguntarQuizFV(){
+
+   var x;
+
+   x = document.getElementById("Pregunta");
+   x.style.display = "block";
+
+   x = document.getElementById("botonGris");
+   x.style.display = "none";
+
+   x = document.getElementById("Respuesta");
+   x.style.display = "block";
+
+   x = document.getElementById("enLosBotones");
+   x.style.display = "block";
+
+   x = document.getElementById("botonRojo");
+   x.style.display = "inline";
+
+   x = document.getElementById("botonAzul");
+   x.style.display = "inline";
 
 
 	if(hayMasPreguntas()==="si"){
@@ -321,15 +362,41 @@ function botonGris(){
 		}
 
 		if(Quiz==="Quiz2"){
-			document.getElementById("botonGris").innerHTML ="Mostrar";
+
+         var x;
+
+         x = document.getElementById("Respuesta");
+         x.style.display = "block";
+         x = document.getElementById("enLosBotones");
+         x.style.display = "block";
+         x = document.getElementById("botonRojo");
+         x.style.display = "inline";
+         x = document.getElementById("botonAzul");
+         x.style.display = "inline";
+
+         document.getElementById("botonGris").innerHTML ="Mostrar";
 			document.getElementById("Respuesta").innerHTML = "<blue>"+ P[N] + "</blue>.";
 			document.getElementById("enLosBotones").innerHTML = "¿Acertaste?";
 			document.getElementById("botonRojo").innerHTML = "No";
 			document.getElementById("botonAzul").innerHTML = "Si";
-		}
+
+      }
       
       if(Quiz==="Quiz3"){
-			document.getElementById("botonGris").innerHTML ="Mostrar";
+
+         var x;
+      
+         x = document.getElementById("Respuesta");
+         x.style.display = "block";
+         x = document.getElementById("enLosBotones");
+         x.style.display = "block";
+         x = document.getElementById("botonRojo");
+         x.style.display = "inline";
+         x = document.getElementById("botonAzul");
+         x.style.display = "inline";
+
+
+         document.getElementById("botonGris").innerHTML ="Mostrar";
          if(opcionQuiz3===1)
             document.getElementById("Respuesta").innerHTML = "<red>"+R[N]+"</red>.";
          else
