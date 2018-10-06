@@ -13,32 +13,38 @@
 
 <div class="row">
    <div class="leftColumn"></div>
-   <div class="title">Random Capitals Quiz <b>:</b>V</div>
+   <div class="title">Random Capitals Quiz <red><b>:</b></red><green>V</green></div>
 </div>
 
 <div class="row">
    <div class="leftColumn">
+      <br>
       <select id="Mapa">
          <option value="Mexico">México</option>
          <option value="Norte America">Norte América</option>
          <option value="Centro America">Centro América</option>
          <option value="Caribe America">Caribe América</option>
          <option value="Sur America">Sur América</option>
+         <option value="Todo America">Todo América</option>
       </select>
       <br><br>
       <select id="Quiz">
          <option value="En Orden">En Orden</option>
          <option value="Quiz1">Quiz 1</option>
          <option value="Quiz2">Quiz 2</option>
+         <option value="Quiz3">Quiz 3</option>
+         <option value="QuizFV">F & V</option>
       </select>
       <br><br>
       <button onclick="iniciar()">Iniciar</button>
    </div>
    <div class="rightColumn">
-	   <p class="Pregunta" id="Pregunta"></p>
-	   <button onclick="botonGris()" id="botonGris">...</button>
+      <center>
+      <p class="Pregunta" id="Pregunta"></p>
+	   <button class="botonGris" onclick="botonGris()" id="botonGris">...</button>
 	   <p class="Respuesta" id="Respuesta"></p>
 	   <p class="enLosBotones" id="enLosBotones"></p>
+      </center>
    </div>
 </div>
 
