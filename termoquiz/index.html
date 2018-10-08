@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script src="./myScript_.js"></script>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+    <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Architects Daughter' rel='stylesheet'>
+</head>
+<body>
+
+<div class="row">
+   <div class="leftColumn"></div>
+   <div class="title">Termo Quiz &check;&check;&check; <red><b>:</b></red><green>V</green></div>
+</div>
+
+
+<div class="row">
+   <div class="leftColumn">
+      <br>
+      <select id="Tema">
+         <!-- <option value="Tema 1">Tema #1</option> -->
+         <option value="Tema 2">Tema #2</option>
+         <!-- <option value="Tema 3">Tema #3</option> -->
+      </select>
+      <br><br>
+      <select id="Quiz">
+         <option value="Falso & Verdadero">Falso & Verdadero</option>
+         <!-- <option value="Ejercicios">Ejercicios</option>          -->
+      </select>
+      <br><br>
+      <button onclick="iniciar()">Iniciar</button>
+   </div>
+   <div class="rightColumn">
+      <center>
+      <p class="Pregunta" id="Pregunta"></p>
+	   <button class="botonGris" onclick="botonGris()" id="botonGris">...</button>
+	   <p class="Respuesta" id="Respuesta"></p>
+	   <p class="enLosBotones" id="enLosBotones"></p>
+      </center>
+   </div>
+</div>
+
+<div class="row">
+   <div class="leftColumn"></div>
+   <div class="rightColumn">
+	   <button class="botonRojo" onclick="botonRojo()" id="botonRojo">...</button>
+	   <button class="botonAzul" onclick="botonAzul()" id="botonAzul">...</button>
+   </div>
+</div>
+
+<div class="row">
+   <div class="leftColumn"></div>
+   <div class="rightColumn"><p class="Examen" id="Examen"></p></div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+
+h1 {
+	color: black;
+	font-size: 200%;
+	font-family: acme;
+}
+
+red{color: red;}
+blue{color: blue;}
+green{color: yellow;}
+
+u{
+   text-decoration: underline green;
+}
+
+p.enLosBotones {
+   display: none;
+	color: black;
+	font-size: 150%;
+	font-family: acme;
+   padding: 5px;
+   /*background-color: #D5F5E3;*/
+   border-radius: 10px;
+	/*border-style: solid;*/
+	/*border-color: gray;*/
+}
+
+p.Pregunta {
+	color: black;
+	font-size: 250%;
+	font-family: acme;
+	/*border-style: solid;*/
+	border-color: gray;
+	border-radius: 10px;
+   padding: 5px;
+   display: none;
+	/*background-color: #D5F5E3;*/
+}
+
+p.Respuesta {
+	color: black;
+	font-size: 250%;
+	font-family: acme;
+	/*border-style: solid;*/
+	border-color: gray;
+	border-radius: 10px;
+   padding: 5px;
+   display: none;
+	/*background-color: #D6EAF8;*/
+}
+
+p.Examen{
+	font-family: "Times New Roman";
+	text-align: left;
+	padding-left:5em;
+}
+
+button{
+   font-size: 200%;
+	font-family: acme;
+   border-radius: 10px;
+}
+
+button.botonGris{
+   display: none;
+   font-size: 200%;
+   font-family: acme;
+   border-radius: 10px;
+   width: 20%;
+}
+
+button.botonRojo{
+   font-size: 300%;
+   font-family: acme;
+   border-radius: 10px;
+   background-color: #E74C3C;
+   color: black;
+   width: 15%;
+   display: none;
+   margin-right: 20px;
+}
+
+button.botonAzul{
+	font-size: 300%;
+    font-family: acme;
+    border-radius: 10px;
+    background-color: #3399ff;
+    color: black;
+    width: 15%;
+    display: none;
+    margin-left: 20px;
+}
+
+select{
+   font-size: 200%;
+	font-family: acme;
+   border-radius: 10px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+.title {
+	float: left;
+	width: 70%;
+	background-color: black;
+	color: white;
+	/*border-style: solid;*/
+	/*border-color: gray;*/
+	text-align: center;
+	font-family: 'Architects Daughter';
+	font-size: 300%;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+.rightColumn {
+	float: left;
+	width: 70%;
+	/*border-style: solid;*/
+	/*border-color: gray;*/
+	text-align: center;
+	font-family: 'Architects Daughter';
+	font-size: 100%;
+    border-radius: 10px;
+    padding: 1px;
+    /*height: 150px;*/
+}
+
+.leftColumn {
+	float: left;
+	width: 30%;
+	/*border-style: solid;*/
+	/*border-color: gray;*/
+	text-align: left;
+	font-family: 'Architects Daughter';
+	font-size: 100%;
+    border-radius: 10px;
+    padding: 1px;
+    /*height: 150px;*/
+}
+
+
+.void{
+	float: left;
+	padding: 10px;
+	width: 25%;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 1000px) {
+    .leftColumn, .rightColumn, .void {width: 100%; text-align: center;}
+    .title {width: 100%}
+    p.Pregunta{font-size: 350%;}
+    p.Respuesta{font-size: 350%;}
+    p.enLosBotones{font-size: 250%;}
+    button{font-size: 250%; width:50%}
+    button.botonGris{font-size: 300%;width: 50%}
+    button.botonRojo{font-size: 600%;width: 25%}
+    button.botonAzul{font-size: 600%;width: 25%}
+    select{font-size: 250%;width:80%}
+
+}
