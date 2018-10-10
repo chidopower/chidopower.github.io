@@ -951,7 +951,7 @@ function cargarEjercicios(){
             A = "Una esfera metálica de " + round(m_x,2) + " gramos a " + round(T1_x,2) + " °C"
               + " tiene un calor específico de " + round(c_x,2) + " J / g °C."
               + " La esfera se introduce dentro de un calorímetro a presión constante que"
-              + " contiene " + V_agua + " mL a " + round(T1_agua,2) + " °C."
+              + " contiene " + V_agua + " mL de agua a " + round(T1_agua,2) + " °C."
               + " Debido a este proceso el agua absorbe " + round(q_agua,2) + " J de calor."
               + " Calcular la temperatura final del agua. <br>"
               + " c<sub>H2O</sub> = 4.184 J / g °C; &rho;<sub>agua</sub> = 1 g / mL"
