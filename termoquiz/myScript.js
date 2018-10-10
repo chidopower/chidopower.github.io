@@ -812,6 +812,7 @@ function cargarEjercicios(){
             E.push(A);
 
       }else{
+		  
              V = 1.0*aleatorio(1,8); // L de AGUA
              m = V*1000.0; //gramos AGUA, rho = 1g/mL
             T2 = 1.0*aleatorio(15,30); //°C
@@ -819,13 +820,149 @@ function cargarEjercicios(){
             q = m * 4.184 * (T2 - T1); //J
             q = q/1000.0 //kJ
             A = "Calcular la temperatura final de " + V + " litros de agua (inicialmente a "
-              + T1 + " °C), después de perder " + round(-q,2) + " kJ de calor."
+              + T1 + " °C), después de perder " + round(-q,2) + " kJ de calor. <br>"
+              + " c<sub>H2O</sub> = 4.184 J / g °C; &rho;<sub>agua</sub> = 1 g / mL"
               + "<br><br>"
               + "T<sub>2</sub> = " + T2 + " °C";
             E.push(A);
+            
+      }
+      
+      //------------------------------------ Ejercicio: calorímetro vol cte, q_cal        + q_rx = 0
+      //                                                                     C_cal(T2-T1) + q_rx = 0
+      
+      a = aleatorio(1,2);
+      
+      var m_C10H8;
+      var n_C10H8;
+      var M_C10H8=128.2; // g/mol
+      //var C_cal = 10.17; // kJ/°C
+      var C_cal = aleatorioReal(9.0,11,0); // kJ/°C
+      var q_cal;
+      var q_rx;
+      var q_molar;
+      
+		a = aleatorio(1,3);
+		
+		if(a===1){		
+		  
+			  m_C10H8 = 1.0*aleatorioReal(1.0,5.0); //gramos 
+			  n_C10H8 = m_C10H8/M_C10H8; // mol
+			  T1 = 1.0*aleatorioReal(15.0,25.0); //°C
+			  T2 = T1 + 1.0*aleatorioReal(4.0,6.0); //°C
+			  q_cal = 1.0 * C_cal * (T2 - T1); //kJ
+			  q_rx = -q_cal;
+			  q_molar = q_rx/n_C10H8;
+			  
+				A = "Una muestra de " + round(m_C10H8,2) + " gramos de C<sub>10</sub>H<sub>8</sub> se quema en un calorímetro a volumen constante."
+				  + " La temperatura se eleva desde " + round(T1,2) + " hasta " + round(T2,2) + " °C. Calcular el calor de combustión molar"
+				  + " considerando que la capacidad calorífica del calorímetro es de " + round(C_cal,2) + " kJ/°C"
+				  + "<br><br>"
+				  + "Calor de combustión molar = " + round(q_molar,2) + " kJ/mol";
+				E.push(A);
+				
+		}else if(a===2){
+			
+			  m_C10H8 = 1.0*aleatorioReal(1.0,5.0); //gramos 
+			  n_C10H8 = m_C10H8/M_C10H8; // mol
+			  T1 = 1.0*aleatorioReal(15.0,25.0); //°C
+			  T2 = T1 + 1.0*aleatorioReal(4.0,6.0); //°C
+			  q_cal = 1.0 * C_cal * (T2 - T1); //kJ
+			  q_rx = -q_cal;
+			  q_molar = q_rx/n_C10H8;
+			  
+				A = "Una muestra de " + round(m_C10H8,2) + " gramos de C<sub>10</sub>H<sub>8</sub> se quema en un calorímetro a volumen constante."
+				  + " Se liberan " + round(-q_molar,2) + " kJ por cada mol consumido. Si la temperatura final dentro del calorímetro fue de " + round(T2,2) + " °C"
+				  + " calcular la temperatura inicial considerando que la capacidad calorífica del calorímetro es de " + round(C_cal,2) + " kJ/°C"
+				  + "<br><br>"
+				  + "T<sub>1</sub> = " + round(T1,2) + " °C";
+				E.push(A);
+			
+			}else{
+
+			  m_C10H8 = 1.0*aleatorioReal(1.0,5.0); //gramos 
+			  n_C10H8 = m_C10H8/M_C10H8; // mol
+			  T1 = 1.0*aleatorioReal(15.0,25.0); //°C
+			  T2 = T1 + 1.0*aleatorioReal(4.0,6.0); //°C
+			  q_cal = 1.0 * C_cal * (T2 - T1); //kJ
+			  q_rx = -q_cal;
+			  q_molar = q_rx/n_C10H8;
+			  var DeltaT = T2-T1;
+			  
+				A = "Una muestra de " + round(m_C10H8,2) + " gramos de C<sub>10</sub>H<sub>8</sub> se quema en un calorímetro a volumen constante."
+				  + " Se liberan " + round(-q_molar,2) + " kJ por cada mol consumido. Calcular el aumento de temperatura dentro del calorímetro "
+				  + " considerando que la capacidad calorífica del calorímetro es de " + round(C_cal,2) + " kJ/°C"
+				  + "<br><br>"
+				  + "&Delta;T = " + round(DeltaT,2) + " °C";
+				E.push(A);
+				
+			}
+
+      //------------------------------------ Ejercicio: calorímetro pres cte, q_material + q_agua = 0
+      
+      a = aleatorio(1,2);
+      
+      var m_x; //g
+      var m_agua; //g
+      var V_agua; //mL
+      var c_agua = 4.184; // J/g°C
+      var c_x // J/g°C
+      var q_x;
+      var q_agua;
+      var T1_x,T2_x,T1_agua,T2_agua;
+      
+      a = aleatorio(1,2);
+      
+      if(a===1){     
+        
+         m_x = aleatorioReal(15.0,25.0); //g
+         V_agua = aleatorio(100,200)/1.0 //mL
+         m_agua = V_agua; //g
+         T1_x = aleatorioReal(85.0,95.0); //°C
+         T1_agua = aleatorioReal(20.0,25.0); //°C
+         T2_agua = T1_agua + aleatorioReal(1.0,2.0); //°C
+         T2_x = T2_agua; //°C
+         q_agua = m_agua * c_agua * (T2_agua - T1_agua); //J
+         q_x = -q_agua; //J
+         c_x = q_x/(m_x * (T2_x - T1_x));//J/g°C
+           
+            A = "Una esfera metálica de " + round(m_x,2) + " gramos a " + round(T1_x,2) + " °C se introduce en un"
+              + " calorímetro con " + V_agua + " mL de agua a presión constante."
+              + " La temperatura del agua aumenta desde " + round(T1_agua,2) + " hasta " + round(T2_agua,2) + " °C."
+              + " Calcular el calor específico de la esfera metálica. <br>"
+              + " c<sub>H2O</sub> = 4.184 J / g °C; &rho;<sub>agua</sub> = 1 g / mL"
+              + "<br><br>"
+              + "Calor específico de la esfera: " + round(c_x,2) + " J / g °C";
+            E.push(A);
+
+      }else{
+
+         m_x = aleatorioReal(15.0,25.0); //g
+         V_agua = aleatorio(100,200)/1.0 //mL
+         m_agua = V_agua; //g
+         T1_x = aleatorioReal(85.0,95.0); //°C
+         T1_agua = aleatorioReal(20.0,25.0); //°C
+         T2_agua = T1_agua + aleatorioReal(1.0,2.0); //°C
+         T2_x = T2_agua; //°C
+         q_agua = m_agua * c_agua * (T2_agua - T1_agua); //J
+         q_x = -q_agua; //J
+         c_x = q_x/(m_x * (T2_x - T1_x));//J/g°C
+           
+            A = "Una esfera metálica de " + round(m_x,2) + " gramos a " + round(T1_x,2) + " °C"
+              + " tiene un calor específico de " + round(c_x,2) + " J / g °C."
+              + " La esfera se introduce dentro de un calorímetro a presión constante que"
+              + " contiene " + V_agua + " mL a " + round(T1_agua,2) + " °C."
+              + " Debido a este proceso el agua absorbe " + round(q_agua,2) + " J de calor."
+              + " Calcular la temperatura final del agua. <br>"
+              + " c<sub>H2O</sub> = 4.184 J / g °C; &rho;<sub>agua</sub> = 1 g / mL"
+              + "<br><br>"
+              + "Temperatura final: " + round(T2_agua,2) + " °C";
+            E.push(A);
+
       }
 
-   }
+
+   }//if(tema 2)
 
    NT=E.length;
    
