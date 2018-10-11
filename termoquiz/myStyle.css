@@ -28,7 +28,7 @@ p.enLosBotones {
 p.Pregunta {
 	color: black;
 	font-size: 250%;
-	font-family: acme;
+	font-family: "acme";
 	/*border-style: solid;*/
 	border-color: gray;
 	border-radius: 10px;

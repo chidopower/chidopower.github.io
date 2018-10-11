@@ -900,8 +900,6 @@ function cargarEjercicios(){
 
       //------------------------------------ Ejercicio: calorímetro pres cte, q_material + q_agua = 0
       
-      a = aleatorio(1,2);
-      
       var m_x; //g
       var m_agua; //g
       var V_agua; //mL
@@ -960,6 +958,90 @@ function cargarEjercicios(){
             E.push(A);
 
       }
+
+
+      //------------------------------------ Ejercicio: DeltaH = integral [ cp (T) ] dT
+      
+      var c1 = 28.58;
+      var c2 = 3.77E-3;
+      var c3 = -0.5E5; 
+      T1 = aleatorio(25,30); //°C
+      T2 = aleatorio(40,80); //°C
+
+        A = "Calcular el cambio de entalpía del N<sub>2</sub> cuando es calentado desde " + T1 + " °C hasta " + T2 + " °C. <br>"
+          + "Cp<sub>N2</sub>(T) = a + bT + c/T<sup>2</sup>; en J / mol K <br>"
+          + "a = " + c1 + "; b = " + c2 + "; c = " + c3;
+
+      T1 += 273.15;
+      T2 += 273.15;
+
+      deltaH = c1*(T2 - T1) + 0.5*c2*(T2*T2 - T1*T1) - c3/(1.0/T2 - 1.0*T1); // J
+
+      	  A += "<br><br>"
+             + "&Delta;H= " + round(deltaH,2) + " J / mol" + T1;
+
+        E.push(A);
+
+
+      //------------------------------------------Ejercicio q = -w @ T cte
+      
+      a = aleatorio(1,2);
+
+      if(a===1){
+         if(aleatorio(0,1)===0){
+            V1 = aleatorio(1,10); //L
+            V2 = aleatorio(11,20);
+         }else{
+            V1 = aleatorio(11,20); //L
+            V2 = aleatorio(1,10);
+         }
+         P = aleatorio(1,10); //atm
+         w = - P * (V2 - V1); //atm L
+         w = w * (101.325/1.0); // J
+         w = w/1000.0; //kJ               
+         A =   "Un gas cambia (isotérmicamente) su volumen desde " + V1 + " L hasta " + V2 + " L "
+             + "contra una presión constante de " + P + " atm. Calcular la transferencia de calor "
+             + "asociada al proceso."
+             + "<br><br>"
+             + "q = " + round(-w,2) + " kJ";         
+
+         E.push(A);
+
+     }else{
+
+         R = 0.08206 //atm L / mol K
+         m = aleatorio(10,100); //g
+         n = m * (1.0/4.0); // mol  
+         T = aleatorio(25,50);
+         if(aleatorio(0,1)===0){
+            V1 = aleatorio(1,10); //L
+            V2 = aleatorio(11,20);
+         }else{
+            V1 = aleatorio(11,20); //L
+            V2 = aleatorio(1,10);
+         }      
+         w = - n * R * (T+273.15) * Math.log(V2/V1); //atm L
+         w = w * (101.325/1.0); // J
+         w = w/1000.0; //kJ            
+         A =   m + " gramos de He cambian su volumen desde " + V1 + " L hasta " + V2 + " L. "
+             + "Considera que el proceso es isotérmico (" + T +" °C) reversible y que el He se comporta como gas ideal. "
+             + "Calcular la transferencia de calor asociada al proceso."
+             + "<br><br>"
+             + "q = " + round(-w,2) + " kJ";
+         E.push(A);
+
+
+
+     }
+
+
+
+
+
+
+
+
+
 
 
    }//if(tema 2)
