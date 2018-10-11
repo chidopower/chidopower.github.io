@@ -978,14 +978,14 @@ function cargarEjercicios(){
       deltaH = c1*(T2 - T1) + 0.5*c2*(T2*T2 - T1*T1) - c3/(1.0/T2 - 1.0*T1); // J
 
       	  A += "<br><br>"
-             + "&Delta;H= " + round(deltaH,2) + " J / mol" + T1;
+             + "&Delta;H= " + round(deltaH,2) + " J / mol";
 
         E.push(A);
 
 
       //------------------------------------------Ejercicio q = -w @ T cte
       
-      a = aleatorio(1,2);
+      a = aleatorio(1,4);
 
       if(a===1){
          if(aleatorio(0,1)===0){
@@ -1007,7 +1007,7 @@ function cargarEjercicios(){
 
          E.push(A);
 
-     }else{
+     }else if(a===2){
 
          R = 0.08206 //atm L / mol K
          m = aleatorio(10,100); //g
@@ -1030,16 +1030,81 @@ function cargarEjercicios(){
              + "q = " + round(-w,2) + " kJ";
          E.push(A);
 
+     }else if(a===3){
 
+         V1 = aleatorio(1,10); //L
+         V2 = aleatorio(11,20);
+         P = aleatorio(1,10); //atm
+         w = - P * (V2 - V1); //atm L
+         w = w * (101.325/1.0); // J
+         w = w/1000.0; //kJ       
+         q = -w;        
+
+         A = "Calcular el calor que debe absorber un gas en un proceso isotérmico contra una "
+           + "presión constante de " + P + " atm para que el volumen cambie desde " + V1
+           + " hasta " + V2 + " L."
+           + "<br><br>"
+           + "q = " + round(q,2) + " kJ";
+         E.push(A);
+
+     }else{
+
+         R = 0.08206 //atm L / mol K
+         n = aleatorio(2,5); // mol  
+         T = aleatorio(25,50);
+         V2 = aleatorio(11,20); //L
+         V1 = aleatorio(1,10);
+         w = - n * R * (T+273.15) * Math.log(V2/V1); //atm L
+         w = w * (101.325/1.0); // J
+         w = w/1000.0; //kJ
+         q = -q;
+         A = "Calcular el calor que debe absorber " + n + " moles de gas ideal en un proceso isotérmico "
+           + "a " + T + " °C para que el volumen cambie desde " + V1 + " hasta " + V2 + " L."
+           + "<br><br>"
+           + "q = " + round(q,2) + " kJ";        
+         E.push(A); 
 
      }
 
+      //------------------------------------------Ejercicio Condensacion de agua
+      
+      a = aleatorio(1,2);
 
+      var V_H2O;
+      var m_H2O;
+      var n_H2O
+      var DeltaH_H2O_vap = 40.656; //kJ/mol
+      var DeltaH_H2O_cond = -DeltaH_H2O_vap;
 
+      if(a===1){
+        
+      	V_H2O = aleatorio(2,10)/1.0; // Litros
+      	m_H2O = V_H2O*997; // gramos, rho=997 g/L
+      	n_H2O = m_H2O/18.0; // mol
+      	q = DeltaH_H2O_cond*n_H2O;
 
+         A = V_H2O + " L de vapor de agua se condensa isotermica y reversiblemente a 100 °C en agua líquida. "
+             + "Calcular la transferencia de calor asociada al proceso. Considera que la entalpía de vaporización del agua a 100 °C "
+             + "es de 40.656 kJ/mol y que la densidad del vapor de agua (a 100 °C) es de 997 g/L."
+             + "<br><br>"
+             + "q = " + round(q,2) + " kJ";         
 
+         E.push(A);
 
+	  }else{
+	      	V_H2O = aleatorio(2,10)/1.0; // Litros
+	      	m_H2O = V_H2O*997; // gramos, rho=997 g/L
+	      	n_H2O = m_H2O/18.0; // mol
+	      	q = DeltaH_H2O_cond*n_H2O;
 
+	         A =   "Calcula el volumen de agua que podría evaporarse con " + round(q,2) + " J de calor "
+	             + "mediante un proceso isotérmico (100 °C) reversible. Considera que la entalpía de vaporización del agua a 100 °C "
+                 + "es de 40.656 kJ/mol y que la densidad del vapor de agua (a 100 °C) es de 997 g/L."
+	             + "<br><br>"
+	             + "q = " + round(q,2) + " kJ";         
+
+	         E.push(A);
+	  }
 
 
 
@@ -1147,6 +1212,8 @@ function preguntarEjercicios(){
 
    x = document.getElementById("botonAzul");
    x.style.display = "none";
+
+   document.getElementById("Examen").innerHTML = "";
    
 	document.getElementById("enLosBotones").innerHTML = "";
 	document.getElementById("botonAzul").innerHTML = "...";
