@@ -1,0 +1,45 @@
+<head>
+	<meta charset="utf-8">
+    <script src="./myScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+	<script src="./myScript.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Architects Daughter' rel='stylesheet'>
+</head>
+
+
+<body>
+
+	<div class="row">
+		<div class="theMenu">
+			<select id="selectImage">
+			 <option value="america_centro">America, Centro</option>
+			 <option value="america_sur">America, Sur</option>
+			</select>
+			<br><br>
+			<button class="theButton" onclick="theButton()" id="theButton">Iniciar</button>
+			<br>
+			<br>
+			<!-- <p class="theQuestion" id="theQuestion"></p> -->
+		</div>
+
+		<div class="theImage" id="theImage">
+
+			<center>
+			<div class="theQuestion" id="theQuestion"></div>
+			<img class="america_centro" id="america_centro" alt="" src="images\america_centro.png" width="700" height="700" onclick="myMouseClick(event)" onmousemove="myMouseMove()"/></img>
+			<img class="america_sur" id="america_sur" alt="" src="images\america_sur.png" width="700" height="700" onclick="myMouseClick(event)" onmousemove="myMouseMove()"/></img>	
+			<div class="myLocation" id="myLocation"></div>
+			<div class="myFails" id="myFails"></div>		
+			</center>
+
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>
