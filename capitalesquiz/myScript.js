@@ -75,7 +75,10 @@ function playLearnActivity(){
 		if(continent === "america")
 			loadAmericaCountries();
 
-		//console.log("<------ here!");
+		if(continent === "mexico")
+			loadMexico();
+
+		console.log("<------ here!");
 
 		for(i=0; i<2; i++){
 			while(true){
@@ -259,8 +262,12 @@ function showLearnTab(){
 
 	console.log("showLearnTab");
 
+	if(continent === "mexico")
+		document.getElementById("learnTab00").innerHTML = "Estado";
+	else
+		document.getElementById("learnTab00").innerHTML = "País";
+
 	document.getElementById("learnTab").style.display = "block";
-	//document.getElementById("nextButton").style.display = "block";
 
 }
 
@@ -358,8 +365,56 @@ function loadAmericaCountries(){
 	C = [];
 	for(var j=0;j<totalCountries;j++)
 		C[j]=1;
+}
+
+function loadMexico(){
+
+	console.log("loadMexico");
+
+	countries = [];
+	capitals = [];
+
+	countries[0]="Aguascalientes";capitals[0]="Aguascalientes";
+	countries[1]="Baja California";capitals[1]="Mexicali";
+	countries[2]="Baja California Sur";capitals[2]="La Paz";
+	countries[3]="Campeche";capitals[3]="Campeche";
+	countries[4]="Coahuila";capitals[4]="Saltillo";
+	countries[5]="Colima";capitals[5]="Colima";
+	countries[6]="Chiapas";capitals[6]="Tuxtla Gutiérrez";
+	countries[7]="Chihuahua";capitals[7]="Chihuahua";
+	countries[8]="Distrito Federal";capitals[8]="Ciudad de México";
+	countries[9]="Durango";capitals[9]="Durango";
+	countries[10]="Guanajuato";capitals[10]="Guanajuato";
+	countries[11]="Guerrero";capitals[11]="Chilpancingo";
+	countries[12]="Hidalgo";capitals[12]="Pachuca";
+	countries[13]="Jalisco";capitals[13]="Guadalajara";
+	countries[14]="México";capitals[14]="Toluca";
+	countries[15]="Michoacán";capitals[15]="Morelia";
+	countries[16]="Morelos";capitals[16]="Cuernavaca";
+	countries[17]="Nayarit";capitals[17]="Tepic";
+	countries[18]="Nuevo León";capitals[18]="Monterrey";
+	countries[19]="Oaxaca";capitals[19]="Oaxaca";
+	countries[20]="Puebla";capitals[20]="Puebla";
+	countries[21]="Querétaro";capitals[21]="Querétaro";
+	countries[22]="Quintana Roo";capitals[22]="Chetumal";
+	countries[23]="San Luis Potosí";capitals[23]="San Luis Potosí";
+	countries[24]="Sinaloa";capitals[24]="Culiacán";
+	countries[25]="Sonora";capitals[25]="Hermosillo";
+	countries[26]="Tabasco";capitals[26]="Villahermosa";
+	countries[27]="Tamaulipas";capitals[27]="Ciudad Victoria";
+	countries[28]="Tlaxcala";capitals[28]="Tlaxcala";
+	countries[29]="Veracruz";capitals[29]="Xalapa";
+	countries[30]="Yucatán";capitals[30]="Mérida";
+	countries[31]="Zacatecas";capitals[31]="Zacatecas";
+
+	totalCountries = countries.length;
+
+	C = [];
+	for(var j=0;j<totalCountries;j++)
+		C[j]=1;
 
 }
+
 
 //------------------------------------------------------------------------------
 function intRand(min, max) {
