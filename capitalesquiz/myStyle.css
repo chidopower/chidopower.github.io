@@ -1,0 +1,217 @@
+
+body{
+
+	background: #80d6ff;
+	font-family: 'Josefin Sans';
+
+
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.title{
+	text-align: center;
+	font-size: 300%;
+	padding: 10px;
+	color: white;
+	background: #0077c2;
+	border-radius: 25px 25px 0px 0px;
+	font-family: 'Josefin Sans';
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+}
+
+.workDiv{
+	float: left;
+	width: 70%;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+
+/************************** MENU *****************************/
+
+
+.menuDiv{
+	float: left;
+	width: 30%;
+	text-align: center;
+	font-size: 100%;
+    border-radius: 10px;
+    padding: 1px;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+select{
+	width: 98%;
+	font-size: 150%;
+	border-radius: 10px;
+	text-align: center;
+	padding: 5px;
+}
+
+select:hover {cursor: pointer; font-weight: bold;}
+
+/************************** BUTTONS *****************************/
+
+
+.startButton{
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 5px 30px 5px 30px;
+    font-size: 150%;
+}
+
+.startButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.startButton:active {background-color: #ffa0c0; color: black;}
+
+.learnNextButton{
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 5px 5px 25px 25px;
+    font-size: 150%;
+}
+
+.learnNextButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.learnNextButton:active {background-color: #ffa0c0; color: black;}
+
+
+/**************************** LEARN TABLE ************************/
+
+.learnTab{
+	float: left;
+	width: 100%;
+	display: none;
+	//border: dotted 4px #ec407a;
+	//border-radius: 25px 25px 25px 25px;
+}
+
+.learnTabRow{
+	float: left;
+	width: 100%;
+}
+
+.learnTab00{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.learnTab01{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.learnTab10,
+.learnTab20,
+.learnTab30{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.learnTab11,
+.learnTab21,
+.learnTab31{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.learnTab40{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.learnTab41{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.learnTab10:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab20:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab30:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab40:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab11:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab21:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab31:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab41:hover {background-color: #ec407a;color: white; cursor: pointer;}
+
+
+
+.row:after {
+    content: "";
+    display: learnTable;
+    clear: both;
+}
+
+/******************************* RESPONSIVE ***********************************/
+@media (max-width: 1000px) {
+    .menuDiv{width: 100%; text-align: center;}
+    .workDiv{width: 100%; text-align: center;}
+}
+
+

@@ -1,0 +1,21 @@
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Show Message For Five Seconds</title>
+    </head>
+    <body>
+
+		<p id="rand"></p>
+        <script>
+				function aleatorio(min, max) {
+					return Math.floor(Math.random() * (max - min + 1) ) + min;
+				}
+
+				document.getElementById("rand").innerHTML = aleatorio(0,4);
+        </script>
+
+
+    </body>
+</html>

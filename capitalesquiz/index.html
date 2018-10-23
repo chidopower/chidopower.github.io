@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script src="./myScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+</head>
+
+<body>
+
+<!-- ====================== TITLE ========================== -->
+
+<div class="title" id="title">Capitales del Mundo</div>
+<br>
+
+
+
+<!-- ====================== MENU ========================== -->
+
+
+	<div class="menuDiv">
+
+		<select id="continentSelect">
+			<option value="america">América</option>
+			<option value="asia">Asia</option>
+			<option value="africa">Africa</option>
+			<option value="oceania">Oceanía</option>
+			<option value="europa">Europa</option>
+			<option value="mexico">México</option>
+		</select>
+		<br><br>
+		<select id="activitySelect">
+			<option value="learn">Aprender</option>
+			<option value="Norte America">Quiz 1</option>
+			<option value="Centro America">Quiz 2</option>
+		</select>
+		<br><br>
+		<center><div class="startButton" onclick="startButton()">START</div></center>
+		<br>
+
+	</div>
+
+<!-- =================== WORK DIV ======================= -->
+
+
+	<div class="workDiv" id="workDiv">
+
+		<div class="learnTab" id="learnTab">
+
+			<div class="learnTabRow">
+				<div class="learnTab00" id="learnTab00">País</div>
+				<div class="learnTab01" id="learnTab01">Capital</div>
+			</div>
+			<div class="learnTabRow">
+				<div class="learnTab10" id="learnTab10" onclick="learnTab10()">...</div>
+				<div class="learnTab11" id="learnTab11" onclick="learnTab11()">...</div>
+			</div>
+			<div class="learnTabRow">
+				<div class="learnTab20" id="learnTab20" onclick="learnTab20()">...</div>
+				<div class="learnTab21" id="learnTab21" onclick="learnTab21()">...</div>
+			</div>
+			<div class="learnTabRow">
+				<div class="learnTab30" id="learnTab30" onclick="learnTab30()">...</div>
+				<div class="learnTab31" id="learnTab31" onclick="learnTab31()">...</div>
+			</div>
+			<div class="learnTabRow">
+				<div class="learnTab40" id="learnTab40" onclick="learnTab40()">...</div>
+				<div class="learnTab41" id="learnTab41" onclick="learnTab41()">...</div>
+			</div>
+			<div class="learnTabRow">
+				<br>
+				<center><div class="learnNextButton" onclick="learnNextButton()">SIGUIENTE</div></center>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+</body>
+</html>
