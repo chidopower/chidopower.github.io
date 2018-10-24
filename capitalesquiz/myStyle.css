@@ -93,6 +93,43 @@ select:hover {cursor: pointer; font-weight: bold;}
 .learnNextButton:hover {color: white; cursor: pointer; font-weight: bold;}
 .learnNextButton:active {background-color: #ffa0c0; color: black;}
 
+.falseButton_,
+.trueButton_{
+	float: left;
+	width: 50%;
+}
+
+.falseButton{
+	float: right;
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 25px 5px 5px 25px;
+    font-size: 300%;
+    display: inline;
+    margin: 10px;
+}
+
+.falseButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.falseButton:active {background-color: #ffa0c0; color: black;}
+
+.trueButton{
+	float: left;
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 5px 25px 25px 5px;
+    font-size: 300%;
+    display: inline;
+    margin: 10px;
+}
+
+.trueButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.trueButton:active {background-color: #ffa0c0; color: black;}
 
 /**************************** LEARN TABLE ************************/
 
@@ -200,6 +237,287 @@ select:hover {cursor: pointer; font-weight: bold;}
 .learnTab31:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .learnTab41:hover {background-color: #ec407a;color: white; cursor: pointer;}
 
+/**************************** FALSE OR TRUE TABLE ************************/
+
+.quizFalseOrTrueTab{
+	float: left;
+	width: 100%;
+	display: none;
+}
+
+.quizFalseOrTrueTabRow{
+	float: left;
+	width: 100%;
+}
+
+.quizFalseOrTrueTab00{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.quizFalseOrTrueTab01{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.quizFalseOrTrueTab10,
+.quizFalseOrTrueTab20,
+.quizFalseOrTrueTab30{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFalseOrTrueTab11,
+.quizFalseOrTrueTab21,
+.quizFalseOrTrueTab31{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFalseOrTrueTab40{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFalseOrTrueTab41{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+/***************************** FIND THE TRUE TABLE ****************************/
+
+.quizFindTheTrueTab{
+	float: left;
+	width: 100%;
+	display: none;
+}
+
+.quizFindTheTrueTabRow,
+.quizFindTheTrueTabRow0,
+.quizFindTheTrueTabRow1,
+.quizFindTheTrueTabRow2,
+.quizFindTheTrueTabRow3,
+.quizFindTheTrueTabRow4{
+	float: left;
+	width: 100%;
+}
+
+.quizFindTheTrueTabRow1:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheTrueTabRow2:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheTrueTabRow3:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheTrueTabRow4:hover {color: #ec407a; cursor: pointer;}
+
+.quizFindTheTrueTab00{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.quizFindTheTrueTab01{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.quizFindTheTrueTab10,
+.quizFindTheTrueTab20,
+.quizFindTheTrueTab30{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheTrueTab11,
+.quizFindTheTrueTab21,
+.quizFindTheTrueTab31{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheTrueTab40{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheTrueTab41{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+
+
+/**************************** INFO TABLE ************************/
+
+.infoTab_{
+	float:left;
+	width: 100%;
+	border-left: solid 30px #80d6ff;
+	border-right: solid 30px #80d6ff;
+	display: none;
+}
+
+.infoTab{
+	float: left;
+	width: 100%;
+	display: block;
+}
+
+.infoTabRow{
+	float: left;
+	width: 100%;
+}
+.infoTabRow_{
+	float: left;
+	width: 100%;
+	height: 10px;
+}
+
+
+.infoTabSuccessTitle{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 100%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.infoTabMistakesTitle{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 100%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.infoTabSuccess{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 150%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+	margin: auto;
+}
+
+.infoTabMistakes{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 150%;
+	color: #ec407a;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
 
 
 .row:after {
@@ -212,6 +530,7 @@ select:hover {cursor: pointer; font-weight: bold;}
 @media (max-width: 1000px) {
     .menuDiv{width: 100%; text-align: center;}
     .workDiv{width: 100%; text-align: center;}
+    .infoTab_{border-left: solid 200px #80d6ff; border-right: solid 200px #80d6ff;}
 }
 
 

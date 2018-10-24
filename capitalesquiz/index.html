@@ -35,14 +35,25 @@
 		<br><br>
 		<select id="activitySelect">
 			<option value="learn">Aprender</option>
-			<option value="quiz">Quiz</option>
+			<option value="quiz">Examen</option>
 		</select>
 		<br><br>
 		<center><div class="startButton" onclick="startButton()">START</div></center>
 		<br>
-
+		<div class="infoTab_" id="infoTab_">
+			<div class="infoTab">
+				<div class="infoTabRow">
+						<div class="infoTabSuccessTitle">&#10004;</div>
+						<div class="infoTabMistakesTitle">&#10008;</div>
+				</div>
+				<div class="infoTabRow">
+						<div class="infoTabSuccess" id="infoTabSuccess">0</div>
+						<div class="infoTabMistakes" id="infoTabMistakes">0</div>
+				</div>
+				<div class="infoTabRow_"></div>
+			</div>
+		</div>
 	</div>
-
 <!-- =================== WORK DIV ======================= -->
 
 
@@ -76,6 +87,82 @@
 			</div>
 
 		</div>
+
+		<div class="quiz" id="quiz">
+
+			<div class="quizFalseOrTrueTab" id="quizFalseOrTrueTab">
+
+				<div class="quizFalseOrTrueTabRow">
+					<p style="text-align:center;font-weight:bold;font-size:200%;">¿Falso o Verdadero?</p>
+				</div>
+
+				<div class="quizFalseOrTrueTabRow">
+					<div class="quizFalseOrTrueTab00" id="quizFalseOrTrueTabTab00">País</div>
+					<div class="quizFalseOrTrueTab01" id="quizFalseOrTrueTabTab01">Capital</div>
+				</div>
+				<div class="quizFalseOrTrueTabRow">
+					<div class="quizFalseOrTrueTab10" id="quizFalseOrTrueTab10" >...</div>
+					<div class="quizFalseOrTrueTab11" id="quizFalseOrTrueTab11" >...</div>
+				</div>
+				<div class="quizFalseOrTrueTabRow">
+					<div class="quizFalseOrTrueTab20" id="quizFalseOrTrueTab20" >...</div>
+					<div class="quizFalseOrTrueTab21" id="quizFalseOrTrueTab21" >...</div>
+				</div>
+				<div class="quizFalseOrTrueTabRow">
+					<div class="quizFalseOrTrueTab30" id="quizFalseOrTrueTab30" >...</div>
+					<div class="quizFalseOrTrueTab31" id="quizFalseOrTrueTab31" >...</div>
+				</div>
+				<div class="quizFalseOrTrueTabRow">
+					<div class="quizFalseOrTrueTab40" id="quizFalseOrTrueTab40" >...</div>
+					<div class="quizFalseOrTrueTab41" id="quizFalseOrTrueTab41" >...</div>
+				</div>
+
+				<div class="quizFalseOrTrueTabRow">
+					<center>
+						<div class="falseButton_">
+							<div class="falseButton" onclick="falseButton()">F</div>
+						</div>
+						<div class="trueButton_">
+							<div class="trueButton" onclick="trueButton()">V</div>
+						</div>
+					</center>
+				</div>
+
+			</div>
+
+			<div class="quizFindTheTrueTab" id="quizFindTheTrueTab">
+
+				<div class="quizFindTheTrueTabRow">
+					<p style="text-align:center;font-weight:bold;font-size:200%;">¿Cuál es el Verdadero?</p>
+				</div>
+
+				<div class="quizFindTheTrueTabRow0">
+					<div class="quizFindTheTrueTab00" id="quizFindTheTrueTabTab00">País</div>
+					<div class="quizFindTheTrueTab01" id="quizFindTheTrueTabTab01">Capital</div>
+				</div>
+				<div class="quizFindTheTrueTabRow1" onclick="quizFindTheTrueTabRow1()">
+					<div class="quizFindTheTrueTab10" id="quizFindTheTrueTab10" >ASDFSA</div>
+					<div class="quizFindTheTrueTab11" id="quizFindTheTrueTab11" >ASDFSAD</div>
+				</div>
+				<div class="quizFindTheTrueTabRow2" onclick="quizFindTheTrueTabRow2()">
+					<div class="quizFindTheTrueTab20" id="quizFindTheTrueTab20" >ASDFSADF</div>
+					<div class="quizFindTheTrueTab21" id="quizFindTheTrueTab21" >ASDFASD</div>
+				</div>
+				<div class="quizFindTheTrueTabRow3" onclick="quizFindTheTrueTabRow3()">
+					<div class="quizFindTheTrueTab30" id="quizFindTheTrueTab30" >ASDFASDFASD</div>
+					<div class="quizFindTheTrueTab31" id="quizFindTheTrueTab31" >ASDFSAD</div>
+				</div>
+				<div class="quizFindTheTrueTabRow4" onclick="quizFindTheTrueTabRow4()">
+					<div class="quizFindTheTrueTab40" id="quizFindTheTrueTab40" >ASDFASDF</div>
+					<div class="quizFindTheTrueTab41" id="quizFindTheTrueTab41" >ASDFSADFSADFAS</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+
 
 	</div>
 

@@ -4,7 +4,7 @@ var countries=[];
 var capitals=[];
 var C=[]; //contador
 var gameOver="no";
-var quiz;
+
 var gameLevel=0;
 
 var itemsToShowInTab = 0;
@@ -20,65 +20,421 @@ var menuLevel="main";
 var continent;
 var activity;
 var totalCountries;
-var activityCounter;
+var questionNumberIs;
 var quest = [];
 var answer = [];
+var quiz;
+var theFalseOrTrueTableIs;
+var success;
+var mistakes;
+var trueRow;
+var userRow;
 
 //------------------------------------------------------------------------------
 function startButton(){
 
+	clearScreen();
+
 	continent = document.getElementById("continentSelect").value;
 	activity = document.getElementById("activitySelect").value;
 
-	console.log("startButton", continent, activity);
+	console.log("startButton()", continent);
 
-	activityCounter = 0;
+	questionNumberIs = 0;
 	totalCountries = 0;
 	quest = [];
 	answer = [];
+	success = 0;
+	mistakes = 0;
 
-	//clearScreen();
+	if(continent === "america")
+		loadAmericaCountries();
+
+	if(continent === "mexico")
+		loadMexico();
+
+
+	play();
+
+}
+
+//------------------------------------------------------------------------------
+function play(){
+
+	console.log("play()");
 
 	if(activity === "learn")
+		playLearn();
+
+	if(activity === "quiz"){
+		document.getElementById("infoTab_").style.display = "block";
+		playQuiz();
+	}
+}
+
+//------------------------------------------------------------------------------
+function clearScreen(){
+
+	console.log("clearScreen()");
+
+	document.getElementById("quizFalseOrTrueTab").style.display = "none";
+	document.getElementById("quizFindTheTrueTab").style.display = "none";
+	document.getElementById("learnTab").style.display = "none";
+	document.getElementById("infoTab_").style.display = "none";
+
+}
+
+//------------------------------------------------------------------------------
+function updateInfoTab(){
+
+	console.log("updateInfoTab()");
+	console.log("success:",success,"mistakes: ", mistakes);
+
+	document.getElementById("infoTabSuccess").innerHTML = success;
+	document.getElementById("infoTabMistakes").innerHTML = mistakes;
+
+}
+
+//------------------------------------------------------------------------------
+function playQuiz(){
+
+	clearScreen();
+
+	console.log("playQuiz()");
+
+	document.getElementById("infoTab_").style.display = "block";
+	updateInfoTab();
+
+	// choose a quiz
+
+	var rnd1 = intRand(1,2);
+
+	if( rnd1 === 1)
+		quiz = "falseOrTrue";
+	else
+		quiz = "findTheTrue";
+
+	if(quiz==="falseOrTrue")
+		playQuizFalseOrTrue();
+
+	if(quiz==="findTheTrue")
+		playQuizFindTheTrue();
+
+
+}
+
+
+//------------------------------------------------------------------------------
+function playQuizFindTheTrue(){
+
+	console.log("playQuizFindTheTrue()");
+
+	document.getElementById("quizFindTheTrueTab").style.display = "block";
+
+
+	// choose 8 different random numbers
+
+	var rnd1 = intRand(0, totalCountries - 1);
+	var rnd2, rnd3, rnd4, rnd5, rnd6, rnd7, rnd8;
+
+	while(true){
+		rnd2 = intRand(0, totalCountries - 1);
+		if( rnd2 !== rnd1)
+			break;}
+
+	while(true){
+		rnd3 = intRand(0, totalCountries - 1);
+		if( rnd3 !== rnd1 &&
+			rnd3 !== rnd2)
+			break;}
+
+	while(true){
+		rnd4 = intRand(0, totalCountries - 1);
+		if( rnd4 !== rnd1 &&
+			rnd4 !== rnd2 &&
+			rnd4 !== rnd3)
+			break;}
+
+	while(true){
+		rnd5 = intRand(0, totalCountries - 1);
+		if( rnd5 !== rnd1 &&
+			rnd5 !== rnd2 &&
+			rnd5 !== rnd3 &&
+			rnd5 !== rnd4)
+			break;}
+
+	while(true){
+		rnd6 = intRand(0, totalCountries - 1);
+		if( rnd6 !== rnd1 &&
+			rnd6 !== rnd2 &&
+			rnd6 !== rnd3 &&
+			rnd6 !== rnd4 &&
+			rnd6 !== rnd5)
+			break;}
+
+	while(true){
+		rnd7 = intRand(0, totalCountries - 1);
+		if( rnd7 !== rnd1 &&
+			rnd7 !== rnd2 &&
+			rnd7 !== rnd3 &&
+			rnd7 !== rnd4 &&
+			rnd7 !== rnd5 &&
+			rnd7 !== rnd6)
+			break;}
+
+	while(true){
+		rnd8 = intRand(0, totalCountries - 1);
+		if( rnd8 !== rnd1 &&
+			rnd8 !== rnd2 &&
+			rnd8 !== rnd3 &&
+			rnd8 !== rnd4 &&
+			rnd8 !== rnd5 &&
+			rnd8 !== rnd6 &&
+			rnd8 !== rnd7)
+			break;}
+
+	// make the Table
+
+	var rndTable = intRand(1,4);
+
+	if(rndTable === 1){
+
+		console.log("row 1 is true");
+
+		trueRow = 1;
+
+		document.getElementById("quizFindTheTrueTab10").innerHTML = countries[rnd1]; // the true
+		document.getElementById("quizFindTheTrueTab11").innerHTML = capitals[rnd1]; // the true
+		document.getElementById("quizFindTheTrueTab20").innerHTML = countries[rnd3];
+		document.getElementById("quizFindTheTrueTab21").innerHTML = capitals[rnd4];
+		document.getElementById("quizFindTheTrueTab30").innerHTML = countries[rnd5];
+		document.getElementById("quizFindTheTrueTab31").innerHTML = capitals[rnd6];
+		document.getElementById("quizFindTheTrueTab40").innerHTML = countries[rnd7];
+		document.getElementById("quizFindTheTrueTab41").innerHTML = capitals[rnd8];
+
+	}else if(rndTable === 2){
+
+		console.log("row 2 is true");
+
+		trueRow = 2;
+
+		document.getElementById("quizFindTheTrueTab10").innerHTML = countries[rnd1];
+		document.getElementById("quizFindTheTrueTab11").innerHTML = capitals[rnd2];
+		document.getElementById("quizFindTheTrueTab20").innerHTML = countries[rnd3]; // the true
+		document.getElementById("quizFindTheTrueTab21").innerHTML = capitals[rnd3]; // the true
+		document.getElementById("quizFindTheTrueTab30").innerHTML = countries[rnd4];
+		document.getElementById("quizFindTheTrueTab31").innerHTML = capitals[rnd5];
+		document.getElementById("quizFindTheTrueTab40").innerHTML = countries[rnd6];
+		document.getElementById("quizFindTheTrueTab41").innerHTML = capitals[rnd7];
+
+	}else if(rndTable === 3){
+
+		console.log("row 3 is true");
+
+		trueRow = 3;
+
+		document.getElementById("quizFindTheTrueTab10").innerHTML = countries[rnd1];
+		document.getElementById("quizFindTheTrueTab11").innerHTML = capitals[rnd2];
+		document.getElementById("quizFindTheTrueTab20").innerHTML = countries[rnd3];
+		document.getElementById("quizFindTheTrueTab21").innerHTML = capitals[rnd4];
+		document.getElementById("quizFindTheTrueTab30").innerHTML = countries[rnd5]; // the true
+		document.getElementById("quizFindTheTrueTab31").innerHTML = capitals[rnd5]; // the true
+		document.getElementById("quizFindTheTrueTab40").innerHTML = countries[rnd6];
+		document.getElementById("quizFindTheTrueTab41").innerHTML = capitals[rnd7];
+
+	}else{
+
+		console.log("row 4 is true");
+
+		trueRow = 4;
+
+		document.getElementById("quizFindTheTrueTab10").innerHTML = countries[rnd1];
+		document.getElementById("quizFindTheTrueTab11").innerHTML = capitals[rnd2];
+		document.getElementById("quizFindTheTrueTab20").innerHTML = countries[rnd3];
+		document.getElementById("quizFindTheTrueTab21").innerHTML = capitals[rnd4];
+		document.getElementById("quizFindTheTrueTab30").innerHTML = countries[rnd5];
+		document.getElementById("quizFindTheTrueTab31").innerHTML = capitals[rnd6];
+		document.getElementById("quizFindTheTrueTab40").innerHTML = countries[rnd7]; // the true
+		document.getElementById("quizFindTheTrueTab41").innerHTML = capitals[rnd7]; // the true
+
+	}
+
+}
+
+//------------------------------------------------------------------------------
+function quizFindTheTrueTabRow1(){
+	userRow = 1;
+	if(userRow === trueRow){success += 1;}else{mistakes += 1;}
+	playQuiz();
+}
+
+function quizFindTheTrueTabRow2(){
+	userRow = 2;
+	if(userRow === trueRow){success += 1;}else{mistakes += 1;}
+	playQuiz();
+}
+
+function quizFindTheTrueTabRow3(){
+	userRow = 3;
+	if(userRow === trueRow){success += 1;}else{mistakes += 1;}
+	playQuiz();
+}
+
+function quizFindTheTrueTabRow4(){
+	userRow = 4;
+	if(userRow === trueRow){success += 1;}else{mistakes += 1;}
+	playQuiz();
+}
+
+//------------------------------------------------------------------------------
+function playQuizFalseOrTrue(){
+
+	console.log("playQuizFalseOrTrue()");
+
+	document.getElementById("quizFalseOrTrueTab").style.display = "block";
+
+	// choose 5 different random numbers
+
+	var rnd1 = intRand(0, totalCountries - 1);
+	var rnd2, rnd3, rnd4, rnd5;
+
+	while(true){
+		rnd2 = intRand(0, totalCountries - 1);
+		if( rnd2 !== rnd1)
+			break;}
+
+	while(true){
+		rnd3 = intRand(0, totalCountries - 1);
+		if( rnd3 !== rnd1 &&
+			rnd3 !== rnd2)
+			break;}
+
+	while(true){
+		rnd4 = intRand(0, totalCountries - 1);
+		if( rnd4 !== rnd1 &&
+			rnd4 !== rnd2 &&
+			rnd4 !== rnd3)
+			break;}
+
+	while(true){
+		rnd5 = intRand(0, totalCountries - 1);
+		if( rnd5 !== rnd1 &&
+			rnd5 !== rnd2 &&
+			rnd5 !== rnd3 &&
+			rnd5 !== rnd4)
+			break;}
+
+	// choose or trueTable or falseTable
+
+	if( intRand(1,2) === 1){ // a trueTable
+
+		console.log("This is a true table.")
+
+		theFalseOrTrueTableIs = "true";
+
+		document.getElementById("quizFalseOrTrueTab10").innerHTML = countries[rnd1];
+		document.getElementById("quizFalseOrTrueTab11").innerHTML = capitals[rnd1];
+		document.getElementById("quizFalseOrTrueTab20").innerHTML = countries[rnd2];
+		document.getElementById("quizFalseOrTrueTab21").innerHTML = capitals[rnd2];
+		document.getElementById("quizFalseOrTrueTab30").innerHTML = countries[rnd3];
+		document.getElementById("quizFalseOrTrueTab31").innerHTML = capitals[rnd3];
+		document.getElementById("quizFalseOrTrueTab40").innerHTML = countries[rnd4];
+		document.getElementById("quizFalseOrTrueTab41").innerHTML = capitals[rnd4];
+
+	}else{ // a falseTable
+
+		console.log("This is a false table.")
+
+		theFalseOrTrueTableIs = "false";
+
+		var rndTable = intRand(1,4);
+
+		if(rndTable === 1){
+
+			document.getElementById("quizFalseOrTrueTab10").innerHTML = countries[rnd1];
+			document.getElementById("quizFalseOrTrueTab11").innerHTML = capitals[rnd5]; // the false
+			document.getElementById("quizFalseOrTrueTab20").innerHTML = countries[rnd2];
+			document.getElementById("quizFalseOrTrueTab21").innerHTML = capitals[rnd2];
+			document.getElementById("quizFalseOrTrueTab30").innerHTML = countries[rnd3];
+			document.getElementById("quizFalseOrTrueTab31").innerHTML = capitals[rnd3];
+			document.getElementById("quizFalseOrTrueTab40").innerHTML = countries[rnd4];
+			document.getElementById("quizFalseOrTrueTab41").innerHTML = capitals[rnd4];
+
+		}else if(rndTable === 2){
+
+			document.getElementById("quizFalseOrTrueTab10").innerHTML = countries[rnd1];
+			document.getElementById("quizFalseOrTrueTab11").innerHTML = capitals[rnd1];
+			document.getElementById("quizFalseOrTrueTab20").innerHTML = countries[rnd2];
+			document.getElementById("quizFalseOrTrueTab21").innerHTML = capitals[rnd5]; // the false
+			document.getElementById("quizFalseOrTrueTab30").innerHTML = countries[rnd3];
+			document.getElementById("quizFalseOrTrueTab31").innerHTML = capitals[rnd3];
+			document.getElementById("quizFalseOrTrueTab40").innerHTML = countries[rnd4];
+			document.getElementById("quizFalseOrTrueTab41").innerHTML = capitals[rnd4];
+
+		}else if(rndTable === 3){
+
+			document.getElementById("quizFalseOrTrueTab10").innerHTML = countries[rnd1];
+			document.getElementById("quizFalseOrTrueTab11").innerHTML = capitals[rnd1];
+			document.getElementById("quizFalseOrTrueTab20").innerHTML = countries[rnd2];
+			document.getElementById("quizFalseOrTrueTab21").innerHTML = capitals[rnd2];
+			document.getElementById("quizFalseOrTrueTab30").innerHTML = countries[rnd3];
+			document.getElementById("quizFalseOrTrueTab31").innerHTML = capitals[rnd5]; // the false
+			document.getElementById("quizFalseOrTrueTab40").innerHTML = countries[rnd4];
+			document.getElementById("quizFalseOrTrueTab41").innerHTML = capitals[rnd4];
+
+		}else{
+
+			document.getElementById("quizFalseOrTrueTab10").innerHTML = countries[rnd1];
+			document.getElementById("quizFalseOrTrueTab11").innerHTML = capitals[rnd1];
+			document.getElementById("quizFalseOrTrueTab20").innerHTML = countries[rnd2];
+			document.getElementById("quizFalseOrTrueTab21").innerHTML = capitals[rnd2];
+			document.getElementById("quizFalseOrTrueTab30").innerHTML = countries[rnd3];
+			document.getElementById("quizFalseOrTrueTab31").innerHTML = capitals[rnd3];
+			document.getElementById("quizFalseOrTrueTab40").innerHTML = countries[rnd4];
+			document.getElementById("quizFalseOrTrueTab41").innerHTML = capitals[rnd5]; // the false
+
+		}
+
+	}
+
+}
+
+//------------------------------------------------------------------------------
+function falseButton(){
+
+	console.log("falseButton()");
+
+	if(theFalseOrTrueTableIs === "false")
+		success += 1;
+	else
+		mistakes += 1;
+
+	playQuiz();
+}
+
+//------------------------------------------------------------------------------
+function trueButton(){
+
+	console.log("trueButton()");
+
+	if(theFalseOrTrueTableIs === "true")
+		success += 1;
+	else
+		mistakes += 1;
+
+	playQuiz();
+}
+
+//------------------------------------------------------------------------------
+function playLearn(){
+
+	console.log("playLearn");
+
+	if( questionNumberIs === 0){ //choose two countries
+
 		showLearnTab();
 
-	playActivity();
-
-}
-
-//------------------------------------------------------------------------------
-function nextButton(){
-
-	activityCounter += 1;
-
-}
-
-//------------------------------------------------------------------------------
-function playActivity(){
-
-	console.log("playActivity");
-
-	if(activity === "learn")
-		playLearnActivity();
-
-}
-
-//------------------------------------------------------------------------------
-function playLearnActivity(){
-
-	console.log("playLearnActivity");
-
-	if( activityCounter === 0){ //choose two countries
-
 		itemsToShowInTab = 2;
-
-		if(continent === "america")
-			loadAmericaCountries();
-
-		if(continent === "mexico")
-			loadMexico();
-
-		console.log("<------ here!");
 
 		for(i=0; i<2; i++){
 			while(true){
@@ -92,7 +448,7 @@ function playLearnActivity(){
 			answer.push(capitals[N]);
 		}
 
-	}else if( activityCounter === 1){ //add one country
+	}else if( questionNumberIs === 1){ //add one country
 
 		itemsToShowInTab = 3;
 
@@ -106,7 +462,7 @@ function playLearnActivity(){
 		quest.push(countries[tmp]);
 		answer.push(capitals[tmp]); //now there are 3 countries
 
-	}else if( activityCounter === 2){ //add one country
+	}else if( questionNumberIs === 2){ //add one country
 
 		itemsToShowInTab = 4;
 
@@ -182,7 +538,7 @@ function     learnTab30(){
 	var s = "learnTab30";
 	var i =  learnTabsi[2];
 
-	if( activityCounter >= 1){
+	if( questionNumberIs >= 1){
 
 		if(i < itemsToShowInTab - 1){i += 1;}else{i = 0;}
 		document.getElementById(s).innerHTML = quest[i];
@@ -197,7 +553,7 @@ function     learnTab40(){
 	var s = "learnTab40";
 	var i =  learnTabsi[3];
 
-	if( activityCounter >= 2){
+	if( questionNumberIs >= 2){
 
 		if(i < itemsToShowInTab - 1){i += 1;}else{i = 0;}
 		document.getElementById(s).innerHTML = quest[i];
@@ -234,7 +590,7 @@ function     learnTab31(){
 	var s = "learnTab31";
 	var j =  learnTabsj[2];
 
-	if( activityCounter >= 1){
+	if( questionNumberIs >= 1){
 
 		if(j < itemsToShowInTab - 1){j += 1;}else{j = 0;}
 		document.getElementById(s).innerHTML = answer[j];
@@ -248,7 +604,7 @@ function     learnTab41(){
 	var s = "learnTab41";
 	var j =  learnTabsj[3];
 
-	if( activityCounter >= 2){
+	if( questionNumberIs >= 2){
 
 		if(j < itemsToShowInTab - 1){j += 1;}else{j = 0;}
 		document.getElementById(s).innerHTML = answer[j];
@@ -307,8 +663,8 @@ function learnNextButton(){
 	}
 
 	if(check1==="ok" && check2==="ok"){
-		activityCounter += 1;
-		playLearnActivity();
+		questionNumberIs += 1;
+		playLearn();
 		console.log("ok");
 	}else{
 		console.log("bad");
