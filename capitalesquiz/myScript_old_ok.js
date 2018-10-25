@@ -114,9 +114,9 @@ function playQuiz(){
 
 	// choose a quiz
 
-	var rnd = intRand(1,4);
+	var rnd = intRand(1,3);
 
-	//rnd = 4;
+	rnd = 4;
 
 	if( rnd === 1)
 		playQuizFalseOrTrue();
@@ -666,8 +666,8 @@ function playLearn(){
 		var tmp;;
 		while(true){
 			tmp = intRand(0, totalCountries - 1)
-			if( countries[tmp] !== quest[0] &&
-				countries[tmp] !== quest[1] )
+			if( countries[tmp2] !== quest[0] &&
+				countries[tmp2] !== quest[1] )
 				break;
 		}
 		quest.push(countries[tmp]);
@@ -680,9 +680,9 @@ function playLearn(){
 		var tmp;;
 		while(true){
 			tmp = intRand(0, totalCountries - 1)
-			if( countries[tmp] !== quest[0] &&
-				countries[tmp] !== quest[1] &&
-				countries[tmp] !== quest[2] )
+			if( countries[tmp2] !== quest[0] &&
+				countries[tmp2] !== quest[1] &&
+				countries[tmp2] !== quest[2] )
 				break;
 		}
 		quest.push(countries[tmp]);
@@ -1054,7 +1054,7 @@ function correctTheTabNextButton(){
 		mistakes += 1;
 	}
 
-	playQuiz();
+	//playQuiz();
 
 }
 
