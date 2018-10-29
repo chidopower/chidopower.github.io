@@ -55,7 +55,7 @@ b{color: #ec407a;}
 }
 
 select{
-	width: 48%;
+	width: 98%;
 	font-size: 150%;
 	border-radius: 10px;
 	text-align: center;
@@ -364,10 +364,10 @@ select:hover {cursor: pointer; font-weight: bold;}
 	width: 100%;
 }
 
-.quizFindTheTrueTabRow1:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
-.quizFindTheTrueTabRow2:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
-.quizFindTheTrueTabRow3:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
-.quizFindTheTrueTabRow4:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+.quizFindTheTrueTabRow1:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheTrueTabRow2:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheTrueTabRow3:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheTrueTabRow4:hover {color: #ec407a; cursor: pointer;}
 
 .quizFindTheTrueTab00{
 	float: left;
@@ -469,10 +469,10 @@ select:hover {cursor: pointer; font-weight: bold;}
 	width: 100%;
 }
 
-.quizFindTheFalseTabRow1:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
-.quizFindTheFalseTabRow2:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
-.quizFindTheFalseTabRow3:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
-.quizFindTheFalseTabRow4:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+.quizFindTheFalseTabRow1:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheFalseTabRow2:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheFalseTabRow3:hover {color: #ec407a; cursor: pointer;}
+.quizFindTheFalseTabRow4:hover {color: #ec407a; cursor: pointer;}
 
 .quizFindTheFalseTab00{
 	float: left;
@@ -599,7 +599,8 @@ select:hover {cursor: pointer; font-weight: bold;}
 }
 
 .quizCorrectTheTab10,
-.quizCorrectTheTab20{
+.quizCorrectTheTab20,
+.quizCorrectTheTab30{
 	float: left;
 	width: 50%;
 	padding: 10px;
@@ -613,7 +614,8 @@ select:hover {cursor: pointer; font-weight: bold;}
 }
 
 .quizCorrectTheTab11,
-.quizCorrectTheTab21{
+.quizCorrectTheTab21,
+.quizCorrectTheTab31{
 	float: left;
 	width: 50%;
 	padding: 10px;
@@ -626,7 +628,7 @@ select:hover {cursor: pointer; font-weight: bold;}
 	text-align: center;
 }
 
-.quizCorrectTheTab30{
+.quizCorrectTheTab40{
 	float: left;
 	width: 50%;
 	padding: 10px;
@@ -638,7 +640,7 @@ select:hover {cursor: pointer; font-weight: bold;}
 	text-align: center;
 }
 
-.quizCorrectTheTab31{
+.quizCorrectTheTab41{
 	float: left;
 	width: 50%;
 	padding: 10px;
@@ -653,9 +655,11 @@ select:hover {cursor: pointer; font-weight: bold;}
 .quizCorrectTheTab10:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .quizCorrectTheTab20:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .quizCorrectTheTab30:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quizCorrectTheTab40:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .quizCorrectTheTab11:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .quizCorrectTheTab21:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .quizCorrectTheTab31:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quizCorrectTheTab41:hover {background-color: #ec407a;color: white; cursor: pointer;}
 
 
 /************************************* Quiz 5 *********************************/
@@ -674,9 +678,10 @@ select:hover {cursor: pointer; font-weight: bold;}
 	float: left;
 	width: 100%;
 	text-align: center;
+	font-size: 200%;
 	color: black;
 	background: #42a5f5;
-	font-size: 300%;
+	font-size: 200%;
 	padding: 5px;
 	border-radius: 25px 25px 0px 0px;
 	font-family: 'Abel';
@@ -737,12 +742,12 @@ select:hover {cursor: pointer; font-weight: bold;}
 }
 
 
-.quiz5Tab00:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
-.quiz5Tab10:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
-.quiz5Tab20:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
-.quiz5Tab01:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
-.quiz5Tab11:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
-.quiz5Tab21:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
+.quiz5Tab00:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quiz5Tab10:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quiz5Tab20:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quiz5Tab01:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quiz5Tab11:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quiz5Tab21:hover {background-color: #ec407a;color: white; cursor: pointer;}
 
 
 /**************************** INFO TABLE ************************/

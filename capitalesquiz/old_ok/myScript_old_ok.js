@@ -9,8 +9,7 @@ var gameLevel=0;
 var itemsToShowInTab = 0;
 var totalToMatch = 0;
 
-var YES = 1;
-var NO = 0;
+
 
 
 var menuLevel="main";
@@ -36,15 +35,6 @@ var learnTabsj = [];
 var correctTabsi = [];
 var correctTabsj = [];
 
-var level;
-var EASY_LEVEL = 1;
-var NORMAL_LEVEL = 2;
-var HARD_LEVEL = 3;
-
-var quiz5userAns;
-var quiz5RightAns;
-
-
 //------------------------------------------------------------------------------
 function startButton(){
 
@@ -52,9 +42,8 @@ function startButton(){
 
 	continent = document.getElementById("continentSelect").value;
 	activity = document.getElementById("activitySelect").value;
-	level = parseInt(document.getElementById("levelSelect").value);
 
-	console.log("startButton()", continent, level);
+	console.log("startButton()", continent);
 
 	questionNumberIs = 0;
 	totalCountries = 0;
@@ -68,6 +57,7 @@ function startButton(){
 
 	if(continent === "mexico")
 		loadMexico();
+
 
 	play();
 
@@ -96,7 +86,6 @@ function clearScreen(){
 	document.getElementById("quizFindTheTrueTab").style.display = "none";
 	document.getElementById("quizFindTheFalseTab").style.display = "none";
 	document.getElementById("quizCorrectTheTab").style.display = "none";
-	document.getElementById("quiz5Tab").style.display = "none";
 	document.getElementById("learnTab").style.display = "none";
 	document.getElementById("infoTab_").style.display = "none";
 
@@ -125,9 +114,9 @@ function playQuiz(){
 
 	// choose a quiz
 
-	var rnd = intRand(1,5);
+	var rnd = intRand(1,3);
 
-	//rnd = 5;
+	rnd = 4;
 
 	if( rnd === 1)
 		playQuizFalseOrTrue();
@@ -135,10 +124,8 @@ function playQuiz(){
 		playQuizFindTheTrue();
 	else if(rnd === 3)
 		playQuizFindTheFalse();
-	else if(rnd === 4)
-		playCorrectTheTable();
 	else
-		playQuiz5();
+		playCorrectTheTable();
 
 }
 
@@ -185,9 +172,9 @@ function playCorrectTheTable(){
 	quest[3] = countries[rnd4];
 	answer[3] = capitals[rnd4];
 
-	for(i=0; i<3; i++){
-		correctTabsi[i] = intRand(0, 3 - 1);
-		correctTabsj[i] = intRand(0, 3 - 1);
+	for(i=0; i<4; i++){
+		correctTabsi[i] = intRand(0, 4 - 1);
+		correctTabsj[i] = intRand(0, 4 - 1);
 	}
 
 	//document.getElementById("quizCorrectTheTab10").innerHTML = quest[intRand(0,3)];
@@ -201,7 +188,7 @@ function playCorrectTheTable(){
 	//document.getElementById("quizCorrectTheTab41").innerHTML = answer[intRand(0,3)];
 
 	//erase button's face
-	for(i=1;i<4;i++){
+	for(i=1;i<5;i++){
 		for(j=0;j<2;j++){
 			s = "quizCorrectTheTab"+i+j;
 			document.getElementById(s).innerHTML = "?";
@@ -461,177 +448,6 @@ function playQuizFindTheTrue(){
 }
 
 //------------------------------------------------------------------------------
-function playQuiz5(){
-
-	console.log("playQuiz5()");
-
-	document.getElementById("quiz5Tab").style.display = "block";
-
-	// choose 6 different random numbers
-
-	var rnd1 = intRand(0, totalCountries - 1);
-	var rnd2, rnd3, rnd4, rnd5, rnd6;
-
-	while(true){
-		rnd2 = intRand(0, totalCountries - 1);
-		if( rnd2 !== rnd1)
-			break;}
-
-	while(true){
-		rnd3 = intRand(0, totalCountries - 1);
-		if( rnd3 !== rnd1 &&
-			rnd3 !== rnd2)
-			break;}
-
-	while(true){
-		rnd4 = intRand(0, totalCountries - 1);
-		if( rnd4 !== rnd1 &&
-			rnd4 !== rnd2 &&
-			rnd4 !== rnd3)
-			break;}
-
-	while(true){
-		rnd5 = intRand(0, totalCountries - 1);
-		if( rnd5 !== rnd1 &&
-			rnd5 !== rnd2 &&
-			rnd5 !== rnd3 &&
-			rnd5 !== rnd4)
-			break;}
-
-	while(true){
-		rnd6 = intRand(0, totalCountries - 1);
-		if( rnd6 !== rnd1 &&
-			rnd6 !== rnd2 &&
-			rnd6 !== rnd3 &&
-			rnd6 !== rnd4 &&
-			rnd6 !== rnd5)
-			break;}
-
-	document.getElementById("quiz5TabQuestion").innerHTML = "La capital de " + countries[rnd1] + ":";
-
-	// make the Table 3x2=6
-
-	var rndTable = intRand(1,6);
-
-	if(rndTable === 1){
-
-		quiz5RightAns = 1;
-		console.log("right answer: ", capitals[rnd1]);
-
-		document.getElementById("quiz5Tab00").innerHTML = capitals[rnd1];
-		document.getElementById("quiz5Tab10").innerHTML = capitals[rnd2];
-		document.getElementById("quiz5Tab20").innerHTML = capitals[rnd3];
-		document.getElementById("quiz5Tab01").innerHTML = capitals[rnd4];
-		document.getElementById("quiz5Tab11").innerHTML = capitals[rnd5];
-		document.getElementById("quiz5Tab21").innerHTML = "NINGUNA";
-
-	}else if(rndTable === 2){
-
-		quiz5RightAns = 2;
-		console.log("right answer: ", capitals[rnd1]);
-
-		document.getElementById("quiz5Tab00").innerHTML = capitals[rnd2];
-		document.getElementById("quiz5Tab10").innerHTML = capitals[rnd1];
-		document.getElementById("quiz5Tab20").innerHTML = capitals[rnd3];
-		document.getElementById("quiz5Tab01").innerHTML = capitals[rnd4];
-		document.getElementById("quiz5Tab11").innerHTML = capitals[rnd5];
-		document.getElementById("quiz5Tab21").innerHTML = "NINGUNA";
-
-	}else if(rndTable === 3){
-
-		quiz5RightAns = 3;
-		console.log("right answer: ", capitals[rnd1]);
-
-		document.getElementById("quiz5Tab00").innerHTML = capitals[rnd3];
-		document.getElementById("quiz5Tab10").innerHTML = capitals[rnd2];
-		document.getElementById("quiz5Tab20").innerHTML = capitals[rnd1];
-		document.getElementById("quiz5Tab01").innerHTML = capitals[rnd4];
-		document.getElementById("quiz5Tab11").innerHTML = capitals[rnd5];
-		document.getElementById("quiz5Tab21").innerHTML = "NINGUNA";
-
-	}else if(rndTable === 4){
-
-		quiz5RightAns = 4;
-		console.log("right answer: ", capitals[rnd1]);
-
-		document.getElementById("quiz5Tab00").innerHTML = capitals[rnd4];
-		document.getElementById("quiz5Tab10").innerHTML = capitals[rnd2];
-		document.getElementById("quiz5Tab20").innerHTML = capitals[rnd3];
-		document.getElementById("quiz5Tab01").innerHTML = capitals[rnd1];
-		document.getElementById("quiz5Tab11").innerHTML = capitals[rnd5];
-		document.getElementById("quiz5Tab21").innerHTML = "NINGUNA";
-
-	}else if(rndTable === 5){
-
-		quiz5RightAns = 5;
-		console.log("right answer: ", capitals[rnd1]);
-
-		document.getElementById("quiz5Tab00").innerHTML = capitals[rnd5];
-		document.getElementById("quiz5Tab10").innerHTML = capitals[rnd2];
-		document.getElementById("quiz5Tab20").innerHTML = capitals[rnd3];
-		document.getElementById("quiz5Tab01").innerHTML = capitals[rnd4];
-		document.getElementById("quiz5Tab11").innerHTML = capitals[rnd1];
-		document.getElementById("quiz5Tab21").innerHTML = "NINGUNA";
-
-	}else{
-
-		quiz5RightAns = 6;
-		console.log("right answer: ", "NEITHER");
-
-		document.getElementById("quiz5Tab00").innerHTML = capitals[rnd6];
-		document.getElementById("quiz5Tab10").innerHTML = capitals[rnd2];
-		document.getElementById("quiz5Tab20").innerHTML = capitals[rnd3];
-		document.getElementById("quiz5Tab01").innerHTML = capitals[rnd4];
-		document.getElementById("quiz5Tab11").innerHTML = capitals[rnd5];
-		document.getElementById("quiz5Tab21").innerHTML = "NINGUNA";
-
-	}
-
-}
-
-//------------------------------------------------------------------------------
-function quiz5Tab00(){
-	quiz5userAns = 1;
-	if(quiz5userAns === quiz5RightAns){success +=1;}else{mistakes +=1}
-	playQuiz();
-}
-
-//------------------------------------------------------------------------------
-function quiz5Tab10(){
-	quiz5userAns = 2;
-	if(quiz5userAns === quiz5RightAns){success +=1;}else{mistakes +=1}
-	playQuiz();
-}
-
-//------------------------------------------------------------------------------
-function quiz5Tab20(){
-	quiz5userAns = 3;
-	if(quiz5userAns === quiz5RightAns){success +=1;}else{mistakes +=1}
-	playQuiz();
-}
-
-//------------------------------------------------------------------------------
-function quiz5Tab01(){
-	quiz5userAns = 4;
-	if(quiz5userAns === quiz5RightAns){success +=1;}else{mistakes +=1}
-	playQuiz();
-}
-
-//------------------------------------------------------------------------------
-function quiz5Tab11(){
-	quiz5userAns = 5;
-	if(quiz5userAns === quiz5RightAns){success +=1;}else{mistakes +=1}
-	playQuiz();
-}
-
-//------------------------------------------------------------------------------
-function quiz5Tab21(){
-	quiz5userAns = 6;
-	if(quiz5userAns === quiz5RightAns){success +=1;}else{mistakes +=1}
-	playQuiz();
-}
-
-//------------------------------------------------------------------------------
 function quizFindTheTrueTabRow1(){
 	userRow = 1;
 	if(userRow === trueRow){success += 1;}else{mistakes += 1;}
@@ -850,8 +666,8 @@ function playLearn(){
 		var tmp;;
 		while(true){
 			tmp = intRand(0, totalCountries - 1)
-			if( countries[tmp] !== quest[0] &&
-				countries[tmp] !== quest[1] )
+			if( countries[tmp2] !== quest[0] &&
+				countries[tmp2] !== quest[1] )
 				break;
 		}
 		quest.push(countries[tmp]);
@@ -864,9 +680,9 @@ function playLearn(){
 		var tmp;;
 		while(true){
 			tmp = intRand(0, totalCountries - 1)
-			if( countries[tmp] !== quest[0] &&
-				countries[tmp] !== quest[1] &&
-				countries[tmp] !== quest[2] )
+			if( countries[tmp2] !== quest[0] &&
+				countries[tmp2] !== quest[1] &&
+				countries[tmp2] !== quest[2] )
 				break;
 		}
 		quest.push(countries[tmp]);
@@ -912,7 +728,7 @@ function     quizCorrectTheTab10(){
 	var s = "quizCorrectTheTab10";
 	var i =  correctTabsi[0];
 
-	if(i < 2){i += 1;}else{i = 0;}
+	if(i < 3){i += 1;}else{i = 0;}
 	document.getElementById(s).innerHTML = quest[i];
 		   correctTabsi[0] = i;
 	console.log("quizCorrectTheTab10: ", i, quest[i]);
@@ -925,7 +741,7 @@ function     quizCorrectTheTab20(){
 	var s = "quizCorrectTheTab20";
 	var i =  correctTabsi[1];
 
-	if(i < 2){i += 1;}else{i = 0;}
+	if(i < 3){i += 1;}else{i = 0;}
 	document.getElementById(s).innerHTML = quest[i];
 		   correctTabsi[1] = i;
 	console.log("quizCorrectTheTab20: ", i, quest[i]);
@@ -941,7 +757,7 @@ function     quizCorrectTheTab30(){
 
 	//if( questionNumberIs >= 1){
 
-		if(i < 2){i += 1;}else{i = 0;}
+		if(i < 3){i += 1;}else{i = 0;}
 		document.getElementById(s).innerHTML = quest[i];
 			   correctTabsi[2] = i;
 		console.log("quizCorrectTheTab30: ", i, quest[i]);
@@ -951,14 +767,29 @@ function     quizCorrectTheTab30(){
 	//}
 }
 
+//------------------------------------------------------------------------------
+function     quizCorrectTheTab40(){
+	var s = "quizCorrectTheTab40";
+	var i =  correctTabsi[3];
 
+	//if( questionNumberIs >= 2){
+
+		if(i < 3){i += 1;}else{i = 0;}
+		document.getElementById(s).innerHTML = quest[i];
+			   correctTabsi[3] = i;
+		console.log("quizCorrectTheTab40: ", i, quest[i]);
+	console.log(correctTabsi);
+	console.log(correctTabsj);
+
+	//}
+}
 
 //------------------------------------------------------------------------------
 function     quizCorrectTheTab11(){
 	var s = "quizCorrectTheTab11";
 	var j =  correctTabsj[0];
 
-	if(j < 2){j += 1;}else{j = 0;}
+	if(j < 3){j += 1;}else{j = 0;}
 	document.getElementById(s).innerHTML = answer[j];
 		   correctTabsj[0] = j;
 	console.log("quizCorrectTheTab11: ", j, answer[j]);
@@ -972,7 +803,7 @@ function     quizCorrectTheTab21(){
 	var s = "quizCorrectTheTab21";
 	var j =  correctTabsj[1];
 
-	if(j < 2){j += 1;}else{j = 0;}
+	if(j < 3){j += 1;}else{j = 0;}
 	document.getElementById(s).innerHTML = answer[j];
 		   correctTabsj[1] = j;
 	console.log("quizCorrectTheTab21: ", j, answer[j]);
@@ -988,7 +819,7 @@ function     quizCorrectTheTab31(){
 
 	//if( questionNumberIs >= 1){
 
-		if(j < 2){j += 1;}else{j = 0;}
+		if(j < 3){j += 1;}else{j = 0;}
 		document.getElementById(s).innerHTML = answer[j];
 			   correctTabsj[2] = j;
 		console.log("quizCorrectTheTab31: ", j, answer[j]);
@@ -998,7 +829,22 @@ function     quizCorrectTheTab31(){
 	//}
 }
 
+//------------------------------------------------------------------------------
+function     quizCorrectTheTab41(){
+	var s = "quizCorrectTheTab41";
+	var j =  correctTabsj[3];
 
+	//if( questionNumberIs >= 2){
+
+		if(j < 3){j += 1;}else{j = 0;}
+		document.getElementById(s).innerHTML = answer[j];
+			   correctTabsj[3] = j;
+		console.log("quizCorrectTheTab41: ", j, answer[j]);
+	console.log(correctTabsi);
+	console.log(correctTabsj);
+
+	//}
+}
 
 
 //----
@@ -1172,7 +1018,7 @@ function correctTheTabNextButton(){
 
 	console.log("correctTheTabNextButton()");
 
-	itemsToShowInTab = 3;
+	itemsToShowInTab = 4;
 
 	check1="ok"; // check the Columns
 	loop1:
@@ -1208,7 +1054,7 @@ function correctTheTabNextButton(){
 		mistakes += 1;
 	}
 
-	playQuiz();
+	//playQuiz();
 
 }
 
@@ -1221,82 +1067,41 @@ function loadAmericaCountries(){
 	countries = [];
 	capitals = [];
 
-	if(level === EASY_LEVEL){
-		countries[0]="Canadá"; 		capitals[0]="Ottawa";
-		countries[1]="Estados Unidos"; capitals[1]="Washington D. C.";
-		countries[2]="México"; 		capitals[2]="Ciudad de México";
-		countries[3]="Belice"; 		capitals[3]="Belmopán";
-		countries[4]="Costa Rica"; 	capitals[4]="San José";
-		countries[5]="El Salvador"; 	capitals[5]="San Salvador";
-		countries[6]="Guatemala"; 		capitals[6]="Ciudad de Guatemala";
-		countries[7]="Honduras"; 		capitals[7]="Tegucigalpa";
-		countries[8]="Nicaragua"; 		capitals[8]="Managua";
-		countries[9]="Panamá"; 		capitals[9]="Panamá";
-	}
-
-	if(level === NORMAL_LEVEL){
-		countries[0]="Canadá"; 		capitals[0]="Ottawa";
-		countries[1]="Estados Unidos"; capitals[1]="Washington D. C.";
-		countries[2]="México"; 		capitals[2]="Ciudad de México";
-		countries[3]="Belice"; 		capitals[3]="Belmopán";
-		countries[4]="Costa Rica"; 	capitals[4]="San José";
-		countries[5]="El Salvador"; 	capitals[5]="San Salvador";
-		countries[6]="Guatemala"; 		capitals[6]="Ciudad de Guatemala";
-		countries[7]="Honduras"; 		capitals[7]="Tegucigalpa";
-		countries[8]="Nicaragua"; 		capitals[8]="Managua";
-		countries[9]="Panamá"; 		capitals[9]="Panamá";
-		countries[10]="Argentina"; 	capitals[10]="Buenos Aires";
-		countries[11]="Bolivia"; 		capitals[11]="Sucre";
-		countries[12]="Brasil"; 		capitals[12]="Brasilia";
-		countries[13]="Chile"; 		capitals[13]="Santiago de Chile";
-		countries[14]="Colombia"; 		capitals[14]="Bogotá";
-		countries[15]="Ecuador"; 		capitals[15]="Quito";
-		countries[16]="Guyana"; 		capitals[16]="Georgetown";
-		countries[17]="Paraguay"; 		capitals[17]="Asunción";
-		countries[18]="Perú"; 			capitals[18]="Lima";
-		countries[19]="Surinam"; 		capitals[19]="Paramaribo";
-		countries[20]="Uruguay"; 		capitals[20]="Montevideo";
-		countries[21]="Venezuela"; 	capitals[21]="Caracas";
-	}
-
-	if(level === HARD_LEVEL){
-		countries[0]="Canadá"; 		capitals[0]="Ottawa";
-		countries[1]="Estados Unidos"; capitals[1]="Washington D. C.";
-		countries[2]="México"; 		capitals[2]="Ciudad de México";
-		countries[3]="Belice"; 		capitals[3]="Belmopán";
-		countries[4]="Costa Rica"; 	capitals[4]="San José";
-		countries[5]="El Salvador"; 	capitals[5]="San Salvador";
-		countries[6]="Guatemala"; 		capitals[6]="Ciudad de Guatemala";
-		countries[7]="Honduras"; 		capitals[7]="Tegucigalpa";
-		countries[8]="Nicaragua"; 		capitals[8]="Managua";
-		countries[9]="Panamá"; 		capitals[9]="Panamá";
-		countries[10]="Argentina"; 	capitals[10]="Buenos Aires";
-		countries[11]="Bolivia"; 		capitals[11]="Sucre";
-		countries[12]="Brasil"; 		capitals[12]="Brasilia";
-		countries[13]="Chile"; 		capitals[13]="Santiago de Chile";
-		countries[14]="Colombia"; 		capitals[14]="Bogotá";
-		countries[15]="Ecuador"; 		capitals[15]="Quito";
-		countries[16]="Guyana"; 		capitals[16]="Georgetown";
-		countries[17]="Paraguay"; 		capitals[17]="Asunción";
-		countries[18]="Perú"; 			capitals[18]="Lima";
-		countries[19]="Surinam"; 		capitals[19]="Paramaribo";
-		countries[20]="Uruguay"; 		capitals[20]="Montevideo";
-		countries[21]="Venezuela"; 	capitals[21]="Caracas";
-		countries[22]="Antigua y Barbuda"; capitals[22]="Saint John’s";
-		countries[23]="Bahamas"; 		capitals[23]="Nasáu";
-		countries[24]="Barbados"; 		capitals[24]="Bridgetown";
-		countries[25]="Cuba"; 			capitals[25]="La Habana";
-		countries[26]="Dominica";	 	capitals[26]="Roseau";
-		countries[27]="Granada"; 		capitals[27]="Saint George";
-		countries[28]="Haití"; 		capitals[28]="Puerto Príncipe";
-		countries[29]="Jamaica"; 		capitals[29]="Kingston";
-		countries[30]="República Dominicana"; 			capitals[30]="Santo Domingo";
-		countries[31]="San Cristóbal y Nieves"; 		capitals[31]="Basseterre";
-		countries[32]="San Vicente y las Granadinas"; 	capitals[32]="Kingstown";
-		countries[33]="Santa Lucía"; 					capitals[33]="Castries";
-		countries[34]="Trinidad y Tobago"; 			capitals[34]="Puerto España";
-	}
-
+	countries[0]="Canadá"; 		capitals[0]="Ottawa";
+	countries[1]="Estados Unidos"; capitals[1]="Washington D. C.";
+	countries[2]="México"; 		capitals[2]="Ciudad de México";
+	countries[3]="Belice"; 		capitals[3]="Belmopán";
+	countries[4]="Costa Rica"; 	capitals[4]="San José";
+	countries[5]="El Salvador"; 	capitals[5]="San Salvador";
+	countries[6]="Guatemala"; 		capitals[6]="Ciudad de Guatemala";
+	countries[7]="Honduras"; 		capitals[7]="Tegucigalpa";
+	countries[8]="Nicaragua"; 		capitals[8]="Managua";
+	countries[9]="Panamá"; 		capitals[9]="Panamá";
+	countries[10]="Argentina"; 	capitals[10]="Buenos Aires";
+	countries[11]="Bolivia"; 		capitals[11]="Sucre";
+	countries[12]="Brasil"; 		capitals[12]="Brasilia";
+	countries[13]="Chile"; 		capitals[13]="Santiago de Chile";
+	countries[14]="Colombia"; 		capitals[14]="Bogotá";
+	countries[15]="Ecuador"; 		capitals[15]="Quito";
+	countries[16]="Guyana"; 		capitals[16]="Georgetown";
+	countries[17]="Paraguay"; 		capitals[17]="Asunción";
+	countries[18]="Perú"; 			capitals[18]="Lima";
+	countries[19]="Surinam"; 		capitals[19]="Paramaribo";
+	countries[20]="Uruguay"; 		capitals[20]="Montevideo";
+	countries[21]="Venezuela"; 	capitals[21]="Caracas";
+	countries[22]="Antigua y Barbuda"; capitals[22]="Saint John’s";
+	countries[23]="Bahamas"; 		capitals[23]="Nasáu";
+	countries[24]="Barbados"; 		capitals[24]="Bridgetown";
+	countries[25]="Cuba"; 			capitals[25]="La Habana";
+	countries[26]="Dominica";	 	capitals[26]="Roseau";
+	countries[27]="Granada"; 		capitals[27]="Saint George";
+	countries[28]="Haití"; 		capitals[28]="Puerto Príncipe";
+	countries[29]="Jamaica"; 		capitals[29]="Kingston";
+	countries[30]="República Dominicana"; 			capitals[30]="Santo Domingo";
+	countries[31]="San Cristóbal y Nieves"; 		capitals[31]="Basseterre";
+	countries[32]="San Vicente y las Granadinas"; 	capitals[32]="Kingstown";
+	countries[33]="Santa Lucía"; 					capitals[33]="Castries";
+	countries[34]="Trinidad y Tobago"; 			capitals[34]="Puerto España";
 
 	totalCountries = countries.length;
 
