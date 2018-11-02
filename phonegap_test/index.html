@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script src="myScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+
+<body>
+
+	<div class="titleBar">
+		<div class="backButton" id="backButton" onclick="backButton()">&nbsp;</div>
+		<div class="titleApp" id="titleApp">COTORRA QUIZ</div>
+		<div class="startButton" id="startButton" onclick="startButton()">&nbsp;</div>
+	</div>
+
+	<div class="menuButtons" id="menuButtons">
+		<div class="menuButton_"><div class="menuButton1" onclick="buttonARITMETICA()">ARIT</div></div>
+		<div class="menuButton_"><div class="menuButton2" onclick="menuButtonGeom()">GEOM</div></div>
+		<div class="menuButton_"><div class="menuButton3">SERI</div></div>
+		<div class="menuButton_"><div class="menuButton4">COMB</div></div>
+	</div>
+
+	<div class="subTitleBar" id="subTitleBar">
+		<div class="mistakes" id="mistakes" >3</div>
+		<div class="selQuizButton_"><div class="selQuizButton" id="selQuizButton" onclick="selQuizButton()">TODO</div></div>
+		<div class="selLevelButton_"><div class="selLevelButton" id="selLevelButton" onclick="selLevelButton()">NORMAL</div></div>
+		<div class="success" id="success">99</div>
+	</div>
+
+	<div class="aritQuiz" id="aritQuiz">
+		<div class="theQuestion_"><div class="theQuestion" id="theQuestion" >123 + 123</div></div>
+		<div class="ansButton_"><div class="ansButton1" id="ansButton1" onclick="ansButton1()">111</div></div>
+		<div class="ansButton_"><div class="ansButton2" id="ansButton2" onclick="ansButton2()">222</div></div>
+		<div class="ansButton_"><div class="ansButton3" id="ansButton3" onclick="ansButton3()">333</div></div>
+		<div class="ansButton_"><div class="ansButton4" id="ansButton4" onclick="ansButton4()">444</div></div>
+		<div class="ansButton_"><div class="ansButton5" id="ansButton5" onclick="ansButton3()">333</div></div>
+		<div class="ansButton_"><div class="ansButton6" id="ansButton6" onclick="ansButton4()">NINGUNO</div></div>
+	</div>
+
+
+</body>
+</html>

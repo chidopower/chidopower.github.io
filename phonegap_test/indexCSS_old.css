@@ -1,0 +1,853 @@
+
+@font-face {
+  font-family: "Abel";
+  src: url(./myFonts/Abel-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url(./myFonts/JosefinSans-Regular.ttf) format("truetype");
+}
+
+
+body{
+
+	background: #80d6ff;
+	font-family: 'Josefin Sans';
+}
+
+b{color: #ec407a;}
+
+*{
+    box-sizing: border-box;
+}
+
+.title{
+	text-align: center;
+	font-size: 300%;
+	padding: 10px;
+	color: white;
+	background: #0077c2;
+	border-radius: 25px 25px 0px 0px;
+	font-family: 'Josefin Sans';
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+}
+
+.workDiv{
+	float: left;
+	width: 70%;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+
+/************************** MENU *****************************/
+
+
+.menuDiv{
+	float: left;
+	width: 30%;
+	text-align: center;
+	font-size: 100%;
+    border-radius: 10px;
+    padding: 1px;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+select{
+	width: 48%;
+	font-size: 150%;
+	border-radius: 10px;
+	text-align: center;
+	padding: 5px;
+}
+
+select:hover {cursor: pointer; font-weight: bold;}
+
+/************************** BUTTONS *****************************/
+
+
+.startButton{
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 5px 30px 5px 30px;
+    font-size: 150%;
+}
+
+.startButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.startButton:active {background-color: #ffa0c0; color: black;}
+
+.learnNextButton{
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 5px 5px 25px 25px;
+    font-size: 150%;
+}
+
+.learnNextButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.learnNextButton:active {background-color: #ffa0c0; color: black;}
+
+
+.correctTheTabNextButton{
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 5px 5px 25px 25px;
+    font-size: 150%;
+}
+
+.correctTheTabNextButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.correctTheTabNextButton:active {background-color: #ffa0c0; color: black;}
+
+.falseButton_,
+.trueButton_{
+	float: left;
+	width: 50%;
+}
+
+.falseButton{
+	float: right;
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 25px 5px 5px 25px;
+    font-size: 300%;
+    display: inline;
+    margin: 10px;
+}
+
+.falseButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.falseButton:active {background-color: #ffa0c0; color: black;}
+
+.trueButton{
+	float: left;
+    margin: auto;
+    width: 30%;
+    background: #ec407a;
+    border: 3px solid #ec407a;
+    padding: 10px;
+    border-radius: 5px 25px 25px 5px;
+    font-size: 300%;
+    display: inline;
+    margin: 10px;
+}
+
+.trueButton:hover {color: white; cursor: pointer; font-weight: bold;}
+.trueButton:active {background-color: #ffa0c0; color: black;}
+
+/**************************** LEARN TABLE ************************/
+
+.learnTab{
+	float: left;
+	width: 100%;
+	display: none;
+	//border: dotted 4px #ec407a;
+	//border-radius: 25px 25px 25px 25px;
+}
+
+.learnTabRow{
+	float: left;
+	width: 100%;
+}
+
+.learnTab00{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.learnTab01{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.learnTab10,
+.learnTab20,
+.learnTab30{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.learnTab11,
+.learnTab21,
+.learnTab31{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.learnTab40{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.learnTab41{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.learnTab10:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab20:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab30:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab40:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab11:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab21:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab31:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.learnTab41:hover {background-color: #ec407a;color: white; cursor: pointer;}
+
+/**************************** FALSE OR TRUE TABLE ************************/
+
+.quizFalseOrTrueTab{
+	float: left;
+	width: 100%;
+	display: none;
+}
+
+.quizFalseOrTrueTabRow{
+	float: left;
+	width: 100%;
+}
+
+.quizFalseOrTrueTab00{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.quizFalseOrTrueTab01{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.quizFalseOrTrueTab10,
+.quizFalseOrTrueTab20,
+.quizFalseOrTrueTab30{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFalseOrTrueTab11,
+.quizFalseOrTrueTab21,
+.quizFalseOrTrueTab31{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFalseOrTrueTab40{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFalseOrTrueTab41{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+/***************************** FIND THE TRUE TABLE ****************************/
+
+.quizFindTheTrueTab{
+	float: left;
+	width: 100%;
+	display: none;
+}
+
+.quizFindTheTrueTabRow,
+.quizFindTheTrueTabRow0,
+.quizFindTheTrueTabRow1,
+.quizFindTheTrueTabRow2,
+.quizFindTheTrueTabRow3,
+.quizFindTheTrueTabRow4{
+	float: left;
+	width: 100%;
+}
+
+.quizFindTheTrueTabRow1:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+.quizFindTheTrueTabRow2:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+.quizFindTheTrueTabRow3:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+.quizFindTheTrueTabRow4:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+
+.quizFindTheTrueTab00{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.quizFindTheTrueTab01{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.quizFindTheTrueTab10,
+.quizFindTheTrueTab20,
+.quizFindTheTrueTab30{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheTrueTab11,
+.quizFindTheTrueTab21,
+.quizFindTheTrueTab31{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheTrueTab40{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheTrueTab41{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+/***************************** FIND THE FALSE TABLE ****************************/
+
+.quizFindTheFalseTab{
+	float: left;
+	width: 100%;
+	display: none;
+}
+
+.quizFindTheFalseTabRow,
+.quizFindTheFalseTabRow0,
+.quizFindTheFalseTabRow1,
+.quizFindTheFalseTabRow2,
+.quizFindTheFalseTabRow3,
+.quizFindTheFalseTabRow4{
+	float: left;
+	width: 100%;
+}
+
+.quizFindTheFalseTabRow1:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+.quizFindTheFalseTabRow2:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+.quizFindTheFalseTabRow3:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+.quizFindTheFalseTabRow4:hover {color: #ec407a; cursor: pointer; font-weight: bold;}
+
+.quizFindTheFalseTab00{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.quizFindTheFalseTab01{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.quizFindTheFalseTab10,
+.quizFindTheFalseTab20,
+.quizFindTheFalseTab30{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheFalseTab11,
+.quizFindTheFalseTab21,
+.quizFindTheFalseTab31{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheFalseTab40{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizFindTheFalseTab41{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	//color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+
+/**************************** CORRECT THE TABLE ************************/
+
+.quizCorrectTheTab{
+	float: left;
+	width: 100%;
+	display: none;
+}
+
+.quizCorrectTheTabRow{
+	float: left;
+	width: 100%;
+}
+
+.quizCorrectTheTab00{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.quizCorrectTheTab01{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 200%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.quizCorrectTheTab10,
+.quizCorrectTheTab20{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizCorrectTheTab11,
+.quizCorrectTheTab21{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizCorrectTheTab30{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizCorrectTheTab31{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quizCorrectTheTab10:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quizCorrectTheTab20:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quizCorrectTheTab30:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quizCorrectTheTab11:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quizCorrectTheTab21:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.quizCorrectTheTab31:hover {background-color: #ec407a;color: white; cursor: pointer;}
+
+
+/************************************* Quiz 5 *********************************/
+.quiz5Tab{
+	float: left;
+	width: 100%;
+	display: none;
+}
+
+.quiz5TabRow{
+	float: left;
+	width: 100%;
+}
+
+.quiz5TabQuestion{
+	float: left;
+	width: 100%;
+	text-align: center;
+	color: black;
+	background: #42a5f5;
+	font-size: 300%;
+	padding: 5px;
+	border-radius: 25px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+}
+
+.quiz5Tab00,
+.quiz5Tab10{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quiz5Tab01,
+.quiz5Tab11{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-color: #80d6ff;
+	border-bottom: solid #80d6ff;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quiz5Tab20{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+}
+
+.quiz5Tab21{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 200%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+
+.quiz5Tab00:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
+.quiz5Tab10:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
+.quiz5Tab20:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
+.quiz5Tab01:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
+.quiz5Tab11:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
+.quiz5Tab21:hover {background-color: #ec407a;color: white; cursor: pointer; font-weight: bold;}
+
+
+/**************************** INFO TABLE ************************/
+
+.infoTab_{
+	float:left;
+	width: 100%;
+	border-left: solid 30px #80d6ff;
+	border-right: solid 30px #80d6ff;
+	display: none;
+}
+
+.infoTab{
+	float: left;
+	width: 100%;
+	display: block;
+}
+
+.infoTabRow{
+	float: left;
+	width: 100%;
+}
+.infoTabRow_{
+	float: left;
+	width: 100%;
+	height: 10px;
+}
+
+
+.infoTabSuccessTitle{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 100%;
+	padding: 5px;
+	border-radius: 25px 0px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-right: solid 3px #80d6ff;
+}
+
+.infoTabMistakesTitle{
+	float: left;
+	width: 50%;
+	color: black;
+	background: #42a5f5;
+	font-size: 100%;
+	padding: 5px;
+	border-radius: 0px 25px 0px 0px;
+	font-family: 'Abel';
+	font-weight: bold;
+	text-align: center;
+	border-left: solid 3px #80d6ff;
+}
+
+.infoTabSuccess{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 150%;
+	color: #0077c2;
+	background: #FFFFFF;
+	border-radius: 0px 0px 0px 25px;
+	border-right: solid 3px #80d6ff;
+	text-align: center;
+	margin: auto;
+}
+
+.infoTabMistakes{
+	float: left;
+	width: 50%;
+	padding: 10px;
+	font-size: 150%;
+	color: #ec407a;
+	background: #FFFFFF;
+	border-radius: 0px 0px 25px 0px;
+	border-left: solid 3px #80d6ff;
+	text-align: center;
+}
+
+
+.row:after {
+    content: "";
+    display: learnTable;
+    clear: both;
+}
+
+/******************************* RESPONSIVE ***********************************/
+@media (max-width: 1000px) {
+    .menuDiv{width: 100%; text-align: center;}
+    .workDiv{width: 100%; text-align: center;}
+    .infoTab_{border-left: solid 200px #80d6ff; border-right: solid 200px #80d6ff;}
+}
+
+

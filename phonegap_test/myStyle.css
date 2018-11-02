@@ -1,0 +1,289 @@
+
+@font-face {
+  font-family: "Abel";
+  src: url(./myFonts/Abel-Regular.ttf) format("truetype");
+}
+
+body{
+
+	background: #80d6ff;
+
+	        -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+b{color: #ec407a;}
+
+*{
+    box-sizing: border-box;
+}
+
+/******************************* TITLE BAR **********************************/
+
+.titleBar{
+	float: left;
+	width: 100%;
+    //padding: 10px;
+    //border: solid;
+
+}
+
+.backButton{
+	float: left;
+	width: 10%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 200%;
+	font-weight: bold;
+	background: #42a5f5;
+}
+
+.startButton{
+	float: left;
+	width: 10%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 200%;
+	font-weight: bold;
+	background: #42a5f5;
+}
+
+.titleApp{
+	float: left;
+	width: 80%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 200%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+}
+
+.startButton:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.startButton:active {background-color: #ffa0c0; color: black;}
+.backButton:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.backButton:active {background-color: #ffa0c0; color: black;}
+
+
+/***************************** SUB TITLE BAR **********************************/
+
+.subTitleBar{
+	float: left;
+	width: 100%;
+    //padding: 5px;
+    //border: solid;
+    display: none;
+}
+
+.mistakes{
+	float: left;
+	width: 10%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 150%;
+	font-weight: bold;
+	//background: #42a5f5;
+}
+
+.success{
+	float: left;
+	width: 10%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 150%;
+	font-weight: bold;
+	//background: #42a5f5;
+}
+
+.selQuizButton_,
+.selLevelButton_{
+	float: left;
+	width: 40%;
+	padding: 5px;
+}
+
+.selQuizButton{
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 150%;
+	font-weight: bold;
+	background: #42a5f5;
+}
+
+.selLevelButton{
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 150%;
+	font-weight: bold;
+	background: #42a5f5;
+}
+
+.selQuizButton:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.selQuizButton:active {background-color: #ffa0c0; color: black;}
+.selLevelButton:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.selLevelButton:active {background-color: #ffa0c0; color: black;}
+
+
+/***************************** MENU BUTTONS **********************************/
+
+.menuButtons{
+	float: left;
+	width: 100%;
+    padding: 10px;
+    //border: solid;
+    display: block;
+}
+
+.menuButton_{
+
+	float: left;
+	width: 50%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 150%;
+	font-weight: bold;
+	//background: #42a5f5;
+	//color: white;
+	margin: auto;
+
+}
+
+
+.menuButton1,
+.menuButton2,
+.menuButton3,
+.menuButton4{
+
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 50px;
+	font-family: "Abel";
+	font-size: 300%;
+	font-weight: bold;
+	background: #42a5f5;
+	//color: white;
+	//margin: auto;
+
+}
+
+.menuButton1:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.menuButton1:active {background-color: #ffa0c0; color: black;}
+.menuButton2:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.menuButton2:active {background-color: #ffa0c0; color: black;}
+.menuButton3:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.menuButton3:active {background-color: #ffa0c0; color: black;}
+.menuButton4:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.menuButton4:active {background-color: #ffa0c0; color: black;}
+
+
+
+/***************************** ARIT QUIZ BUTTONS ******************************/
+
+.aritQuiz{
+	float: left;
+	width: 100%;
+    padding: 10px;
+    //border: solid;
+    display: none;
+}
+
+.theQuestion{
+
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 100px;
+	font-family: "Abel";
+	font-size: 500%;
+	font-weight: bold;
+	background: #F2EDBA;
+	color: black;
+	margin: auto;
+
+}
+.theQuestion_{
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 4px;
+	//background: #42a5f5;
+	//color: white;
+}
+
+.ansButton_{
+	float: left;
+	width: 50%;
+	//border: solid;
+	text-align: center;
+	padding: 4px;
+	//background: #42a5f5;
+	//color: white;
+}
+
+
+.ansButton1,
+.ansButton2,
+.ansButton3,
+.ansButton4,
+.ansButton5,
+.ansButton6{
+
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Abel";
+	font-size: 500%;
+	font-weight: bold;
+	background: #42a5f5;
+	//color: white;
+	//margin: auto;
+
+}
+
+.ansButton1:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.ansButton1:active {background-color: #ffa0c0; color: black;}
+.ansButton2:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.ansButton2:active {background-color: #ffa0c0; color: black;}
+.ansButton3:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.ansButton3:active {background-color: #ffa0c0; color: black;}
+.ansButton4:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.ansButton4:active {background-color: #ffa0c0; color: black;}
+.ansButton5:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.ansButton5:active {background-color: #ffa0c0; color: black;}
+.ansButton6:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.ansButton6:active {background-color: #ffa0c0; color: black;}
+
+
+/******************************* RESPONSIVE ***********************************/
+@media (max-width: 1000px) {
+}
+
+
