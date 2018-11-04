@@ -8,11 +8,38 @@
 
 <body>
 
+<!--
 	<div class="titleBar">
-		<div class="backButton" id="backButton" onclick="backButton()">&nbsp;</div>
+		<div class="buttonBack" id="buttonBack" onclick="buttonBack()">&nbsp;</div>
 		<div class="titleApp" id="titleApp">COTORRA QUIZ</div>
-		<div class="reStartButton" id="reStartButton" onclick="reStartButton()">&nbsp;</div>
+		<div class="buttonReStart" id="buttonReStart" onclick="buttonReStart()">&nbsp;</div>
 	</div>
+-->
+
+
+	<div class="titleBar" id="titleBar">
+		<div class="titleApp" id="titleApp">COTORRA QUIZ</div>
+	</div>
+
+	<div class="subTitleBar" id="subTitleBar">
+		<div class="subTitleBarLeft">
+			<div class="buttonBack" onclick="buttonBack()"><<<</div>
+		</div>
+		<div class="subTitleBarCenter">
+			<div class="selQuizButton" id="selQuizButton" onclick="selQuizButton()"></div>
+		</div>
+		<div class="subTitleBarRight">
+			<div class="buttonReStart" id="buttonReStart" onclick="buttonReStart()">R</div>
+		</div>
+	</div>
+
+
+	<div class="scoreBAR" id="scoreBAR">
+		<div class="mistakes" id="mistakes">&nbsp;</div>
+		<div class="relleno" id="relleno">&nbsp;</div>
+		<div class="success" id="success">&nbsp;</div>
+	</div>
+
 
 	<div class="menuButtons" id="menuButtons">
 		<div class="menuButton_"><div class="menuButton1" onclick="buttonARITMETICA()">ARIT</div></div>
@@ -21,21 +48,16 @@
 		<div class="menuButton_"><div class="menuButton4">COMB</div></div>
 	</div>
 
-	<div class="subTitleBar" id="subTitleBar">
-		<div class="mistakes" id="mistakes" >0</div>
-		<div class="selQuizButton_"><div class="selQuizButton" id="selQuizButton" onclick="selQuizButton()">TODO</div></div>
-		<div class="selLevelButton_"><div class="selLevelButton" id="selLevelButton" onclick="selLevelButton()">NORMAL</div></div>
-		<div class="success" id="success">0</div>
-	</div>
 
-	<div class="aritQuiz" id="aritQuiz">
+
+	<div class="aritmeticaArea" id="aritmeticaArea">
 		<div class="theQuestion_"><div class="theQuestion" id="theQuestion" >123 + 123</div></div>
-		<div class="ansButton_"><div class="ansButton1" id="ansButton1" onclick="ansButton1()">111</div></div>
-		<div class="ansButton_"><div class="ansButton2" id="ansButton2" onclick="ansButton2()">222</div></div>
-		<div class="ansButton_"><div class="ansButton3" id="ansButton3" onclick="ansButton3()">333</div></div>
-		<div class="ansButton_"><div class="ansButton4" id="ansButton4" onclick="ansButton4()">444</div></div>
-		<div class="ansButton_"><div class="ansButton5" id="ansButton5" onclick="ansButton5()">333</div></div>
-		<div class="ansButton_"><div class="ansButton6" id="ansButton6" onclick="ansButton6()">NINGUNO</div></div>
+		<div class="buttonAns_"><div class="buttonAns1" id="buttonAns1" onclick="buttonAns1()">111</div></div>
+		<div class="buttonAns_"><div class="buttonAns2" id="buttonAns2" onclick="buttonAns2()">222</div></div>
+		<div class="buttonAns_"><div class="buttonAns3" id="buttonAns3" onclick="buttonAns3()">333</div></div>
+		<div class="buttonAns_"><div class="buttonAns4" id="buttonAns4" onclick="buttonAns4()">444</div></div>
+		<div class="buttonAns_"><div class="buttonAns5" id="buttonAns5" onclick="buttonAns5()">333</div></div>
+		<div class="buttonAns_"><div class="buttonAns6" id="buttonAns6" onclick="buttonAns6()">NINGUNO</div></div>
 	</div>
 
 

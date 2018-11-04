@@ -14,14 +14,6 @@ var A,B,C,D,E,R,ANS;
 
 var usrAns;
 var rightAns;
-var mistakes;
-var success;
-
-//------------------------------------------------------------------------------
-function intRand0(min, max) {
-	var R = Math.floor(Math.random() * (max - min + 1) ) + min;
-    return R;
-}
 
 //------------------------------------------------------------------------------
 function intRand(min, max) {
@@ -38,20 +30,9 @@ function intRand(min, max) {
 }
 
 //------------------------------------------------------------------------------
-function coin(){
-	return intRand(1,2);
-}
-
-//------------------------------------------------------------------------------
-function D6(){
-	return intRand(1,6);
-}
-
-
-//------------------------------------------------------------------------------
 function selQuizButton(){
 
-	if(iSelQuiz === 10)
+	if(iSelQuiz === 5)
 		iSelQuiz = 0;
 	else
 		iSelQuiz +=1;
@@ -59,47 +40,58 @@ function selQuizButton(){
 	document.getElementById("selQuizButton").innerHTML = selQuiz[iSelQuiz];
 
 	resetScore();
-	updateScore();
+	showScore();
 	play();
 
 }
 
+//------------------------------------------------------------------------------
+function selLevelButton(){
 
+	if(iSelLevel === 2)
+		iSelLevel = 0;
+	else
+		iSelLevel +=1;
+
+	document.getElementById("selLevelButton").innerHTML = selLevel[iSelLevel];
+	
+	resetScore();
+	showScore();
+	play();
+
+}
 
 //------------------------------------------------------------------------------
 function buttonARITMETICA(){
 
-	if(DEBUG==="YES")console.log("buttonARITMETICA()");
-
-	selQuiz[0] = "ARITMETICA";
+	selQuiz[0] = "TODO";
 	selQuiz[1] = "SUMAR";
 	selQuiz[2] = "RESTAR";
 	selQuiz[3] = "MULTIPLICAR";
 	selQuiz[4] = "DIVIDIR";
 	selQuiz[5] = "RESIDUO";
-	selQuiz[6] = "CUADRADO";
-	selQuiz[7] = "CUBO";
-	selQuiz[8] = "RAIZ 2";
-	selQuiz[9] = "RAIZ 3";
-	selQuiz[10] = "POTENCIA 2";
 
-	iAmIn = "ARITMETICA";
-	iSelQuiz = 0;
+	selLevel[0] = "FACIL";
+	selLevel[1] = "NORMAL";
+	selLevel[2] = "DIFICIL";
+
+	if(DEBUG==="YES")console.log("buttonARITMETICA()");
+	iAmIn = "ARIT";
 	clearScreen();
-	showSubTitleBar();
-	showScoreBar();
-	showAritmeticaArea();
+	iSelLevel = 0;
+	iSelQuiz = 0;
+	setTitle();
 	resetScore();
-	updateScore();
+	showScore();
 	play();
 
 }
 
 //------------------------------------------------------------------------------
-function buttonReStart(){
+function reStartButton(){
 
 	resetScore();
-	updateScore();
+	showScore();
 	play();
 
 }
@@ -108,11 +100,11 @@ function buttonReStart(){
 function play(){
 
 	if(DEBUG==="YES")
-		console.log("play()", selQuiz[iSelQuiz]);
+		console.log("play()", selQuiz[iSelQuiz], selLevel[iSelLevel]);
 		
-	updateScore();
+	showScore();
 
-	if(iAmIn === "ARITMETICA")
+	if(iAmIn === "ARIT")
 		playARITMETICA();
 
 }
@@ -121,14 +113,14 @@ function play(){
 
 //------------------------------------------------------------------------------
 function resetScore(){
+
 	success = 0;
 	mistakes = 0;
+
 }
 
 //------------------------------------------------------------------------------
-function updateScore(){
-	
-	console.log("MISTAKES & SUCCES", mistakes, success);
+function showScore(){
 	
 	document.getElementById("mistakes").innerHTML = "&#10008; " + mistakes;
 	document.getElementById("success").innerHTML = "&#10004; "+ success;
@@ -140,22 +132,22 @@ function checkAns(){
 
 	if(usrAns === rightAns){
 		success += 1;
-		updateScore();
+		showScore();
 		play();
 	}else{
 		mistakes += 1;
-		updateScore();
+		showScore();
 	}
 	
 }
 
 //------------------------------------------------------------------------------
-function buttonAns1(){usrAns = 1; checkAns();}
-function buttonAns2(){usrAns = 2; checkAns();}
-function buttonAns3(){usrAns = 3; checkAns();}
-function buttonAns4(){usrAns = 4; checkAns();}
-function buttonAns5(){usrAns = 5; checkAns();}
-function buttonAns6(){usrAns = 6; checkAns();}
+function ansButton1(){usrAns = 1; checkAns();}
+function ansButton2(){usrAns = 2; checkAns();}
+function ansButton3(){usrAns = 3; checkAns();}
+function ansButton4(){usrAns = 4; checkAns();}
+function ansButton5(){usrAns = 5; checkAns();}
+function ansButton6(){usrAns = 6; checkAns();}
 
 
 
@@ -163,110 +155,109 @@ function buttonAns6(){usrAns = 6; checkAns();}
 //------------------------------------------------------------------------------
 function playARITMETICA(){
 	
-	if(DEBUG==="YES")console.log("playARITMETICA()");
-	
 	var showButtons = "NO";
 	var rnd;
-	var theQuiz;
 
-	if(selQuiz[iSelQuiz] === "ARITMETICA"){
-		rnd = intRand(1,10);
-		if(rnd === 1) {theQuiz = "SUMAR"; playSUMAR();}
-		if(rnd === 2) {theQuiz = "RESTAR"; playRESTAR();}
-		if(rnd === 3) {theQuiz = "MULTIPLICAR"; playMULTIPLICAR();}
-		if(rnd === 4) {theQuiz = "DIVIDIR"; playDIVIDIR();}
-		if(rnd === 5) {theQuiz = "RESIDUO"; playRESIDUO();}
-		if(rnd === 6) {theQuiz = "CUADRADO"; playCUADRADO();}
-		if(rnd === 7) {theQuiz = "CUBO"; playCUBO();}
-		if(rnd === 8) {theQuiz = "RAIZ 2"; playRAIZ2();}
-		if(rnd === 9) {theQuiz = "RAIZ 3"; playRAIZ3();}
-		if(rnd === 10) {theQuiz = "POTENCIA 2"; playPOTENCIA2();}
+	if(DEBUG==="YES")console.log("playARITMETICA()");
+
+	if(selQuiz[iSelQuiz] === "TODO"){
+		rnd = intRand(1,5);
+		if(rnd === 1) playSUMAR();
+		if(rnd === 2) playRESTAR();
+		if(rnd === 3) playMULTIPLICAR();
+		if(rnd === 4) playDIVIDIR();
+		if(rnd === 5) playRESIDUO();
 		showButtons = "YES";
 	}
 	
 
-	if(selQuiz[iSelQuiz]==="SUMAR"){theQuiz="SUMAR";playSUMAR();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="RESTAR"){theQuiz="RESTAR";playRESTAR();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="MULTIPLICAR"){theQuiz="MULTIPLICAR";playMULTIPLICAR();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="DIVIDIR"){theQuiz="DIVIDIR";playDIVIDIR();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="RESIDUO"){theQuiz="RESIDUO";playRESIDUO();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="CUADRADO"){theQuiz="CUADRADO";playCUADRADO();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="CUBO"){theQuiz="CUBO";playCUBO();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="RAIZ 2"){theQuiz="RAIZ 2";playRAIZ2();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="RAIZ 3"){theQuiz="RAIZ 3";playRAIZ3();showButtons="YES";}
-	if(selQuiz[iSelQuiz]==="POTENCIA 2"){theQuiz="POTENCIA 2";playPOTENCIA2();showButtons="YES";}
+	if(selQuiz[iSelQuiz] === "SUMAR"){
+		playSUMAR();
+		showButtons = "YES";
+	}
+
+	if(selQuiz[iSelQuiz] === "RESTAR"){
+		playRESTAR();
+		showButtons = "YES";
+	}	
+
+	if(selQuiz[iSelQuiz] === "MULTIPLICAR"){
+		playMULTIPLICAR();
+		showButtons = "YES";
+	}
+
+	if(selQuiz[iSelQuiz] === "DIVIDIR"){
+		playDIVIDIR();
+		showButtons = "YES";
+	}
+
+	if(selQuiz[iSelQuiz] === "RESIDUO"){
+		playRESIDUO();
+		showButtons = "YES";
+	}
+
 
 	if(showButtons === "YES"){
 		
-		document.getElementById("aritmeticaArea").style.display = "block";
+		document.getElementById("aritQuiz").style.display = "block";
 
-		if(theQuiz === "CUADRADO" || theQuiz === "CUBO")
-			document.getElementById("theQuestion").innerHTML = A + OP;
-			
-		else if(theQuiz === "RAIZ 2" || theQuiz === "RAIZ 3")
-			document.getElementById("theQuestion").innerHTML = OP + A;
-			
-		else if(theQuiz === "POTENCIA 2")
-			document.getElementById("theQuestion").innerHTML = 2 + OP;
-		
-		else
-			document.getElementById("theQuestion").innerHTML = A + " " + OP + " "+ B;
+		document.getElementById("theQuestion").innerHTML = A + " " + OP + " "+ B;
 
 		rightAns = intRand(1,6);
 
 		if(rightAns === 1){
 			if(DEBUG==="YES") console.log("ANS:",ANS);
-			document.getElementById("buttonAns1").innerHTML = ANS;
-			document.getElementById("buttonAns2").innerHTML = fakeANS[0];
-			document.getElementById("buttonAns3").innerHTML = fakeANS[1];
-			document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-			document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+			document.getElementById("ansButton1").innerHTML = ANS;
+			document.getElementById("ansButton2").innerHTML = fakeANS[0];
+			document.getElementById("ansButton3").innerHTML = fakeANS[1];
+			document.getElementById("ansButton4").innerHTML = fakeANS[2];
+			document.getElementById("ansButton5").innerHTML = fakeANS[3];
+			document.getElementById("ansButton6").innerHTML = "NINGUNA";}
 
 		if(rightAns === 2){
 			if(DEBUG==="YES") console.log("ANS:",ANS);
-			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-			document.getElementById("buttonAns2").innerHTML = ANS;
-			document.getElementById("buttonAns3").innerHTML = fakeANS[1];
-			document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-			document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+			document.getElementById("ansButton1").innerHTML = fakeANS[0];
+			document.getElementById("ansButton2").innerHTML = ANS;
+			document.getElementById("ansButton3").innerHTML = fakeANS[1];
+			document.getElementById("ansButton4").innerHTML = fakeANS[2];
+			document.getElementById("ansButton5").innerHTML = fakeANS[3];
+			document.getElementById("ansButton6").innerHTML = "NINGUNA";}
 
 		if(rightAns === 3){
 			if(DEBUG==="YES") console.log("ANS:",ANS);
-			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-			document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-			document.getElementById("buttonAns3").innerHTML = ANS;
-			document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-			document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+			document.getElementById("ansButton1").innerHTML = fakeANS[0];
+			document.getElementById("ansButton2").innerHTML = fakeANS[1];
+			document.getElementById("ansButton3").innerHTML = ANS;
+			document.getElementById("ansButton4").innerHTML = fakeANS[2];
+			document.getElementById("ansButton5").innerHTML = fakeANS[3];
+			document.getElementById("ansButton6").innerHTML = "NINGUNA";}
 
 		if(rightAns === 4){
 			if(DEBUG==="YES") console.log("ANS:",ANS);
-			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-			document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-			document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-			document.getElementById("buttonAns4").innerHTML = ANS;
-			document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+			document.getElementById("ansButton1").innerHTML = fakeANS[0];
+			document.getElementById("ansButton2").innerHTML = fakeANS[1];
+			document.getElementById("ansButton3").innerHTML = fakeANS[2];
+			document.getElementById("ansButton4").innerHTML = ANS;
+			document.getElementById("ansButton5").innerHTML = fakeANS[3];
+			document.getElementById("ansButton6").innerHTML = "NINGUNA";}
 
 		if(rightAns === 5){
 			if(DEBUG==="YES") console.log("ANS:",ANS);
-			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-			document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-			document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-			document.getElementById("buttonAns4").innerHTML = fakeANS[3];
-			document.getElementById("buttonAns5").innerHTML = ANS;
-			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+			document.getElementById("ansButton1").innerHTML = fakeANS[0];
+			document.getElementById("ansButton2").innerHTML = fakeANS[1];
+			document.getElementById("ansButton3").innerHTML = fakeANS[2];
+			document.getElementById("ansButton4").innerHTML = fakeANS[3];
+			document.getElementById("ansButton5").innerHTML = ANS;
+			document.getElementById("ansButton6").innerHTML = "NINGUNA";}
 
 		if(rightAns === 6){
 			if(DEBUG==="YES") console.log("ANS: NINGUNA", ANS);
-			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-			document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-			document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-			document.getElementById("buttonAns4").innerHTML = fakeANS[3];
-			document.getElementById("buttonAns5").innerHTML = fakeANS[4];
-			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+			document.getElementById("ansButton1").innerHTML = fakeANS[0];
+			document.getElementById("ansButton2").innerHTML = fakeANS[1];
+			document.getElementById("ansButton3").innerHTML = fakeANS[2];
+			document.getElementById("ansButton4").innerHTML = fakeANS[3];
+			document.getElementById("ansButton5").innerHTML = fakeANS[4];
+			document.getElementById("ansButton6").innerHTML = "NINGUNA";}
 	}
 }
 
@@ -282,7 +273,7 @@ function makeFakeANS(){
 
 
 //------------------------------------------------------------------------------
-function makeFakes(fakeMin, fakeMax){
+function makeFakes(){
 
 	fake[0] = intRand(fakeMin, fakeMax);
 
@@ -326,82 +317,231 @@ function makeFakes(fakeMin, fakeMax){
 //------------------------------------------------------------------------------
 function playDIVIDIR(){
 
+	var rnd;
+
 	OP = "&divide;";
 
-	if(coin() === 1){
-		if(coin() === 1){
-			C = intRand(2,20);
-			B = intRand(2,20);
-			A = C * B;
-			ANS = A / B;
-			makeFakes(-4,4);
-			makeFakeANS();
-		}else{
-			C = intRand(2,20);
-			B = intRand(2,20)*10;
-			A = C * B;
-			ANS = A / B;
-			makeFakes(-4,4);
+	if(selLevel[iSelLevel] === "FACIL"){
+		
+		rnd = intRand(1,2);
+		//rnd = 2;
+		
+		if(rnd === 1){
+			C = intRand(2,12);
+			D = intRand(2,12);
+			A = C * D;
+			B = D;
+			ANS = A/B;
+			fakeMin = -4;
+			fakeMax = 4;
 			makeFakeANS();
 		}
-	}else{
-			C = intRand(10,99);
-			B = intRand(2,3);
-			A = C * B;
-			ANS = A / B;
-			makeFakes(-4,4);
+
+		if(rnd === 2){
+			C = intRand(2,12);
+			D = intRand(2,12)*10;
+			A = C * D;
+			B = D;
+			ANS = A/B;			
+			fakeMin = -4;
+			fakeMax = 4;
 			makeFakeANS();
-	}
+		}
+				
+	}// if FACIL
+
+	if(selLevel[iSelLevel] === "NORMAL"){
+		
+		rnd = intRand(1,2);
+		//rnd = 2;
+		
+		if(rnd === 1){
+			C = intRand(2,20);
+			D = intRand(2,20);
+			A = C * D;
+			B = D;
+			ANS = A/B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+
+		if(rnd === 2){
+			C = intRand(2,20);
+			D = intRand(2,20)*10;
+			A = C * D;
+			B = D;
+			ANS = A/B;			
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+		
+	}//if NORMAL
+
+	if(selLevel[iSelLevel] === "DIFICIL"){
+		
+		rnd = intRand(1,3);
+		//rnd = 2;
+				
+		if(rnd === 1){
+			C = intRand(2,99);
+			D = intRand(2,10);
+			A = C * D;
+			B = D;
+			ANS = A/B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+
+		if(rnd === 2){
+			C = intRand(2,99);
+			D = intRand(2,10)*10;
+			A = C * D;
+			B = D;
+			ANS = A/B;			
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+	}	
 }
 
 //------------------------------------------------------------------------------
 function playMULTIPLICAR(){
+	
+	var rnd;
 
 	OP = "&times;";
-	
-	if(coin() === 1){
-		if(coin() === 1){
+
+	if(selLevel[iSelLevel] === "FACIL"){
+		
+		rnd = intRand(1,3);
+		//rnd = 1;
+		
+		if(rnd === 1){
+			A = intRand(2,12);
+			B = intRand(2,12);
+			ANS = A * B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+
+		if(rnd === 2){
+			A = intRand(2,12)*10;
+			B = intRand(2,12);
+			ANS = A * B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+
+		if(rnd === 3){
+			A = intRand(2,12)*10;
+			B = intRand(2,12)*10;
+			ANS = A * B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+				
+	}// if FACIL
+
+	if(selLevel[iSelLevel] === "NORMAL"){
+		
+		rnd = intRand(1,3);
+		//rnd = 1;
+		
+		if(rnd === 1){
 			A = intRand(2,20);
 			B = intRand(2,20);
 			ANS = A * B;
-			makeFakes(-4,4);
-			for(i=0; i<6; i++)fake[i] *= B;
+			fakeMin = -4;
+			fakeMax = 4;
 			makeFakeANS();
-		}else{
+		}
+
+		if(rnd === 2){
 			A = intRand(2,20)*10;
 			B = intRand(2,20);
 			ANS = A * B;
-			makeFakes(-4,4);
-			for(i=0; i<6; i++)fake[i] *= B*10;				
+			fakeMin = -4;
+			fakeMax = 4;
 			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
 		}
-	}else{
-		if(coin() === 1){
-			A = intRand(21,99);
-			B = intRand(2,3);
-			ANS = A * B;
-			makeFakes(-4,4);
-			for(i=0; i<6; i++)fake[i] *= B;
-			makeFakeANS();			
-		}else{
-			A = intRand(21,99)*10;
-			B = intRand(2,3);
-			ANS = A * B;
-			makeFakes(-4,4);
-			for(i=0; i<6; i++)fake[i] *= B*10;
-			makeFakeANS();
-		}
-	}
 
+		if(rnd === 3){
+			A = intRand(2,20)*10;
+			B = intRand(2,20)*10;
+			ANS = A * B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+		
+	}//if NORMAL
+
+	if(selLevel[iSelLevel] === "DIFICIL"){
+		
+		rnd = intRand(1,3);
+		//rnd = 1;
+		
+		if(rnd === 1){
+			A = intRand(2,99);
+			B = intRand(2,9);
+			ANS = A * B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+
+		if(rnd === 2){
+			A = intRand(2,99)*10;
+			B = intRand(2,9);
+			ANS = A * B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+
+		if(rnd === 3){
+			A = intRand(2,99)*10;
+			B = intRand(2,9)*10;
+			ANS = A * B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+		
+	}//if DIFICIL
 }
 
 
 //------------------------------------------------------------------------------
 function playRESIDUO(){
 	
+	var rnd;
+
 	OP = "mod";
-	
-	if(coin() === 1){
+
+	if(selLevel[iSelLevel] === "FACIL"){
+		
 		while(1){
 			A = intRand(2,144);
 			B = intRand(2,12);
@@ -409,195 +549,296 @@ function playRESIDUO(){
 		ANS = A % B;
 		fakeMin = -4;
 		fakeMax = 4;
-		makeFakes(-4,4);
+		makeFakes();
 		makeFakeANS();
-	}else{
-		A = intRand(1000,3000);
-		B = 4;
+				
+	}//FACIL
+
+	if(selLevel[iSelLevel] === "NORMAL"){
+		
+		while(1){
+			A = intRand(2,400);
+			B = intRand(2,12);
+			if(A >= B) break;}
 		ANS = A % B;
 		fakeMin = -4;
 		fakeMax = 4;
-		makeFakes(-4,4);
+		makeFakes();
 		makeFakeANS();
 		
-	}
+	}//NORMAL
+
+	if(selLevel[iSelLevel] === "DIFICIL"){
 		
+		while(1){
+			A = intRand(2,8100);
+			B = intRand(2,12);
+			if(A >= B) break;}
+		ANS = A % B;
+		fakeMin = -4;
+		fakeMax = 4;
+		makeFakes();
+		makeFakeANS();
+		
+	}//DIFICIL
+
 
 }
 
 //------------------------------------------------------------------------------
 function playSUMAR(){
 	
+	var rnd;
+
 	OP = "&plus;";
-	
-	if(coin() === 1){
-		A = intRand(2,99);
-		B = intRand(2,99);
-		ANS = A + B;
-		makeFakes(-4,4);
-		makeFakeANS();		
-	}else{
-		A = intRand(2,99)*10;
-		B = intRand(2,99);
-		ANS = A + B;
-		makeFakes(-4,4);
-		for(i=0; i<6; i++)fake[i] *= 10;	
-		makeFakeANS();
+
+	if(selLevel[iSelLevel] === "FACIL"){
+		
+		rnd = intRand(1,2);
+		//rnd = 2;
+		
+		if(rnd === 1){
+			while(1){
+				A = intRand(2,99);
+				B = intRand(2,12);
+				ANS = A + B;
+				if( ANS <= 99 )
+					break;
+			}
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+
+		if(rnd === 2){
+			A = intRand(2,99)*10;
+			B = intRand(2,12)*10;
+			ANS = A + B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+				
 	}
 
+	if(selLevel[iSelLevel] === "NORMAL"){
+		
+		rnd = intRand(1,2);
+		
+		if(rnd === 1){
+			A = intRand(11,99);
+			B = intRand(11,99);
+			ANS = A + B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+
+		if(rnd === 2){
+			A = intRand(11,99)*10;
+			B = intRand(11,99)*10;
+			ANS = A + B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+		
+	}
+
+	if(selLevel[iSelLevel] === "DIFICIL"){
+		
+		rnd = intRand(1,2);
+		
+		if(rnd === 1){
+			A = intRand(99,999);
+			B = intRand(99,999);
+			ANS = A + B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+
+		if(rnd === 2){
+			A = intRand(99,999)*10;
+			B = intRand(99,999)*10;
+			ANS = A + B;
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+	}
 }
-
-
-//------------------------------------------------------------------------------
-function playPOTENCIA2(){
-	
-	if(DEBUG === "YES") console.log("playPOTENCIA2()");
-	
-	var exp = intRand0(0,8); 
-	
-	if(exp === 0){OP = "**0";ANS = 1;}
-	if(exp === 1){OP = "**1";ANS = 2;}
-	if(exp === 2){OP = "**2";ANS = 2*2;}
-	if(exp === 3){OP = "**3";ANS = 2*2*2;}
-	if(exp === 4){OP = "**4";ANS = 2*2*2*2;}
-	if(exp === 5){OP = "**5";ANS = 2*2*2*2*2;}
-	if(exp === 6){OP = "**6";ANS = 2*2*2*2*2*2;}
-	if(exp === 7){OP = "**7";ANS = 2*2*2*2*2*2*2;}
-	if(exp === 8){OP = "**8";ANS = 2*2*2*2*2*2*2*2;}
-	
-	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= 2;	
-	makeFakeANS();		
-
-}
-
-
-//------------------------------------------------------------------------------
-function playCUADRADO(){
-	
-	if(DEBUG === "YES") console.log("playCUADRADO()");
-	
-	OP = "**2 ";
-	
-	A = intRand(2,20);
-	ANS = A*A;
-	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= A;	
-	makeFakeANS();		
-
-}
-
-//------------------------------------------------------------------------------
-function playCUBO(){
-	
-	if(DEBUG === "YES") console.log("playCUBO()");
-	
-	OP = "**3";
-	
-	A = intRand(2,12);
-	ANS = A*A*A;
-	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= A;	
-	makeFakeANS();		
-
-}
-
-
-//------------------------------------------------------------------------------
-function playRAIZ2(){
-	
-	if(DEBUG === "YES") console.log("playRAIZ2()");
-	
-	OP = "&radic;";
-	
-	B = intRand(2,20);
-	A = B*B;
-	ANS = B;
-	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= B;	
-	makeFakeANS();		
-
-}
-
-//------------------------------------------------------------------------------
-function playRAIZ3(){
-	
-	if(DEBUG === "YES") console.log("playRAIZ3()");
-	
-	OP = "&#8731;";
-
-	B = intRand(2,12);
-	A = B*B*B;
-	ANS = B;
-	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= B;	
-	makeFakeANS();		
-
-}
-
 
 //------------------------------------------------------------------------------
 function playRESTAR(){
 	
+	var rnd;
+
 	OP = "&minus;";
-	
-	if(coin() === 1){
-		var rnd = intRand(1,3);
-		if(coin() === 1){
+
+	if(selLevel[iSelLevel] === "FACIL"){
+		
+		rnd = intRand(1,2);
+		rnd = 2;
+		
+		if(rnd === 1){
 			while(1){
-				A = intRand(2,9)*10;
-				B = intRand(2,8);
+				A = intRand(2,99);
+				B = intRand(2,99);
 				ANS = A - B;
-				if(ANS > 2) break;
+				if(ANS >= 2 && ANS <=9)
+					break;
 			}
-		}else{
-			while(1){
-				A = intRand(2,9)*100;
-				B = intRand(2,88);
-				ANS = A - B;
-				if(ANS > 2) break;
-			}
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
 		}
-	}else{
-		while(1){
-			A = intRand(2,99);
-			B = intRand(2,99);
-			ANS = A - B;
-			if(ANS > 2) break;}
-		makeFakes(-4,4);
-		makeFakeANS();		
+		
+		if(rnd === 2){
+			while(1){
+				A = intRand(2,99)*10;
+				B = intRand(2,99)*10;
+				ANS = A - B;
+				if(ANS >= 20 && ANS <=90)
+					break;
+			}
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakes();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+			makeFakeANS();
+
+		}
+				
+	}//if FACIL
+
+	if(selLevel[iSelLevel] === "NORMAL"){
+		
+		rnd = intRand(1,2);
+		rnd = 2;
+
+		if(rnd === 1){
+			while(1){
+				A = intRand(11,99);
+				B = intRand(11,99);
+				ANS = A - B;
+				if(ANS >= 2)
+					break;
+			}
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakes();
+			makeFakeANS();
+		}
+		
+		if(rnd === 2){
+			while(1){
+				A = intRand(11,99)*10;
+				B = intRand(11,99)*10;
+				ANS = A - B;
+				if(ANS >= 20)
+					break;
+			}
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakes();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+			makeFakeANS();
+		}
+		
+	}//if NORMAL
+
+
+	if(selLevel[iSelLevel] === "DIFICIL"){
+		
+		rnd = intRand(1,3);
+		//rnd = 3;
+
+		if(rnd === 1){
+			while(1){
+				A = intRand(11,99);
+				B = intRand(11,99);
+				ANS = A - B;
+				if(ANS !== 0 && ANS !== 1)
+					break;
+			}
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+		
+		if(rnd === 2){
+			while(1){
+				A = intRand(11,99)*10;
+				B = intRand(11,99)*10;
+				ANS = A - B;
+				if(ANS !== 0 && ANS !== 10)
+					break;
+			}
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+			for(i=0; i<6; i++)
+				fake[i] *= 10;
+		}
+		
+		if(rnd === 3){
+			while(1){
+				A = intRand(99,999);
+				B = intRand(99,999);
+				ANS = A - B;
+				if(ANS >= 11)
+					break;
+			}
+			fakeMin = -4;
+			fakeMax = 4;
+			makeFakeANS();
+		}
+
+
+	}//if DIFICIL
+
+
+}
+
+
+//------------------------------------------------------------------------------
+function backButton(){
+
+	if(DEBUG==="YES")console.log("backButton()");
+
+	if(iAmIn === "ARIT"){
+		iAmIn = "menu";
+		clearScreen();
+		setTitle();
+		showMenu();
+	}
+}
+
+//------------------------------------------------------------------------------
+function setTitle(){
+
+	if(iAmIn === "menu"){
+		document.getElementById("titleApp").innerHTML = "COTORRA QUIZ";
+		document.getElementById("backButton").innerHTML = "&nbsp;";
+		document.getElementById("reStartButton").innerHTML = "&nbsp;";
 	}
 
+	if(iAmIn === "ARIT"){
+		document.getElementById("titleApp").innerHTML = "ARITMETICA QUIZ";
+		document.getElementById("backButton").innerHTML = "&larrhk;";
+		document.getElementById("reStartButton").innerHTML = "&olarr;";
+		document.getElementById("subTitleBar").style.display = "block";
+		document.getElementById("selQuizButton").innerHTML = selQuiz[iSelQuiz];
+		document.getElementById("selLevelButton").innerHTML = selLevel[iSelLevel];
+	}
 
-}
-
-
-//------------------------------------------------------------------------------
-function buttonBack(){
-
-	if(DEBUG==="YES")console.log("buttonBack()");
-
-	iAmIn = "menu";
-	clearScreen();
-	showTitleBar();
-	showMenu();
-}
-
-
-//------------------------------------------------------------------------------
-function showTitleBar(){
-	document.getElementById("titleBar").style.display = "block";
-}
-
-//------------------------------------------------------------------------------
-function showScoreBar(){
-	document.getElementById("scoreBAR").style.display = "block";
-}
-
-//------------------------------------------------------------------------------
-function showSubTitleBar(){
-	document.getElementById("subTitleBar").style.display = "block";
-	document.getElementById("selQuizButton").innerHTML = selQuiz[iSelQuiz];
 }
 
 //------------------------------------------------------------------------------
@@ -606,17 +847,10 @@ function showMenu(){
 }
 
 //------------------------------------------------------------------------------
-function showAritmeticaArea(){
-	document.getElementById("aritmeticaArea").style.display = "block";
-}
-
-//------------------------------------------------------------------------------
 function clearScreen(){
 	document.getElementById("menuButtons").style.display = "none";
 	document.getElementById("subTitleBar").style.display = "none";
-	document.getElementById("titleBar").style.display = "none";
-	document.getElementById("aritmeticaArea").style.display = "none";
-	document.getElementById("scoreBAR").style.display = "none";
+	document.getElementById("aritQuiz").style.display = "none";
 }
 
 
@@ -624,7 +858,7 @@ function clearScreen(){
 /*
 
 //------------------------------------------------------------------------------
-function buttonReStart(){
+function reStartButton(){
 
 	clearScreen();
 
@@ -632,7 +866,7 @@ function buttonReStart(){
 	activity = document.getElementById("activitySelect").value;
 	level = parseInt(document.getElementById("levelSelect").value);
 
-	console.log("buttonReStart()", continent, level);
+	console.log("reStartButton()", continent, level);
 
 	questionNumberIs = 0;
 	totalCountries = 0;
