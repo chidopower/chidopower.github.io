@@ -1,10 +1,9 @@
-var DEBUG = "YES";
+var DEBUG = "NO";
 var iAmIn = "menu";
 var quiz = "";
 var OP = "";
 var selQuiz = [];
 var iSelQuiz = 0;
-var selQuiz = 1;
 var selLevel = [];
 var iSelLevel = 0;
 var fake = [];
@@ -12,8 +11,6 @@ var fakeANS = [];
 var fakeANSMustAreGEzero = "NO";
 
 var A,B,C,D,E,R,ANS;
-var a = [];
-var n;
 
 var usrAns;
 var rightAns;
@@ -54,7 +51,7 @@ function D6(){
 //------------------------------------------------------------------------------
 function selQuizButton(){
 
-	if(iSelQuiz === maxSelQuiz)
+	if(iSelQuiz === 10)
 		iSelQuiz = 0;
 	else
 		iSelQuiz +=1;
@@ -68,78 +65,11 @@ function selQuizButton(){
 }
 
 
-//------------------------------------------------------------------------------
-function buttonFRACCIONES(){
-
-	if(DEBUG==="YES")console.log("buttonARITMETICA()");
-
-	selQuiz = [];
-
-	selQuiz[0] = "FRACCIONES";
-	selQuiz[1] = "SUMAR_FRAC";
-	selQuiz[2] = "RESTAR_FRAC";
-	selQuiz[3] = "MULTIPLICAR_FRAC";
-	selQuiz[4] = "DIVIDIR_FRAC";
-	//selQuiz[5] = "SIMPLIFICAR_FRAC";
-
-	maxSelQuiz = selQuiz.length - 1;
-
-	iAmIn = "FRACCIONES";
-	iSelQuiz = 0;
-	clearScreen();
-	showSubTitleBar();
-	showScoreBar();
-	showFraccionesArea();
-	resetScore();
-	updateScore();
-	play();
-
-}
-
-
-//------------------------------------------------------------------------------
-function buttonSERIES(){
-
-	if(DEBUG==="YES")console.log("buttonSERIES()");
-
-	selQuiz = [];
-
-	selQuiz[0] = "SERIES";
-	selQuiz[1] = "SERIE_NATURALES";
-	selQuiz[2] = "SERIE_PARES";
-	selQuiz[3] = "SERIE_IMPARES";
-	selQuiz[4] = "SERIE_CUANTOS";
-	selQuiz[5] = "SERIE_ARITMETICA";
-	selQuiz[6] = "SERIE_ULTIMO";
-	selQuiz[7] = "SERIE_ARITMETICA_2";
-	//selQuiz[5] = "RESIDUO";
-	//selQuiz[6] = "CUADRADO";
-	//selQuiz[7] = "CUBO";
-	//selQuiz[8] = "RAIZ 2";
-	//selQuiz[9] = "RAIZ 3";
-	//selQuiz[10] = "POTENCIA 2";
-
-	maxSelQuiz = selQuiz.length - 1;
-
-	iAmIn = "SERIES";
-	iSelQuiz = 0;
-	clearScreen();
-	showSubTitleBar();
-	showScoreBar();
-	showAritmeticaArea();
-	resetScore();
-	updateScore();
-	play();
-
-}
-
 
 //------------------------------------------------------------------------------
 function buttonARITMETICA(){
 
 	if(DEBUG==="YES")console.log("buttonARITMETICA()");
-
-	selQuiz = [];
 
 	selQuiz[0] = "ARITMETICA";
 	selQuiz[1] = "SUMAR";
@@ -152,8 +82,6 @@ function buttonARITMETICA(){
 	selQuiz[8] = "RAIZ 2";
 	selQuiz[9] = "RAIZ 3";
 	selQuiz[10] = "POTENCIA 2";
-
-	maxSelQuiz = selQuiz.length - 1;
 
 	iAmIn = "ARITMETICA";
 	iSelQuiz = 0;
@@ -181,17 +109,11 @@ function play(){
 
 	if(DEBUG==="YES")
 		console.log("play()", selQuiz[iSelQuiz]);
-
+		
 	updateScore();
 
 	if(iAmIn === "ARITMETICA")
 		playARITMETICA();
-
-	if(iAmIn === "FRACCIONES")
-		playFRACCIONES();
-		
-	if(iAmIn === "SERIES")
-		playSERIES();
 
 }
 
@@ -205,12 +127,12 @@ function resetScore(){
 
 //------------------------------------------------------------------------------
 function updateScore(){
-
+	
 	console.log("MISTAKES & SUCCES", mistakes, success);
-
+	
 	document.getElementById("mistakes").innerHTML = "&#10008; " + mistakes;
 	document.getElementById("success").innerHTML = "&#10004; "+ success;
-
+	
 }
 
 //------------------------------------------------------------------------------
@@ -224,7 +146,7 @@ function checkAns(){
 		mistakes += 1;
 		updateScore();
 	}
-
+	
 }
 
 //------------------------------------------------------------------------------
@@ -240,9 +162,10 @@ function buttonAns6(){usrAns = 6; checkAns();}
 
 //------------------------------------------------------------------------------
 function playARITMETICA(){
-
+	
 	if(DEBUG==="YES")console.log("playARITMETICA()");
-
+	
+	var showButtons = "NO";
 	var rnd;
 	var theQuiz;
 
@@ -258,7 +181,9 @@ function playARITMETICA(){
 		if(rnd === 8) {theQuiz = "RAIZ 2"; playRAIZ2();}
 		if(rnd === 9) {theQuiz = "RAIZ 3"; playRAIZ3();}
 		if(rnd === 10) {theQuiz = "POTENCIA 2"; playPOTENCIA2();}
+		showButtons = "YES";
 	}
+	
 
 	if(selQuiz[iSelQuiz]==="SUMAR"){theQuiz="SUMAR";playSUMAR();showButtons="YES";}
 	if(selQuiz[iSelQuiz]==="RESTAR"){theQuiz="RESTAR";playRESTAR();showButtons="YES";}
@@ -271,323 +196,87 @@ function playARITMETICA(){
 	if(selQuiz[iSelQuiz]==="RAIZ 3"){theQuiz="RAIZ 3";playRAIZ3();showButtons="YES";}
 	if(selQuiz[iSelQuiz]==="POTENCIA 2"){theQuiz="POTENCIA 2";playPOTENCIA2();showButtons="YES";}
 
-	if(theQuiz === "CUADRADO" || theQuiz === "CUBO")
-		document.getElementById("theQuestion").innerHTML = A + OP;
+	if(showButtons === "YES"){
+		
+		document.getElementById("aritmeticaArea").style.display = "block";
 
-	else if(theQuiz === "RAIZ 2" || theQuiz === "RAIZ 3")
-		document.getElementById("theQuestion").innerHTML = OP + A;
+		if(theQuiz === "CUADRADO" || theQuiz === "CUBO")
+			document.getElementById("theQuestion").innerHTML = A + OP;
+			
+		else if(theQuiz === "RAIZ 2" || theQuiz === "RAIZ 3")
+			document.getElementById("theQuestion").innerHTML = OP + A;
+			
+		else if(theQuiz === "POTENCIA 2")
+			document.getElementById("theQuestion").innerHTML = 2 + OP;
+		
+		else
+			document.getElementById("theQuestion").innerHTML = A + " " + OP + " "+ B;
 
-	else if(theQuiz === "POTENCIA 2")
-		document.getElementById("theQuestion").innerHTML = 2 + OP;
+		rightAns = intRand(1,6);
 
-	else
-		document.getElementById("theQuestion").innerHTML = A + " " + OP + " "+ B;
+		if(rightAns === 1){
+			if(DEBUG==="YES") console.log("ANS:",ANS);
+			document.getElementById("buttonAns1").innerHTML = ANS;
+			document.getElementById("buttonAns2").innerHTML = fakeANS[0];
+			document.getElementById("buttonAns3").innerHTML = fakeANS[1];
+			document.getElementById("buttonAns4").innerHTML = fakeANS[2];
+			document.getElementById("buttonAns5").innerHTML = fakeANS[3];
+			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
 
-	rightAns = intRand(1,6);
+		if(rightAns === 2){
+			if(DEBUG==="YES") console.log("ANS:",ANS);
+			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
+			document.getElementById("buttonAns2").innerHTML = ANS;
+			document.getElementById("buttonAns3").innerHTML = fakeANS[1];
+			document.getElementById("buttonAns4").innerHTML = fakeANS[2];
+			document.getElementById("buttonAns5").innerHTML = fakeANS[3];
+			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
 
-	if(rightAns === 1){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = ANS;
-		document.getElementById("buttonAns2").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns3").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+		if(rightAns === 3){
+			if(DEBUG==="YES") console.log("ANS:",ANS);
+			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
+			document.getElementById("buttonAns2").innerHTML = fakeANS[1];
+			document.getElementById("buttonAns3").innerHTML = ANS;
+			document.getElementById("buttonAns4").innerHTML = fakeANS[2];
+			document.getElementById("buttonAns5").innerHTML = fakeANS[3];
+			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
 
-	if(rightAns === 2){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = ANS;
-		document.getElementById("buttonAns3").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+		if(rightAns === 4){
+			if(DEBUG==="YES") console.log("ANS:",ANS);
+			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
+			document.getElementById("buttonAns2").innerHTML = fakeANS[1];
+			document.getElementById("buttonAns3").innerHTML = fakeANS[2];
+			document.getElementById("buttonAns4").innerHTML = ANS;
+			document.getElementById("buttonAns5").innerHTML = fakeANS[3];
+			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
 
-	if(rightAns === 3){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns3").innerHTML = ANS;
-		document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+		if(rightAns === 5){
+			if(DEBUG==="YES") console.log("ANS:",ANS);
+			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
+			document.getElementById("buttonAns2").innerHTML = fakeANS[1];
+			document.getElementById("buttonAns3").innerHTML = fakeANS[2];
+			document.getElementById("buttonAns4").innerHTML = fakeANS[3];
+			document.getElementById("buttonAns5").innerHTML = ANS;
+			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
 
-	if(rightAns === 4){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns4").innerHTML = ANS;
-		document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 5){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns4").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns5").innerHTML = ANS;
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 6){
-		if(DEBUG==="YES") console.log("ANS: NINGUNA", ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns4").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns5").innerHTML = fakeANS[4];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
+		if(rightAns === 6){
+			if(DEBUG==="YES") console.log("ANS: NINGUNA", ANS);
+			document.getElementById("buttonAns1").innerHTML = fakeANS[0];
+			document.getElementById("buttonAns2").innerHTML = fakeANS[1];
+			document.getElementById("buttonAns3").innerHTML = fakeANS[2];
+			document.getElementById("buttonAns4").innerHTML = fakeANS[3];
+			document.getElementById("buttonAns5").innerHTML = fakeANS[4];
+			document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
+	}
 }
-
-
-//------------------------------------------------------------------------------
-function playSERIES(){
-
-	if(DEBUG==="YES")console.log("playSERIES()");
-
-	var rnd;
-	var theQuiz;
-	var str;
-
-	if(selQuiz[iSelQuiz] === "SERIES"){
-		rnd = intRand(1,7);
-		if(rnd === 1) {theQuiz = "SERIE_NATURALES"; playSERIE_NATURALES();}
-		if(rnd === 2) {theQuiz = "SERIE_PARES"; playSERIE_PARES();}
-		if(rnd === 3) {theQuiz = "SERIE_IMPARES"; playSERIE_IMPARES();}
-		if(rnd === 4) {theQuiz = "SERIE_ARITMETICA"; playSERIE_ARITMETICA();}
-		if(rnd === 5) {theQuiz = "SERIE_CUANTOS"; playSERIE_CUANTOS();}
-		if(rnd === 6) {theQuiz = "SERIE_ULTIMO"; playSERIE_ULTIMO();}
-		if(rnd === 7) {theQuiz = "SERIE_ARITMETICA_2"; playSERIE_ARITMETICA_2();}
-	}
-
-	if(selQuiz[iSelQuiz]==="SERIE_NATURALES"){theQuiz="SERIE_NATURALES";playSERIE_NATURALES(); }
-	if(selQuiz[iSelQuiz]==="SERIE_PARES"){theQuiz="SERIE_PARES";playSERIE_PARES(); }
-	if(selQuiz[iSelQuiz]==="SERIE_IMPARES"){theQuiz="SERIE_IMPARES";playSERIE_IMPARES(); }
-	if(selQuiz[iSelQuiz]==="SERIE_ARITMETICA"){theQuiz="SERIE_ARITMETICA";playSERIE_ARITMETICA(); }
-	if(selQuiz[iSelQuiz]==="SERIE_CUANTOS"){theQuiz="SERIE_CUANTOS";playSERIE_CUANTOS(); }
-	if(selQuiz[iSelQuiz]==="SERIE_ULTIMO"){theQuiz="SERIE_ULTIMO";playSERIE_ULTIMO(); }
-	if(selQuiz[iSelQuiz]==="SERIE_ARITMETICA_2"){theQuiz="SERIE_ARITMETICA_2";playSERIE_ARITMETICA_2(); }
-
-	if(theQuiz==="SERIE_CUANTOS"){
-		document.getElementById("theQuestion").innerHTML =
-		a[1] + ", " + a[2] + ", " + a[3] + ", ... , " + a[n] + "<br>" + 
-		"<quest>¿Cuántos números hay?</quest>";
-	}else if(theQuiz==="SERIE_ULTIMO"){
-		document.getElementById("theQuestion").innerHTML =
-		"<gray>Hay </gray>" + n + "<gray> números.</gray> <br><br>" +
-		a[1] + ", " + a[2] + ", " + a[3] + ", ... , <red>?</red><br>";
-	}else if(theQuiz==="SERIE_ARITMETICA_2"){
-		document.getElementById("theQuestion").innerHTML =
-		"<gray>Hay </gray>" + n + "<gray> números.</gray> <br><br>" +
-		a[1] + " + " + a[2] + " + " + a[3] + " + ... = <red>?</red>";
-	}else{
-		document.getElementById("theQuestion").innerHTML = 
-		a[1] + " + " + a[2] + " + " + a[3] + " + ... + " + a[n];
-	}
-
-	rightAns = intRand(1,6);
-
-	if(rightAns === 1){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = ANS;
-		document.getElementById("buttonAns2").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns3").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 2){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = ANS;
-		document.getElementById("buttonAns3").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 3){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns3").innerHTML = ANS;
-		document.getElementById("buttonAns4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 4){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns4").innerHTML = ANS;
-		document.getElementById("buttonAns5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 5){
-		if(DEBUG==="YES") console.log("ANS:",ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns4").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns5").innerHTML = ANS;
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 6){
-		if(DEBUG==="YES") console.log("ANS: NINGUNA", ANS);
-		document.getElementById("buttonAns1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAns2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAns3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAns4").innerHTML = fakeANS[3];
-		document.getElementById("buttonAns5").innerHTML = fakeANS[4];
-		document.getElementById("buttonAns6").innerHTML = "NINGUNA";}
-
-}
-
-
-
-//------------------------------------------------------------------------------
-function playFRACCIONES(){
-
-	if(DEBUG==="YES")console.log("playFRACCIONES()");
-
-	var rnd;
-	var theQuiz;
-
-	if(selQuiz[iSelQuiz] === "FRACCIONES"){
-		rnd = intRand(1,4);
-		if(rnd === 1) {theQuiz = "SUMAR_FRAC"; playSUMAR_FRAC();}
-		if(rnd === 2) {theQuiz = "RESTAR_FRAC"; playRESTAR_FRAC();}
-		if(rnd === 3) {theQuiz = "MULTIPLICAR_FRAC"; playMULTIPLICAR_FRAC();}
-		if(rnd === 4) {theQuiz = "DIVIDIR_FRAC"; playDIVIDIR_FRAC();}
-		//if(rnd === 5) {theQuiz = "SIMPLIFICAR_FRAC"; playSIMPLIFICAR_FRAC();}
-	}
-
-	if(selQuiz[iSelQuiz]==="SUMAR_FRAC"){theQuiz="SUMAR_FRAC";playSUMAR_FRAC();}
-	if(selQuiz[iSelQuiz]==="RESTAR_FRAC"){theQuiz="RESTAR_FRAC";playRESTAR_FRAC();}
-	if(selQuiz[iSelQuiz]==="MULTIPLICAR_FRAC"){theQuiz="MULTIPLICAR_FRAC";playMULTIPLICAR_FRAC();}
-	if(selQuiz[iSelQuiz]==="DIVIDIR_FRAC"){theQuiz="DIVIDIR_FRAC";playDIVIDIR_FRAC();}
-	//if(selQuiz[iSelQuiz]==="SIMPLIFICAR_FRAC"){theQuiz="SIMPLIFICAR_FRAC";playSIMPLIFICAR_FRAC();}
-
-	if(theQuiz==="SIMPLIFICAR_FRAC"){
-	}else{
-		document.getElementById("frac_a").innerHTML = A;
-		document.getElementById("frac_b").innerHTML = B;
-		document.getElementById("frac_c").innerHTML = C;
-		document.getElementById("frac_d").innerHTML = D;
-		document.getElementById("frac_op").innerHTML = OP;
-	}
-
-	rightAns = intRand(1,6);
-
-	if(rightAns === 1){
-		if(DEBUG==="YES") console.log("ANS: ", E + " / " + F);
-		document.getElementById("buttonAnsFrac1").innerHTML = E + " / " + F;
-		document.getElementById("buttonAnsFrac2").innerHTML = fakeANS[0];
-		document.getElementById("buttonAnsFrac3").innerHTML = fakeANS[1];
-		document.getElementById("buttonAnsFrac4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAnsFrac5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAnsFrac6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 2){
-		if(DEBUG==="YES") console.log("ANS: ", E + " / " + F);
-		document.getElementById("buttonAnsFrac1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAnsFrac2").innerHTML = E + " / " + F;
-		document.getElementById("buttonAnsFrac3").innerHTML = fakeANS[1];
-		document.getElementById("buttonAnsFrac4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAnsFrac5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAnsFrac6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 3){
-		if(DEBUG==="YES") console.log("ANS: ", E + " / " + F);
-		document.getElementById("buttonAnsFrac1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAnsFrac2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAnsFrac3").innerHTML = E + " / " + F;
-		document.getElementById("buttonAnsFrac4").innerHTML = fakeANS[2];
-		document.getElementById("buttonAnsFrac5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAnsFrac6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 4){
-		if(DEBUG==="YES") console.log("ANS: ", E + " / " + F);
-		document.getElementById("buttonAnsFrac1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAnsFrac2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAnsFrac3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAnsFrac4").innerHTML = E + " / " + F;
-		document.getElementById("buttonAnsFrac5").innerHTML = fakeANS[3];
-		document.getElementById("buttonAnsFrac6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 5){
-		if(DEBUG==="YES") console.log("ANS: ", E + " / " + F);
-		document.getElementById("buttonAnsFrac1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAnsFrac2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAnsFrac3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAnsFrac4").innerHTML = fakeANS[3];
-		document.getElementById("buttonAnsFrac5").innerHTML = E + " / " + F;
-		document.getElementById("buttonAnsFrac6").innerHTML = "NINGUNA";}
-
-	if(rightAns === 6){
-		if(DEBUG==="YES") console.log("ANS: NINGUNA", E + " / " + F);
-		document.getElementById("buttonAnsFrac1").innerHTML = fakeANS[0];
-		document.getElementById("buttonAnsFrac2").innerHTML = fakeANS[1];
-		document.getElementById("buttonAnsFrac3").innerHTML = fakeANS[2];
-		document.getElementById("buttonAnsFrac4").innerHTML = fakeANS[3];
-		document.getElementById("buttonAnsFrac5").innerHTML = fakeANS[4];
-		document.getElementById("buttonAnsFrac6").innerHTML = "NINGUNA";}
-
-}
-
 
 //------------------------------------------------------------------------------
 function makeFakeANS(){
 
-	var i, rnd;
+	var i;
 
-	fakeANS = [];
-
-	if(iAmIn === "FRACCIONES"){
-
-		var up, down;
-
-		for(i=0; i<5; i++){
-
-			rnd = intRand(1,3);
-
-			if(rnd === 1){
-				up = E;
-				while(1){
-					//console.log(rnd, up, down, E, F);
-					down = F + intRand(-5,5);
-					if(down !== F && down > 0)
-						break;
-				}
-			}else if(rnd === 2){
-				down = F;
-				while(1){
-					//console.log(rnd, up, down);
-					up = E + intRand(-5,5);
-					if(up !== E && up > 0)
-						break;
-				}
-			}else{
-				while(1){
-					//console.log(rnd, up, down);
-					up = E + intRand(-5,5);
-					down = F + intRand0(-5,5);
-					if(up !== E && down !== F && up > 0 && down > 0)
-						break;
-				}
-			}
-			
-			fakeANS[i] = up + " / " + down;
-		}
-
-	}else{
-
-		for(i=0; i<5; i++)
-			fakeANS[i] = ANS + fake[i];
-
-	}
+	for(i=0; i<5; i++)
+		fakeANS[i] = ANS + fake[i];
 
 }
 
@@ -665,183 +354,11 @@ function playDIVIDIR(){
 	}
 }
 
-/*
-//------------------------------------------------------------------------------
-function playSIMPLIFICAR_FRAC(){
-
-	OP = "=";
-
-	var k;
-
-	A = intRand(2,20);
-	B = intRand(2,20);
-	C = intRand(2,20);
-	D = intRand(2,20);
-	
-	A = A*C;
-	B = B*D;
-
-	E = A;
-	F = B;
-
-	simplificar();
-
-	makeFakeANS();
-
-}
-*/
-
-
-//------------------------------------------------------------------------------
-function playSUMAR_FRAC(){
-
-	OP = "&plus;";
-
-	while(1){
-		A = intRand(1,12);
-		B = intRand(1,12);
-		C = intRand(1,12);
-		D = intRand(1,12);
-
-		E = A*D + C*B;
-		F = B*D;
-
-		simplificar();
-
-		if(E<20 && F<20 && A!==B && C!==D )break;
-	}
-
-	makeFakeANS();
-
-}
-
-//------------------------------------------------------------------------------
-function playRESTAR_FRAC(){
-
-	var rnd;
-
-	OP = "&minus;";
-	
-	if(coin()===1){
-		while(1){
-			A = 1;
-			B = 1;
-			C = intRand(1,12);
-			D = intRand(2,12);
-			if(D > C)break;}		
-		E = A*D - C*B;
-		F = B*D;
-	}else{
-		while(1){
-			A = intRand(1,12);
-			B = intRand(1,12);
-			C = intRand(1,12);
-			D = intRand(1,12);
-			E = A*D - C*B;
-			F = B*D;			
-			if((A/B) > (C/D) && E<20 && F<20 && C!==D)break;
-		}	
-	}
-	
-	simplificar();
-	makeFakeANS();
-
-}
-
-
-//------------------------------------------------------------------------------
-function playMULTIPLICAR_FRAC(){
-
-	OP = "&times;";
-
-
-	while(1){
-		A = intRand(2,12);
-		B = intRand(2,12);
-		C = intRand(2,12);
-		D = intRand(2,12);
-
-		E = A*C;
-		F = B*D;
-
-		simplificar();
-
-		if(E<30 && F<30 && A!==B )break;
-	}
-
-	makeFakeANS();
-
-}
-
-//------------------------------------------------------------------------------
-function playDIVIDIR_FRAC(){
-
-	OP = "&divide;";
-
-	while(1){
-		A = intRand(2,12);
-		B = intRand(2,12);
-		C = intRand(2,12);
-		D = intRand(2,12);
-
-		E = A*D;
-		F = B*C;
-
-		simplificar();
-
-		if(E<30 && F<30 && A!==B )break;
-	}
-
-	makeFakeANS();
-}
-
-
-//------------------------------------------------------------------------------
-function simplificar(){
-	
-	var k;
-
-	if(DEBUG==="YES") console.log("--------simplificando-------");
-	if(DEBUG==="YES") console.log(E + " / " + F, " <---- INICIO");
-	for(k=0; k<3; k++)
-		simplificando();
-	if(DEBUG==="YES") console.log(E + " / " + F, " <---- FINAL");
-}
-
-//------------------------------------------------------------------------------
-function simplificando(){
-
-	var i, imax, E_, F_;
-
-	E_ = E;
-	F_ = F;
-
-	if(E_ > F_)
-		imax = E_ - 1;
-	else
-		imax = F_ - 1;
-
-	for(i=2; i<=imax; i++){
-		if(E_%i === 0 && F_%i ===0){
-			E_ = E_/i;
-			F_ = F_/i;
-			if(E_ > F_) imax = E_ - 1;
-			else imax = F_ - 1;
-			if(DEBUG==="YES") console.log(E_ + " / " + F_);
-		}
-	}
-
-	E = E_;
-	F = F_;
-
-}
-
-
 //------------------------------------------------------------------------------
 function playMULTIPLICAR(){
 
 	OP = "&times;";
-
+	
 	if(coin() === 1){
 		if(coin() === 1){
 			A = intRand(2,20);
@@ -855,7 +372,7 @@ function playMULTIPLICAR(){
 			B = intRand(2,20);
 			ANS = A * B;
 			makeFakes(-4,4);
-			for(i=0; i<6; i++)fake[i] *= B*10;
+			for(i=0; i<6; i++)fake[i] *= B*10;				
 			makeFakeANS();
 		}
 	}else{
@@ -865,7 +382,7 @@ function playMULTIPLICAR(){
 			ANS = A * B;
 			makeFakes(-4,4);
 			for(i=0; i<6; i++)fake[i] *= B;
-			makeFakeANS();
+			makeFakeANS();			
 		}else{
 			A = intRand(21,99)*10;
 			B = intRand(2,3);
@@ -881,9 +398,9 @@ function playMULTIPLICAR(){
 
 //------------------------------------------------------------------------------
 function playRESIDUO(){
-
+	
 	OP = "mod";
-
+	
 	if(coin() === 1){
 		while(1){
 			A = intRand(2,144);
@@ -902,182 +419,29 @@ function playRESIDUO(){
 		fakeMax = 4;
 		makeFakes(-4,4);
 		makeFakeANS();
-
+		
 	}
-
-
-}
-
-//------------------------------------------------------------------------------
-function playSERIE_ARITMETICA(){
-	
-	if(DEBUG==="YES") console.log("playSERIE_ARITMETICA()");
-	
-	n = intRand(10,50);
-	d = intRand(1,8)
-	
-	a[1] = intRand(1,10);
-	a[2] = a[1] + d;
-	a[3] = a[2] + d;
-	a[n] = a[1] + (n - 1)*d;
-
-	ANS = n*(a[1] + a[n])/2;
-
-	makeFakes(-4,4);
-	makeFakeANS();
-	
-	if(DEBUG==="YES") console.log("d, n, SUMA: ", d, n, ANS);
-
-}
-
-//------------------------------------------------------------------------------
-function playSERIE_ARITMETICA_2(){
-	
-	if(DEBUG==="YES") console.log("playSERIE_ARITMETICA_2()");
-	
-	n = intRand(10,50);
-	d = intRand(1,8)
-	
-	a[1] = intRand(1,10);
-	a[2] = a[1] + d;
-	a[3] = a[2] + d;
-	a[n] = a[1] + (n - 1)*d;
-
-	ANS = n*(a[1] + a[n])/2;
-
-	makeFakes(-4,4);
-	makeFakeANS();
-	
-	if(DEBUG==="YES") console.log("d, n, SUMA: ", d, n, ANS);
-
-}
-
-
-//------------------------------------------------------------------------------
-function playSERIE_CUANTOS(){
-	
-	if(DEBUG==="YES") console.log("playSERIE_CUANTOS()");
-	
-	n = intRand(10,50);
-	d = intRand(1,8)
-	
-	a[1] = intRand(1,10);
-	a[2] = a[1] + d;
-	a[3] = a[2] + d;
-	a[n] = a[1] + (n - 1)*d;
-
-	ANS = n;
-
-	makeFakes(-4,4);
-	makeFakeANS();
-	
-	if(DEBUG==="YES") console.log("d, n", d, n);
-
-}
-
-//------------------------------------------------------------------------------
-function playSERIE_ULTIMO(){
-	
-	if(DEBUG==="YES") console.log("playSERIE_ULTIMO()");
-	
-	n = intRand(10,50);
-	d = intRand(1,8)
-	
-	a[1] = intRand(1,10);
-	a[2] = a[1] + d;
-	a[3] = a[2] + d;
-	a[n] = a[1] + (n - 1)*d;
-
-	ANS = a[n];
-
-	makeFakes(-4,4);
-	makeFakeANS();
-	
-	if(DEBUG==="YES") console.log("d, n, an", d, n, a[n]);
-
-}
-
-
-//------------------------------------------------------------------------------
-function playSERIE_NATURALES(){
-	
-	if(DEBUG==="YES") console.log("playSERIE_NATURALES()");
-	
-	n = intRand(10,100);
-	
-	a[1] = 1;
-	a[2] = 2;
-	a[3] = 3;
-	a[n] = n;
-
-	ANS = n*(n + 1)/2;
-
-	makeFakes(-4,4);
-	makeFakeANS();
-	
-	if(DEBUG==="YES") console.log("SUMA: ", ANS);
-
-}
-
-//------------------------------------------------------------------------------
-function playSERIE_PARES(){
-	
-	if(DEBUG==="YES") console.log("playSERIE_PARES()");
-	
-	n = intRand(10,100);
-	
-	a[1] = 2;
-	a[2] = 4;
-	a[3] = 6;
-	a[n] = 2*n;
-
-	ANS = n*(n + 1);
-
-	makeFakes(-4,4);
-	makeFakeANS();
-	
-	if(DEBUG==="YES") console.log("SUMA: ", ANS);
-
-}
-
-//------------------------------------------------------------------------------
-function playSERIE_IMPARES(){
-	
-	if(DEBUG==="YES") console.log("playSERIE_IMPARES()");
-	
-	n = intRand(10,100);
-	
-	a[1] = 1;
-	a[2] = 3;
-	a[3] = 5;
-	a[n] = 2*n - 1;
-
-	ANS = n*n;
-
-	makeFakes(-4,4);
-	makeFakeANS();
-	
-	if(DEBUG==="YES") console.log("SUMA: ", ANS);
+		
 
 }
 
 //------------------------------------------------------------------------------
 function playSUMAR(){
-
+	
 	OP = "&plus;";
-
+	
 	if(coin() === 1){
 		A = intRand(2,99);
 		B = intRand(2,99);
 		ANS = A + B;
 		makeFakes(-4,4);
-		makeFakeANS();
+		makeFakeANS();		
 	}else{
 		A = intRand(2,99)*10;
 		B = intRand(2,99);
 		ANS = A + B;
 		makeFakes(-4,4);
-		for(i=0; i<6; i++)fake[i] *= 10;
+		for(i=0; i<6; i++)fake[i] *= 10;	
 		makeFakeANS();
 	}
 
@@ -1086,11 +450,11 @@ function playSUMAR(){
 
 //------------------------------------------------------------------------------
 function playPOTENCIA2(){
-
+	
 	if(DEBUG === "YES") console.log("playPOTENCIA2()");
-
-	var exp = intRand0(0,8);
-
+	
+	var exp = intRand0(0,8); 
+	
 	if(exp === 0){OP = "**0";ANS = 1;}
 	if(exp === 1){OP = "**1";ANS = 2;}
 	if(exp === 2){OP = "**2";ANS = 2*2;}
@@ -1100,83 +464,83 @@ function playPOTENCIA2(){
 	if(exp === 6){OP = "**6";ANS = 2*2*2*2*2*2;}
 	if(exp === 7){OP = "**7";ANS = 2*2*2*2*2*2*2;}
 	if(exp === 8){OP = "**8";ANS = 2*2*2*2*2*2*2*2;}
-
+	
 	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= 2;
-	makeFakeANS();
+	for(i=0; i<6; i++)fake[i] *= 2;	
+	makeFakeANS();		
 
 }
 
 
 //------------------------------------------------------------------------------
 function playCUADRADO(){
-
+	
 	if(DEBUG === "YES") console.log("playCUADRADO()");
-
+	
 	OP = "**2 ";
-
+	
 	A = intRand(2,20);
 	ANS = A*A;
 	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= A;
-	makeFakeANS();
+	for(i=0; i<6; i++)fake[i] *= A;	
+	makeFakeANS();		
 
 }
 
 //------------------------------------------------------------------------------
 function playCUBO(){
-
+	
 	if(DEBUG === "YES") console.log("playCUBO()");
-
+	
 	OP = "**3";
-
+	
 	A = intRand(2,12);
 	ANS = A*A*A;
 	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= A;
-	makeFakeANS();
+	for(i=0; i<6; i++)fake[i] *= A;	
+	makeFakeANS();		
 
 }
 
 
 //------------------------------------------------------------------------------
 function playRAIZ2(){
-
+	
 	if(DEBUG === "YES") console.log("playRAIZ2()");
-
+	
 	OP = "&radic;";
-
+	
 	B = intRand(2,20);
 	A = B*B;
 	ANS = B;
 	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= B;
-	makeFakeANS();
+	for(i=0; i<6; i++)fake[i] *= B;	
+	makeFakeANS();		
 
 }
 
 //------------------------------------------------------------------------------
 function playRAIZ3(){
-
+	
 	if(DEBUG === "YES") console.log("playRAIZ3()");
-
+	
 	OP = "&#8731;";
 
 	B = intRand(2,12);
 	A = B*B*B;
 	ANS = B;
 	makeFakes(-4,4);
-	for(i=0; i<6; i++)fake[i] *= B;
-	makeFakeANS();
+	for(i=0; i<6; i++)fake[i] *= B;	
+	makeFakeANS();		
 
 }
 
 
 //------------------------------------------------------------------------------
 function playRESTAR(){
-
+	
 	OP = "&minus;";
-
+	
 	if(coin() === 1){
 		var rnd = intRand(1,3);
 		if(coin() === 1){
@@ -1201,7 +565,7 @@ function playRESTAR(){
 			ANS = A - B;
 			if(ANS > 2) break;}
 		makeFakes(-4,4);
-		makeFakeANS();
+		makeFakeANS();		
 	}
 
 
@@ -1247,18 +611,12 @@ function showAritmeticaArea(){
 }
 
 //------------------------------------------------------------------------------
-function showFraccionesArea(){
-	document.getElementById("fraccionesArea").style.display = "block";
-}
-
-//------------------------------------------------------------------------------
 function clearScreen(){
 	document.getElementById("menuButtons").style.display = "none";
 	document.getElementById("subTitleBar").style.display = "none";
 	document.getElementById("titleBar").style.display = "none";
 	document.getElementById("aritmeticaArea").style.display = "none";
 	document.getElementById("scoreBAR").style.display = "none";
-	document.getElementById("fraccionesArea").style.display = "none";
 }
 
 

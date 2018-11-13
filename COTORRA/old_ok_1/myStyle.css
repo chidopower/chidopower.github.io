@@ -4,21 +4,11 @@
   src: url(./myFonts/Ubuntu-Regular.ttf) format("truetype");
 }
 
-
-quest {
-	font-size: 60%;
-	color: gray;
-}
-
-red{color: red;}
-gray{color: gray;}
-
-
 body{
 
 	background: #80d6ff;
 
-    -webkit-user-select: none; /* Safari 3.1+ */
+	        -webkit-user-select: none; /* Safari 3.1+ */
     -moz-user-select: none; /* Firefox 2+ */
     -ms-user-select: none; /* IE 10+ */
     user-select: none; /* Standard syntax */
@@ -231,110 +221,6 @@ b{color: #ec407a;}
 .menuButton3:active {background-color: #ffa0c0; color: black;}
 .menuButton4:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .menuButton4:active {background-color: #ffa0c0; color: black;}
-
-
-
-/***************************** FRACCIONES AREA ******************************/
-
-.fraccionesArea{
-	float: left;
-	width: 100%;
-    //padding: 10px;
-    //border: solid;
-    display: none;
-    font-weight: bold;
-}
-
-.fracQuestionLeftLeft,
-.fracQuestionRightRight{
-	float: left;
-	width: 30%;
-    //padding: 10px;
-    border: solid #80d6ff;
-}
-
-.fracQuestionLeft,
-.fracQuestionRight{
-	float: left;
-	width: 15%;
-    //padding: 10px;
-    //border: solid;
-}
-
-.frac_op{
-	float: left;
-	width: 10%;
-	padding: 20px;
-    //border: solid;
-    //margin: auto;
-	font-family: "Ubuntu";
-	font-size: 300%;
-	text-align: center;
-}
-
-.frac_a,
-.frac_c{
-	float: left;
-	width: 100%;
-	//padding: 20px;
-    border-bottom: solid;
-    //margin: auto;
-}
-
-.frac_center,
-.frac_a,
-.frac_b,
-.frac_c,
-.frac_d{
-	font-family: "Ubuntu";
-	font-size: 300%;
-	text-align: center;
-}
-
-.buttonAnsFrac_{
-	float: left;
-	width: 50%;
-	//border: solid;
-	text-align: center;
-	padding: 4px;
-	//background: #42a5f5;
-	//color: white;
-}
-
-
-.buttonAnsFrac1,
-.buttonAnsFrac2,
-.buttonAnsFrac3,
-.buttonAnsFrac4,
-.buttonAnsFrac5,
-.buttonAnsFrac6{
-
-	float: left;
-	width: 100%;
-	//border: solid;
-	text-align: center;
-	padding: 10px;
-	font-family: "Ubuntu";
-	font-size: 300%;
-	font-weight: bold;
-	background: #42a5f5;
-	//color: white;
-	//margin: auto;
-
-}
-
-.buttonAnsFrac1:hover {background-color: #ec407a;color: white; cursor: pointer;}
-.buttonAnsFrac1:active {background-color: #ffa0c0; color: black;}
-.buttonAnsFrac2:hover {background-color: #ec407a;color: white; cursor: pointer;}
-.buttonAnsFrac2:active {background-color: #ffa0c0; color: black;}
-.buttonAnsFrac3:hover {background-color: #ec407a;color: white; cursor: pointer;}
-.buttonAnsFrac3:active {background-color: #ffa0c0; color: black;}
-.buttonAnsFrac4:hover {background-color: #ec407a;color: white; cursor: pointer;}
-.buttonAnsFrac4:active {background-color: #ffa0c0; color: black;}
-.buttonAnsFrac5:hover {background-color: #ec407a;color: white; cursor: pointer;}
-.buttonAnsFrac5:active {background-color: #ffa0c0; color: black;}
-.buttonAnsFrac6:hover {background-color: #ec407a;color: white; cursor: pointer;}
-.buttonAnsFrac6:active {background-color: #ffa0c0; color: black;}
 
 
 
