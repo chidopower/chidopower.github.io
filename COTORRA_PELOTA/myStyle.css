@@ -1,0 +1,62 @@
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url(./myFonts/Ubuntu-Regular.ttf) format("truetype");
+}
+
+body{
+	background: #80d6ff;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+*{box-sizing: border-box;}
+
+red{color: red;}
+gray{color: gray;}
+
+
+.start_{
+	float: left;
+	width: 100%;
+    //padding: 100px;
+    //border: solid;
+}
+
+.start{
+	//float: left;
+	width: 50%;
+	text-align: center;
+	padding: 30px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+	margin: auto;
+}
+
+.start:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.start:active {background-color: #ffa0c0; color: black;}
+
+
+.question{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 400%;
+	padding: 50px;
+}
+
+.answer{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 400%;
+	padding: 50px;
+}
+
