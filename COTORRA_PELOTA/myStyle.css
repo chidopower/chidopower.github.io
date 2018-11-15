@@ -21,7 +21,8 @@ gray{color: gray;}
 .start_{
 	float: left;
 	width: 100%;
-    //padding: 100px;
+    //padding: 200px;
+    padding-top: 50px;
     //border: solid;
 }
 
@@ -29,26 +30,46 @@ gray{color: gray;}
 	//float: left;
 	width: 50%;
 	text-align: center;
-	padding: 30px;
+	padding: 50px;
 	font-family: "Ubuntu";
-	font-size: 200%;
+	font-size: 400%;
 	font-weight: bold;
 	background: #0077c2;
 	color: white;
 	margin: auto;
+	//border: solid;
 }
 
 .start:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .start:active {background-color: #ffa0c0; color: black;}
 
+.question_{
+	float: left;
+	width: 100%;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    //border: solid;
+    background: #0077c2;
+    color: white;
+}
 
 .question{
 	float: left;
 	width: 100%;
 	text-align: center;
 	font-family: "Ubuntu";
-	font-size: 400%;
+	font-size: 800%;
 	padding: 50px;
+	//border: solid;
+}
+
+
+.answer_{
+	float: left;
+	width: 100%;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    //border: solid;
 }
 
 .answer{
@@ -56,7 +77,8 @@ gray{color: gray;}
 	width: 100%;
 	text-align: center;
 	font-family: "Ubuntu";
-	font-size: 400%;
+	font-size: 800%;
 	padding: 50px;
+	//border: solid;
 }
 
