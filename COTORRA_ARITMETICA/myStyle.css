@@ -1,0 +1,172 @@
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url(./myFonts/Ubuntu-Regular.ttf) format("truetype");
+}
+
+body{
+	background: #80d6ff;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+*{box-sizing: border-box;}
+
+red{color: red;}
+gray{color: gray;}
+
+.title{
+	float: left;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	background: #0077c2;
+	color: white;
+}
+
+select{
+	float: left;
+	width: 50%;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.next_{
+	float: left;
+	width: 100%;
+    padding-top: 50px;
+    display: none;
+}
+
+.start_{
+	float: left;
+	width: 100%;
+    padding-top: 50px;
+}
+
+.start,
+.next{
+	//float: left;
+	width: 50%;
+	text-align: center;
+	padding: 50px;
+	font-family: "Ubuntu";
+	font-size: 400%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+	margin: auto;
+}
+
+.start:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.start:active {background-color: #ffa0c0; color: black;}
+.next:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.next:active {background-color: #ffa0c0; color: black;}
+
+.question_{
+	float: left;
+	width: 100%;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    //border: solid;
+    background: #0077c2;
+    color: white;
+}
+
+.question{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 800%;
+	padding: 50px;
+	//border: solid;
+}
+
+
+.answer_{
+	float: left;
+	width: 100%;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    //border: solid;
+    display: none;
+}
+
+.answer{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 800%;
+	padding: 50px;
+}
+
+.buttons{
+	float: left;
+	width: 100%;
+    padding-top: 50px;
+    display: none;
+}
+
+.button_{
+	float: left;
+	width: 50%;
+    padding: 20px;
+}
+
+
+.button{
+	float: left;
+	width: 100%;
+	text-align: center;
+	padding: 50px;
+	font-family: "Ubuntu";
+	font-size: 400%;
+	font-weight: bold;
+	background: #42a5f5;
+	margin: auto;
+}
+
+.score{
+	float: left;
+	width: 100%;
+    display: none;
+}
+
+.mistakes{
+	float: left;
+	width: 20%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+}
+
+.success{
+	float: left;
+	width: 20%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+}
+
+.relleno{
+	float: left;
+	width: 60%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+}
