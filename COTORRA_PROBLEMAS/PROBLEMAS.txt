@@ -1,0 +1,13 @@
++Series
+-Naturales
+-Pares e impares
+-Aritmética
+-Problema 1 (cuántos?)
+-Problema 2 ()
+
++Geometría
+-Cuadrados
+-Rectángulos
+-Triángulos
+
+

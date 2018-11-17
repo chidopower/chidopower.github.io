@@ -8,22 +8,37 @@
 
 <body>
 
-	<div class="optionsBar" id="optionsBar">
-		<div class="mainOption_">
-			<div class="mainOption" id="mainOption" onclick="buttonMainOption()">TODO</div>
-		</div>
-		<div class="start_">
-			<div class="start" id="start" onclick="buttonStart()">START</div>
-		</div>
-		<div class="subOption_">
-			<div class="subOption" id="subOption" onclick="buttonSubOption()">TODO</div>
-		</div>
+	<div class="opciones">
+		<select id="tema" onclick="problemas_cargar()">
+			<option value="TODO">TODO</option>
+			<option value="series">Series</option>
+			<option value="geometria">Geometría</option>
+		</select>
+		<div class="start" id="start" onclick="start()">START</div>
+		<select id="problema">
+			<option value="problema_0" id="problema_0"></option>
+			<option value="problema_1" id="problema_1"></option>
+			<option value="problema_2" id="problema_2"></option>
+			<option value="problema_3" id="problema_3"></option>
+			<option value="problema_4" id="problema_4"></option>
+			<option value="problema_5" id="problema_5"></option>
+			<option value="problema_6" id="problema_6"></option>
+		</select>
 	</div>
 
 	<div class="flashCard" id="flashCard">
-		<div class="flashCardQuestion" id="flashCardQuestion" onclick="flipFlashCard()"></div>
-		<div class="flashCardAnswer"   id="flashCardAnswer"   onclick="flipFlashCard()"></div>
+		<div class="flashCardQuestion" id="flashCardQuestion" onclick="flash_card_flip()"></div>
+		<div class="flashCardAnswer"   id="flashCardAnswer"   onclick="flash_card_flip()"></div>
 	</div>
+
+
+
+
+
+
+
+
+
 
 
 </body>

@@ -17,29 +17,45 @@ body{
 red{color: red;}
 gray{color: gray;}
 
-.opciones{
+.optionsBar{
 	float: left;
 	width: 100%;
-	padding: 10px;
-	background: #0077c2;
-	//color: white;
+    //padding: 10px;
+    //border: solid;
 }
 
-select{
+.mainOption_,
+.subOption_{
 	float: left;
 	width: 40%;
+    padding: 5px;
+    //border: solid;
+}
+
+.start_{
+	float: left;
+	width: 20%;
+    padding: 5px;
+    //border: solid;
+}
+
+.mainOption,
+.subOption{
+	float: left;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
 	font-family: "Ubuntu";
 	font-size: 200%;
 	font-weight: bold;
-	text-align: center;
+	background: #42a5f5;
 }
-
 
 .start{
 	float: left;
-	width: 20%;
+	width: 100%;
 	text-align: center;
-	//padding: 10px;
+	padding: 10px;
 	font-family: "Ubuntu";
 	font-size: 200%;
 	font-weight: bold;
@@ -47,6 +63,10 @@ select{
 	color: white;
 }
 
+.mainOption:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.mainOption:active {background-color: #ffa0c0; color: black;}
+.subOption:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.subOption:active {background-color: #ffa0c0; color: black;}
 .start:hover {background-color: #ec407a;color: white; cursor: pointer;}
 .start:active {background-color: #ffa0c0; color: black;}
 
@@ -54,6 +74,7 @@ select{
 	float: left;
 	width: 100%;
 	padding: 50px;
+    //border: solid;
     display: none;
 }
 
@@ -63,6 +84,7 @@ select{
 	text-align: center;
 	font-family: "Ubuntu";
 	font-size: 200%;
+	//font-weight: bold;
 	display: none;
 	padding: 50px;
 	border: solid;
@@ -76,6 +98,7 @@ select{
 	text-align: center;
 	font-family: "Ubuntu";
 	font-size: 200%;
+	//font-weight: bold;
 	padding: 50px;
 	display: none;
 	border: solid;
@@ -88,6 +111,9 @@ select{
 .flashCardQuestion:hover {cursor: pointer;}
 
 
-/*---------------------------------------------*/
-@media (max-width: 1000px) {
+
+
+
+
+
 
