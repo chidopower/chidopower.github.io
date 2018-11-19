@@ -16,6 +16,10 @@ body{
 
 red{color: red;}
 gray{color: gray;}
+pre{
+color: red;
+font-size: 200%;
+}
 
 .opciones{
 	float: left;

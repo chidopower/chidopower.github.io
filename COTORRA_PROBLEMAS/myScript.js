@@ -24,9 +24,11 @@ function start(){
 
 	flash_card_remove();
 
-	if(tema === "TODO")      problemas_todos();
-	if(tema === "series")    problemas_series();
-	if(tema === "geometria") problemas_geometria();
+	if(tema === "TODO")          problemas_todos();
+	if(tema === "series")        problemas_series();
+	if(tema === "geometria")     problemas_geometria();
+	if(tema === "num_grandes")   problemas_num_grandes();
+	if(tema === "regla_de_tres") problemas_regla_de_tres();
 
 
 	flash_card_show();
@@ -43,7 +45,7 @@ function problemas_cargar(){
 
 	tema = document.getElementById("tema").value;
 
-	if(tema==="TODO"){
+	if(tema === "TODO"){
 		miProblema[0] = "";
 		miProblema[1] = "";
 		miProblema[2] = "";
@@ -53,7 +55,7 @@ function problemas_cargar(){
 		miProblema[6] = "";
 	}
 
-	if(tema==="series"){
+	if(tema === "series"){
 		miProblema[0] = "TODO";
 		miProblema[1] = "Números Naturales";
 		miProblema[2] = "Números Pares e Impares";
@@ -63,7 +65,7 @@ function problemas_cargar(){
 		miProblema[6] = "Serie Aritmética (dificil)";
 	}
 
-	if(tema==="geometria"){
+	if(tema === "geometria"){
 		miProblema[0] = "TODO";
 		miProblema[1] = "Cuadrados";
 		miProblema[2] = "Rectángulos";
@@ -71,8 +73,38 @@ function problemas_cargar(){
 		miProblema[4] = "Triángulos (dificil)";
 		miProblema[5] = "";
 		miProblema[6] = "";
-
 	}
+	
+	if(tema === "1_incognita"){
+		miProblema[0] = "TODO";
+		miProblema[1] = "Sustituir valores";
+		miProblema[2] = "Despejar x (fácil)";
+		miProblema[3] = "Problemas (fácil)";
+		miProblema[4] = "";
+		miProblema[5] = "";
+		miProblema[6] = "";
+	}
+
+	if(tema === "num_grandes"){
+		miProblema[0] = "TODO";
+		miProblema[1] = "Sumar";
+		miProblema[2] = "Restar";
+		miProblema[3] = "Multiplicar";
+		miProblema[4] = "Dividir";
+		miProblema[5] = "Problema";
+		miProblema[6] = "Problema";
+	}
+
+	if(tema === "regla_de_tres"){
+		miProblema[0] = "TODO";
+		miProblema[1] = "La regla";
+		miProblema[2] = "Porcentajes";
+		miProblema[3] = "Conversión de Unidades";
+		miProblema[4] = "Problemas, simples";
+		miProblema[5] = "Problemas, compuestos";
+		miProblema[6] = "Descuentos";
+	}
+
 
 	document.getElementById("problema_0").innerHTML = miProblema[0];
 	document.getElementById("problema_1").innerHTML = miProblema[1];
@@ -88,12 +120,361 @@ function problemas_cargar(){
 //------------------------------------------------------------------------------
 function problemas_todos(){
 
-	var rnd = randi(1,2);
+	var rnd = randi(1,4);
 
 	problema = "problema_0";
 
 	if(rnd === 1) problemas_series();
 	if(rnd === 2) problemas_geometria();
+	if(rnd === 3) problemas_num_grandes();
+	if(rnd === 4) problemas_regla_de_tres();
+
+	//	if(rnd === 3) problemas_1_incognita();
+
+
+}
+
+
+//------------------------------------------------------------------------------
+function problemas_regla_de_tres(){
+
+	var miProblema;
+
+	if(problema === "problema_0"){
+		var rnd = randi(1,6);
+		if(rnd===1) miProblema = "problema_1"; //reglade tres
+		if(rnd===2) miProblema = "problema_2"; //porcentajes
+		if(rnd===3) miProblema = "problema_3";
+		if(rnd===4) miProblema = "problema_4";
+		if(rnd===5) miProblema = "problema_5";
+		if(rnd===6) miProblema = "problema_6"; //descuentos
+	}else{
+		miProblema = problema;
+	}
+
+	if(miProblema === "problema_1"){ //regla de tres
+
+		while(1){
+			var a = randi(2,20);
+			var b = randi(2,20);
+			var c = randi(2,20);
+			if( (c*b)%a ===0 && a!==c && a!==b )break;
+		}
+		var x = c*b/a;
+
+		if(randi(1,2) === 1){
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Calcular el valor de x.<br>";
+			QUESTION += "<br>";
+			QUESTION += a+ " &rarr; " +b+ "<br>";
+			QUESTION += c+ " &rarr;  x<br>";		
+		}else{
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Calcular el valor de x.<br>";
+			QUESTION += "<br>";
+			QUESTION += b+ " &rarr; " +a+ "<br>";
+			QUESTION +=   "x &rarr; " +c+ "<br>";		
+		}
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "x = " +x+ "<br>";
+
+		
+	}//problema_1
+
+	if(miProblema === "problema_2"){ //porcentajes
+
+		if(randi(1,2)===1){
+
+			while(1){
+				var a = randi(50,400);
+				var p = randi(5,95);
+				if( (a*p)%100 ===0 && a!==100 )break;
+			}
+
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			
+			if(randi(1,2) ===1){
+				var x = a + a*p/100;
+				QUESTION += a+ " &plus; " +p+ "<br>";
+			}else{
+				var x = a - a*p/100;
+				QUESTION += a+ " &minus; " +p+ "<br>";
+			}
+			
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x+ "<br>";
+		
+		}else{
+
+			while(1){
+				var a = randi(50,400);
+				var p = randi(5,95);
+				if( (a*p)%100 ===0 && a!==100 )break;
+			}
+			var x = a*p/100;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Calcular el " +p+ "% de " +a+ ".<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x+ "<br>";
+
+		}
+		
+	}//problema_2
+
+	if(miProblema === "problema_6"){ //descuentos
+			
+			var coca_pr = randi(10,20);
+			var chetos_pr = randi(10,20);
+			var oreos_pr = randi(10,20);
+			
+			var coca_dsc = randi(5,25);
+			var chetos_dsc = randi(5,25);
+			var oreos_dsc = randi(5,25);
+			
+			var cocas = randi(2,5);
+			var chetos = randi(2,5);
+			var oreos = randi(2,5);
+			
+			var total = 0.0;
+			
+			total += cocas *(coca_pr   - coca_pr  *coca_dsc/100.0);
+			total += chetos*(chetos_pr - chetos_pr*chetos_dsc/100.0);
+			total += oreos *(oreos_pr  - oreos_pr *oreos_dsc/100.0);
+			
+			var billete = 500.0;
+			
+			if( total <= 500.0 ) billete = 500.0;
+			if( total <= 200.0 ) billete = 200.0;
+			if( total <= 100.0 ) billete = 100.0;
+			if( total <=  50.0 ) billete =  50.0;
+			
+			var feria = billete - total;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PRECIOS & DESCUENTOS: </gray><br>";
+			QUESTION += "soda &emsp; $" +coca_pr+ "&emsp;&emsp;" +coca_dsc+ "%<br>";
+			QUESTION += "sabritas &emsp; $" +chetos_pr+ "&emsp;&emsp;" +chetos_dsc+ "%<br>";
+			QUESTION += "galletas &emsp; $" +oreos_pr+ "&emsp;&emsp;" +oreos_dsc+ "%<br>";
+			QUESTION += "<br>";
+			QUESTION += "<gray>TU COMPRAS: </gray><br>";
+			QUESTION += cocas+ " sodas<br>";
+			QUESTION += chetos+ " sabritas<br>";
+			QUESTION += oreos+ " galletas<br>";
+			QUESTION += "<br>";
+			QUESTION += "Tu pagas con un billete de $" +billete+ ".<br>";
+			QUESTION += "¿Cuánto te sobra?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "Pagas $" +round2(total)+ " en total.<br>";
+			ANSWER += "Te sobra $" +round2(feria)+ ".<br>";
+		
+	}//problema_6
+
+
+}
+
+//------------------------------------------------------------------------------
+function problemas_num_grandes(){
+
+	var miProblema;
+
+	if(problema === "problema_0"){
+		var rnd = randi(1,6);
+		if(rnd===1) miProblema = "problema_1";
+		if(rnd===2) miProblema = "problema_2";
+		if(rnd===3) miProblema = "problema_3";
+		if(rnd===4) miProblema = "problema_4";
+		if(rnd===5) miProblema = "problema_5";
+		if(rnd===6) miProblema = "problema_6";
+	}else{
+		miProblema = problema;
+	}
+
+	if(miProblema === "problema_1"){
+			
+		var a = randi(10000,99999);
+		var b = randi(1000 ,9999);
+		var c = randi(100  ,999);
+		var d = randi(10000,99999);
+		
+		var total = a + b + c + d;
+		
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "En una canasta hay " + a + " manzanas.<br>";
+		QUESTION += "En otra canasta hay " + b + " naranjas.<br>";
+		QUESTION += "En otra canasta hay " + c + " peras.<br>";
+		QUESTION += "En otra canasta hay " + d + " platanos.<br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuántas frutas hay en total?<br>";
+		
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += total + " frutas.<br>";
+
+		
+	}//problema_1
+
+	if(miProblema === "problema_2"){
+		
+		while(1){
+			var a = randi(10000 ,99999);
+			var b = randi(10000 ,99999);		
+			var resta = a - b;
+			if(resta > 0)break;
+		}
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "En una caja hay " + a + " pelotas.<br>";
+		QUESTION += "Si quitamos " + b + " pelotas.<br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuántas pelotas quedan?<br>";
+		
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += resta + " pelotas.<br>";
+
+		
+	}//problema_2
+
+	if(miProblema === "problema_3"){
+			
+		var a = randi(100 , 999);
+		var b = randi(1000, 9999);
+		
+		var A = b*a;
+		
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un rectángulo tiene " + a + " metros de altura<br>";
+		QUESTION += "y " + b + " metros de base.<br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular el área del rectángulo.<br>";		
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += A + " metros cuadrados.<br>";
+		
+	}//problema_3
+
+	if(miProblema === "problema_4"){
+			
+		var p = randi(1000,9999);
+		var n = randi(5,20);
+		var q = Math.floor(p/n);
+		var r = p%n;
+		
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + p + " pelotas y " + n + " niños.<br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuántas pelotas le tocan a cada niño?<br>";
+		QUESTION += "¿Cuántas pelotas sobran?<br>";
+		
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "Le toca " + q + " pelotas a cada niño.<br>";
+		ANSWER += "Sobran " + r + " pelotas.<br>";
+		
+	}//problema_4
+
+	if(miProblema === "problema_5"){
+			
+		var paquetes_ch = randi(100,999);
+		var paquetes_va = randi(100,999);
+		var paquetes_fr = randi(100,999);
+		var ch_en_paquete = randi(10,99);
+		var va_en_paquete = randi(10,99);
+		var fr_en_paquete = randi(10,99);
+		
+		var total_paquetes = paquetes_ch + paquetes_va + paquetes_fr;
+		
+		var total_dulces_ch = paquetes_ch * ch_en_paquete;
+		var total_dulces_va = paquetes_va * va_en_paquete;
+		var total_dulces_fr = paquetes_fr * fr_en_paquete;
+		
+		var total_dulces = total_dulces_ch + total_dulces_va + total_dulces_fr;
+		
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un paquete de dulces de chocolate tiene " + ch_en_paquete + " dulces.<br>";
+		QUESTION += "Un paquete de dulces de vainilla tiene " + va_en_paquete + " dulces.<br>";
+		QUESTION += "Un paquete de dulces de fresa tiene " + fr_en_paquete + " dulces.<br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " +paquetes_ch+ " paquetes de dulces de chocolate.<br>";
+		QUESTION += "Hay " +paquetes_va+ " paquetes de dulces de vainilla.<br>";
+		QUESTION += "Hay " +paquetes_fr+ " paquetes de dulces de fresa.<br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuántos paquetes hay en total?<br>";
+		QUESTION += "¿Cuántos dulces hay en total?<br>";
+		
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "Hay " + total_paquetes + " paquetes en total.<br>";
+		ANSWER += "Hay " + total_dulces + " dulces en total.<br>";
+		
+	}//problema_5
+
+	if(miProblema === "problema_6"){
+			
+		var cajas = randi(10,50);
+		var cajitas = randi(10,50);
+ 		var bolsas = randi(10,20);
+		var canicas = randi(10,20);
+		
+		var canicas_total = cajas * cajitas * bolsas * canicas;
+				
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + cajas + " cajas grandes.<br>";
+		QUESTION += "En cada caja grande hay " + cajitas + " cajas pequeñas.<br>";
+		QUESTION += "En cada caja pequeña hay " + bolsas + " bolsas.<br>";
+		QUESTION += "En cada bolsa hay " + canicas + " canicas.<br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuántas canicas hay en total?<br>";
+		
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "Hay " + canicas_total + " canicas en total.<br>";
+		
+	}//problema_6
+
 
 }
 
@@ -419,6 +800,859 @@ function problemas_geometria(){
 
 }
 
+
+//------------------------------------------------------------------------------
+function problemas_1_incognita(){
+
+	var miProblema;
+
+	if(problema === "problema_0"){
+		var rnd = randi(1,6);
+		if(rnd===1) miProblema = "problema_1"; //sustituir valores
+		if(rnd===2) miProblema = "problema_2"; //despejar x, fácil
+		if(rnd===3) miProblema = "problema_3"; //problemas, fácil
+		if(rnd===4) miProblema = "problema_4";
+		if(rnd===5) miProblema = "problema_5";
+		if(rnd===6) miProblema = "problema_6";
+	}else{
+		miProblema = problema;
+	}
+
+	if(miProblema === "problema_1"){ //sustituir valores
+		
+		var rnd = randi(1,13);
+		var x,a,b,c,d,e,f,g,h,ans;
+		
+		//rnd = 6;
+		
+		if(rnd === 1){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+			
+			ans = x + a;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "x + a = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 2){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+			
+			ans = x * a;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "ax = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 3){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = a*x + b;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "ax + b = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 4){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = (a + b) * x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "(a + b)x = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 5){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = (a*x + b)*c;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "c = " + c + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "(ax + b)c = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 6){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = (a*x - b)*c;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "c = " + c + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "(ax - b)c = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 7){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = ( b - a*x )*c;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "c = " + c + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "(b - ax)c = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 8){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = b - a*x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "b - ax = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 9){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = (a - b)*x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "(a - b)x = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 10){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = a*x - b;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "ax - b = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 11){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = -a*x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "-ax = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 12){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = a - x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "a - x = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		if(rnd === 13){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = -(a - x);
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = " + x + "<br>";
+			QUESTION += "<br>";
+			QUESTION += "-(a - x) = ?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += ans;
+		}
+
+		
+	} //problema_1
+
+	if(miProblema === "problema_2"){ //despejar x (fácil)
+		
+		var rnd = randi(1,13);
+		var x,a,b,c,d,e,f,g,h,ans;
+		
+		if(rnd === 1){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+			
+			ans = x + a;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "x + a = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+				
+		}
+
+		if(rnd === 2){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+			
+			ans = x * a;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "ax = " + ans + "<br>";;
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 3){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = a*x + b;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "ax + b = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 4){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = (a + b) * x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "(a + b)x = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 5){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = (a*x + b)*c;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "c = " + c + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "(ax + b)c = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 6){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = (a*x - b)*c;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "c = " + c + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "(ax - b)c = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 7){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = ( b - a*x )*c;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "c = " + c + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "(b - ax)c = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 8){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = b - a*x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "b - ax = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 9){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = (a - b)*x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "(a - b)x = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 10){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = a*x - b;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "b = " + b + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "ax - b = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 11){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = -a*x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "-ax = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 12){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = a - x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "a - x = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		if(rnd === 13){
+
+			a = randi0(-10,10);
+			b = randi0(-10,10);
+			c = randi0(-10,10);
+			x = randi0(-10,10);
+
+			
+			ans = -(a - x);
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "a = " + a + "<br>";
+			QUESTION += "x = ?<br>";
+			QUESTION += "<br>";
+			QUESTION += "-(a - x) = " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "x = " + x;
+		}
+
+		
+	} //problema_2
+
+	if(miProblema === "problema_3"){ //problemas x (fácil)
+		
+		var rnd = randi(1,8);
+		var x,a,b,c,d,e,f,g,h,ans;
+		
+		//rnd = 8;
+		
+		if(rnd === 1){
+
+			x = randi0(1,20);
+			
+			ans = x + (x + 1);
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Encuentra dos números consecutivos<br>";
+			QUESTION += "que sumen " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x + " y " + (x+1);
+				
+		}
+
+		if(rnd === 2){
+
+			x = randi0(1,20);
+			
+			ans = x + (x + 1) + (x + 2);
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Encuentra tres números consecutivos<br>";
+			QUESTION += "que sumen " + ans + "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x + ", " + (x+1) + " y " + (x+2);
+				
+		}
+
+		if(rnd === 3){
+
+			x = randi0(2,20);
+			a = randi0(2,12);
+			
+			ans = x + (x + a);
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Alcaráz tiene " + a + " años más<br>";
+			QUESTION += "que Becky y sus edades suman " + ans + "<br>";
+			QUESTION += "¿Cuál es la edad de Becky?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x + " años.";
+				
+		}
+
+		if(rnd === 4){
+
+			x = randi0(2,20);
+			a = x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Un número más " + a + " es igual<br>";
+			QUESTION += "al doble de dicho número.<br>";
+			QUESTION += "¿Cuál número es?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x ;
+				
+		}
+		
+		if(rnd === 5){
+
+			x = randi0(2,20);
+			a = 2*x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Un número más " + a + " es igual<br>";
+			QUESTION += "al triple de dicho número.<br>";
+			QUESTION += "¿Cuál número es?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x ;
+				
+		}
+		
+		if(rnd === 6){
+
+			x = randi0(2,20);
+			a = 2*x;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Calcular la edad de Becky si<br>";
+			QUESTION += "dentro de " + a + " años tendrá el <br>"
+			QUESTION += "triple de años de los que tiene ahora.<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x + " años";
+				
+		}
+
+		if(rnd === 7){
+
+			a = randi0(2,20);
+			x = 3*a;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Becky es " + a + " años mayor<br>";
+			QUESTION += "que Alcaráz. Y el doble de la edad<br>"
+			QUESTION += "de Becky es el triple de la de Alcaráz<br>"
+			QUESTION += "¿Cuál es la edad de Becky?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += x + " años.";
+				
+		}	
+
+		if(rnd === 8){
+
+			while(1){
+				b = randi0(2,20);
+				a = b + randi0(2,20);
+				x = a - 2*b;
+				if(x > 0)break;
+			}
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Alcarás tiene " + a + " años.<br>";
+			QUESTION += "Becky tiene " + b + " años.<br>";
+			QUESTION += "¿Dentro de cuántos años la edad<br>"
+			QUESTION += "de Alcaráz será el doble que la de Becky?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "Dentro de " + x + " años.";
+				
+		}
+				
+	} //problema_3
+	
+	
+
+
+}
+
 //------------------------------------------------------------------------------
 function problemas_series(){
 
@@ -577,7 +1811,7 @@ function problemas_series(){
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br><br>";
 		QUESTION += "¿Cuántos números hay? <br><br>";
-		QUESTION += "" + a[1] + " + " + a[2] + " + " + a[3] + " + ... + " + a[n];
+		QUESTION += "" + a[1] + ", " + a[2] + ", " + a[3] + ", ... , " + a[n];
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br><br>";
@@ -709,6 +1943,10 @@ function round(num, scale) {
     }
     return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + scale)) + "e-" + scale);
   }
+}
+
+function round2(num) {
+    return +(Math.round(num + "e+2")  + "e-2");
 }
 
 function round4(num) {
