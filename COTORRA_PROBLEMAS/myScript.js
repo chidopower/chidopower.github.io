@@ -74,7 +74,7 @@ function problemas_cargar(){
 		miProblema[5] = "";
 		miProblema[6] = "";
 	}
-	
+
 	if(tema === "1_incognita"){
 		miProblema[0] = "TODO";
 		miProblema[1] = "Sustituir valores";
@@ -169,7 +169,7 @@ function problemas_regla_de_tres(){
 			QUESTION += "Calcular el valor de x.<br>";
 			QUESTION += "<br>";
 			QUESTION += a+ " &rarr; " +b+ "<br>";
-			QUESTION += c+ " &rarr;  x<br>";		
+			QUESTION += c+ " &rarr;  x<br>";
 		}else{
 			QUESTION  = "";
 			QUESTION += "<gray>PROBLEMA: </gray><br>";
@@ -177,14 +177,14 @@ function problemas_regla_de_tres(){
 			QUESTION += "Calcular el valor de x.<br>";
 			QUESTION += "<br>";
 			QUESTION += b+ " &rarr; " +a+ "<br>";
-			QUESTION +=   "x &rarr; " +c+ "<br>";		
+			QUESTION +=   "x &rarr; " +c+ "<br>";
 		}
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
 		ANSWER += "x = " +x+ "<br>";
 
-		
+
 	}//problema_1
 
 	if(miProblema === "problema_2"){ //porcentajes
@@ -199,20 +199,20 @@ function problemas_regla_de_tres(){
 
 			QUESTION += "<gray>PROBLEMA: </gray><br>";
 			QUESTION += "<br>";
-			
+
 			if(randi(1,2) ===1){
 				var x = a + a*p/100;
-				QUESTION += a+ " &plus; " +p+ "<br>";
+				QUESTION += a+ " &plus; " +p+ "%<br>";
 			}else{
 				var x = a - a*p/100;
-				QUESTION += a+ " &minus; " +p+ "<br>";
+				QUESTION += a+ " &minus; " +p+ "%<br>";
 			}
-			
+
 			ANSWER  = "";
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += x+ "<br>";
-		
+
 		}else{
 
 			while(1){
@@ -233,36 +233,36 @@ function problemas_regla_de_tres(){
 			ANSWER += x+ "<br>";
 
 		}
-		
+
 	}//problema_2
 
 	if(miProblema === "problema_6"){ //descuentos
-			
+
 			var coca_pr = randi(10,20);
 			var chetos_pr = randi(10,20);
 			var oreos_pr = randi(10,20);
-			
+
 			var coca_dsc = randi(5,25);
 			var chetos_dsc = randi(5,25);
 			var oreos_dsc = randi(5,25);
-			
+
 			var cocas = randi(2,5);
 			var chetos = randi(2,5);
 			var oreos = randi(2,5);
-			
+
 			var total = 0.0;
-			
+
 			total += cocas *(coca_pr   - coca_pr  *coca_dsc/100.0);
 			total += chetos*(chetos_pr - chetos_pr*chetos_dsc/100.0);
 			total += oreos *(oreos_pr  - oreos_pr *oreos_dsc/100.0);
-			
+
 			var billete = 500.0;
-			
+
 			if( total <= 500.0 ) billete = 500.0;
 			if( total <= 200.0 ) billete = 200.0;
 			if( total <= 100.0 ) billete = 100.0;
 			if( total <=  50.0 ) billete =  50.0;
-			
+
 			var feria = billete - total;
 
 			QUESTION  = "";
@@ -284,7 +284,7 @@ function problemas_regla_de_tres(){
 			ANSWER += "<br>";
 			ANSWER += "Pagas $" +round2(total)+ " en total.<br>";
 			ANSWER += "Te sobra $" +round2(feria)+ ".<br>";
-		
+
 	}//problema_6
 
 
@@ -308,14 +308,14 @@ function problemas_num_grandes(){
 	}
 
 	if(miProblema === "problema_1"){
-			
+
 		var a = randi(10000,99999);
 		var b = randi(1000 ,9999);
 		var c = randi(100  ,999);
 		var d = randi(10000,99999);
-		
+
 		var total = a + b + c + d;
-		
+
 
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
@@ -326,21 +326,21 @@ function problemas_num_grandes(){
 		QUESTION += "En otra canasta hay " + d + " platanos.<br>";
 		QUESTION += "<br>";
 		QUESTION += "¿Cuántas frutas hay en total?<br>";
-		
+
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
 		ANSWER += total + " frutas.<br>";
 
-		
+
 	}//problema_1
 
 	if(miProblema === "problema_2"){
-		
+
 		while(1){
 			var a = randi(10000 ,99999);
-			var b = randi(10000 ,99999);		
+			var b = randi(10000 ,99999);
 			var resta = a - b;
 			if(resta > 0)break;
 		}
@@ -352,45 +352,45 @@ function problemas_num_grandes(){
 		QUESTION += "Si quitamos " + b + " pelotas.<br>";
 		QUESTION += "<br>";
 		QUESTION += "¿Cuántas pelotas quedan?<br>";
-		
+
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
 		ANSWER += resta + " pelotas.<br>";
 
-		
+
 	}//problema_2
 
 	if(miProblema === "problema_3"){
-			
+
 		var a = randi(100 , 999);
 		var b = randi(1000, 9999);
-		
+
 		var A = b*a;
-		
+
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
 		QUESTION += "Un rectángulo tiene " + a + " metros de altura<br>";
 		QUESTION += "y " + b + " metros de base.<br>";
 		QUESTION += "<br>";
-		QUESTION += "Calcular el área del rectángulo.<br>";		
+		QUESTION += "Calcular el área del rectángulo.<br>";
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
 		ANSWER += A + " metros cuadrados.<br>";
-		
+
 	}//problema_3
 
 	if(miProblema === "problema_4"){
-			
+
 		var p = randi(1000,9999);
 		var n = randi(5,20);
 		var q = Math.floor(p/n);
 		var r = p%n;
-		
+
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
@@ -398,33 +398,33 @@ function problemas_num_grandes(){
 		QUESTION += "<br>";
 		QUESTION += "¿Cuántas pelotas le tocan a cada niño?<br>";
 		QUESTION += "¿Cuántas pelotas sobran?<br>";
-		
+
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
 		ANSWER += "Le toca " + q + " pelotas a cada niño.<br>";
 		ANSWER += "Sobran " + r + " pelotas.<br>";
-		
+
 	}//problema_4
 
 	if(miProblema === "problema_5"){
-			
+
 		var paquetes_ch = randi(100,999);
 		var paquetes_va = randi(100,999);
 		var paquetes_fr = randi(100,999);
 		var ch_en_paquete = randi(10,99);
 		var va_en_paquete = randi(10,99);
 		var fr_en_paquete = randi(10,99);
-		
+
 		var total_paquetes = paquetes_ch + paquetes_va + paquetes_fr;
-		
+
 		var total_dulces_ch = paquetes_ch * ch_en_paquete;
 		var total_dulces_va = paquetes_va * va_en_paquete;
 		var total_dulces_fr = paquetes_fr * fr_en_paquete;
-		
+
 		var total_dulces = total_dulces_ch + total_dulces_va + total_dulces_fr;
-		
+
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
@@ -438,25 +438,25 @@ function problemas_num_grandes(){
 		QUESTION += "<br>";
 		QUESTION += "¿Cuántos paquetes hay en total?<br>";
 		QUESTION += "¿Cuántos dulces hay en total?<br>";
-		
+
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
 		ANSWER += "Hay " + total_paquetes + " paquetes en total.<br>";
 		ANSWER += "Hay " + total_dulces + " dulces en total.<br>";
-		
+
 	}//problema_5
 
 	if(miProblema === "problema_6"){
-			
+
 		var cajas = randi(10,50);
 		var cajitas = randi(10,50);
  		var bolsas = randi(10,20);
 		var canicas = randi(10,20);
-		
+
 		var canicas_total = cajas * cajitas * bolsas * canicas;
-				
+
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
@@ -466,13 +466,13 @@ function problemas_num_grandes(){
 		QUESTION += "En cada bolsa hay " + canicas + " canicas.<br>";
 		QUESTION += "<br>";
 		QUESTION += "¿Cuántas canicas hay en total?<br>";
-		
+
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
 		ANSWER += "Hay " + canicas_total + " canicas en total.<br>";
-		
+
 	}//problema_6
 
 
@@ -819,19 +819,19 @@ function problemas_1_incognita(){
 	}
 
 	if(miProblema === "problema_1"){ //sustituir valores
-		
+
 		var rnd = randi(1,13);
 		var x,a,b,c,d,e,f,g,h,ans;
-		
+
 		//rnd = 6;
-		
+
 		if(rnd === 1){
 
 			a = randi0(-10,10);
 			b = randi0(-10,10);
 			c = randi0(-10,10);
 			x = randi0(-10,10);
-			
+
 			ans = x + a;
 
 			QUESTION  = "";
@@ -854,7 +854,7 @@ function problemas_1_incognita(){
 			b = randi0(-10,10);
 			c = randi0(-10,10);
 			x = randi0(-10,10);
-			
+
 			ans = x * a;
 
 			QUESTION  = "";
@@ -878,7 +878,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = a*x + b;
 
 			QUESTION  = "";
@@ -903,7 +903,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = (a + b) * x;
 
 			QUESTION  = "";
@@ -928,7 +928,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = (a*x + b)*c;
 
 			QUESTION  = "";
@@ -954,7 +954,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = (a*x - b)*c;
 
 			QUESTION  = "";
@@ -980,7 +980,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = ( b - a*x )*c;
 
 			QUESTION  = "";
@@ -1006,7 +1006,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = b - a*x;
 
 			QUESTION  = "";
@@ -1031,7 +1031,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = (a - b)*x;
 
 			QUESTION  = "";
@@ -1056,7 +1056,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = a*x - b;
 
 			QUESTION  = "";
@@ -1081,7 +1081,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = -a*x;
 
 			QUESTION  = "";
@@ -1105,7 +1105,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = a - x;
 
 			QUESTION  = "";
@@ -1129,7 +1129,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = -(a - x);
 
 			QUESTION  = "";
@@ -1146,21 +1146,21 @@ function problemas_1_incognita(){
 			ANSWER += ans;
 		}
 
-		
+
 	} //problema_1
 
 	if(miProblema === "problema_2"){ //despejar x (fácil)
-		
+
 		var rnd = randi(1,13);
 		var x,a,b,c,d,e,f,g,h,ans;
-		
+
 		if(rnd === 1){
 
 			a = randi0(-10,10);
 			b = randi0(-10,10);
 			c = randi0(-10,10);
 			x = randi0(-10,10);
-			
+
 			ans = x + a;
 
 			QUESTION  = "";
@@ -1175,7 +1175,7 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += "x = " + x;
-				
+
 		}
 
 		if(rnd === 2){
@@ -1184,7 +1184,7 @@ function problemas_1_incognita(){
 			b = randi0(-10,10);
 			c = randi0(-10,10);
 			x = randi0(-10,10);
-			
+
 			ans = x * a;
 
 			QUESTION  = "";
@@ -1208,7 +1208,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = a*x + b;
 
 			QUESTION  = "";
@@ -1233,7 +1233,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = (a + b) * x;
 
 			QUESTION  = "";
@@ -1258,7 +1258,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = (a*x + b)*c;
 
 			QUESTION  = "";
@@ -1284,7 +1284,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = (a*x - b)*c;
 
 			QUESTION  = "";
@@ -1310,7 +1310,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = ( b - a*x )*c;
 
 			QUESTION  = "";
@@ -1336,7 +1336,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = b - a*x;
 
 			QUESTION  = "";
@@ -1361,7 +1361,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = (a - b)*x;
 
 			QUESTION  = "";
@@ -1386,7 +1386,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = a*x - b;
 
 			QUESTION  = "";
@@ -1411,7 +1411,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = -a*x;
 
 			QUESTION  = "";
@@ -1435,7 +1435,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = a - x;
 
 			QUESTION  = "";
@@ -1459,7 +1459,7 @@ function problemas_1_incognita(){
 			c = randi0(-10,10);
 			x = randi0(-10,10);
 
-			
+
 			ans = -(a - x);
 
 			QUESTION  = "";
@@ -1476,20 +1476,20 @@ function problemas_1_incognita(){
 			ANSWER += "x = " + x;
 		}
 
-		
+
 	} //problema_2
 
 	if(miProblema === "problema_3"){ //problemas x (fácil)
-		
+
 		var rnd = randi(1,8);
 		var x,a,b,c,d,e,f,g,h,ans;
-		
+
 		//rnd = 8;
-		
+
 		if(rnd === 1){
 
 			x = randi0(1,20);
-			
+
 			ans = x + (x + 1);
 
 			QUESTION  = "";
@@ -1502,13 +1502,13 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += x + " y " + (x+1);
-				
+
 		}
 
 		if(rnd === 2){
 
 			x = randi0(1,20);
-			
+
 			ans = x + (x + 1) + (x + 2);
 
 			QUESTION  = "";
@@ -1521,14 +1521,14 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += x + ", " + (x+1) + " y " + (x+2);
-				
+
 		}
 
 		if(rnd === 3){
 
 			x = randi0(2,20);
 			a = randi0(2,12);
-			
+
 			ans = x + (x + a);
 
 			QUESTION  = "";
@@ -1542,7 +1542,7 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += x + " años.";
-				
+
 		}
 
 		if(rnd === 4){
@@ -1561,9 +1561,9 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += x ;
-				
+
 		}
-		
+
 		if(rnd === 5){
 
 			x = randi0(2,20);
@@ -1580,9 +1580,9 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += x ;
-				
+
 		}
-		
+
 		if(rnd === 6){
 
 			x = randi0(2,20);
@@ -1599,7 +1599,7 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += x + " años";
-				
+
 		}
 
 		if(rnd === 7){
@@ -1619,8 +1619,8 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += x + " años.";
-				
-		}	
+
+		}
 
 		if(rnd === 8){
 
@@ -1643,12 +1643,12 @@ function problemas_1_incognita(){
 			ANSWER += "<gray>RESPUESTA: </gray><br>";
 			ANSWER += "<br>";
 			ANSWER += "Dentro de " + x + " años.";
-				
+
 		}
-				
+
 	} //problema_3
-	
-	
+
+
 
 
 }

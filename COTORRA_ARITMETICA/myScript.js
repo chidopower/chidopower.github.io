@@ -99,11 +99,11 @@ function play(){
 	updateScore();
 
 	if(option === "quiz")
-		rnd = intRand(1,4);
+		rnd = rndi(1,4);
 	else
-		rnd = intRand(1,5);
+		rnd = rndi(1,5);
 
-	//rnd = 4;
+	//rnd = 5;
 
 	if(rnd === 1) play_SUMA();
 	if(rnd === 2) play_RESTA();
@@ -137,7 +137,7 @@ function updateScore(){
 //------------------------------------------------------------------------------
 function showAns(){
 
-	trueAns = intRand(1,5);
+	trueAns = rndi(1,5);
 
 	console.log("answer: ", ans);
 
@@ -179,14 +179,17 @@ function play_SUMA(){
 	var A,B;
 
 	if(coin() === 1){
-		A = intRand(9,99);
-		B = intRand(9,99);
+		if(level==="easy")  {A = rndi(3,20);B = rndi(3,20);}
+		if(level==="normal"){A = rndi(3,50);B = rndi(3,50);}
+		if(level==="hard")  {A = rndi(9,99);B = rndi(9,99);}
 		ans = A + B;
 		makeFakes(-4,4);
 		makeFakeAns();
+
 	}else{
-		A = intRand(2,99)*10;
-		B = intRand(2,99);
+		if(level==="easy")  {A = 10*rndi(3,20);B = rndi(3,20);}
+		if(level==="normal"){A = 10*rndi(3,50);B = rndi(3,50);}
+		if(level==="hard")  {A = 10*rndi(9,99);B = rndi(9,99);}
 		ans = A + B;
 		makeFakes(-4,4);
 		for(i=0; i<6; i++)fake[i] *= 10;
@@ -203,12 +206,15 @@ function play_RESTA(){
 
 	var A,B;
 
-	var rnd = intRand(1,3);
+	if(level==="easy")   {var rnd = 1;}
+	if(level==="normal") {var rnd = rndi(1,2);}
+	if(level==="hard")   {var rnd = rndi(2,3);}
 
 	if( rnd === 1 ){
 		while(1){
-			A = intRand(2,9)*10;
-			B = intRand(2,8);
+			if(level==="easy")  {A = rndi(2,9)*10; B = rndi(3,12);}
+			if(level==="normal"){A = rndi(2,9)*10; B = rndi(3,50);}
+			if(level==="hard")  {A = rndi(2,9)*10; B = rndi(2,99);}
 			ans = A - B;
 			if(ans > 2) break;
 		}
@@ -218,8 +224,9 @@ function play_RESTA(){
 
 	if( rnd === 2 ){
 		while(1){
-			A = intRand(2,9)*100;
-			B = intRand(2,88);
+			if(level==="easy")  {A = rndi(2,9)*100; B = rndi(3,12);}
+			if(level==="normal"){A = rndi(2,9)*100; B = rndi(3,50);}
+			if(level==="hard")  {A = rndi(2,9)*100; B = rndi(2,99);}
 			ans = A - B;
 			if(ans > 2) break;
 		}
@@ -229,8 +236,9 @@ function play_RESTA(){
 
 	if( rnd === 3 ){
 		while(1){
-			A = intRand(2,99);
-			B = intRand(2,99);
+			if(level==="easy")  {A = rndi(2,20); B = rndi(2,20);}
+			if(level==="normal"){A = rndi(2,50); B = rndi(2,50);}
+			if(level==="hard")  {A = rndi(2,99); B = rndi(2,99);}
 			ans = A - B;
 			if(ans > 2) break;
 		}
@@ -247,35 +255,39 @@ function play_RESTA(){
 function play_MULT(){
 
 	var A,B;
-	var rnd = intRand(1,4);
+	var rnd = rndi(1,4);
 
 	if( rnd === 1){
-		A = intRand(2,20);
-		B = intRand(2,20);
+		if(level==="easy")  {A = rndi(2,10); B = rndi(2,10);}
+		if(level==="normal"){A = rndi(2,15); B = rndi(2,15);}
+		if(level==="hard")  {A = rndi(2,20); B = rndi(2,20);}
 		ans = A * B;
 		makeFakes(-4,4);
 		for(i=0; i<4; i++)fake[i] *= B;
 		makeFakeAns();
 	}
 	if( rnd === 2){
-		A = intRand(2,20)*10;
-		B = intRand(2,20);
+		if(level==="easy")  {A = 10*rndi(2,10); B = rndi(2,10);}
+		if(level==="normal"){A = 10*rndi(2,15); B = rndi(2,15);}
+		if(level==="hard")  {A = 10*rndi(2,20); B = rndi(2,20);}
 		ans = A * B;
 		makeFakes(-4,4);
 		for(i=0; i<4; i++)fake[i] *= B*10;
 		makeFakeAns();
 	}
 	if( rnd === 3){
-		A = intRand(21,99);
-		B = intRand(2,3);
+		if(level==="easy")  {A = rndi(11,20); B = rndi(2,3);}
+		if(level==="normal"){A = rndi(20,50); B = rndi(2,3);}
+		if(level==="hard")  {A = rndi(20,99); B = rndi(2,3);}
 		ans = A * B;
 		makeFakes(-4,4);
 		for(i=0; i<4; i++)fake[i] *= B;
 		makeFakeAns();
 	}
 	if( rnd === 4){
-		A = intRand(21,99)*10;
-		B = intRand(2,3);
+		if(level==="easy")  {A = 10*rndi(11,20); B = rndi(2,3);}
+		if(level==="normal"){A = 10*rndi(20,50); B = rndi(2,3);}
+		if(level==="hard")  {A = 10*rndi(20,99); B = rndi(2,3);}
 		ans = A * B;
 		makeFakes(-4,4);
 		for(i=0; i<4; i++)fake[i] *= B*10;
@@ -294,21 +306,23 @@ function play_MULT(){
 function play_DIV(){
 
 	var A,B;
-	var rnd = intRand(1,3);
+	var rnd = rndi(1,3);
 
 	//rnd = 3;
 
 	if( rnd === 1 ){
-		C = intRand(2,20);
-		B = intRand(2,20);
+		if(level==="easy")  {C = rndi(2,10); B = rndi(2,10);}
+		if(level==="normal"){C = rndi(2,15); B = rndi(2,15);}
+		if(level==="hard")  {C = rndi(2,20); B = rndi(2,20);}
 		A = C * B;
 		ans = A / B;
 		makeFakes(-4,4);
 		makeFakeAns();
 	}
 	if( rnd === 2 ){
-		C = intRand(2,12);
-		B = intRand(2,12)*10;
+		if(level==="easy")  {C = rndi(2,10); B = 10*rndi(2,10);}
+		if(level==="normal"){C = rndi(2,15); B = 10*rndi(2,15);}
+		if(level==="hard")  {C = rndi(2,20); B = 10*rndi(2,20);}
 		A = C * B;
 		ans = A / B;
 		makeFakes(-4,4);
@@ -316,8 +330,9 @@ function play_DIV(){
 
 	}
 	if( rnd === 3 ){
-		C = intRand(10,99);
-		B = intRand(2,3);
+		if(level==="easy")  {C = rndi(10,20); B = rndi(2,3);}
+		if(level==="normal"){C = rndi(20,50); B = rndi(2,3);}
+		if(level==="hard")  {C = rndi(10,99); B = rndi(2,3);}
 		A = C * B;
 		ans = A / B;
 		makeFakes(-4,4);
@@ -335,17 +350,16 @@ function play_DIV(){
 function play_FRAC(){
 
 
-	var rnd = intRand(1,4);
+	var rnd = rndi(1,4);
 
 	//rnd = 4;
 
 	// SUMA
 	if( rnd === 1 ){
 		while(1){
-			a = intRand(1,3);
-			b = intRand(1,9);
-			c = intRand(1,3);
-			d = intRand(1,9);
+			if(level==="easy")  {a=rndi(1,2); b=rndi(1,3); c=rndi(1,2); d=rndi(1,9);}
+			if(level==="normal"){a=rndi(1,2); b=rndi(1,5); c=rndi(1,2); d=rndi(1,5);}
+			if(level==="hard")  {a=rndi(1,3); b=rndi(1,9); c=rndi(1,3); d=rndi(1,9);}
 			e = a*d + c*b;
 			f = b*d;
 			simplificar();
@@ -361,10 +375,9 @@ function play_FRAC(){
 	// RESTA
 	if( rnd === 2 ){
 		while(1){
-			a = intRand(1,4);
-			b = 1;
-			c = intRand(1,9);
-			d = intRand(2,9);
+			if(level==="easy")  {a=rndi(1,2); b=1; c=rndi(1,3); d=rndi(2,3);}
+			if(level==="normal"){a=rndi(1,3); b=1; c=rndi(1,5); d=rndi(2,5);}
+			if(level==="hard")  {a=rndi(1,4); b=1; c=rndi(1,9); d=rndi(2,9);}
 			if(d > c)break;}
 		e = a*d - c*b;
 		f = b*d;
@@ -376,10 +389,13 @@ function play_FRAC(){
 	// MULT
 	if( rnd === 3 ){
 		while(1){
-			a = intRand(2,9);
-			b = intRand(2,9);
-			c = intRand(2,9);
-			d = intRand(2,9);
+			if(level==="easy")  {a=rndi(2,5);  b=rndi(2,5);  c=rndi(2,5);  d=rndi(2,5);}
+			if(level==="normal"){a=rndi(2,9);  b=rndi(2,9);  c=rndi(2,9);  d=rndi(2,9);}
+			if(level==="hard")  {a=rndi(2,12); b=rndi(2,12); c=rndi(2,12); d=rndi(2,12);}
+			a = rndi(2,9);
+			b = rndi(2,9);
+			c = rndi(2,9);
+			d = rndi(2,9);
 			e = a*c;
 			f = b*d;
 			simplificar();
@@ -392,10 +408,9 @@ function play_FRAC(){
 	// DIV
 	if( rnd === 4 ){
 		while(1){
-			a = intRand(2,9);
-			b = intRand(2,9);
-			c = intRand(2,9);
-			d = intRand(2,9);
+			if(level==="easy")  {a=rndi(2,5);  b=rndi(2,5);  c=rndi(2,5);  d=rndi(2,5);}
+			if(level==="normal"){a=rndi(2,9);  b=rndi(2,9);  c=rndi(2,9);  d=rndi(2,9);}
+			if(level==="hard")  {a=rndi(2,12); b=rndi(2,12); c=rndi(2,12); d=rndi(2,12);}
 			e = a*d;
 			f = b*c;
 			simplificar();
@@ -463,13 +478,13 @@ function makeFakeAns(){
 
 		for(i=0; i<5; i++){
 
-			rnd = intRand(1,3);
+			rnd = rndi(1,3);
 
 			if(rnd === 1){
 				up = e;
 				while(1){
 					//console.log(rnd, up, down, e, f);
-					down = f + intRand(-5,5);
+					down = f + rndi(-5,5);
 					if(down !== f && down > 0)
 						break;
 				}
@@ -477,15 +492,15 @@ function makeFakeAns(){
 				down = f;
 				while(1){
 					//console.log(rnd, up, down);
-					up = e + intRand(-5,5);
+					up = e + rndi(-5,5);
 					if(up !== e && up > 0)
 						break;
 				}
 			}else{
 				while(1){
 					//console.log(rnd, up, down);
-					up = e + intRand(-5,5);
-					down = f + intRand0(-5,5);
+					up = e + rndi(-5,5);
+					down = f + rndi0(-5,5);
 					if(up !== e && down !== f && up > 0 && down > 0)
 						break;
 				}
@@ -509,21 +524,21 @@ function makeFakeAns(){
 //------------------------------------------------------------------------------
 function makeFakes(fakeMin, fakeMax){
 
-	fake[0] = intRand(fakeMin, fakeMax);
+	fake[0] = rndi(fakeMin, fakeMax);
 
 	while(1){
-		fake[1] = intRand(fakeMin, fakeMax);
+		fake[1] = rndi(fakeMin, fakeMax);
 		if(fake[1] !== fake[0])
 			break;}
 
 	while(1){
-		fake[2] = intRand(fakeMin, fakeMax);
+		fake[2] = rndi(fakeMin, fakeMax);
 		if(fake[2] !== fake[0] &&
 		   fake[2] !== fake[1])
 			break;}
 
 	while(1){
-		fake[3] = intRand(fakeMin, fakeMax);
+		fake[3] = rndi(fakeMin, fakeMax);
 		if(fake[3] !== fake[0] &&
 		   fake[3] !== fake[1] &&
 		   fake[3] !== fake[2])
@@ -534,12 +549,12 @@ function makeFakes(fakeMin, fakeMax){
 
 
 //------------------------------------------------------------------------------
-function intRand0(min, max) {
+function rndi0(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;;
 }
 
 //------------------------------------------------------------------------------
-function intRand(min, max) {
+function rndi(min, max) {
 	var R;
 	while(1){
 		R = Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -550,4 +565,4 @@ function intRand(min, max) {
 }
 
 //------------------------------------------------------------------------------
-function coin(){ return intRand(1,2);}
+function coin(){ return rndi(1,2);}
