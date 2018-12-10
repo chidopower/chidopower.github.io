@@ -42,7 +42,7 @@ function start(){
 //------------------------------------------------------------------------------
 function prob_todos(){
 
-	var rnd = randi(1,8);
+	var rnd = randi(1,10);
 
 	if(rnd === 1)  	prob_repartir();
 	if(rnd === 2)  	prob_suma_naturales();
