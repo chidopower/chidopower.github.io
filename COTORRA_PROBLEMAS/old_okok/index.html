@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script src="myScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+
+<body>
+
+	<div class="opciones">
+		<select id="tema" onclick="problemas_cargar()">
+			<option value="TODO">TODO</option>
+			<option value="num_grandes">Números GRANDES</option>
+			<option value="series">Series</option>
+			<option value="geometria">Geometría</option>
+			<option value="regla_de_tres">Regla de Tres</option>
+			<!--<option value="1_incognita">Una incognita</option>-->
+		</select>
+		<div class="start" id="start" onclick="start()">START</div>
+		<select id="problema">
+			<option value="problema_0" id="problema_0"></option>
+			<option value="problema_1" id="problema_1"></option>
+			<option value="problema_2" id="problema_2"></option>
+			<option value="problema_3" id="problema_3"></option>
+			<option value="problema_4" id="problema_4"></option>
+			<option value="problema_5" id="problema_5"></option>
+			<option value="problema_6" id="problema_6"></option>
+		</select>
+	</div>
+
+	<div class="flashCard" id="flashCard">
+		<div class="flashCardQuestion" id="flashCardQuestion" onclick="flash_card_flip()"></div>
+		<div class="flashCardAnswer"   id="flashCardAnswer"   onclick="flash_card_flip()"></div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

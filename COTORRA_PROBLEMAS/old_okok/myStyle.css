@@ -1,0 +1,97 @@
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url(./myFonts/Ubuntu-Regular.ttf) format("truetype");
+}
+
+body{
+	background: #80d6ff;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+*{box-sizing: border-box;}
+
+red{color: red;}
+gray{color: gray;}
+pre{
+color: red;
+font-size: 200%;
+}
+
+.opciones{
+	float: left;
+	width: 100%;
+	padding: 10px;
+	background: #0077c2;
+	//color: white;
+}
+
+select{
+	float: left;
+	width: 40%;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+.start{
+	float: left;
+	width: 20%;
+	text-align: center;
+	//padding: 10px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+}
+
+.start:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.start:active {background-color: #ffa0c0; color: black;}
+
+.flashCard{
+	float: left;
+	width: 100%;
+	padding: 50px;
+    display: none;
+}
+
+.flashCardQuestion{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	display: none;
+	padding: 50px;
+	border: solid;
+	background: #F2EDBA;
+	border-radius: 25px;
+}
+
+.flashCardAnswer{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	padding: 50px;
+	display: none;
+	border: solid;
+	background: #F2EDBA;
+	border-radius: 25px;
+}
+
+
+.flashCardAnswer:hover {cursor: pointer;}
+.flashCardQuestion:hover {cursor: pointer;}
+
+
+/*---------------------------------------------*/
+@media (max-width: 1000px) {
+

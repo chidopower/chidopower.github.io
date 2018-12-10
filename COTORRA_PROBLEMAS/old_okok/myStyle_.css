@@ -1,0 +1,426 @@
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url(./myFonts/Ubuntu-Regular.ttf) format("truetype");
+}
+
+
+quest {
+	font-size: 60%;
+	color: gray;
+}
+
+red{color: red;}
+gray{color: gray;}
+
+
+body{
+
+	background: #80d6ff;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+b{color: #ec407a;}
+
+*{
+    box-sizing: border-box;
+}
+
+/******************************* TITLE BAR **********************************/
+
+.titleBar{
+	float: left;
+	width: 100%;
+    //padding: 10px;
+    //border: solid;
+
+}
+
+.titleApp{
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 20px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+}
+
+
+
+/***************************** SUB TITLE BAR **********************************/
+
+.subTitleBar{
+	float: left;
+	width: 100%;
+    //padding: 5px;
+    //border: solid;
+    display: none;
+}
+
+.subTitleBarRight,
+.subTitleBarLeft{
+	float: left;
+	width: 10%;
+	//border: solid;
+}
+
+.subTitleBarCenter{
+	float: left;
+	width: 80%;
+	//border: solid;
+}
+
+.buttonBack{
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 20px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	background: #42a5f5;
+}
+
+.buttonReStart{
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 20px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	background: #42a5f5;
+}
+
+
+.selQuizButton{
+
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 20px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	background: #0077c2;
+	color: white;
+}
+
+
+.selQuizButton:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.selQuizButton:active {background-color: #ffa0c0; color: black;}
+.selLevelButton:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.selLevelButton:active {background-color: #ffa0c0; color: black;}
+.buttonReStart:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonReStart:active {background-color: #ffa0c0; color: black;}
+.buttonBack:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonBack:active {background-color: #ffa0c0; color: black;}
+
+/*************************************** SCORE BAR ****************************/
+
+.scoreBAR{
+	float: left;
+	width: 100%;
+	//background: white;
+    //padding: 5px;
+    //border: solid;
+    display: none;
+}
+
+.mistakes{
+	float: left;
+	width: 10%;
+	//border: solid;
+	text-align: center;
+	//padding: 10px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	//color: #ec407a;
+	//background: #42a5f5;
+}
+
+.success{
+	float: left;
+	width: 10%;
+	//border: solid;
+	text-align: center;
+	//padding: 10px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	//background: #42a5f5;
+}
+
+.relleno{
+	float: left;
+	width: 80%;
+	//border: solid;
+	text-align: center;
+	//padding: 10px;
+	font-family: "Ubuntu";
+	font-size: 200%;
+	font-weight: bold;
+	//background: #42a5f5;
+}
+
+
+
+/***************************** MENU BUTTONS **********************************/
+
+.menuButtons{
+	float: left;
+	width: 100%;
+    padding: 10px;
+    //border: solid;
+    display: block;
+}
+
+.menuButton_{
+
+	float: left;
+	width: 50%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Ubuntu";
+	font-size: 150%;
+	font-weight: bold;
+	//background: #42a5f5;
+	//color: white;
+	margin: auto;
+
+}
+
+
+.menuButton1,
+.menuButton2,
+.menuButton3,
+.menuButton4{
+
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 50px;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	font-weight: bold;
+	background: #42a5f5;
+	//color: white;
+	//margin: auto;
+
+}
+
+.menuButton1:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.menuButton1:active {background-color: #ffa0c0; color: black;}
+.menuButton2:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.menuButton2:active {background-color: #ffa0c0; color: black;}
+.menuButton3:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.menuButton3:active {background-color: #ffa0c0; color: black;}
+.menuButton4:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.menuButton4:active {background-color: #ffa0c0; color: black;}
+
+
+
+/***************************** FRACCIONES AREA ******************************/
+
+.fraccionesArea{
+	float: left;
+	width: 100%;
+    //padding: 10px;
+    //border: solid;
+    display: none;
+    font-weight: bold;
+}
+
+.fracQuestionLeftLeft,
+.fracQuestionRightRight{
+	float: left;
+	width: 30%;
+    //padding: 10px;
+    border: solid #80d6ff;
+}
+
+.fracQuestionLeft,
+.fracQuestionRight{
+	float: left;
+	width: 15%;
+    //padding: 10px;
+    //border: solid;
+}
+
+.frac_op{
+	float: left;
+	width: 10%;
+	padding: 20px;
+    //border: solid;
+    //margin: auto;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	text-align: center;
+}
+
+.frac_a,
+.frac_c{
+	float: left;
+	width: 100%;
+	//padding: 20px;
+    border-bottom: solid;
+    //margin: auto;
+}
+
+.frac_center,
+.frac_a,
+.frac_b,
+.frac_c,
+.frac_d{
+	font-family: "Ubuntu";
+	font-size: 300%;
+	text-align: center;
+}
+
+.buttonAnsFrac_{
+	float: left;
+	width: 50%;
+	//border: solid;
+	text-align: center;
+	padding: 4px;
+	//background: #42a5f5;
+	//color: white;
+}
+
+
+.buttonAnsFrac1,
+.buttonAnsFrac2,
+.buttonAnsFrac3,
+.buttonAnsFrac4,
+.buttonAnsFrac5,
+.buttonAnsFrac6{
+
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	font-weight: bold;
+	background: #42a5f5;
+	//color: white;
+	//margin: auto;
+
+}
+
+.buttonAnsFrac1:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAnsFrac1:active {background-color: #ffa0c0; color: black;}
+.buttonAnsFrac2:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAnsFrac2:active {background-color: #ffa0c0; color: black;}
+.buttonAnsFrac3:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAnsFrac3:active {background-color: #ffa0c0; color: black;}
+.buttonAnsFrac4:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAnsFrac4:active {background-color: #ffa0c0; color: black;}
+.buttonAnsFrac5:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAnsFrac5:active {background-color: #ffa0c0; color: black;}
+.buttonAnsFrac6:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAnsFrac6:active {background-color: #ffa0c0; color: black;}
+
+
+
+/***************************** ARIT QUIZ BUTTONS ******************************/
+
+.aritmeticaArea{
+	float: left;
+	width: 100%;
+    //padding: 10px;
+    //border: solid;
+    display: none;
+}
+
+.theQuestion{
+
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 50px;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	font-weight: bold;
+	background: #F2EDBA;
+	color: black;
+	margin: auto;
+
+}
+.theQuestion_{
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 4px;
+	//background: #42a5f5;
+	//color: white;
+}
+
+.buttonAns_{
+	float: left;
+	width: 50%;
+	//border: solid;
+	text-align: center;
+	padding: 4px;
+	//background: #42a5f5;
+	//color: white;
+}
+
+
+.buttonAns1,
+.buttonAns2,
+.buttonAns3,
+.buttonAns4,
+.buttonAns5,
+.buttonAns6{
+
+	float: left;
+	width: 100%;
+	//border: solid;
+	text-align: center;
+	padding: 10px;
+	font-family: "Ubuntu";
+	font-size: 300%;
+	font-weight: bold;
+	background: #42a5f5;
+	//color: white;
+	//margin: auto;
+
+}
+
+.buttonAns1:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAns1:active {background-color: #ffa0c0; color: black;}
+.buttonAns2:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAns2:active {background-color: #ffa0c0; color: black;}
+.buttonAns3:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAns3:active {background-color: #ffa0c0; color: black;}
+.buttonAns4:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAns4:active {background-color: #ffa0c0; color: black;}
+.buttonAns5:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAns5:active {background-color: #ffa0c0; color: black;}
+.buttonAns6:hover {background-color: #ec407a;color: white; cursor: pointer;}
+.buttonAns6:active {background-color: #ffa0c0; color: black;}
+
+
+/******************************* RESPONSIVE ***********************************/
+@media (max-width: 1000px) {
+}
+
+
