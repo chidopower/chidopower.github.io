@@ -33,6 +33,8 @@ function start(){
 	if(problema === "numeros")  	prob_numeros();
 	if(problema === "det2")  		prob_det2x2();
 	if(problema === "regla_de_tres")prob_regla3();
+	if(problema === "regla_de_tres_c")prob_regla3_comp();
+	if(problema === "porcentajes")prob_porcentaje();
 
 	flash_card_show();
 
@@ -42,7 +44,7 @@ function start(){
 //------------------------------------------------------------------------------
 function prob_todos(){
 
-	var rnd = randi(1,10);
+	var rnd = randi(1,11);
 
 	if(rnd === 1)  	prob_repartir();
 	if(rnd === 2)  	prob_suma_naturales();
@@ -54,6 +56,60 @@ function prob_todos(){
 	if(rnd === 8)  	prob_numeros();
 	if(rnd === 9)  	prob_det2x2();
 	if(rnd ===10)  	prob_regla3();
+	if(rnd ===11)  	prob_regla3_comp();
+	if(rnd ===12)  	prob_porcentaje();
+
+}
+
+//------------------------------------------------------------------------------
+function prob_porcentaje()
+{
+
+	if(randi(1,2)===1){
+
+		while(1){
+			var a = randi(50,400);
+			var p = randi(5,95);
+			if( (a*p)%100 ===0 && a!==100 )break;
+		}
+
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+
+		if(randi(1,2) ===1){
+			var x = a + a*p/100;
+			QUESTION += a+ " &plus; " +p+ "%<br>";
+		}else{
+			var x = a - a*p/100;
+			QUESTION += a+ " &minus; " +p+ "%<br>";
+		}
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += x+ "<br>";
+
+	}else{
+
+		while(1){
+			var a = randi(50,400);
+			var p = randi(5,95);
+			if( (a*p)%100 ===0 && a!==100 )break;
+		}
+		var x = a*p/100;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular el " +p+ "% de " +a+ ".<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += x+ "<br>";
+
+	}
+
 
 }
 
@@ -62,7 +118,7 @@ function prob_regla3()
 {
 	var rnd = randi(1,3);
 
-	rnd = 1;
+	//rnd = 6;
 
 	if(rnd === 1){
 
@@ -97,9 +153,202 @@ function prob_regla3()
 		ANSWER += "x = " +x+ "<br>";
 
 
-	}//problema_1
+	}
+
+	if(rnd === 2){
+
+		while(1){
+			var a = randi(2,20);
+			var b = randi(2,20);
+			var c = randi(2,20);
+			if( (c*b)%a ===0 && a!==c && a!==b )break;
+		}
+		var x = c*b/a;
+
+		if(randi(1,2) === 1)
+		{
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: REGLA DE 3</gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Se necesitan " +b+ " botes de pintura para<br>";
+			QUESTION += "pintar " +a+ " paredes. ¿Cuántos botes de pintura<br>";
+			QUESTION += "se necesitan para pintar " +c+ " paredes?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "Se necesitan " +x+ " botes de pintura.<br>";
+		}
+		else
+		{
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: REGLA DE 3</gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Se necesitan " +b+ " botes de pintura para<br>";
+			QUESTION += "pintar " +a+ " paredes. ¿Cuántas paredes<br>";
+			QUESTION += "se pueden pintar con " +x+ " botes de pintura?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "Se pueden pintar " +c+ " paredes.<br>";
+
+		}
+	}
+
+	if(rnd === 3){
+
+		while(1){
+			var a = randi(2,20);
+			var b = randi(2,20);
+			var c = randi(2,20);
+			if( (c*b)%a ===0 && a!==c && a!==b )break;
+		}
+		var x = c*b/a;
+
+		if(randi(1,2) === 1)
+		{
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: REGLA DE 3</gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Se necesitan " +b+ " zanahorias para alimentar<br>";
+			QUESTION += "a " +a+ " conejos. ¿Cuántas zanahorias<br>";
+			QUESTION += "se necesitan para alimentar " +c+ " conejos?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "Se necesitan " +x+ " zanahorias.<br>";
+		}
+		else
+		{
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: REGLA DE 3</gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Se necesitan " +b+ " zanahorias para alimentar<br>";
+			QUESTION += "a " +a+ " conejos. ¿Cuántos conejos<br>";
+			QUESTION += "se pueden alimentar con " +x+ " zanahorias?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "Se pueden alimentar " +c+ " conejos.<br>";
+
+		}
+	}
 
 }
+
+//------------------------------------------------------------------------------
+function prob_regla3_comp()
+{
+	var rnd = randi(1,4);
+
+	rnd = 4;
+
+	if(rnd === 1){ //Regla de 3 Compuesta Directa
+
+		while(1){
+			var a = randi(2,30);
+			var b = randi(2,8);
+			var c = randi(20,60);
+			var d = randi(2,30);
+			var e = randi(2,8);
+			if( (d*e*c)%(a*b) ===0 && a!==d && b!==e )break;
+		}
+		var x = d*e*c/(a*b);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: REGLA DE 3 COMPUESTA</gray><br><br>";
+		QUESTION += a+ " botellas de " +b+ " L pesan " +c+ " kg<br>";
+		QUESTION += "¿Cuánto pesarán " +d+ " botellas de " +e+ " L?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br><br>";
+		ANSWER += "<br><br>";
+		ANSWER += x + " kg. ";
+
+	}
+
+	if(rnd === 2){ //Regla de 3 Compuesta Mixta
+
+		while(1){
+			var a = randi(2,10);
+			var b = randi(20,100);
+			var c = randi(2,10);
+			var d = randi(2,10);
+			var e = randi(20,100);
+			if( (a*e*c)%(d*b) ===0 && a!==d && b!==e )break;
+		}
+		var x = a*e*c/(d*b);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: REGLA DE 3 COMPUESTA</gray><br><br>";
+		QUESTION += a+ " impresoras imprimen " +b+ " libros en " +c+ " días.<br>";
+		QUESTION += "¿Cuántos días son necesarios para imprimir " +e+ " libros<br>" ;
+		QUESTION += "si tengo " +d+ " impresoras?";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br><br>";
+		ANSWER += "<br><br>";
+		ANSWER += x + " días. ";
+
+	}
+
+	if(rnd === 3){ //Regla de 3 Compuesta Inversa
+
+		while(1){
+			var a = randi(2,10);
+			var b = randi(4,16);
+			var c = randi(2,10);
+			var d = randi(2,10);
+			var e = randi(4,16);
+			if( (a*b*c)%(d*e) ===0 && a!==d && b!==e )break;
+		}
+		var x = a*b*c/(d*e);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: REGLA DE 3 COMPUESTA</gray><br><br>";
+		QUESTION += a+ " obreros trabajan " +b+ " horas al día durante <br>";
+		QUESTION += c+ " días para construir una casita. <br>";
+		QUESTION += "¿En cuántos días se puede construir una casita si trabajan<br>"
+		QUESTION += d+ " obreros " +e+ " horas diarias?";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br><br>";
+		ANSWER += "<br><br>";
+		ANSWER += x + " días. ";
+
+	}
+
+
+	if(rnd === 4){ //Regla de 3 Compuesta Directa
+
+		while(1){
+			var a = randi(2,10);
+			var b = randi(2,10);
+			var c = randi(2,50);
+			var d = randi(2,10);
+			var e = randi(2,10);
+			if( (d*e*c)%(a*b) ===0 && a!==d && b!==e )break;
+		}
+		var x = d*e*c/(a*b);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: REGLA DE 3 COMPUESTA</gray><br><br>";
+		QUESTION += a+ " grifos abiertos tiran agua durante " +b+ " horas diarias.<br>";
+		QUESTION += "Esto genera un costo de " +c+ " pesos al día.<br>";
+		QUESTION += "¿Cuánto costaría " +d+ " grifos abiertos durante " +e+ " horas diarias?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br><br>";
+		ANSWER += "<br><br>";
+		ANSWER += x + " pesos. ";
+
+	}
+
+}
+
 
 
 //------------------------------------------------------------------------------
