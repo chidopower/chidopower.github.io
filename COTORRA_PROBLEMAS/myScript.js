@@ -244,7 +244,7 @@ function prob_regla3_comp()
 {
 	var rnd = randi(1,4);
 
-	rnd = 4;
+	//rnd = 4;
 
 	if(rnd === 1){ //Regla de 3 Compuesta Directa
 
