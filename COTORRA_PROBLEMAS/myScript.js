@@ -35,6 +35,7 @@ function start(){
 	if(problema === "regla_de_tres")prob_regla3();
 	if(problema === "regla_de_tres_c")prob_regla3_comp();
 	if(problema === "porcentajes")prob_porcentaje();
+	if(problema === "descuentos") prob_descuentos();
 
 	flash_card_show();
 
@@ -44,7 +45,7 @@ function start(){
 //------------------------------------------------------------------------------
 function prob_todos(){
 
-	var rnd = randi(1,11);
+	var rnd = randi(1,13);
 
 	if(rnd === 1)  	prob_repartir();
 	if(rnd === 2)  	prob_suma_naturales();
@@ -58,14 +59,120 @@ function prob_todos(){
 	if(rnd ===10)  	prob_regla3();
 	if(rnd ===11)  	prob_regla3_comp();
 	if(rnd ===12)  	prob_porcentaje();
+	if(rnd ===13)	prob_descuentos();
 
 }
 
 //------------------------------------------------------------------------------
+function prob_descuentos()
+{
+	var rnd = randi(1,3);
+
+	rnd = 3;
+
+	if(rnd=== 1){
+
+		var prec = randi(10,30)/1.0;
+		var desc = randi(5,20)/1.0;
+		var final = prec - prec*desc/100.0
+		var bill = randi(1,2)*100;
+		var feria = bill - final;
+
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "Una Coca Cola cuesta " +prec+ " pesos,<br>";
+		QUESTION += "pero tiene un descuento de " +desc+ "%.<br><br>";
+		QUESTION += "Tu pagas con un billete de " +bill+ " pesos.<br>";
+		QUESTION += "¿Cuánto te sobra?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += round2(feria)+ " pesos.<br>";
+	}
+
+	if(rnd === 2)
+	{
+
+		var prec = randi(100,800)/1.0;
+		var imp = randi(5,20)/1.0;
+		var final = prec + prec*imp/100.0
+		var bill = 1000;
+		var feria = bill - final;
+
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "Unos zapatos cuestan " +prec+ " pesos,<br>";
+		QUESTION += "pero tienen un impuesto de " +imp+ "%.<br><br>";
+		QUESTION += "Tu pagas con un billete de " +bill+ " pesos.<br>";
+		QUESTION += "¿Cuánto te sobra?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += round2(feria)+ " pesos.<br>";
+	}
+
+	if(rnd === 3){ //descuentos
+
+			var coca_pr = randi(10,20);
+			var chetos_pr = randi(10,20);
+			var oreos_pr = randi(10,20);
+
+			var coca_dsc = randi(5,25);
+			var chetos_dsc = randi(5,25);
+			var oreos_dsc = randi(5,25);
+
+			var cocas = randi(2,5);
+			var chetos = randi(2,5);
+			var oreos = randi(2,5);
+
+			var total = 0.0;
+
+			total += cocas *(coca_pr   - coca_pr  *coca_dsc/100.0);
+			total += chetos*(chetos_pr - chetos_pr*chetos_dsc/100.0);
+			total += oreos *(oreos_pr  - oreos_pr *oreos_dsc/100.0);
+
+			var billete = 500.0;
+
+			if( total <= 500.0 ) billete = 500.0;
+			if( total <= 200.0 ) billete = 200.0;
+			if( total <= 100.0 ) billete = 100.0;
+			if( total <=  50.0 ) billete =  50.0;
+
+			var feria = billete - total;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PRECIOS & DESCUENTOS: </gray><br>";
+			QUESTION += "soda &emsp; $" +coca_pr+ "&emsp;&emsp;" +coca_dsc+ "%<br>";
+			QUESTION += "sabritas &emsp; $" +chetos_pr+ "&emsp;&emsp;" +chetos_dsc+ "%<br>";
+			QUESTION += "galletas &emsp; $" +oreos_pr+ "&emsp;&emsp;" +oreos_dsc+ "%<br>";
+			QUESTION += "<br>";
+			QUESTION += "<gray>TU COMPRAS: </gray><br>";
+			QUESTION += cocas+ " sodas<br>";
+			QUESTION += chetos+ " sabritas<br>";
+			QUESTION += oreos+ " galletas<br>";
+			QUESTION += "<br>";
+			QUESTION += "Tu pagas con un billete de $" +billete+ ".<br>";
+			QUESTION += "¿Cuánto te sobra?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "Pagas $" +round2(total)+ " en total.<br>";
+			ANSWER += "Te sobra $" +round2(feria)+ ".<br>";
+
+	}//problema_6
+
+}
+
+
+//------------------------------------------------------------------------------
 function prob_porcentaje()
 {
+	var rnd = randi(1,3);
 
-	if(randi(1,2)===1){
+	//rnd = 3;
+
+	if(rnd=== 1){
 
 		while(1){
 			var a = randi(50,400);
@@ -89,7 +196,10 @@ function prob_porcentaje()
 		ANSWER += "<br>";
 		ANSWER += x+ "<br>";
 
-	}else{
+	}
+
+	if(rnd === 2)
+	{
 
 		while(1){
 			var a = randi(50,400);
@@ -110,6 +220,32 @@ function prob_porcentaje()
 
 	}
 
+	if(rnd === 3)
+	{
+
+		while(1){
+			var h = randi(10,200); //hombres
+			var m = randi(10,200); //mujeres
+			var tot = h + m; //total
+			if( (h*100)%tot === 0 && tot !==100 && h!==m)break;
+		}
+
+		var ph = h*100/tot;
+		var pm = m*100/tot;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " +h+ " hombres y " +m+ " mujeres.<br>";
+		QUESTION += "¿Cuál es el procentaje de hombres y de mujeres?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "Hay " +ph+ "% hombres y<br>";
+		ANSWER += "hay " +pm+ "% mujeres<br>";
+
+	}
 
 }
 
