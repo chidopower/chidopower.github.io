@@ -35,7 +35,10 @@ function start(){
 	if(problema === "regla_de_tres")prob_regla3();
 	if(problema === "regla_de_tres_c")prob_regla3_comp();
 	if(problema === "porcentajes")prob_porcentaje();
-	if(problema === "descuentos") prob_descuentos();
+	if(problema === "conteo") prob_conteo();
+	if(problema === "triangulos") prob_triangulos();
+	if(problema === "cuadrilateros") prob_cuadrilateros();
+	if(problema === "poligonos") prob_poligonos();
 
 	flash_card_show();
 
@@ -45,7 +48,7 @@ function start(){
 //------------------------------------------------------------------------------
 function prob_todos(){
 
-	var rnd = randi(1,13);
+	var rnd = randi(1,16);
 
 	if(rnd === 1)  	prob_repartir();
 	if(rnd === 2)  	prob_suma_naturales();
@@ -59,116 +62,231 @@ function prob_todos(){
 	if(rnd ===10)  	prob_regla3();
 	if(rnd ===11)  	prob_regla3_comp();
 	if(rnd ===12)  	prob_porcentaje();
-	if(rnd ===13)	prob_descuentos();
+	if(rnd ===13)	prob_conteo();
+	if(rnd ===14)	prob_triangulos();
+	if(rnd ===15)	prob_cuadrilateros();
+	if(rnd ===16)	prob_poligonos();
+	if(rnd ===17)	prob_otros();
 
 }
 
+
+
 //------------------------------------------------------------------------------
-function prob_descuentos()
+function prob_conteo()
 {
-	var rnd = randi(1,3);
+}
 
-	rnd = 3;
+//------------------------------------------------------------------------------
+function prob_triangulos()
+{
+}
 
-	if(rnd=== 1){
+//------------------------------------------------------------------------------
+function prob_cuadrilateros()
+{
 
-		var prec = randi(10,30)/1.0;
-		var desc = randi(5,20)/1.0;
-		var final = prec - prec*desc/100.0
-		var bill = randi(1,2)*100;
-		var feria = bill - final;
+	var rnd = randi(1,6);
 
+	rnd = 6;
+
+	if(rnd === 1){
+
+		var L = randi(1,20);
+		var A = L*L;
+		var P = 4*L;
+		var d = Math.sqrt(L*L + L*L);
+
+		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
-		QUESTION += "Una Coca Cola cuesta " +prec+ " pesos,<br>";
-		QUESTION += "pero tiene un descuento de " +desc+ "%.<br><br>";
-		QUESTION += "Tu pagas con un billete de " +bill+ " pesos.<br>";
-		QUESTION += "¿Cuánto te sobra?<br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular el Área de un<br>";
+		QUESTION += "Cuadrado que tiene un <br>";
+		QUESTION += "Perímetro igual a " + P + ".<br>";
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
-		ANSWER += round2(feria)+ " pesos.<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += A;
+
 	}
 
-	if(rnd === 2)
-	{
+	if(rnd === 2){
 
-		var prec = randi(100,800)/1.0;
-		var imp = randi(5,20)/1.0;
-		var final = prec + prec*imp/100.0
-		var bill = 1000;
-		var feria = bill - final;
+		var L = randi(1,20);
+		var A = L*L;
+		var P = 4*L;
+		var d = Math.sqrt(L*L + L*L);
 
+		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
-		QUESTION += "Unos zapatos cuestan " +prec+ " pesos,<br>";
-		QUESTION += "pero tienen un impuesto de " +imp+ "%.<br><br>";
-		QUESTION += "Tu pagas con un billete de " +bill+ " pesos.<br>";
-		QUESTION += "¿Cuánto te sobra?<br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular el Perímetro de un<br>";
+		QUESTION += "Cuadrado que tiene un <br>";
+		QUESTION += "área igual a " + A + ".<br>";
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
-		ANSWER += round2(feria)+ " pesos.<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += P;
 	}
 
-	if(rnd === 3){ //descuentos
+	if(rnd === 3){
 
-			var coca_pr = randi(10,20);
-			var chetos_pr = randi(10,20);
-			var oreos_pr = randi(10,20);
+		var L = randi(1,20);
+		var A = L*L;
+		var P = 4*L;
+		var d = Math.sqrt(L*L + L*L);
 
-			var coca_dsc = randi(5,25);
-			var chetos_dsc = randi(5,25);
-			var oreos_dsc = randi(5,25);
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular la Diagonal de un<br>";
+		QUESTION += "Cuadrado que tiene un <br>";
+		QUESTION += "área igual a " + A + ".<br>";
 
-			var cocas = randi(2,5);
-			var chetos = randi(2,5);
-			var oreos = randi(2,5);
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += round4(d);
+	}
 
-			var total = 0.0;
+	if(rnd === 4){
 
-			total += cocas *(coca_pr   - coca_pr  *coca_dsc/100.0);
-			total += chetos*(chetos_pr - chetos_pr*chetos_dsc/100.0);
-			total += oreos *(oreos_pr  - oreos_pr *oreos_dsc/100.0);
+		var Lmenor = randi(1,10);
+		var Lmayor = Lmenor + randi(1,10);
+		var A = Lmenor * Lmayor;
+		var P = 2*Lmenor + 2*Lmayor;
+		var d = Math.sqrt(Lmenor*Lmenor + Lmayor*Lmayor);
 
-			var billete = 500.0;
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular el Perímetro, el Área,<br>";
+		QUESTION += "y la Diagonal del siguiente Rectángulo:<br>";
+		QUESTION += "<br>";
+		QUESTION += "Lado mayor: " + Lmayor + "<br>";
+		QUESTION += "Lado menor: " + Lmenor + "<br>";
 
-			if( total <= 500.0 ) billete = 500.0;
-			if( total <= 200.0 ) billete = 200.0;
-			if( total <= 100.0 ) billete = 100.0;
-			if( total <=  50.0 ) billete =  50.0;
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "P = " + P + "<br>";
+		ANSWER += "A = " + A + "<br>";
+		ANSWER += "D = " + round4(d);
 
-			var feria = billete - total;
+	}
 
-			QUESTION  = "";
-			QUESTION += "<gray>PRECIOS & DESCUENTOS: </gray><br>";
-			QUESTION += "soda &emsp; $" +coca_pr+ "&emsp;&emsp;" +coca_dsc+ "%<br>";
-			QUESTION += "sabritas &emsp; $" +chetos_pr+ "&emsp;&emsp;" +chetos_dsc+ "%<br>";
-			QUESTION += "galletas &emsp; $" +oreos_pr+ "&emsp;&emsp;" +oreos_dsc+ "%<br>";
-			QUESTION += "<br>";
-			QUESTION += "<gray>TU COMPRAS: </gray><br>";
-			QUESTION += cocas+ " sodas<br>";
-			QUESTION += chetos+ " sabritas<br>";
-			QUESTION += oreos+ " galletas<br>";
-			QUESTION += "<br>";
-			QUESTION += "Tu pagas con un billete de $" +billete+ ".<br>";
-			QUESTION += "¿Cuánto te sobra?<br>";
+	if(rnd === 5){
 
-			ANSWER  = "";
-			ANSWER += "<gray>RESPUESTA: </gray><br>";
-			ANSWER += "<br>";
-			ANSWER += "Pagas $" +round2(total)+ " en total.<br>";
-			ANSWER += "Te sobra $" +round2(feria)+ ".<br>";
+		var Lmenor = randi(1,10);
+		var Lmayor = Lmenor + randi(1,10);
+		var A = Lmenor * Lmayor;
+		var P = 2*Lmenor + 2*Lmayor;
+		var d = Math.sqrt(Lmenor*Lmenor + Lmayor*Lmayor);
+		var i,j,p,a;
 
-	}//problema_6
+		Lmenor = randi(1,12);
+		Lmayor = Lmenor + randi(1,12);
+		P = 2*Lmenor + 2*Lmayor;
 
+		if(DEBUG==="YES") console.log(Lmenor, Lmayor);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Encuentra todos los Rectángulos<br>";
+		QUESTION += "que tienen un Perímetro igual a " + P + ".<br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuál tiene el Área mayor?.<br>";
+		QUESTION += "¿Cuál tiene el Área menor?.<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+
+		for(i=1; i<100; i++){
+			for(j=1; j<100; j++){
+				if(i !==j && i > j){
+					p = 2*i + 2*j;
+					a = i*j;
+					if(p === P){
+						ANSWER += "P = " + p + "; A = " + i + " &times; " + j + " = " + a + "<br>";
+					}
+				}
+			}
+		}
+	}
+
+	if(rnd === 6){
+
+		var Lmenor = randi(1,10);
+		var Lmayor = Lmenor + randi(1,10);
+		var A = Lmenor * Lmayor;
+		var P = 2*Lmenor + 2*Lmayor;
+		var d = Math.sqrt(Lmenor*Lmenor + Lmayor*Lmayor);
+		var i,j,p,a;
+
+		Lmenor = randi(1,12);
+		Lmayor = Lmenor + randi(1,12);
+		A = Lmenor*Lmayor;
+		P = 2*Lmenor + 2*Lmayor;
+
+		if(DEBUG==="YES") console.log(Lmenor, Lmayor);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Encuentra todos los Rectángulos<br>";
+		QUESTION += "que tienen un Área igual a " + A + ".<br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuál tiene el Perímetro más grande?.<br>";
+		QUESTION += "¿Cuál tiene el Perímetro más pequeño?.<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+
+		for(i=1; i<100; i++){
+			for(j=1; j<100; j++){
+				if(i !==j && i > j){
+					p = 2*i + 2*j;
+					a = i*j;
+					if(a === A){
+						ANSWER += "P = " + p + "; A = " + i + " &times; " + j + " = " + a + "<br>";
+					}
+				}
+			}
+		}
+
+	}
+
+}
+
+
+//------------------------------------------------------------------------------
+function prob_poligonos()
+{
+}
+
+//------------------------------------------------------------------------------
+function prob_otros()
+{
 }
 
 
 //------------------------------------------------------------------------------
 function prob_porcentaje()
 {
-	var rnd = randi(1,3);
+	var rnd = randi(1,6);
 
 	//rnd = 3;
 
@@ -246,6 +364,100 @@ function prob_porcentaje()
 		ANSWER += "hay " +pm+ "% mujeres<br>";
 
 	}
+
+
+	if(rnd=== 4){
+
+		var prec = randi(10,30)/1.0;
+		var desc = randi(5,20)/1.0;
+		var final = prec - prec*desc/100.0
+		var bill = randi(1,2)*100;
+		var feria = bill - final;
+
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "Una Coca Cola cuesta " +prec+ " pesos,<br>";
+		QUESTION += "pero tiene un descuento de " +desc+ "%.<br><br>";
+		QUESTION += "Tu pagas con un billete de " +bill+ " pesos.<br>";
+		QUESTION += "¿Cuánto te sobra?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += round2(feria)+ " pesos.<br>";
+	}
+
+	if(rnd === 5)
+	{
+
+		var prec = randi(100,800)/1.0;
+		var imp = randi(5,20)/1.0;
+		var final = prec + prec*imp/100.0
+		var bill = 1000;
+		var feria = bill - final;
+
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "Unos zapatos cuestan " +prec+ " pesos,<br>";
+		QUESTION += "pero tienen un impuesto de " +imp+ "%.<br><br>";
+		QUESTION += "Tu pagas con un billete de " +bill+ " pesos.<br>";
+		QUESTION += "¿Cuánto te sobra?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += round2(feria)+ " pesos.<br>";
+	}
+
+	if(rnd === 6){ //descuentos
+
+			var coca_pr = randi(10,20);
+			var chetos_pr = randi(10,20);
+			var oreos_pr = randi(10,20);
+
+			var coca_dsc = randi(5,25);
+			var chetos_dsc = randi(5,25);
+			var oreos_dsc = randi(5,25);
+
+			var cocas = randi(2,5);
+			var chetos = randi(2,5);
+			var oreos = randi(2,5);
+
+			var total = 0.0;
+
+			total += cocas *(coca_pr   - coca_pr  *coca_dsc/100.0);
+			total += chetos*(chetos_pr - chetos_pr*chetos_dsc/100.0);
+			total += oreos *(oreos_pr  - oreos_pr *oreos_dsc/100.0);
+
+			var billete = 500.0;
+
+			if( total <= 500.0 ) billete = 500.0;
+			if( total <= 200.0 ) billete = 200.0;
+			if( total <= 100.0 ) billete = 100.0;
+			if( total <=  50.0 ) billete =  50.0;
+
+			var feria = billete - total;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PRECIOS & DESCUENTOS: </gray><br>";
+			QUESTION += "soda &emsp; $" +coca_pr+ "&emsp;&emsp;" +coca_dsc+ "%<br>";
+			QUESTION += "sabritas &emsp; $" +chetos_pr+ "&emsp;&emsp;" +chetos_dsc+ "%<br>";
+			QUESTION += "galletas &emsp; $" +oreos_pr+ "&emsp;&emsp;" +oreos_dsc+ "%<br>";
+			QUESTION += "<br>";
+			QUESTION += "<gray>TU COMPRAS: </gray><br>";
+			QUESTION += cocas+ " sodas<br>";
+			QUESTION += chetos+ " sabritas<br>";
+			QUESTION += oreos+ " galletas<br>";
+			QUESTION += "<br>";
+			QUESTION += "Tu pagas con un billete de $" +billete+ ".<br>";
+			QUESTION += "¿Cuánto te sobra?<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += "Pagas $" +round2(total)+ " en total.<br>";
+			ANSWER += "Te sobra $" +round2(feria)+ ".<br>";
+
+	}
+
 
 }
 
