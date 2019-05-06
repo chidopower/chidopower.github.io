@@ -70,11 +70,239 @@ function prob_todos(){
 
 }
 
+//------------------------------------------------------------------------------
+function fact(x) 
+{
+	if (x === 0)
+	{
+		return 1;
+	}
+	return x * fact(x-1); 
+}
 
+//------------------------------------------------------------------------------
+function permut(n,r) //sin repeticion
+{
+	return fact(n)/( fact(n-r) );
+}
+
+//------------------------------------------------------------------------------
+function permut_r(n,r) //con repeticion
+{
+	return Math.pow(n, r);
+}
+
+//------------------------------------------------------------------------------
+function comb(n,r) //sin repeticion
+{
+	return fact(n)/( fact(r)*fact(n-r) );
+}
+
+//------------------------------------------------------------------------------
+function comb_r(n,r) //con repeticion
+{
+	return  fact(n+r-1)/(  fact(r)*fact(n-1) );
+}
 
 //------------------------------------------------------------------------------
 function prob_conteo()
 {
+
+	var rnd = randi(1,7);
+
+	//rnd = 7;
+
+	if(rnd === 1) //permutacion simple, sin repeticion
+	{
+
+		var objetos = randi(3,10);
+		var permutaciones = permut(objetos,objetos);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + objetos + " objetos. <br>";
+		QUESTION += "¿De cuántas formas se pueden ORDENAR? <br>";
+		QUESTION += "<br>";
+		QUESTION += "<i>NOTA: los objetos NO se pueden repetir.</i><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += permutaciones;
+
+	}
+
+
+	if(rnd === 2) //permutacion sin repeticion
+	{
+
+		var objetos = randi(3,12);
+		while(1)
+		{
+			var elegidos = randi(1,12);
+			if(objetos > elegidos) break;
+		}
+		
+		var permutaciones = permut(objetos,elegidos); 
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + objetos + " objetos. <br>";
+		QUESTION += "Tu puedes elegir sólo " + elegidos + " objetos. <br>";
+		QUESTION += "¿De cuántas formas se pueden ORDENAR? <br>";
+		QUESTION += "<br>";
+		QUESTION += "<i>NOTA: los objetos NO se pueden repetir.</i><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += permutaciones;
+
+	}
+
+	if(rnd === 3) //permutacion simple, con repeticion
+	{
+
+		var objetos = randi(3,8);		
+		var permutaciones = permut_r(objetos,objetos); 
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + objetos + " objetos. <br>";
+		QUESTION += "¿De cuántas formas se pueden ORDENAR? <br>";
+		QUESTION += "<br>";
+		QUESTION += "<i>NOTA: los objetos SÍ se pueden repetir.</i><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += permutaciones;
+
+	}
+
+	if(rnd === 4) //permutacion con repeticion
+	{
+
+		var objetos = randi(3,12);
+		while(1)
+		{
+			var elegidos = randi(1,12);
+			if(objetos > elegidos) break;
+		}
+		
+		var permutaciones = permut_r(objetos,elegidos); 
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + objetos + " objetos. <br>";
+		QUESTION += "Tu puedes elegir sólo " + elegidos + " objetos. <br>";
+		QUESTION += "¿De cuántas formas se pueden ORDENAR? <br>";
+		QUESTION += "<br>";
+		QUESTION += "<i>NOTA: los objetos SÍ se pueden repetir.</i><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += permutaciones;
+
+	}
+
+	if(rnd === 5) // combinacion simple sin repeticion
+	{
+
+		var objetos = randi(3,12);	
+		var combinaciones = 1;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + objetos + " objetos. <br>";
+		QUESTION += "¿De cuántas formas se pueden COMBINAR? <br>";
+		QUESTION += "<br>";
+		QUESTION += "<i>NOTA: los objetos NO se pueden repetir.</i><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += combinaciones;
+
+	}
+
+
+	if(rnd === 6) // combinación sin repeticion
+	{
+
+		var objetos = randi(3,12);
+		while(1)
+		{
+			var elegidos = randi(1,12);
+			if(objetos >= elegidos) break;
+		}
+		
+		var combinaciones = comb(objetos,elegidos);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + objetos + " objetos. <br>";
+		QUESTION += "Tu puedes elegir sólo " + elegidos + " objetos. <br>";
+		QUESTION += "¿De cuántas formas se pueden COMBINAR? <br>";
+		QUESTION += "<br>";
+		QUESTION += "<i>NOTA: los objetos NO se pueden repetir.</i><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += combinaciones;
+
+	}
+
+	if(rnd === 7) // combinación con repeticion
+	{
+
+		var objetos = randi(3,12);
+		while(1)
+		{
+			var elegidos = randi(1,12);
+			if(objetos >= elegidos) break;
+		}
+		
+		var combinaciones = comb_r(objetos,elegidos);
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Hay " + objetos + " objetos. <br>";
+		QUESTION += "Tu puedes elegir sólo " + elegidos + " objetos. <br>";
+		QUESTION += "¿De cuántas formas se pueden COMBINAR? <br>";
+		QUESTION += "<br>";
+		QUESTION += "<i>NOTA: los objetos SÍ se pueden repetir.</i><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += combinaciones;
+
+	}
+
 }
 
 //------------------------------------------------------------------------------
@@ -87,8 +315,6 @@ function prob_cuadrilateros()
 {
 
 	var rnd = randi(1,6);
-
-	rnd = 6;
 
 	if(rnd === 1){
 
