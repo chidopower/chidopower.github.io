@@ -531,7 +531,9 @@ function prob_conteo()
 function prob_triangulos()
 {
 
-	var rnd = randi(1,3);
+	var rnd = randi(1,4);
+
+	//rnd = 4;
 
 	if(rnd === 1)
 	{
@@ -587,11 +589,11 @@ function prob_triangulos()
 
 		while(1){
 
-			BASE = randi(1,12); 
-			LADO = randi(1,12); 
+			var BASE = randi(1,12); 
+			var LADO = randi(1,12); 
 
 			var existe = triang(BASE, LADO, LADO);
-			if(DEBUG === "YES") console.log("existe ", BASE,LADO,LADO, existe);
+			//if(DEBUG === "YES") console.log("existe ", BASE,LADO,LADO, existe);
 			if( existe === "SI" && BASE !== LADO) break;
 		}
 
@@ -608,9 +610,9 @@ function prob_triangulos()
 		BASE = BASE/1.0;
 		LADO = LADO/1.0;
 
-		a = Math.sqrt( LADO*LADO - (BASE/2.0)*(BASE/2.0) ); //altura
-		A = BASE*a/2.0; //area
-		P = BASE + 2*LADO;
+		var a = Math.sqrt( LADO*LADO - (BASE/2.0)*(BASE/2.0) ); //altura
+		var A = BASE*a/2.0; //area
+		var P = BASE + 2*LADO;
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
@@ -622,6 +624,82 @@ function prob_triangulos()
 		ANSWER += "Perímetro: " + round4(P) + "<br>";
 
 	}
+
+	if(rnd === 4){ // triang escaleno
+
+		while(1){
+
+			var L1 = randi(1,12); 
+			var L2 = randi(1,12); 
+			var L3 = randi(1,12); 
+
+			var existe = triang(L1,L2,L3);
+			if( existe === "SI" && L1 !== L2 && L1 !== L3 && L2 !== L3) break;
+		}
+
+		var P = L1 + L2 + L3;
+		var s = P/2.0;
+		var A = Math.sqrt( s*(s-L1)*(s-L2)*(s-L3) ); // formula Heron
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular el Área y el Perímetro <br>";
+		QUESTION += "del siguiente Triángulo Escaleno:<br>";
+		QUESTION += "<br>";
+		QUESTION += "Lado 1 = " + L1 + "<br>";
+		QUESTION += "Lado 2 = " + L2 + "<br>";
+		QUESTION += "Lado 3 = " + L3 + "<br>";
+
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "Área: " + round4(A) + "<br>";
+		ANSWER += "Perímetro: " + round4(P) + "<br>";
+
+	}
+
+
+	// if(rnd === 5){ // triang rect
+
+	// 	while(1){
+
+	// 		var L1 = randi(1,100); 
+	// 		var L2 = randi(1,100); 
+	// 		var L3 = randi(1,100); 
+
+	// 		var existe = triang_rect(L1,L2,L3);
+	// 		if( existe === "SI" ) break;
+	// 	}
+
+	// 	if( L1 > L2 && L1 > L3)	var hyp = L1;
+	// 	if( L2 > L1 && L2 > L3)	var hyp = L2;
+	// 	if( L3 > L1 && L1 > L2)	var hyp = L3;
+
+
+	// 	QUESTION  = "";
+	// 	QUESTION += "<gray>PROBLEMA: </gray><br>";
+	// 	QUESTION += "<br>";
+	// 	QUESTION += "Calcular el Área y el Perímetro <br>";
+	// 	QUESTION += "del siguiente Triángulo Escaleno:<br>";
+	// 	QUESTION += "<br>";
+	// 	QUESTION += "Lado 1 = " + L1 + "<br>";
+	// 	QUESTION += "Lado 2 = " + L2 + "<br>";
+	// 	QUESTION += "Lado 3 = " + L3 + "<br>";
+
+
+	// 	ANSWER  = "";
+	// 	ANSWER += "<gray>RESPUESTA: </gray><br>";
+	// 	ANSWER += "<br>";
+	// 	ANSWER += "<br>";
+	// 	ANSWER += "<br>";
+	// 	ANSWER += "Área: " + round4(A) + "<br>";
+	// 	ANSWER += "Perímetro: " + round4(P) + "<br>";
+
+	// }
 
 }
 
@@ -2754,9 +2832,46 @@ function triang(a,b,c){
 	else
 		var ans = "NO";
 
-
 	return ans;
 
+}
+
+//------------------------------------------------------------------------------
+function triang_rect(a,b,c){
+
+	var ans = "NO";
+
+	if( a*a === (b*b + c*c) ) 
+	{ 
+		ans = "SI"; 
+		return ans;
+	}
+	else
+	{
+		ans = "NO";
+	}
+
+	if( b*b === (a*a + c*c) ) 
+	{ 
+		ans = "SI"; 
+		return ans;
+	}
+	else
+	{
+		ans = "NO";
+	}		
+
+	if( c*c === (b*b + a*a) ) 
+	{ 
+		ans = "SI"; 
+		return ans;
+	}
+	else
+	{
+		ans = "NO";
+	}
+
+	return ans;		
 }
 
 //------------------------------------------------------------------------------
