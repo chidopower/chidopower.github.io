@@ -531,35 +531,33 @@ function prob_conteo()
 function prob_triangulos()
 {
 
-	var rnd = randi(1,4);
-
-	//rnd = 4;
+	var rnd = randi(1,11);
 
 	if(rnd === 1)
 	{
-			var L1 = randi(2,20); //base
-			var L2 = randi(2,20); //lado
-			var L3 = randi(2,20); //lado
+		var L1 = randi(2,20); //base
+		var L2 = randi(2,20); //lado
+		var L3 = randi(2,20); //lado
 
-			var myAns = triang(L1, L2, L3);
+		var myAns = triang(L1, L2, L3);
 
-			QUESTION  = "";
-			QUESTION += "<gray>PROBLEMA: </gray><br>";
-			QUESTION += "<br>";
-			QUESTION += "¿Existe el siguiente Triángulo?<br>";
-			QUESTION += "<br>";
-			QUESTION += "Lado 1 = " + L1 + "<br>";
-			QUESTION += "Lado 2 = " + L2 + "<br>";
-			QUESTION += "Lado 3 = " + L3 + "<br>";
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Existe el siguiente Triángulo?<br>";
+		QUESTION += "<br>";
+		QUESTION += "Lado 1 = <b>" + L1 + "</b><br>";
+		QUESTION += "Lado 2 = <b>" + L2 + "</b><br>";
+		QUESTION += "Lado 3 = <b>" + L3 + "</b><br>";
 
-			ANSWER  = "";
-			ANSWER += "<gray>RESPUESTA: </gray><br>";
-			ANSWER += "<br>";
-			ANSWER += "<br>";
-			ANSWER += "<br>";
-			ANSWER += "<br>";
-			ANSWER += "<br>";
-			ANSWER += myAns;
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += myAns;
 	}
 
 	if(rnd === 2){
@@ -573,8 +571,8 @@ function prob_triangulos()
 		QUESTION += "<br>";
 		QUESTION += "Calcular el Área de un Triángulo:<br>";
 		QUESTION += "<br>";
-		QUESTION += "Base: " + b + "<br>";
-		QUESTION += "Altura: " + a + "<br>";
+		QUESTION += "Base: <b>" + b + "</b><br>";
+		QUESTION += "Altura: <b>" + a + "</b><br>";
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
@@ -585,47 +583,99 @@ function prob_triangulos()
 		ANSWER += A;
 	}
 
-	if(rnd === 3){ // triang isoceles
+
+	if(rnd === 3){ // triang isóceles
 
 		while(1){
 
-			var BASE = randi(1,12); 
-			var LADO = randi(1,12); 
+			var L1 = randi(1,30); 
+			var L2 = randi(1,30); 
+			var L3 = randi(1,30); 
 
-			var existe = triang(BASE, LADO, LADO);
-			//if(DEBUG === "YES") console.log("existe ", BASE,LADO,LADO, existe);
-			if( existe === "SI" && BASE !== LADO) break;
+			var existe = triang_rect(L1,L2,L3);
+			if( existe === "SI" ) break;
 		}
+
+		if( L1 > L2 && L1 > L3)	
+		{
+			var hyp = L1;
+			var C1 = L2;
+			var C2 = L3;
+		}
+			
+		if( L2 > L1 && L2 > L3)
+		{
+			var hyp = L2;
+			var C1 = L1;
+			var C2 = L3;
+		}
+
+		if( L3 > L1 && L3 > L2)
+		{
+			var hyp = L3;
+			var C1 = L1;
+			var C2 = L2;
+		}
+
+		var BASE = 2*C1;
+		var ALTURA = C2;
+		var LADO = hyp;
+		var AREA = BASE*ALTURA/2.0;
+		var PERIMETRO = 2*LADO + BASE;
 
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
-		QUESTION += "Calcular el Área, la Altura y el Perímetro<br>";
+		QUESTION += "Calcular el Área, el Perímetro y la Hipotenusa <br>";
 		QUESTION += "del siguiente Triángulo Isóceles:<br>";
 		QUESTION += "<br>";
-		QUESTION += "Base: " + BASE + "<br>";
-		QUESTION += "Lado: " + LADO + "<br>";
-		QUESTION += "Lado: " + LADO + "<br>";
-
-		BASE = BASE/1.0;
-		LADO = LADO/1.0;
-
-		var a = Math.sqrt( LADO*LADO - (BASE/2.0)*(BASE/2.0) ); //altura
-		var A = BASE*a/2.0; //area
-		var P = BASE + 2*LADO;
+		QUESTION += "Base: <b> " + BASE + "</b><br>";
+		QUESTION += "Lado: <b> " + LADO + "</b><br>";
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
 		ANSWER += "<br>";
 		ANSWER += "<br>";
 		ANSWER += "<br>";
-		ANSWER += "Altura: " + round4(a) + "<br>";
-		ANSWER += "Área: " + round4(A) + "<br>";
-		ANSWER += "Perímetro: " + round4(P) + "<br>";
+		ANSWER += "Área: <b>" + round2(AREA) + "</b><br>";
+		ANSWER += "Perímetro: <b>" + round2(PERIMETRO) + "</b><br>";
+		ANSWER += "Altura: <b>" + round2(ALTURA) + "</b><br>";
 
 	}
 
-	if(rnd === 4){ // triang escaleno
+	if(rnd === 4){ // triang equilatero
+
+		while(1)
+		{
+			var hyp = randi(1,20);
+			if( hyp%2 === 0) break;	
+		}
+		
+		var ALTURA = Math.sqrt( hyp*hyp - (hyp/2.0)*(hyp/2.0) );
+		var LADO = hyp;
+		var AREA = LADO*ALTURA/2.0;
+		var PERIMETRO = 3*LADO;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular el Área, el Perímetro y la Altura <br>";
+		QUESTION += "del siguiente Triángulo Equilatero:<br>";
+		QUESTION += "<br>";
+		QUESTION += "Lado: <b> " + LADO + "</b><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "Área: <b>" + round2(AREA) + "</b><br>";
+		ANSWER += "Perímetro: <b>" + round2(PERIMETRO) + "</b><br>";
+		ANSWER += "Altura: <b>" + round2(ALTURA) + "</b><br>";
+
+	}
+
+	if(rnd === 5){ // triang escaleno
 
 		while(1){
 
@@ -647,9 +697,9 @@ function prob_triangulos()
 		QUESTION += "Calcular el Área y el Perímetro <br>";
 		QUESTION += "del siguiente Triángulo Escaleno:<br>";
 		QUESTION += "<br>";
-		QUESTION += "Lado 1 = " + L1 + "<br>";
-		QUESTION += "Lado 2 = " + L2 + "<br>";
-		QUESTION += "Lado 3 = " + L3 + "<br>";
+		QUESTION += "Lado 1 = <b>" + L1 + "</b><br>";
+		QUESTION += "Lado 2 = <b>" + L2 + "</b><br>";
+		QUESTION += "Lado 3 = <b>" + L3 + "</b><br>";
 
 
 		ANSWER  = "";
@@ -657,49 +707,300 @@ function prob_triangulos()
 		ANSWER += "<br>";
 		ANSWER += "<br>";
 		ANSWER += "<br>";
-		ANSWER += "Área: " + round4(A) + "<br>";
-		ANSWER += "Perímetro: " + round4(P) + "<br>";
+		ANSWER += "Área: <b>" + round2(A) + "</b><br>";
+		ANSWER += "Perímetro: <b>" + round2(P) + "</b><br>";
 
 	}
 
 
-	// if(rnd === 5){ // triang rect
+	if(rnd === 6){ // triang rect
 
-	// 	while(1){
+		while(1){
 
-	// 		var L1 = randi(1,100); 
-	// 		var L2 = randi(1,100); 
-	// 		var L3 = randi(1,100); 
+			var L1 = randi(1,30); 
+			var L2 = randi(1,30); 
+			var L3 = randi(1,30); 
 
-	// 		var existe = triang_rect(L1,L2,L3);
-	// 		if( existe === "SI" ) break;
-	// 	}
+			var existe = triang_rect(L1,L2,L3);
+			if( existe === "SI" ) break;
+		}
 
-	// 	if( L1 > L2 && L1 > L3)	var hyp = L1;
-	// 	if( L2 > L1 && L2 > L3)	var hyp = L2;
-	// 	if( L3 > L1 && L1 > L2)	var hyp = L3;
+		if( L1 > L2 && L1 > L3)	
+		{
+			var hyp = L1;
+			var C1 = L2;
+			var C2 = L3;
+		}
+			
+		if( L2 > L1 && L2 > L3)
+		{
+			var hyp = L2;
+			var C1 = L1;
+			var C2 = L3;
+		}
+
+		if( L3 > L1 && L3 > L2)
+		{
+			var hyp = L3;
+			var C1 = L1;
+			var C2 = L2;
+		}
+
+		var P = L1 + L2 + L3;
+		var A = C1*C2/2.0;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcular el Área, el Perímetro y la Hipotenusa <br>";
+		QUESTION += "del siguiente Triángulo Rectángulo:<br>";
+		QUESTION += "<br>";
+		QUESTION += "Cateto 1 = <b>" + L1 + "</b><br>";
+		QUESTION += "Cateto 2 = <b>" + L2 + "</b><br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "Área: <b>" + round2(A) + "</b><br>";
+		ANSWER += "Perímetro: <b>" + round2(P) + "</b><br>";
+		ANSWER += "Hipotenusa: <b>" + round2(hyp) + "</b><br>";
+
+	}
+
+	if(rnd === 7)
+	{
+		while(1)
+		{
+			var A1 = randi(5,180); 
+			var A2 = randi(5,180); 
+			if( A1+A2 < 180 ) break;
+		}
+			
+		var A3 = 180 - (A1 + A2);
+		var A4 = A1 + A2;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un Triángulo tiene los siguientes ángulos <b>internos</b>:<br>";
+		QUESTION += "<br>";
+		QUESTION += "primero: <b>" + A1 + "°</b><br>";
+		QUESTION += "segundo: <b>" + A2 + "°</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuánto mide el tercer Ángulo interno?<br>";
+		QUESTION += "¿Cuánto mide el tercer Ángulo externo?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "interno: <b>" + A3 + "°</b><br>";
+		ANSWER += "externo: <b>" + A4 + "°</b><br>";
+	}
+
+	if(rnd === 8)
+	{
+		while(1)
+		{
+			var A1 = randi(5,360); 
+			var A2 = randi(5,360); 
+			if( A1+A2 < 360 ) break;
+		}
+			
+		var A3 = 360 - (A1 + A2); //externo
+		var A4 = 180 - A3; //interno
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un Triángulo tiene los siguientes ángulos <b>externos</b>:<br>";
+		QUESTION += "<br>";
+		QUESTION += "primero: <b>" + A1 + "°</b><br>";
+		QUESTION += "segundo: <b>" + A2 + "°</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuánto mide el tercer Ángulo interno?<br>";
+		QUESTION += "¿Cuánto mide el tercer Ángulo externo?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "interno: <b>" + A4 + "°</b><br>";
+		ANSWER += "externo: <b>" + A3 + "°</b><br>";
+	}
+
+	if(rnd === 9)
+	{
+
+		var A1 = randi(5,180); 
+
+		var A2 = 180 - A1;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "El ángulo interno de un Triángulo es:<br>";
+		QUESTION += "<br>";
+		QUESTION += "<b>" + A1 + "°</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuánto mide el ángulo externo correspondiente?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<b>" + A2 + "°</b><br>";
+	}
 
 
-	// 	QUESTION  = "";
-	// 	QUESTION += "<gray>PROBLEMA: </gray><br>";
-	// 	QUESTION += "<br>";
-	// 	QUESTION += "Calcular el Área y el Perímetro <br>";
-	// 	QUESTION += "del siguiente Triángulo Escaleno:<br>";
-	// 	QUESTION += "<br>";
-	// 	QUESTION += "Lado 1 = " + L1 + "<br>";
-	// 	QUESTION += "Lado 2 = " + L2 + "<br>";
-	// 	QUESTION += "Lado 3 = " + L3 + "<br>";
+	if(rnd === 10)
+	{
+
+		while(1){
+
+			var L1 = randi(1,30); 
+			var L2 = randi(1,30); 
+			var L3 = randi(1,30); 
+
+			var existe = triang_rect(L1,L2,L3);
+			if( existe === "SI" ) break;
+		}
+
+		if( L1 > L2 && L1 > L3)	
+		{
+			var hyp_a = L1;
+			var base_a = L2;
+			var alt_a = L3;
+		}
+			
+		if( L2 > L1 && L2 > L3)
+		{
+			var hyp_a = L2;
+			var base_a = L1;
+			var alt_a = L3;
+		}
+
+		if( L3 > L1 && L3 > L2)
+		{
+			var hyp_a = L3;
+			var base_a = L1;
+			var alt_a = L2;
+		}
+
+		while(1)
+		{
+			var factor = randi(3,9);
+			if( factor%2 !== 0) break;
+		}
+		
+		if(randi(1,2) === 1){ factor = factor/2.0; }
+
+		var hyp_b = hyp_a*factor;
+		var base_b = base_a*factor;
+		var alt_b = alt_a*factor;
+
+		a_poste = alt_a;
+		s_poste = base_a;
+		a_edificio = alt_b;
+		s_edificio = base_b;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: triángulos semejantes</gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un poste de " + a_poste + " m de altura <br>proyecta una sombra de " + s_poste + " m de longitud.<br><br>";
+		QUESTION += "Al mismo tiempo, <br>un edificio proyecta una sombra de " + s_edificio + " m de longitud. <br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuánto mide la altura del edificio?<br>";
 
 
-	// 	ANSWER  = "";
-	// 	ANSWER += "<gray>RESPUESTA: </gray><br>";
-	// 	ANSWER += "<br>";
-	// 	ANSWER += "<br>";
-	// 	ANSWER += "<br>";
-	// 	ANSWER += "Área: " + round4(A) + "<br>";
-	// 	ANSWER += "Perímetro: " + round4(P) + "<br>";
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += a_edificio + " m de altura.<br>";
+	}
 
-	// }
+
+	if(rnd === 11)
+	{
+
+		while(1)
+		{
+
+			var L1 = randi(1,30); 
+			var L2 = randi(1,30); 
+			var L3 = randi(1,30); 
+
+			var existe = triang_rect(L1,L2,L3);
+			if( existe === "SI" ) break;
+		}
+
+		if( L1 > L2 && L1 > L3)	
+		{
+			var hyp_a = L1;
+			var base_a = L2;
+			var alt_a = L3;
+		}
+			
+		if( L2 > L1 && L2 > L3)
+		{
+			var hyp_a = L2;
+			var base_a = L1;
+			var alt_a = L3;
+		}
+
+		if( L3 > L1 && L3 > L2)
+		{
+			var hyp_a = L3;
+			var base_a = L1;
+			var alt_a = L2;
+		}
+
+		var factor = randi(2,9);
+
+		var hyp_b = hyp_a*factor;
+		var base_b = base_a*factor;
+		var alt_b = alt_a*factor;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: triángulos semejantes</gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Triángulo A:<br>";
+		QUESTION += "Altura: <b>" + alt_a + "</b><br>";
+		QUESTION += "Base: <b>" + base_a + "</b><br>";
+		QUESTION += "Hipotenusa: <b>?</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "Triángulo B:<br>";
+		QUESTION += "Altura: <b>?</b><br>";
+		QUESTION += "Base: <b>?</b><br>";
+		QUESTION += "Hipotenusa: <b>" + hyp_b + "</b><br>";
+
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br><br>";		
+		ANSWER += "Triángulo A:<br>";
+		ANSWER += "Altura: <b>" + alt_a + "</b><br>";
+		ANSWER += "Base: <b>" + base_a + "</b><br>";
+		ANSWER += "Hipotenusa: <b>" + round2(hyp_a) + "</b><br>";
+		ANSWER += "<br>";
+		ANSWER += "Triángulo B:<br>";
+		ANSWER += "Altura: <b>" + round2(alt_b) + "</b><br>";
+		ANSWER += "Base: <b>" + round2(base_b) + "</b><br>";
+		ANSWER += "Hipotenusa: <b>" + hyp_b + "</b><br><br>";
+
+	}
 
 }
 
@@ -773,7 +1074,7 @@ function prob_cuadrilateros()
 		ANSWER += "<br>";
 		ANSWER += "<br>";
 		ANSWER += "<br>";
-		ANSWER += round4(d);
+		ANSWER += round2(d);
 	}
 
 	if(rnd === 4){
@@ -800,7 +1101,7 @@ function prob_cuadrilateros()
 		ANSWER += "<br>";
 		ANSWER += "P = " + P + "<br>";
 		ANSWER += "A = " + A + "<br>";
-		ANSWER += "D = " + round4(d);
+		ANSWER += "D = " + round2(d);
 
 	}
 
@@ -2531,7 +2832,7 @@ function problemas_geometria(){
 			ANSWER += "<br>";
 			ANSWER += "<br>";
 			ANSWER += "<br>";
-			ANSWER += round4(d);
+			ANSWER += round2(d);
 		}
 
 
@@ -2565,7 +2866,7 @@ function problemas_geometria(){
 			ANSWER += "<br>";
 			ANSWER += "P = " + P + "<br>";
 			ANSWER += "A = " + A + "<br>";
-			ANSWER += "D = " + round4(d);
+			ANSWER += "D = " + round2(d);
 		}
 
 		if(rnd === 2){
@@ -2742,9 +3043,9 @@ function problemas_geometria(){
 			ANSWER += "<br>";
 			ANSWER += "<br>";
 			ANSWER += "<br>";
-			ANSWER += "a = " + round4(a) + "<br>";
-			ANSWER += "P = " + round4(P) + "<br>";
-			ANSWER += "A = " + round4(A);
+			ANSWER += "a = " + round2(a) + "<br>";
+			ANSWER += "P = " + round2(P) + "<br>";
+			ANSWER += "A = " + round2(A);
 		}
 
 		if(rnd === 4){
@@ -2770,9 +3071,9 @@ function problemas_geometria(){
 			ANSWER += "<br>";
 			ANSWER += "<br>";
 			ANSWER += "<br>";
-			ANSWER += "hyp = " + round4(h) + "<br>";
-			ANSWER += "P = " + round4(P) + "<br>";
-			ANSWER += "A = " + round4(A);
+			ANSWER += "hyp = " + round2(h) + "<br>";
+			ANSWER += "P = " + round2(P) + "<br>";
+			ANSWER += "A = " + round2(A);
 		}
 
 	}
