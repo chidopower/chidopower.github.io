@@ -533,6 +533,8 @@ function prob_triangulos()
 
 	var rnd = randi(1,11);
 
+	rnd = 6;
+
 	if(rnd === 1)
 	{
 		var L1 = randi(2,20); //base
@@ -754,14 +756,18 @@ function prob_triangulos()
 		var P = L1 + L2 + L3;
 		var A = C1*C2/2.0;
 
+		var alt_hyp = C1*C2/hyp;
+
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
 		QUESTION += "Calcular el Área, el Perímetro y la Hipotenusa <br>";
 		QUESTION += "del siguiente Triángulo Rectángulo:<br>";
 		QUESTION += "<br>";
-		QUESTION += "Cateto 1 = <b>" + L1 + "</b><br>";
-		QUESTION += "Cateto 2 = <b>" + L2 + "</b><br>";
+		QUESTION += "Cateto 1 = <b>" + C1 + "</b><br>";
+		QUESTION += "Cateto 2 = <b>" + C2 + "</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuál es la altura de la hipotenusa?<br>";
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
@@ -771,6 +777,8 @@ function prob_triangulos()
 		ANSWER += "Área: <b>" + round2(A) + "</b><br>";
 		ANSWER += "Perímetro: <b>" + round2(P) + "</b><br>";
 		ANSWER += "Hipotenusa: <b>" + round2(hyp) + "</b><br>";
+		ANSWER += "<br>";
+		ANSWER += "Altura de la Hipotenusa: <b>" + round2(alt_hyp) + "</b><br>";
 
 	}
 
@@ -1012,6 +1020,8 @@ function prob_triangulos()
 		ANSWER += "Hipotenusa: <b>" + hyp_b + "</b><br><br>";
 
 	}
+
+
 
 }
 
