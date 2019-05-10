@@ -560,7 +560,8 @@ function prob_triangulos()
 		ANSWER += myAns;
 	}
 
-	if(rnd === 2){
+	if(rnd === 2)
+	{
 
 		var b = randi(2,14); // base
 		var a = randi(2,14); // altura
@@ -584,7 +585,8 @@ function prob_triangulos()
 	}
 
 
-	if(rnd === 3){ // triang isóceles
+	if(rnd === 3)
+	{ // triang isóceles
 
 		while(1){
 
@@ -643,7 +645,8 @@ function prob_triangulos()
 
 	}
 
-	if(rnd === 4){ // triang equilatero
+	if(rnd === 4)
+	{ // triang equilatero
 
 		while(1)
 		{
@@ -675,7 +678,8 @@ function prob_triangulos()
 
 	}
 
-	if(rnd === 5){ // triang escaleno
+	if(rnd === 5)
+	{ // triang escaleno
 
 		while(1){
 
@@ -713,7 +717,8 @@ function prob_triangulos()
 	}
 
 
-	if(rnd === 6){ // triang rect
+	if(rnd === 6)
+	{ // triang rect
 
 		while(1){
 
@@ -773,21 +778,24 @@ function prob_triangulos()
 	{
 		while(1)
 		{
-			var A1 = randi(5,180); 
-			var A2 = randi(5,180); 
-			if( A1+A2 < 180 ) break;
+			var A1_i = randi(5,180); 
+			var A2_i = randi(5,180); 
+			if( (A1_i + A2_i) < 180) break;
 		}
-			
-		var A3 = 180 - (A1 + A2);
-		var A4 = A1 + A2;
+
+		var A3_i = 180 - (A1_i + A2_i);
+
+		var A1_e = 180 - A1_i;			
+		var A2_e = 180 - A2_i;
+		var A3_e = 180 - A3_i;
 
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
 		QUESTION += "Un Triángulo tiene los siguientes ángulos <b>internos</b>:<br>";
 		QUESTION += "<br>";
-		QUESTION += "primero: <b>" + A1 + "°</b><br>";
-		QUESTION += "segundo: <b>" + A2 + "°</b><br>";
+		QUESTION += "primero: <b>" + A1_i + "°</b><br>";
+		QUESTION += "segundo: <b>" + A2_i + "°</b><br>";
 		QUESTION += "<br>";
 		QUESTION += "¿Cuánto mide el tercer Ángulo interno?<br>";
 		QUESTION += "¿Cuánto mide el tercer Ángulo externo?<br>";
@@ -798,29 +806,32 @@ function prob_triangulos()
 		ANSWER += "<br>";
 		ANSWER += "<br>";
 		ANSWER += "<br>";
-		ANSWER += "interno: <b>" + A3 + "°</b><br>";
-		ANSWER += "externo: <b>" + A4 + "°</b><br>";
+		ANSWER += "interno: <b>" + A3_i + "°</b><br>";
+		ANSWER += "externo: <b>" + A3_e + "°</b><br>";
 	}
 
-	if(rnd === 8)
+	if(rnd === 8) 
 	{
 		while(1)
 		{
-			var A1 = randi(5,360); 
-			var A2 = randi(5,360); 
-			if( A1+A2 < 360 ) break;
+			var A1_i = randi(5,180); 
+			var A2_i = randi(5,180); 
+			if( (A1_i + A2_i) < 180) break;
 		}
-			
-		var A3 = 360 - (A1 + A2); //externo
-		var A4 = 180 - A3; //interno
+
+		var A3_i = 180 - (A1_i + A2_i);
+
+		var A1_e = 180 - A1_i;			
+		var A2_e = 180 - A2_i;
+		var A3_e = 180 - A3_i;
 
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
 		QUESTION += "Un Triángulo tiene los siguientes ángulos <b>externos</b>:<br>";
 		QUESTION += "<br>";
-		QUESTION += "primero: <b>" + A1 + "°</b><br>";
-		QUESTION += "segundo: <b>" + A2 + "°</b><br>";
+		QUESTION += "primero: <b>" + A1_e + "°</b><br>";
+		QUESTION += "segundo: <b>" + A2_e + "°</b><br>";
 		QUESTION += "<br>";
 		QUESTION += "¿Cuánto mide el tercer Ángulo interno?<br>";
 		QUESTION += "¿Cuánto mide el tercer Ángulo externo?<br>";
@@ -831,8 +842,8 @@ function prob_triangulos()
 		ANSWER += "<br>";
 		ANSWER += "<br>";
 		ANSWER += "<br>";
-		ANSWER += "interno: <b>" + A4 + "°</b><br>";
-		ANSWER += "externo: <b>" + A3 + "°</b><br>";
+		ANSWER += "interno: <b>" + A3_i + "°</b><br>";
+		ANSWER += "externo: <b>" + A3_e + "°</b><br>";
 	}
 
 	if(rnd === 9)
@@ -1008,7 +1019,7 @@ function prob_triangulos()
 function prob_cuadrilateros()
 {
 
-	var rnd = randi(1,6);
+	var rnd = randi(1,10);
 
 	if(rnd === 1){
 
@@ -1079,11 +1090,45 @@ function prob_cuadrilateros()
 
 	if(rnd === 4){
 
-		var Lmenor = randi(1,10);
-		var Lmayor = Lmenor + randi(1,10);
-		var A = Lmenor * Lmayor;
-		var P = 2*Lmenor + 2*Lmayor;
-		var d = Math.sqrt(Lmenor*Lmenor + Lmayor*Lmayor);
+		// var Lmenor = randi(1,10);
+		// var Lmayor = Lmenor + randi(1,10);
+		// var A = Lmenor * Lmayor;
+		// var P = 2*Lmenor + 2*Lmayor;
+		// var d = Math.sqrt(Lmenor*Lmenor + Lmayor*Lmayor);
+
+		while(1){
+
+			var L1 = randi(1,40); 
+			var L2 = randi(1,40); 
+			var L3 = randi(1,40); 
+
+			var existe = triang_rect(L1,L2,L3);
+			if( existe === "SI" ) break;
+		}
+
+		if( L1 > L2 && L1 > L3)	
+		{
+			var hyp = L1;
+			var C1 = L2;
+			var C2 = L3;
+		}
+			
+		if( L2 > L1 && L2 > L3)
+		{
+			var hyp = L2;
+			var C1 = L1;
+			var C2 = L3;
+		}
+
+		if( L3 > L1 && L3 > L2)
+		{
+			var hyp = L3;
+			var C1 = L1;
+			var C2 = L2;
+		}
+
+		var P = 2*C1 + 2*C2;
+		var A = C1*C2;
 
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
@@ -1091,8 +1136,8 @@ function prob_cuadrilateros()
 		QUESTION += "Calcular el Perímetro, el Área,<br>";
 		QUESTION += "y la Diagonal del siguiente Rectángulo:<br>";
 		QUESTION += "<br>";
-		QUESTION += "Lado mayor: " + Lmayor + "<br>";
-		QUESTION += "Lado menor: " + Lmenor + "<br>";
+		QUESTION += "Base: " + C1 + "<br>";
+		QUESTION += "Altura: " + C2 + "<br>";
 
 		ANSWER  = "";
 		ANSWER += "<gray>RESPUESTA: </gray><br>";
@@ -1101,7 +1146,7 @@ function prob_cuadrilateros()
 		ANSWER += "<br>";
 		ANSWER += "P = " + P + "<br>";
 		ANSWER += "A = " + A + "<br>";
-		ANSWER += "D = " + round2(d);
+		ANSWER += "D = " + round2(hyp);
 
 	}
 
@@ -1186,6 +1231,125 @@ function prob_cuadrilateros()
 				}
 			}
 		}
+
+	}
+
+	if(rnd === 7){
+
+		while(1)
+		{
+			var A1 = randi(5,360);
+			var A2 = randi(5,360);
+			var A3 = randi(5,360);
+			if( (A1+A2+A3) < 360 ) break;
+		}
+		var A4 = 360 - (A1+A2+A3); 
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un cuadrilatero tiene los siguientes ángulos:<br>";
+		QUESTION += "<br>";
+		QUESTION += "Primero: <b> " + A1 + "°</b><br>";
+		QUESTION += "Segundo: <b> " + A2 + "°</b><br>";
+		QUESTION += "Tercero: <b> " + A3 + "°</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuánto mide el Cuarto?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += A4 + "°<br>";;
+
+	}
+
+	if(rnd === 8){
+
+		var Base = randi(4,12);
+		var Altura = randi(4,12);
+		var Area = Base*Altura;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un Paralelogramo tiene las siguientes medidas:<br>";
+		QUESTION += "<br>";
+		QUESTION += "Base: <b> " + Base + "</b><br>";
+		QUESTION += "Altura: <b> " + Altura + "</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuánto mide el Área del Paralelogramo?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += Area + "<br>";;
+
+	}
+
+	if(rnd === 9){
+
+		while(1)
+		{
+			var Diag_mayor = randi(4,12);
+			var Diag_menor = randi(4,12);
+			if( Diag_mayor > Diag_menor) break;
+		}
+
+		var Area = Diag_mayor*Diag_mayor/2.0;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un Rombo tiene las siguientes medidas:<br>";
+		QUESTION += "<br>";
+		QUESTION += "Diagonal mayor: <b> " + Diag_mayor + "</b><br>";
+		QUESTION += "Diagonal menor: <b> " + Diag_menor + "</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuánto mide el Área del Rombo?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += Area + "<br>";;
+
+	}
+
+	if(rnd === 10){
+
+		while(1)
+		{
+			var base_mayor = randi(4,12);
+			var base_menor = randi(4,12);
+			if( base_mayor > base_menor) break;
+		}
+
+		var alt = randi(2,12);
+
+		var Area = alt*(base_mayor + base_menor)/2.0;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Un Trapecio tiene las siguientes medidas:<br>";
+		QUESTION += "<br>";
+		QUESTION += "Base mayor: <b> " + base_mayor + "</b><br>";
+		QUESTION += "Base menor: <b> " + base_menor + "</b><br>";
+		QUESTION += "Altura: <b> " + alt + "</b><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuánto mide el Área del Trapecio?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += Area + "<br>";;
 
 	}
 
