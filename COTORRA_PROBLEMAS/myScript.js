@@ -39,6 +39,8 @@ function start(){
 	if(problema === "triangulos") prob_triangulos();
 	if(problema === "cuadrilateros") prob_cuadrilateros();
 	if(problema === "poligonos") prob_poligonos();
+	if(problema === "unidades") prob_unidades();
+	if(problema === "velocidad") prob_velocidad();
 
 	flash_card_show();
 
@@ -48,7 +50,7 @@ function start(){
 //------------------------------------------------------------------------------
 function prob_todos(){
 
-	var rnd = randi(1,16);
+	var rnd = randi(1,17);
 
 	if(rnd === 1)  	prob_repartir();
 	if(rnd === 2)  	prob_suma_naturales();
@@ -66,7 +68,572 @@ function prob_todos(){
 	if(rnd ===14)	prob_triangulos();
 	if(rnd ===15)	prob_cuadrilateros();
 	if(rnd ===16)	prob_poligonos();
-	if(rnd ===17)	prob_otros();
+	if(rnd ===17)	prob_unidades();
+	if(rnd ===18)	prob_velocidad();
+
+}
+
+
+//------------------------------------------------------------------------------
+function prob_velocidad()
+{
+
+	var rnd = randi(1,3);
+
+	opt1 = randi(1,6);
+	opt2 = randi(1,6);
+	opt3 = randi(1,6);
+
+	if(opt1 === 1) name1 = "Jorge el Curioso";
+	if(opt1 === 2) name1 = "Un gatito";
+	if(opt1 === 3) name1 = "Cuack el Pato";
+	if(opt1 === 4) name1 = "Doraemón";
+	if(opt1 === 5) name1 = "Caillou";
+	if(opt1 === 6) name1 = "Un Pitufo";
+
+	if(opt1 === 1) place1 = "Skyrim";
+	if(opt1 === 2) place1 = "su casa";
+	if(opt1 === 3) place1 = "su escuela";
+	if(opt1 === 4) place1 = "Konoha";
+	if(opt1 === 5) place1 = "la Unison";
+	if(opt1 === 6) place1 = "la casa de la tía Kris";
+
+	if(opt1 === 1) place2 = "Hyrule";
+	if(opt1 === 2) place2 = "la playa";
+	if(opt1 === 3) place2 = "la chingada";
+	if(opt1 === 4) place2 = "el Walmart";
+	if(opt1 === 5) place2 = "el bosque Kokiri";
+	if(opt1 === 6) place2 = "el Liceo Tec";	
+
+	if(rnd === 1) //
+	{
+
+		var v_km_h = randi(10,300);
+		var d_km = randi(25,1000);
+		var t_h = d_km / v_km_h;
+		var t_m = Math.round(t_h*60);
+
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: VELOCIDAD </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += name1 + " viaja desde " +place1+ " hasta " +place2+ "<br>";
+		QUESTION += "a una velocidad de <b>" + v_km_h + "</b> km/h.<br>";
+		QUESTION += "<br>";
+		QUESTION += "La distancia entre " +place1+ " y " +place2+ " es de <b>" +d_km+ "</b> km.<br>";
+		QUESTION += "<br>";
+		QUESTION += "Aproximadamente,<br> ¿en cuántos minutos llegará?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "Llegará en " + t_m + " minutos.<br>";
+
+	}
+
+	if(rnd === 2) //
+	{
+
+		var v_km_h = randi(10,300);
+		var t_m = randi(3,12)*30;
+		var t_h = t_m/60.0;
+		var d_km = v_km_h*t_h; 
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: VELOCIDAD </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += name1 + " viaja desde " +place1+ " hasta " +place2+ "<br>";
+		QUESTION += "a una velocidad de <b>" + v_km_h + "</b> km/h.<br>";
+		QUESTION += "<br>";
+		QUESTION += "El viaje dura <b>" +t_m+ "</b> minutos.<br>";
+		QUESTION += "<br>";
+		QUESTION += "Aproximadamente, <br>¿cuál es la distancia entre " +place1+ " y " +place2+" ?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "La distancia es de " + round2(d_km) + " km.<br>";
+
+	}
+
+	if(rnd === 3) //
+	{
+
+		while(1){
+		var t_m = randi(3,100)*30;
+		var t_h = t_m/60.0;
+		var d_m = randi(50,300)*1000;
+		var d_km = d_m/1000;
+
+		var v_km_h = d_km/t_h;
+		if(Number.isInteger(v_km_h)===true)break;
+		}
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: VELOCIDAD </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += name1 + " viaja desde " +place1+ " hasta " +place2+ "<br>";
+		QUESTION += "La distancia entre " +place1+ " y " +place2+ " es de <b>" +d_km+ "</b> km.<br>";
+		QUESTION += "<br>";
+		QUESTION += "El viaje dura <b>" +t_m+ "</b> minutos.<br>";
+		QUESTION += "<br>";
+		QUESTION += "¿A qué velocidad viaja " +name1+ "?<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "Viaja a una velocidad de " + round2(v_km_h) + " km/h.<br>";
+
+	}
+
+}
+
+//------------------------------------------------------------------------------
+function prob_unidades()
+{
+
+	var rnd = randi(1,11);
+
+	if(rnd === 1) // cm & m
+	{
+
+		if(randi(1,2)===1)
+		{
+			var metros = randf(9);
+			var centi_metros = metros*100.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + metros + " metros en <b>centi</b>metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += centi_metros + " centimetros<br>";
+
+		}
+		else
+		{
+			var centi_metros = randi(1,300);
+			var metros = centi_metros/100.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + centi_metros + " <b>centi</b>metros en metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += metros + " metros<br>";
+
+		}
+
+	}
+
+	if(rnd === 2) // km & m
+	{
+
+		if(randi(1,2)===1)
+		{
+			var metros = randi(1,3000);
+			var kilo_metros = metros/1000.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + metros + " metros en <b>kilo</b>metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += kilo_metros + " <b>kilo</b>metros<br>";
+
+		}
+		else
+		{
+			var kilo_metros = randf(9);
+			var metros = kilo_metros*1000.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + kilo_metros + " <b>kilo</b>metros en metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += metros + " metros<br>";
+
+		}
+
+	}
+
+	if(rnd === 3) // kg & g
+	{
+
+		if(randi(1,2)===1)
+		{
+			var gramos = randi(1,30)*100;
+			var kilo_gramos = gramos/1000.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + gramos + " gramos en <b>kilo</b>gramos. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += kilo_gramos + " <b>kilo</b>gramos<br>";
+
+		}
+		else
+		{
+			var kilo_gramos = randf(9);
+			var gramos = kilo_gramos*1000.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + kilo_gramos + " <b>kilo</b>gramos en gramos. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += gramos + " gramos<br>";
+
+		}
+
+	}
+
+	if(rnd === 4) // kg & ton
+	{
+
+		if(randi(1,2)===1)
+		{
+			var kilo_gramos = randi(1,50)*100;
+			var toneladas = kilo_gramos/1000.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + kilo_gramos + " <b>kilo</b>gramos en toneladas. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += toneladas + " toneladas";
+
+		}
+		else
+		{
+			var toneladas = randf(9);
+			var kilo_gramos = toneladas*1000.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + toneladas + " toneladas en <b>kilo</b>gramos. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += kilo_gramos + " <b>kilo</b>gramos<br>";
+
+		}
+
+	}
+
+	if(rnd === 5) // L & mL
+	{
+
+		if(randi(1,2)===1)
+		{
+			var litros = randf(9);
+			var mili_litros = litros*1000.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + litros + " litros en <b>mili</b>litros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += mili_litros + " <b>mili</b>litros<br>";
+
+		}
+		else
+		{
+			var mili_litros = randi(1,90)*100;
+			var litros = mili_litros/1000.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + mili_litros + " <b>mili</b>litros en litros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += litros + " litros<br>";
+
+		}
+
+	}
+
+	if(rnd === 6) // mm & cm
+	{
+
+		if(randi(1,2)===1)
+		{
+			var mili_metros = randi(1,99);
+			var centi_metros = mili_metros/10.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + mili_metros + " <b>mili</b>metros en <b>centi</b>metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += centi_metros + " <b>centi</b>metros<br>";
+
+		}
+		else
+		{
+			var centi_metros = randi(1,10);
+			var mili_metros = centi_metros*10.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + centi_metros + " <b>centi</b>metros en <b>mili</b>metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += mili_metros + " <b>mili</b>metros<br>";
+
+		}
+
+	}
+
+	if(rnd === 7) // min & seg
+	{
+
+		if(randi(1,2)===1)
+		{
+			var minutos = randi(1,60);
+			var segundos = minutos*60.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + minutos + " minutos en segundos. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += segundos + " segundos<br>";
+
+		}
+		else
+		{
+			var segundos = randi(1,9)*30;
+			var minutos = segundos/60.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + segundos + " segundos en minutos. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += minutos + " minutos<br>";
+
+		}
+
+	}
+
+
+	if(rnd === 8) // min & horas
+	{
+
+		if(randi(1,2)===1)
+		{
+			var horas = randi(1,48);
+			var minutos = horas*60.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + horas + " horas en minutos. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += minutos + " minutos<br>";
+
+		}
+		else
+		{
+			var minutos = randi(1,9)*30;
+			var horas = minutos/60.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + minutos + " minutos en horas. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += horas + " horas<br>";
+
+		}
+
+	}
+
+	if(rnd === 9) // seg & horas
+	{
+
+		if(randi(1,2)===1)
+		{
+			var horas = randi(1,48);
+			var segundos = horas*60*60.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + horas + " horas en segundos. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += segundos + " segundos<br>";
+
+		}
+		else
+		{
+			var horas = randi(1,48);
+			var segundos = horas*60*60.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + segundos + " segundos en horas. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += horas + " horas<br>";
+
+		}
+
+	}
+
+	if(rnd === 10) // dm & m
+	{
+
+		if(randi(1,2)===1)
+		{
+			var metros = randf(9);
+			var deci_metros = metros*10.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + metros + " metros en <b>deci</b>metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += deci_metros + " <b>deci</b>metros<br>";
+
+		}
+		else
+		{
+			var metros = randf(9);
+			var deci_metros = metros*10.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + deci_metros + " <b>deci</b>metros en metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += metros + " metros<br>";
+
+		}
+
+	}
+
+	if(rnd === 11) // dm & cm
+	{
+
+		if(randi(1,2)===1)
+		{
+			var deci_metros = randi(1,20);
+			var centi_metros = deci_metros*10.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + deci_metros + " <b>deci</b>metros en <b>centi</b>metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += centi_metros + " <b>centi</b>metros<br>";
+
+		}
+		else
+		{
+			var deci_metros = randi(1,20);
+			var centi_metros = deci_metros*10.0;
+
+			QUESTION  = "";
+			QUESTION += "<gray>PROBLEMA: UNIDADES </gray><br>";
+			QUESTION += "<br>";
+			QUESTION += "Convertir " + centi_metros + " <b>centi</b>metros  en <b>deci</b>metros. <br>";
+			QUESTION += "<br>";
+
+			ANSWER  = "";
+			ANSWER += "<gray>RESPUESTA: </gray><br>";
+			ANSWER += "<br>";
+			ANSWER += deci_metros + " <b>deci</b>metros<br>";
+
+		}
+
+	}
 
 }
 
@@ -1369,6 +1936,78 @@ function prob_cuadrilateros()
 //------------------------------------------------------------------------------
 function prob_poligonos()
 {
+
+	rnd = randi(1,2);
+
+	//rnd = 2;
+
+	if(rnd === 1)
+	{
+
+		var lados = randi(3,12);
+
+		if( lados === 3 ) var name = "TRIÁNGULO";
+		if( lados === 4 ) var name = "CUADRILATERO";
+		if( lados === 5 ) var name = "PENTÁGONO";
+		if( lados === 6 ) var name = "HEXÁGONO";
+		if( lados === 7 ) var name = "HEPTÁGONO";
+		if( lados === 8 ) var name = "OCTÁGONO";
+		if( lados === 9 ) var name = "NONÁGONO";
+		if( lados === 10 ) var name = "DECÁGONO";
+		if( lados === 11 ) var name = "UNDECÁGONO";
+		if( lados === 12 ) var name = "DODECÁGONO";
+
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cómo se llama el polígono de <b>" + lados + "</b> lados?<br>";
+		QUESTION += "<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += name + "<br>";
+
+	}
+
+	if(rnd === 2)
+	{
+
+		var lados = randi(3,12);
+
+		if( lados === 3 ) var name = "TRIÁNGULO";
+		if( lados === 4 ) var name = "CUADRILATERO";
+		if( lados === 5 ) var name = "PENTÁGONO";
+		if( lados === 6 ) var name = "HEXÁGONO";
+		if( lados === 7 ) var name = "HEPTÁGONO";
+		if( lados === 8 ) var name = "OCTÁGONO";
+		if( lados === 9 ) var name = "NONÁGONO";
+		if( lados === 10 ) var name = "DECÁGONO";
+		if( lados === 11 ) var name = "UNDECÁGONO";
+		if( lados === 12 ) var name = "DODECÁGONO";
+
+		var diagonales = lados*(lados - 3)/2;
+
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuántas diagonales tiene un <b>" + name + "</b>?<br>";
+		QUESTION += "<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += diagonales + "<br>";;
+
+	}
+
+
 }
 
 //------------------------------------------------------------------------------
@@ -3365,6 +4004,22 @@ function randi(min, max) {
 		if(R !== 0)
 			break;
 	}
+
+    return R;
+}
+
+//------------------------------------------------------------------------------
+function randf(max) 
+{
+
+	var R;
+	var entero;
+	var decimal;
+
+	entero = randi0(0,max);
+	decimal = randi(0,9);
+
+	R = entero + decimal/10.0;
 
     return R;
 }
