@@ -1100,8 +1100,6 @@ function prob_triangulos()
 
 	var rnd = randi(1,11);
 
-	rnd = 6;
-
 	if(rnd === 1)
 	{
 		var L1 = randi(2,20); //base
