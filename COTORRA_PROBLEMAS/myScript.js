@@ -1195,7 +1195,7 @@ function prob_triangulos()
 		QUESTION  = "";
 		QUESTION += "<gray>PROBLEMA: </gray><br>";
 		QUESTION += "<br>";
-		QUESTION += "Calcular el Área, el Perímetro y la Hipotenusa <br>";
+		QUESTION += "Calcular el Área, el Perímetro y la altura<br>";
 		QUESTION += "del siguiente Triángulo Isóceles:<br>";
 		QUESTION += "<br>";
 		QUESTION += "Base: <b> " + BASE + "</b><br>";
@@ -1935,9 +1935,9 @@ function prob_cuadrilateros()
 function prob_poligonos()
 {
 
-	rnd = randi(1,2);
+	rnd = randi(1,8);
 
-	//rnd = 2;
+	//rnd = 8;
 
 	if(rnd === 1)
 	{
@@ -1987,6 +1987,41 @@ function prob_poligonos()
 		if( lados === 11 ) var name = "UNDECÁGONO";
 		if( lados === 12 ) var name = "DODECÁGONO";
 
+		var diagonales = (lados - 3);
+
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuántas diagonales se forman desde un <br>";
+		QUESTION += "sólo vertice de un <b>" + name + "</b>?<br>";
+		QUESTION += "<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += diagonales + "<br>";;
+
+	}
+
+	if(rnd === 3)
+	{
+
+		var lados = randi(3,12);
+
+		if( lados === 3 ) var name = "TRIÁNGULO";
+		if( lados === 4 ) var name = "CUADRILATERO";
+		if( lados === 5 ) var name = "PENTÁGONO";
+		if( lados === 6 ) var name = "HEXÁGONO";
+		if( lados === 7 ) var name = "HEPTÁGONO";
+		if( lados === 8 ) var name = "OCTÁGONO";
+		if( lados === 9 ) var name = "NONÁGONO";
+		if( lados === 10 ) var name = "DECÁGONO";
+		if( lados === 11 ) var name = "UNDECÁGONO";
+		if( lados === 12 ) var name = "DODECÁGONO";
+
 		var diagonales = lados*(lados - 3)/2;
 
 
@@ -2001,10 +2036,222 @@ function prob_poligonos()
 		ANSWER += "<br>";
 		ANSWER += "<br>";
 		ANSWER += "<br>";
-		ANSWER += diagonales + "<br>";;
+		ANSWER += diagonales + "<br>";
 
 	}
 
+	if(rnd === 4)
+	{
+
+		var lados = randi(3,12);
+
+		if( lados === 3 ) var name = "TRIÁNGULO";
+		if( lados === 4 ) var name = "CUADRILATERO";
+		if( lados === 5 ) var name = "PENTÁGONO";
+		if( lados === 6 ) var name = "HEXÁGONO";
+		if( lados === 7 ) var name = "HEPTÁGONO";
+		if( lados === 8 ) var name = "OCTÁGONO";
+		if( lados === 9 ) var name = "NONÁGONO";
+		if( lados === 10 ) var name = "DECÁGONO";
+		if( lados === 11 ) var name = "UNDECÁGONO";
+		if( lados === 12 ) var name = "DODECÁGONO";
+
+		var triang = lados - 2;
+
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuál es el número mínimo de triángulos necesarios<br>";
+		QUESTION += "para construir un <b>" + name + "</b>?<br>";
+		QUESTION += "<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += triang + "<br>";
+
+	}
+
+	if(rnd === 5)
+	{
+
+		var N = randi(3,12);
+		var L = randi(2,12);
+		var a = L/2.0*Math.tan(3.1416*(N-2)/(2*N));
+		var P = N*L;
+		var A = P*a/2.0;
+
+		console.log(N,L,a,P,A);
+
+		lados = N;
+		if( lados === 3 ) var name = "TRIÁNGULO";
+		if( lados === 4 ) var name = "CUADRILATERO";
+		if( lados === 5 ) var name = "PENTÁGONO";
+		if( lados === 6 ) var name = "HEXÁGONO";
+		if( lados === 7 ) var name = "HEPTÁGONO";
+		if( lados === 8 ) var name = "OCTÁGONO";
+		if( lados === 9 ) var name = "NONÁGONO";
+		if( lados === 10 ) var name = "DECÁGONO";
+		if( lados === 11 ) var name = "UNDECÁGONO";
+		if( lados === 12 ) var name = "DODECÁGONO";
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Calcula el área y el perímetro de un <b>"+ name + "</b> regular.<br><br>";
+		QUESTION += "lado: "+L+"<br>";
+		QUESTION += "apotema: "+round2(a)+"<br>";
+		QUESTION += "<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "Área: "+round2(A)+"<br>";
+		ANSWER += "Perímetro: "+P+"<br>";
+
+	}
+
+	if(rnd === 6)
+	{
+
+		var lados = randi(3,12);
+
+		if( lados === 3 ) var name = "TRIÁNGULO";
+		if( lados === 4 ) var name = "CUADRILATERO";
+		if( lados === 5 ) var name = "PENTÁGONO";
+		if( lados === 6 ) var name = "HEXÁGONO";
+		if( lados === 7 ) var name = "HEPTÁGONO";
+		if( lados === 8 ) var name = "OCTÁGONO";
+		if( lados === 9 ) var name = "NONÁGONO";
+		if( lados === 10 ) var name = "DECÁGONO";
+		if( lados === 11 ) var name = "UNDECÁGONO";
+		if( lados === 12 ) var name = "DODECÁGONO";
+
+		var suma = (lados - 2)*180;
+		var ang = suma/lados;
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "En un <b>" + name + "</b>,<br><br>";
+		QUESTION += "¿Cuál es suma de TODOS sus ángulos internos?<br>";
+		QUESTION += "¿Cuánto mide un ángulo interno si el polígono es regular?<br>";
+		QUESTION += "<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "Suma de TODOS los ángulos internos: " +suma+ "°<br><br>";
+		ANSWER += "Ángulo interno: " +ang+ "° (polígono regular)<br>";
+
+	}
+
+	if(rnd === 7)
+	{
+
+		var op = randi(1,5);
+
+		if(op === 1)
+		{
+			var nombre = "tetraedro";
+			var caras = 4;
+			var aristas = 6;
+			var vertices = 4;
+			var forma_caras = "triángulos";
+		}
+
+		if(op === 2)
+		{
+			var nombre = "hexaedro o cubo";
+			var caras = 6;
+			var aristas = 12;
+			var vertices = 8;
+			var forma_caras = "cuadrados";
+		}
+
+		if(op === 3)
+		{
+			var nombre = "octaedro";
+			var caras = 8;
+			var aristas = 12;
+			var vertices = 6;
+			var forma_caras = "triángulos";
+		}
+
+		if(op === 4)
+		{
+			var nombre = "dodecaedro";
+			var caras = 12;
+			var aristas = 30;
+			var vertices = 20;
+			var forma_caras = "pentágonos";
+		}
+
+		if(op === 5)
+		{
+			var nombre = "icosaedro";
+			var caras = 20;
+			var aristas = 30;
+			var vertices = 12;
+			var forma_caras = "triángulos";
+		}
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "Dime todo lo que sabes de un <b>" + nombre + "</b>.<br><br>";
+		QUESTION += "¿Número de caras?<br>";
+		QUESTION += "¿Forma de las caras?<br>";
+		QUESTION += "¿Número de aristas?<br>";
+		QUESTION += "¿Número de vértices?<br>";
+		QUESTION += "<br>";
+		QUESTION += "Comprueba la fórmula de Euler:<br>";
+		QUESTION += "V + C - A = 2<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += "¿Número de caras? <b>"+caras+"</b><br>";
+		ANSWER += "¿Forma de las caras? <b>"+forma_caras+"</b><br>";
+		ANSWER += "¿Número de aristas? <b>"+aristas+"</b><br>";
+		ANSWER += "¿Número de vértices? <b>"+vertices+"</b><br>";
+		ANSWER += "<br>";
+		ANSWER += "<br>";
+		ANSWER += vertices+" + "+caras+" - "+aristas+" = 2 <br>";
+
+	}
+
+	if(rnd === 8)
+	{
+
+		QUESTION  = "";
+		QUESTION += "<gray>PROBLEMA: </gray><br>";
+		QUESTION += "<br>";
+		QUESTION += "¿Cuáles son los 5 sólidos de Platón?";
+		QUESTION += "<br>";
+
+		ANSWER  = "";
+		ANSWER += "<gray>RESPUESTA: </gray><br><br>";
+		ANSWER += "Son los únicos poliedros regulares (perfectos) que existen:<br>";
+		ANSWER += "<br>";
+		ANSWER += "Tetraedro, 4 caras.<br>";
+		ANSWER += "Hexaedro, 6 caras.<br>";
+		ANSWER += "Octaedro, 8 caras.<br>";
+		ANSWER += "Dodecaedro, 12 caras<br>";
+		ANSWER += "Icosaedro, 20 caras.<br>";
+		ANSWER += "<br>";
+
+
+	}
 
 }
 
