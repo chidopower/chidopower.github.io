@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script src="myScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+
+<body>
+
+	<div class="title">
+		<select id="option" onclick="start()">
+			<option value="All">All</option>
+			<option value="AtomicNumbers">Atomic Numbers</option>
+			<option value="AtomicSymbols">Atomic Symbols</option>
+			<option value="AtomicNames" >Atomic Names</option>
+		</select>
+		<select id="level" onclick="start()">
+			<option value="1_10">1 - 10</option>
+			<option value="1_20">1 - 20</option>
+			<option value="1_30">1 - 30</option>
+			<option value="1_40">1 - 40</option>
+			<option value="1_50">1 - 50</option>
+			<option value="1_60">1 - 60</option>
+			<option value="1_70">1 - 70</option>
+			<option value="1_80">1 - 80</option>
+			<option value="1_90">1 - 90</option>
+			<option value="1_100">1 - 100</option>
+			<option value="11_20">11 - 20</option>
+			<option value="21_30">21 - 30</option>
+			<option value="31_40">31 - 40</option>
+			<option value="41_50">41 - 50</option>
+			<option value="51_60">51 - 60</option>
+			<option value="61_70">61 - 70</option>
+			<option value="71_80">71 - 80</option>
+			<option value="81_90">81 - 90</option>
+			<option value="91_100">91 - 100</option>
+		</select>
+	</div>
+
+	<div class="score" id="score">
+		<div class="mistakes" id="mistakes">&nbsp;</div>
+		<div class="relleno" id="relleno">&nbsp;</div>
+		<div class="success" id="success">&nbsp;</div>
+	</div>
+
+	<div class="question_">
+		<div class="question" id="question" >...</div>
+	</div>
+
+	<div class="buttons" id="buttons">
+		<div class="button_"><div class="button" id="b1" onclick="b1()">...</div></div>
+		<div class="button_"><div class="button" id="b2" onclick="b2()">...</div></div>
+		<div class="button_"><div class="button" id="b3" onclick="b3()">...</div></div>
+		<div class="button_"><div class="button" id="b4" onclick="b4()">...</div></div>
+		<div class="button_"><div class="button" id="b0" onclick="b0()">NEITHER</div></div>
+		<div class="button_"><div class="button" id="bR" onclick="bR()">RESET</div></div>
+	</div>
+
+	<div class="answer_" id="answer_">
+		<div class="answer"   id="answer"   >...</div>
+	</div>
+
+	<div class="start_" id="start_">
+		<div class="start" id="start" onclick="start()">START</div>
+	</div>
+
+	<div class="next_" id="next_">
+		<div class="next" id="next" onclick="next()">NEXT</div>
+	</div>
+
+</body>
+</html>
