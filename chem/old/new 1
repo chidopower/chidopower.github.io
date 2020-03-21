@@ -1,0 +1,10 @@
+	<div class="user_name">
+	<center>
+
+		<p style="font-size:200%; font-family: "Ubuntu";"> Name:
+		<input style="font-size:100%;" type="text" id="user_name">
+		<button style="font-size:100%;" type="button" id="button_user_name" onclick="start();">Start!</button>
+		</p>
+
+	</center>
+	</div>
