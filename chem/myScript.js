@@ -131,7 +131,7 @@ function updateScore(){
 
 	document.getElementById("mistakes").innerHTML = "Errores: " + mistakes;
 	document.getElementById("success").innerHTML = "Aciertos: "+ success;
-	document.getElementById("show_user_name").innerHTML = user_name;
+	document.getElementById("show_user_name").innerHTML = user_name +"; "+actividad;
 	
 	if(counter < (maxcounter+1))
 	{
