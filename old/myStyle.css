@@ -60,7 +60,6 @@ select{
 	float: left;
 	width: 100%;
     padding-top: 10px;
-	display: none;
 }
 
 .start,
@@ -257,20 +256,15 @@ select,button,input{
 
 .mistakes{
 	font-size: 300%;
-	width: 30%;
 }
 
 .success{
 	font-size: 300%;
-	width: 30%;
 }
 
 .relleno{
 	font-size: 300%;
-	width: 40%;
 }
-
-
 
 }
 

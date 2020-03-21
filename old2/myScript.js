@@ -26,25 +26,10 @@ var user_name;
 var counter=1;
 var maxcounter=100;
 
-var maxtimeleft = 300;
-var timeleft = maxtimeleft;
-
-//------------------------------------------------------------------------------
-var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
-    //clearInterval(downloadTimer);
-    document.getElementById("relleno").innerHTML = "Tiempo: 0";
-  } else {
-    document.getElementById("relleno").innerHTML = "Tiempo: " + timeleft;
-  }
-  timeleft -= 1;
-}, 1000);
-
 //------------------------------------------------------------------------------
 function start(){
 	
 	counter = 1;
-	timeleft = maxtimeleft;
 
 	actividad = document.getElementById("actividad").value;
 	user_name = document.getElementById("user_name").value;
@@ -70,22 +55,17 @@ function start(){
 	if(actividad==="actividad_07") { option="All"; zmin=1; zmax=89; } //sin lantanidos ni actinidos
 	
 	play();
-	
 
 }
 
 //------------------------------------------------------------------------------
+function next(){ start(); }
 function bR()  { start(); start();}
-function b1()  { if(timeleft>0) { usrAns = 1; checkAns();} }
-function b2()  { if(timeleft>0) { usrAns = 2; checkAns();} }
-function b3()  { if(timeleft>0) { usrAns = 3; checkAns();} }
-function b4()  { if(timeleft>0) { usrAns = 4; checkAns();} }
-function b0()  { if(timeleft>0) { usrAns = 5; checkAns();} }
-
-//function b2(){usrAns = 2; checkAns();}
-//function b3(){usrAns = 3; checkAns();}
-//function b4(){usrAns = 4; checkAns();}
-//function b0(){usrAns = 5; checkAns();}
+function b1(){usrAns = 1; checkAns();}
+function b2(){usrAns = 2; checkAns();}
+function b3(){usrAns = 3; checkAns();}
+function b4(){usrAns = 4; checkAns();}
+function b0(){usrAns = 5; checkAns();}
 
 //------------------------------------------------------------------------------
 function checkAns(){
@@ -144,7 +124,6 @@ function play(){
 function resetScore(){
 	success = 0;
 	mistakes = 0;
-	updateScore();
 }
 
 //------------------------------------------------------------------------------
@@ -156,7 +135,7 @@ function updateScore(){
 	
 	if(counter < (maxcounter+1))
 	{
-		//document.getElementById("relleno").innerHTML = counter + "/" + maxcounter;
+		document.getElementById("relleno").innerHTML = counter + "/" + maxcounter;
 	}
 	
 	
@@ -230,13 +209,6 @@ function showAns(){
 		document.getElementById("b3").innerHTML = "...";
 		document.getElementById("b4").innerHTML = "...";
 	}
-
-	if(timeleft <= 0){
-		document.getElementById("b1").innerHTML = "...";
-		document.getElementById("b2").innerHTML = "...";
-		document.getElementById("b3").innerHTML = "...";
-		document.getElementById("b4").innerHTML = "...";
-	}
 	
 }
 
@@ -257,7 +229,6 @@ function play_guess_atomic_number(){
 	ANSWER = z;
 
 	if(counter>maxcounter){QUESTION="...";}
-	if(timeleft <= 0){QUESTION="...";}
 	
 }
 
@@ -278,7 +249,6 @@ function play_guess_atomic_symbol(){
 	ANSWER = symbols[z];
 	
 	if(counter>maxcounter){QUESTION="...";}
-	if(timeleft<=0){QUESTION="...";}
 
 }
 
@@ -299,7 +269,6 @@ function play_guess_atomic_names(){
 	ANSWER = names[z];
 	
 	if(counter>maxcounter){QUESTION="...";}
-	if(timeleft <= 0){QUESTION="...";}
 
 }
 

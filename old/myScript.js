@@ -23,28 +23,8 @@ var z1,z2,z3,z4 //fakes
 
 var user_name;
 
-var counter=1;
-var maxcounter=100;
-
-var maxtimeleft = 300;
-var timeleft = maxtimeleft;
-
-//------------------------------------------------------------------------------
-var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
-    //clearInterval(downloadTimer);
-    document.getElementById("relleno").innerHTML = "Tiempo: 0";
-  } else {
-    document.getElementById("relleno").innerHTML = "Tiempo: " + timeleft;
-  }
-  timeleft -= 1;
-}, 1000);
-
 //------------------------------------------------------------------------------
 function start(){
-	
-	counter = 1;
-	timeleft = maxtimeleft;
 
 	actividad = document.getElementById("actividad").value;
 	user_name = document.getElementById("user_name").value;
@@ -61,52 +41,34 @@ function start(){
 	loadData();
 	resetScore();
 	
-	if(actividad==="actividad_01") { option="All"; zmin=1; zmax=20; }
-	if(actividad==="actividad_02") { option="All"; zmin=1; zmax=30; }
-	if(actividad==="actividad_03") { option="All"; zmin=1; zmax=40; }
-	if(actividad==="actividad_04") { option="All"; zmin=1; zmax=50; }
-	if(actividad==="actividad_05") { option="All"; zmin=1; zmax=57; }
-	if(actividad==="actividad_06") { option="All"; zmin=1; zmax=80; } //sin lantanidos
-	if(actividad==="actividad_07") { option="All"; zmin=1; zmax=89; } //sin lantanidos ni actinidos
+	if(actividad==="actividad_01") { option="AtomicNumbers"; zmin=1; zmax=10; }
 	
 	play();
-	
 
 }
 
 //------------------------------------------------------------------------------
+function next(){ start(); }
 function bR()  { start(); start();}
-function b1()  { if(timeleft>0) { usrAns = 1; checkAns();} }
-function b2()  { if(timeleft>0) { usrAns = 2; checkAns();} }
-function b3()  { if(timeleft>0) { usrAns = 3; checkAns();} }
-function b4()  { if(timeleft>0) { usrAns = 4; checkAns();} }
-function b0()  { if(timeleft>0) { usrAns = 5; checkAns();} }
+function b1(){usrAns = 1; checkAns();}
+function b2(){usrAns = 2; checkAns();}
+function b3(){usrAns = 3; checkAns();}
+function b4(){usrAns = 4; checkAns();}
+function b0(){usrAns = 5; checkAns();}
 
-//function b2(){usrAns = 2; checkAns();}
-//function b3(){usrAns = 3; checkAns();}
-//function b4(){usrAns = 4; checkAns();}
-//function b0(){usrAns = 5; checkAns();}
 
 //------------------------------------------------------------------------------
 function checkAns(){
-	
-	counter +=1 ;
 
-	if(counter <= (maxcounter+1) )
+	if(usrAns === trueAns)
 	{
-		
-		if(usrAns === trueAns)
-		{
-			success += 1;
-			updateScore();
-			play();
-		}else{
-			mistakes += 1;
-			updateScore();
-		}
-		
+		success += 1;
+		updateScore();
+		play();
+	}else{
+		mistakes += 1;
+		updateScore();
 	}
-
 
 }
 
@@ -117,11 +79,9 @@ function play(){
 	
 	updateScore();
 
-	//if(option === "AtomicNumbers") play_guess_atomic_number();
-	//if(option === "AtomicSymbols") play_guess_atomic_symbol();
-	//if(option === "AtomicNames") play_guess_atomic_names();
-	
-	option = "All";
+	if(option === "AtomicNumbers") play_guess_atomic_number();
+	if(option === "AtomicSymbols") play_guess_atomic_symbol();
+	if(option === "AtomicNames") play_guess_atomic_names();
 	
 	if(option === "All")
 	{		
@@ -144,22 +104,14 @@ function play(){
 function resetScore(){
 	success = 0;
 	mistakes = 0;
-	updateScore();
 }
 
 //------------------------------------------------------------------------------
 function updateScore(){
 
-	document.getElementById("mistakes").innerHTML = "Errores: " + mistakes;
-	document.getElementById("success").innerHTML = "Aciertos: "+ success;
-	document.getElementById("show_user_name").innerHTML = user_name +"; "+actividad;
-	
-	if(counter < (maxcounter+1))
-	{
-		//document.getElementById("relleno").innerHTML = counter + "/" + maxcounter;
-	}
-	
-	
+	document.getElementById("mistakes").innerHTML = "Errors: " + mistakes;
+	document.getElementById("success").innerHTML = "Hits: "+ success;
+	document.getElementById("show_user_name").innerHTML = user_name;
 
 
 }
@@ -223,21 +175,6 @@ function showAns(){
 		document.getElementById("b3").innerHTML = fakeAns[2];
 		document.getElementById("b4").innerHTML = fakeAns[3];
 	}
-	
-	if(counter > maxcounter){
-		document.getElementById("b1").innerHTML = "...";
-		document.getElementById("b2").innerHTML = "...";
-		document.getElementById("b3").innerHTML = "...";
-		document.getElementById("b4").innerHTML = "...";
-	}
-
-	if(timeleft <= 0){
-		document.getElementById("b1").innerHTML = "...";
-		document.getElementById("b2").innerHTML = "...";
-		document.getElementById("b3").innerHTML = "...";
-		document.getElementById("b4").innerHTML = "...";
-	}
-	
 }
 
 //------------------------------------------------------------------------------
@@ -256,9 +193,6 @@ function play_guess_atomic_number(){
 	QUESTION = names[z] + ", " + symbols[z];
 	ANSWER = z;
 
-	if(counter>maxcounter){QUESTION="...";}
-	if(timeleft <= 0){QUESTION="...";}
-	
 }
 
 //------------------------------------------------------------------------------
@@ -276,9 +210,6 @@ function play_guess_atomic_symbol(){
 	
 	QUESTION = z;
 	ANSWER = symbols[z];
-	
-	if(counter>maxcounter){QUESTION="...";}
-	if(timeleft<=0){QUESTION="...";}
 
 }
 
@@ -297,9 +228,6 @@ function play_guess_atomic_names(){
 	
 	QUESTION = symbols[z];
 	ANSWER = names[z];
-	
-	if(counter>maxcounter){QUESTION="...";}
-	if(timeleft <= 0){QUESTION="...";}
 
 }
 
@@ -354,20 +282,6 @@ function rndi0(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;;
 }
 
-
-
-//------------------------------------------------------------------------------
-function rndi(min, max) { //sin lantanidos
-	var R;
-	while(1){
-		R = Math.floor(Math.random() * (max - min + 1) ) + min;
-		if(R <= 57) break;
-		if(R >= 72) break;
-	}
-    return R;
-}
-
-/*
 //------------------------------------------------------------------------------
 function rndi(min, max) {
 	var R;
@@ -378,8 +292,6 @@ function rndi(min, max) {
 	}
     return R;
 }
-
-*/
 
 //------------------------------------------------------------------------------
 function coin(){ return rndi(1,2);}
@@ -507,126 +419,6 @@ function loadData()
 	symbols[117]="Ts"
 	symbols[118]="Og"
 
-	names[1]="Hidrógeno"
-	names[2]="Helio"
-	names[3]="Litio"
-	names[4]="Berilio"
-	names[5]="Boro"
-	names[6]="Carbono"
-	names[7]="Nitrógeno"
-	names[8]="Oxígeno"
-	names[9]="Flúor"
-	names[10]="Neón"
-	names[11]="Sodio"
-	names[12]="Magnesio"
-	names[13]="Aluminio"
-	names[14]="Silicio"
-	names[15]="Fósforo"
-	names[16]="Azufre"
-	names[17]="Cloro"
-	names[18]="Argón"
-	names[19]="Potasio"
-	names[20]="Calcio"
-	names[21]="Escandio"
-	names[22]="Titanio"
-	names[23]="Vanadio"
-	names[24]="Cromo"
-	names[25]="Manganeso"
-	names[26]="Hierro"
-	names[27]="Cobalto"
-	names[28]="Niquel"
-	names[29]="Cobre"
-	names[30]="Zinc"
-	names[31]="Galio"
-	names[32]="Germanio"
-	names[33]="Arsénico"
-	names[34]="Selenio"
-	names[35]="Bromo"
-	names[36]="Kriptón"
-	names[37]="Rubidio"
-	names[38]="Estroncio"
-	names[39]="Itrio"
-	names[40]="Circonio"
-	names[41]="Niobio"
-	names[42]="Molibdeno"
-	names[43]="Tecnecio"
-	names[44]="Rutenio"
-	names[45]="Rodio"
-	names[46]="Paladio"
-	names[47]="Plata"
-	names[48]="Cadmio"
-	names[49]="Indio"
-	names[50]="Estaño"
-	names[51]="Antimonio"
-	names[52]="Telurio"
-	names[53]="Yodo"
-	names[54]="Xenón"
-	names[55]="Cesio"
-	names[56]="Bario"
-	names[57]="Lantano"
-	names[58]="Cerio"
-	names[59]="Praseodimio"
-	names[60]="Neodimio"
-	names[61]="Prometio"
-	names[62]="Samario"
-	names[63]="Europio"
-	names[64]="Gadolinio"
-	names[65]="Terbio"
-	names[66]="Disprosio"
-	names[67]="Holmio"
-	names[68]="Erbio"
-	names[69]="Tulio"
-	names[70]="Iterbio"
-	names[71]="Lutecio"
-	names[72]="Hafnio"
-	names[73]="Tántalo"
-	names[74]="Wolframio"
-	names[75]="Renio"
-	names[76]="Osmio"
-	names[77]="Iridio"
-	names[78]="Platino"
-	names[79]="Oro"
-	names[80]="Mercurio"
-	names[81]="Talio"
-	names[82]="Plomo"
-	names[83]="Bismuto"
-	names[84]="Polonio"
-	names[85]="Astato"
-	names[86]="Radón"
-	names[87]="Francio"
-	names[88]="Radio"
-	names[89]="Actinio"
-	names[90]="Torio"
-	names[91]="Protactinio"
-	names[92]="Uranio"
-	names[93]="Neptunio"
-	names[94]="Plutonio"
-	names[95]="Americio"
-	names[96]="Curio"
-	names[97]="Berkelio"
-	names[98]="Californio"
-	names[99]="Einstenio"
-	names[100]="Fermio"
-	names[101]="Mendelevio"
-	names[102]="Nobelio"
-	names[103]="Lawrencio"
-	names[104]="Rutherfordio"
-	names[105]="Dubnio"
-	names[106]="Seaborgio"
-	names[107]="Bohrio"
-	names[108]="Hasio"
-	names[109]="Meitnerio"
-	names[110]="Darmstatio"
-	names[111]="Roentgenio"
-	names[112]="Copernicio"
-	names[113]="Nihonio"
-	names[114]="Flerovio"
-	names[115]="Moscovio"
-	names[116]="Livermorio"
-	names[117]="Teneso"
-	names[118]="Oganessón"
-
-/*
 	names[1]="Hydrogen"
 	names[2]="Helium"
 	names[3]="Lithium"
@@ -745,6 +537,5 @@ function loadData()
 	names[116]="Livermorium"
 	names[117]="Tennessine"
 	names[118]="Oganesson"
-*/
 
 }
