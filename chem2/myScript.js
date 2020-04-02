@@ -224,14 +224,26 @@ function checkAns(){
 	}
 	else
 	{
-	
+		updateScore();
 		document.getElementById("b1").innerHTML = "...";
 		document.getElementById("b2").innerHTML = "...";
 		document.getElementById("b3").innerHTML = "...";
 		document.getElementById("b4").innerHTML = "...";
-			
+		document.getElementById("mistakes").innerHTML = maxcounter + "/" + maxcounter;
 	}
 
+	if(counter >= maxcounter)
+	{
+		document.getElementById("mistakes").innerHTML = maxcounter + "/" + maxcounter;
+	}
+
+	if(counter > maxcounter)
+	{
+		document.getElementById("b1").innerHTML = "...";
+		document.getElementById("b2").innerHTML = "...";
+		document.getElementById("b3").innerHTML = "...";
+		document.getElementById("b4").innerHTML = "...";		
+	}
 
 }
 
@@ -247,13 +259,14 @@ function resetScore(){
 //------------------------------------------------------------------------------
 function updateScore(){
 
-	document.getElementById("mistakes").innerHTML = "Errores: " + mistakes;
+	//document.getElementById("mistakes").innerHTML = "Errores: " + mistakes;
+	document.getElementById("mistakes").innerHTML = counter + "/" + maxcounter;
 	document.getElementById("success").innerHTML = "Calif: "+ success;
 	document.getElementById("show_user_name").innerHTML = user_name +"; "+actividad;
 	
-	if(counter < (maxcounter+1))
+	if(counter >= maxcounter)
 	{
-		//document.getElementById("relleno").innerHTML = counter + "/" + maxcounter;
+		document.getElementById("mistakes").innerHTML = maxcounter + "/" + maxcounter;
 	}
 	
 	
@@ -279,7 +292,7 @@ function showAns(){
 		fakeAns[1] = PM[z2] + "<br> uma";
 		fakeAns[2] = PM[z3] + "<br> g/mol";
 		fakeAns[3] = PM[z4] + "<br> g/mol";
-		ANS = ANSWER + "<br> g/mol"; 
+		ANS = ANSWER + "<br> *g/mol"; 
 	}
 	
 	if(is_molar_mass==="no")
@@ -291,7 +304,7 @@ function showAns(){
 		fakeAns[1] = PM[z2] + "<br> g/mol";
 		fakeAns[2] = PM[z3] + "<br> uma";
 		fakeAns[3] = PM[z4] + "<br> uma";
-		ANS = ANSWER + "<br> uma"; 
+		ANS = ANSWER + "<br> *uma"; 
 	}
 
 	if(trueAns === 1){
@@ -325,7 +338,7 @@ function showAns(){
 		document.getElementById("b4").innerHTML = fakeAns[3];
 	}
 	
-	if(counter >= maxcounter){
+	if(counter > maxcounter){
 		document.getElementById("b1").innerHTML = "...";
 		document.getElementById("b2").innerHTML = "...";
 		document.getElementById("b3").innerHTML = "...";
