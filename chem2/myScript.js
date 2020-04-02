@@ -292,7 +292,7 @@ function showAns(){
 		fakeAns[1] = PM[z2] + "<br> uma";
 		fakeAns[2] = PM[z3] + "<br> g/mol";
 		fakeAns[3] = PM[z4] + "<br> g/mol";
-		ANS = ANSWER + "<br> *g/mol"; 
+		ANS = ANSWER + "<br> g/mol"; 
 	}
 	
 	if(is_molar_mass==="no")
@@ -304,7 +304,7 @@ function showAns(){
 		fakeAns[1] = PM[z2] + "<br> g/mol";
 		fakeAns[2] = PM[z3] + "<br> uma";
 		fakeAns[3] = PM[z4] + "<br> uma";
-		ANS = ANSWER + "<br> *uma"; 
+		ANS = ANSWER + "<br> uma"; 
 	}
 
 	if(trueAns === 1){
