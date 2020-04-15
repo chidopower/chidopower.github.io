@@ -8,7 +8,7 @@ var g =   [];
 var b =   [];
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(800, 480);
 }
 
 function draw() {
@@ -18,12 +18,12 @@ function draw() {
   for (i = 0; i < x.length; i++) {
 
     x[i] += xSpeed[i];
-    if (x[i] < 0 || x[i] > width) {
+    if (x[i]-size[i]/2.0 < 0 || x[i] > width-size[i]/2.0) {
       xSpeed[i] *= -1;
     }
 
     y[i] += ySpeed[i];
-    if (y[i] < 0 || y[i] > height) {
+    if (y[i]-size[i]/2.0 < 0 || y[i] > height-size[i]/2.0) {
       ySpeed[i] *= -1;
     }
 
@@ -37,7 +37,7 @@ function mousePressed() {
   y = append(y, mouseY);
   xSpeed = append(xSpeed, random(-5, 5));
   ySpeed = append(ySpeed, random(-5, 5));
-  size = append(size, random(5, 20));
+  size = append(size, random(80, 100));
   r = append(r, random(256));
   g = append(g, random(256));
   b = append(b, random(256));
