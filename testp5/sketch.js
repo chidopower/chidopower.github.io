@@ -106,13 +106,21 @@ function mousePressed() {
 
 
 //--------------------------------------------
-let x = 200;
-let y = 100;
+let x = 50;
+let y = 50;
 let xSpeed = 30;
 let ySpeed = 30;
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(800, 480);
+  
+}
+
+function mousePressed() {
+  if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
+    let fs = fullscreen();
+    fullscreen(!fs);
+  }
 }
 
 function draw() {
