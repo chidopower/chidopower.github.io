@@ -36,54 +36,41 @@ const FR = 60;
 //--------------------------- RESOLUTIONS
 const WSW = window.screen.width;
 const WSH = window.screen.height;
-const WSWdev = window.screen.width*window.devicePixelRatio;
-const WSHdev = window.screen.height*window.devicePixelRatio;
+const SWdev = window.screen.width*window.devicePixelRatio;
+const SHdev = window.screen.height*window.devicePixelRatio;
 
-console.log("WSW: "+WSW);
-console.log("WSH: "+WSH);
-console.log("rel aspec: "+WSW/WSH);
-console.log("WSWdev: "+WSWdev);
-console.log("WSHdev: "+WSHdev);
-console.log("mobile: "+isMobile());
+console.log(WSW+"x"+WSH);
+console.log("relation: "+WSW/WSH);
 
-//--------------------------- SAFE ZONE VARS
-//const SW=380; //scren width
-//const SH=240;
-
-const SW=WSW; //scren width
-const SH=WSH;
-
-var sfx0=0.25*SW; //safe zone x0
-var sfy0=0;
-var sfxw=0.5*SW;
-var sfyh=SH;
-
+const GSW = WSH; // game screen width
+const GSH = WSH; 
 
 
 //-----------------------------------------SETUP
 function setup() {
 
-	createCanvas(SW, SH);
-	background("black");
+	createCanvas(WSW, WSH);
+	background(200);
 	frameRate(FR);
 	frame = 0;
 	time = 0;
-	fullscreen();
+	//fullscreen();
 
 	//------------------------------------ the bird params
-	bx = sfxw/4 + sfx0;
-	by = sfyh/2 + sfy0;
-	br = height/24;
+	br = GSH/24;
+	bx = 0.5*WSW - 2*br;
+	by = 0;
+
 	bspx = 0;
 	bspy = 0;
 
 	//----------------------------------- pipes params
 	pgapx = 8*br; //gap beetwen pipes
-	pgapy = 6*br;
+	pgapy = 8*br;
 	pspx = 0.1; //speed pipes 
-	pipe_spawn(width);  //first pipe
-	pipe_spawn(width+width*(1/3));  //second pipe
-	pipe_spawn(width+width*(2/3));  //
+	pipe_spawn(WSW);  //first pipe
+	pipe_spawn(WSW+WSW*(1/3));  //second pipe
+	pipe_spawn(WSW+WSW*(2/3));  //
 
 }
 
@@ -91,9 +78,9 @@ function setup() {
 function pipe_spawn(X){
 	
 	let y0 = 0;
-	let y1 = random(2*br,height/2);
+	let y1 = random(2*br,GSH/2);
 	let y2 = y1 + pgapy;
-	let y3 = width - y2;
+	let y3 = GSH - y2;
 	
 	px = append(px, X);
 	py0 = append(py0, y0);
@@ -115,7 +102,7 @@ function pipe_spawn(X){
 //-----------------------------------------DRAW
 function draw() {
 	
-	background("black");
+	background(200);
 	stroke(0);
 	strokeWeight(1);
 	
@@ -128,11 +115,10 @@ function draw() {
 	for(let i=0; i<px.length; i++){
 		
 		if(px[i]+pw[i] < 0){
-			
 			px[i] = width;
-			pR[i] = random(256);
-			pG[i] = random(256);
-			pB[i] = random(256);
+			//pR[i] = random(256);
+			//pG[i] = random(256);
+			//pB[i] = random(256);
 		}
 		
 		px[i] -= pspx*deltaTime;
@@ -141,10 +127,9 @@ function draw() {
 	
 	for(let i=0; i<px.length; i++){
 		
-		if(i===0)
-			fill(pR[i], pG[i], pB[i]);
-		else
-			fill(pR[i], pG[i], pB[i]);
+		//fill(pR[i], pG[i], pB[i]);
+
+		fill("black");
 		
 		rect(px[i], py0[i], pw[i], py1[i]);	
 		rect(px[i], py2[i], pw[i], py3[i]);	
@@ -152,40 +137,40 @@ function draw() {
 	
 	//console.log(px.length, time);
 
-	//-----------------------update & draw text
-	textSize(16);
-	fill("white")
-	text("FPS: "+floor(frame/(time/1000)), width-120, 20);	
-	text("frame: "+frame, width-120, 40);
-	text("time: "+floor(time/1000), width-120, 60);	
-	text("("+floor(bx)+", "+floor(by)+")", width-120, 80);
-	text("Phone: "+isMobile(), width-120, 100);
-	text(":D", width-120, 120);
+
 
 	//------------------------ update & draw bird
 
 	bspy = bspy + G;
 	by = by + bspy;
 	
-	if(by+br >= sfy0+sfyh){
-		by = sfy0 + sfyh - br;
+	if(by+br >= GSH ){
+		by = GSH - br;
 		bspy = 0;
 	}
 	
-	if(by-br <= sfy0){
-		by = sfy0+br;
+	if(by-br <= 0){
+		by = br;
 		bspy = 0;
 	}
 	
-	fill("white");
+	fill("black");
 	circle(bx, by, 2*br);
 	
 	//--------------------------- safe zone
-	stroke(255, 204, 0);
-	strokeWeight(1);	
-	noFill();
-	rect(sfx0, sfy0, sfxw, sfyh);
+	fill("black");
+	rect(0, 0, (WSW-GSW)/2, GSH);
+	rect( (WSW-GSW)/2 + GSW, 0, (WSW-GSW)/2, GSH);
 
+	//-----------------------update & draw text
+	textSize(16);
+	fill("white");
+	text("FPS: "+floor(frame/(time/1000)), width-120, 20);	
+	text("frame: "+frame, width-120, 40);
+	text("time: "+floor(time/1000), width-120, 60);	
+	text(WSW+"x"+WSH, width-120, 80);
+	text("Phone: "+isMobile(), width-120, 100);
+	text(":D", width-120, 120);
 
 	//--------------------------- update time
 	frame++;
