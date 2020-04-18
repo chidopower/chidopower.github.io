@@ -168,7 +168,7 @@ function draw() {
 	text("FPS: "+floor(frame/(time/1000)), width-120, 20);	
 	text("frame: "+frame, width-120, 40);
 	text("time: "+floor(time/1000), width-120, 60);	
-	text(WSW+"x"+WSH, width-120, 80);
+	text(WSW+"x"+WSH+"; "+WSW/WSH, width-120, 80);
 	text("Phone: "+isMobile(), width-120, 100);
 	text(":D", width-120, 120);
 
