@@ -155,11 +155,11 @@ function draw() {
 
 //-----------------------------------------INPUT
 
-function mousePressed() {
+function touchStarted() {
 	bspy = -6;
 }
 
-function touchStarted() {
+function keyPressed() {
 	if (keyCode === 32) {
 		bspy = -6;
 	}
