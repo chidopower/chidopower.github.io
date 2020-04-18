@@ -65,37 +65,38 @@ function setup() {
 	bspy = 0;
 
 	//----------------------------------- pipes params
+	const x0 = (WSW-GSW)/2;
 	pgapx = 8*br; //gap beetwen pipes
 	pgapy = 8*br;
-	pspx = 0.1; //speed pipes 
-	pipe_spawn(WSW);  //first pipe
-	pipe_spawn(WSW+WSW*(1/3));  //second pipe
-	pipe_spawn(WSW+WSW*(2/3));  //
+	pspx = 0.1; //speed pipes
+	
+	pipe_spawn(0, x0+GSW);  //first pipe
+	pipe_spawn(1, x0+GSW+GSW/2+2*br);  //second pipe
 
 }
 
 //------------------------- pipe_spawn()
-function pipe_spawn(X){
+function pipe_spawn(index, X){
 	
 	let y0 = 0;
 	let y1 = random(2*br,GSH/2);
 	let y2 = y1 + pgapy;
 	let y3 = GSH - y2;
+
+	px[index]=(X);
+	py0[index]=(y0);
+	py1[index]=(y1);
+	py2[index]=(y2);
+	py3[index]=(y3);
+	pw[index]=(4*br);	
 	
-	px = append(px, X);
-	py0 = append(py0, y0);
-	py1 = append(py1, y1);
-	py2 = append(py2, y2);
-	py3 = append(py3, y3);
-	pw = append(pw, 4*br);	
-	
-	pR = append(pR, random(256) );
-	pG = append(pG, random(256) );
-	pB = append(pB, random(256) );
-	
-	//spawn_t_old = spawn_t_now;
-	//spawn_t_now = time/1000;
-	//spawn_dt = spawn_t_now - spawn_t_old;
+	// px.push(X);
+	// py0.push(y0);
+	// py1.push(y1);
+	// py2.push(y2);
+	// py3.push(y3);
+	// pw.push(4*br);	
+
 	
 }
 
@@ -111,11 +112,15 @@ function draw() {
 
 
 	//------------------------update & draw pipes
+	const x0 = (WSW-GSW)/2;
 	
 	for(let i=0; i<px.length; i++){
 		
-		if(px[i]+pw[i] < 0){
-			px[i] = width;
+		if(px[i]+pw[i] < x0){
+			
+			pipe_spawn(i, x0+GSW);
+			
+			//px[i] = x0+GSW;
 			//pR[i] = random(256);
 			//pG[i] = random(256);
 			//pB[i] = random(256);
@@ -155,6 +160,7 @@ function draw() {
 	}
 	
 	fill("black");
+	stroke("white");
 	circle(bx, by, 2*br);
 	
 	//--------------------------- safe zone
@@ -171,6 +177,8 @@ function draw() {
 	text(WSW+"x"+WSH+"; "+WSW/WSH, width-120, 80);
 	text("Phone: "+isMobile(), width-120, 100);
 	text(":D", width-120, 120);
+	
+	text("FS", 0, 20);	
 
 	//--------------------------- update time
 	frame++;
@@ -181,9 +189,17 @@ function draw() {
 //-----------------------------------------INPUT
 
 function keyPressed() {
+	
 	if (keyCode === 32) {
 		bspy = -5;
 	}
+
+  if (keyCode === TAB) {
+    let fs = fullscreen();
+    fullscreen(!fs);
+  }
+
+
 }
 
 
@@ -202,6 +218,13 @@ function mousePressed(){
 	released = false;
 	//rest of your code here
 	bspy = -5;
+	
+	
+  if (mouseX > 0 && mouseX < (WSW-GSW)/2 && mouseY > 0 && mouseY < GSH) {
+    let fs = fullscreen();
+    fullscreen(!fs);
+  }	
+	
 }
 
 
