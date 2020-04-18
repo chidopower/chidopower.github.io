@@ -34,7 +34,7 @@ const FR = 60;
 //-----------------------------------------SETUP
 function setup() {
 
-	createCanvas(800, 480);
+	createCanvas(800, 400);
 	background("black");
 	frameRate(FR);
 	frame = 0;
@@ -127,6 +127,7 @@ function draw() {
 	text("time: "+floor(time/1000), width-120, 90);	
 	text("("+floor(bx)+", "+floor(by)+")", width-120, 120);
 	text("bspy: "+floor(bspy), width-120, 150);
+	text(":D"), width-120, 180);
 
 	//------------------------ update & draw bird
 
@@ -155,16 +156,37 @@ function draw() {
 
 //-----------------------------------------INPUT
 
-function touchStarted() {
-	bspy = -6;
-}
-
 function keyPressed() {
 	if (keyCode === 32) {
 		bspy = -6;
 	}
 }
 
+//no sirve, hace doble click en mobile device
+//function touchStarted() { 
+//	bspy = -6;
+//}
+
+//-----------------------------------------INPUT HACK for TOUCH
+
+var released = true;
+
+function mouseReleased(){
+	released = true;
+	return false;
+}
+
+function mousePressed(){
+	
+	if(!released){
+		return;
+	}
+	released = false;
+
+	//rest of your code
+	
+	bspy = -6;
+}
 
 
 /*
