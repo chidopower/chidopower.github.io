@@ -33,10 +33,18 @@ var FPS;
 const G = 0.5; //gravity
 const FR = 60;
 
+//--------------------------- SAFE ZONE VARS
+const SW=380; //scren width
+const SH=240;
+var sfx0=30; //safe zone x0
+var sfy0=13;
+var sfxw=320;
+var sfyh=214;
+
 //-----------------------------------------SETUP
 function setup() {
 
-	createCanvas(800, 400);
+	createCanvas(SW, SH);
 	background("black");
 	frameRate(FR);
 	frame = 0;
@@ -52,7 +60,7 @@ function setup() {
 	//----------------------------------- pipes params
 	pgapx = 8*br; //gap beetwen pipes
 	pgapy = 6*br;
-	pspx = 0.2; //speed pipes 
+	pspx = 0.1; //speed pipes 
 	pipe_spawn(width);  //first pipe
 	pipe_spawn(width+width*(1/3));  //second pipe
 	pipe_spawn(width+width*(2/3));  //
@@ -88,11 +96,14 @@ function pipe_spawn(X){
 function draw() {
 	
 	background("black");
+	stroke(0);
+	strokeWeight(1);
+	
+	//------------------------input
+	
+
 
 	//------------------------update & draw pipes
-	
-	//if(time/
-	//pipe_spawn();
 	
 	for(let i=0; i<px.length; i++){
 		
@@ -111,7 +122,7 @@ function draw() {
 	for(let i=0; i<px.length; i++){
 		
 		if(i===0)
-			fill("white");
+			fill(pR[i], pG[i], pB[i]);
 		else
 			fill(pR[i], pG[i], pB[i]);
 		
@@ -122,32 +133,38 @@ function draw() {
 	console.log(px.length, time);
 
 	//-----------------------update & draw text
-	textSize(20);
+	textSize(12);
 	fill("green")
-	text("FPS: "+frame/(time/1000), width-120, 30);	
-	text("frame: "+frame, width-120, 60);
-	text("time: "+floor(time/1000), width-120, 90);	
-	text("("+floor(bx)+", "+floor(by)+")", width-120, 120);
-	text("bspy: "+floor(bspy), width-120, 150);
-	text("8D", width-120, 180);
+	text("FPS: "+floor(frame/(time/1000)), width-120, 20);	
+	text("frame: "+frame, width-120, 40);
+	text("time: "+floor(time/1000), width-120, 60);	
+	text("("+floor(bx)+", "+floor(by)+")", width-120, 80);
+	text("bspy: "+floor(bspy), width-120, 100);
+	text(":D", width-120, 120);
 
 	//------------------------ update & draw bird
 
 	bspy = bspy + G;
 	by = by + bspy;
 	
-	if(by+br > height){
-		by = height - br;
+	if(by+br >= sfy0+sfyh){
+		by = sfy0 + sfyh - br;
 		bspy = 0;
 	}
 	
-	if(by-br <= 0){
-		by = br;
+	if(by-br <= sfy0){
+		by = sfy0+br;
 		bspy = 0;
 	}
 	
 	fill("white");
 	circle(bx, by, 2*br);
+	
+	//--------------------------- safe zone
+	stroke(255, 204, 0);
+	strokeWeight(1);	
+	noFill();
+	rect(30, 13, 320, 214);
 
 
 	//--------------------------- update time
@@ -160,14 +177,11 @@ function draw() {
 
 function keyPressed() {
 	if (keyCode === 32) {
-		bspy = -6;
+		bspy = -4;
 	}
 }
 
-//no sirve, hace doble click en mobile device
-//function touchStarted() { 
-//	bspy = -6;
-//}
+
 
 //-----------------------------------------INPUT HACK for TOUCH
 
@@ -179,53 +193,15 @@ function mouseReleased(){
 }
 
 function mousePressed(){
-	
-	if(!released){
-		return;
-	}
+	if(!released) return;
 	released = false;
-
-	//rest of your code
-	
-	bspy = -6;
+	//rest of your code here
+	bspy = -4;
 }
 
 
-/*
-function mousePressed() {
-	x = append(x, mouseX);
-	y = append(y, mouseY);
-	cl = append(cl, "white");
-	xSpeed = append(xSpeed, 0.1);
-	ySpeed = append(ySpeed, 0.1);
-	R = append(R, 15);
-}*/
 
-/*  for (i = 0; i < x.length; i++) {
-	  
-		x[i] += xSpeed[i]*deltaTime;
-		y[i] += ySpeed[i]*deltaTime;
-
-		if (x[i]-R[i] < 0) {
-			xSpeed[i] *= -1;
-			x[i]=R[i];
-		}
-
-		if (x[i] > width-R[i]) {
-			xSpeed[i] *= -1;
-			x[i]=width-R[i];
-		}
-
-		if (y[i]-R[i] < 0 ) {
-			ySpeed[i] *= -1;
-			y[i]=R[i];
-		}
-
-		if ( y[i] > height-R[i]) {
-			ySpeed[i] *= -1;
-			y[i]=height-R[i];
-		}
-
-  }*/
-
-
+//no sirve, hace doble click en mobile device
+//function touchStarted() { 
+//	bspy = -6;
+//}
