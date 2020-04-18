@@ -1,4 +1,5 @@
- * {
-      touch-action: manipulation;
-  }
+
   
+.disable-doubletap-to-zoom {
+    touch-action: none;
+}
