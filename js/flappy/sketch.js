@@ -1,3 +1,5 @@
+
+
 //--------------------------- BIRD VARS
 var bx;
 var by;
@@ -127,7 +129,7 @@ function draw() {
 	text("time: "+floor(time/1000), width-120, 90);	
 	text("("+floor(bx)+", "+floor(by)+")", width-120, 120);
 	text("bspy: "+floor(bspy), width-120, 150);
-	text("XD", width-120, 180);
+	text("8D", width-120, 180);
 
 	//------------------------ update & draw bird
 
