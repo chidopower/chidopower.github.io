@@ -127,7 +127,7 @@ function draw() {
 	text("time: "+floor(time/1000), width-120, 90);	
 	text("("+floor(bx)+", "+floor(by)+")", width-120, 120);
 	text("bspy: "+floor(bspy), width-120, 150);
-	text(":D"), width-120, 180);
+	text(":D", width-120, 180);
 
 	//------------------------ update & draw bird
 
