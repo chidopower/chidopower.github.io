@@ -1,0 +1,12 @@
+* {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+  
+.disable-doubletap-to-zoom {
+    touch-action: none;
+}
+
+body {
+  background-color: black;
+}
