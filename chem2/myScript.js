@@ -430,7 +430,7 @@ function loadDataComp()
 {
 
 	symbols[1]="H<sub>2</sub>";PM[1]=2.02;
-	symbols[2]="H<sub>2</sub>O";PM[10]=18.02;
+	symbols[2]="H<sub>2</sub>O";PM[2]=18.02;
 	symbols[3]="O<sub>2</sub>";PM[3]=32;
 	symbols[4]="Cl<sub>2</sub>";PM[4]=70.9;
 	symbols[5]="F<sub>2</sub>";PM[5]=38;
@@ -442,12 +442,12 @@ function loadDataComp()
 	symbols[11]="H<sub>2</sub>O<sub>2</sub>";PM[11]=34.02;
 	symbols[12]="NH<sub>3</sub>";PM[12]=17.04;
 	symbols[13]="CH<sub>4</sub>";PM[13]=16.05;
-	symbols[14]="H<sub>2</sub>O";PM[10]=18.02;
-	symbols[15]="NaCl";PM[21]=58.44;
+	symbols[14]="H<sub>2</sub>O";PM[14]=18.02;
+	symbols[15]="NaCl";PM[15]=58.44;
 	symbols[16]="C<sub>3</sub>H<sub>6</sub>";PM[16]=42.09;
 	symbols[17]="C<sub>2</sub>H<sub>6</sub>";PM[17]=30.08;
 	symbols[18]="C<sub>3</sub>H<sub>8</sub>";PM[18]=44.11;
-	symbols[19]="CO<sub>2</sub>";PM[8]=44.01;
+	symbols[19]="CO<sub>2</sub>";PM[19]=44.01;
 	symbols[20]="SiO<sub>2</sub>";PM[20]=60.09;
 	symbols[21]="NaCl";PM[21]=58.44;
 	symbols[22]="LiF";PM[22]=25.94;
