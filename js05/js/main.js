@@ -774,7 +774,7 @@ function key_down_listener(event) {
 		frame = 0;
 		state_old = state;
 		state = TUTORIAL_1;
-		openFullscreen();
+		//openFullscreen();
 		//load_vars();
 	}
 
@@ -861,7 +861,7 @@ function click_listener(e){
 		frame = 0;
 		state_old = state;
 		state = TUTORIAL_1;
-		openFullscreen();
+		// openFullscreen();
 		//load_vars();
 	}
 
