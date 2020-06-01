@@ -110,7 +110,7 @@ function load_vars(){
 	
 	
 	star.r = SIZE;
-	star.c = "yellow";
+	star.c = "#FF7F66";
 	
 	button_pause.x = X0+5;
 	button_pause.y = Y0+5;
@@ -658,8 +658,8 @@ function spawn_stars(){
 	stars[0].r =  SIZE/2;
 	stars[1].r =  SIZE/2;
 
-	stars[0].c =  "white";
-	stars[1].c =  "white";
+	stars[0].c =  "#7ECEFD";
+	stars[1].c =  "#7ECEFD";
 	
 	let hero_circle = {x: hero.x, y: hero.y, r: 10*hero.r};
 	
@@ -853,7 +853,7 @@ function click_listener(e){
 		frame = 0;
 		state_old = state;
 		state = TUTORIAL_1;
-		// openFullscreen();
+		openFullscreen();
 		//load_vars();
 	}
 
