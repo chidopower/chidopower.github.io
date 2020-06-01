@@ -101,7 +101,7 @@ function load_vars(){
 	hero = new HeroLikeFlappy();
 	hero.x = X0+W/2;
 	hero.y = 0.75*H;
-	hero.r = SIZE;
+	hero.r = SIZE*0.75;
 
 	// correctas:
 	flapX = 1*SIZE;
@@ -110,7 +110,7 @@ function load_vars(){
 	
 	
 	star.r = SIZE;
-	star.c = "#FF7F66";
+	star.c = "yellow";
 	
 	button_pause.x = X0+5;
 	button_pause.y = Y0+5;
@@ -658,8 +658,8 @@ function spawn_stars(){
 	stars[0].r =  SIZE/2;
 	stars[1].r =  SIZE/2;
 
-	stars[0].c =  "#7ECEFD";
-	stars[1].c =  "#7ECEFD";
+	stars[0].c =  "white";
+	stars[1].c =  "white";
 	
 	let hero_circle = {x: hero.x, y: hero.y, r: 10*hero.r};
 	
@@ -692,7 +692,7 @@ function spawn_ball(){
 		//console.log(balls[balls.length-1].x);
 	}
 	balls[balls.length-1].y = irand(Y0, Y0+H/2);
-	balls[balls.length-1].r = SIZE/2;
+	balls[balls.length-1].r = SIZE/4;
 	if(irand(1,2)===1)
 		balls[balls.length-1].dx = balls_sp;
 	else
@@ -853,7 +853,7 @@ function click_listener(e){
 		frame = 0;
 		state_old = state;
 		state = TUTORIAL_1;
-		openFullscreen();
+		// openFullscreen();
 		//load_vars();
 	}
 
@@ -981,8 +981,8 @@ function get_SIZE(){
 		orientation_now = LANDSCAPE;
         SIZE = Math.trunc(window.innerWidth/20);
         while(1){
-            W = 20*SIZE;
-            H = 15*SIZE;        
+            W = 26*SIZE;
+            H = 14*SIZE;        
             if(W <= window.innerWidth && H <= window.innerHeight)break;
             SIZE = SIZE - 1;
         }
