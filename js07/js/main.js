@@ -853,7 +853,7 @@ function click_listener(e){
 		frame = 0;
 		state_old = state;
 		state = TUTORIAL_1;
-		// openFullscreen();
+		openFullscreen();
 		//load_vars();
 	}
 
